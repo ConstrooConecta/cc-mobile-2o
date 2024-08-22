@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    tools:context=".TelaHome">
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="95dp"
+        android:background="#0A262C" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="55dp"
+        android:layout_height="40dp"
+        android:background="@drawable/barra_pesquisa"
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="36dp" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="38dp"
+        android:backgroundTint="#000000"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icon"
+        tools:layout_editor_absoluteX="42dp" />
+
+    <EditText
+        android:id="@+id/editTextText2"
+        android:layout_width="262dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="72dp"
+        android:background="@drawable/barra_pesquisa"
+        android:ems="10"
+        android:hint="Pesquise aqui"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="36dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
