@@ -14,7 +14,7 @@ public class TelaLogin3 extends AppCompatActivity {
         setContentView(R.layout.activity_tela_login3);
     }
 
-    public void EnviarCodigo(View view) {
+    public void EnviarCodigoWhatsapp(View view) {
         Intent intent = new Intent(TelaLogin3.this, TelaLogin4.class);
         startActivity(intent);
     }
