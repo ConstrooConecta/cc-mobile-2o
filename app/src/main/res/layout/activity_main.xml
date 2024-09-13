@@ -10,14 +10,11 @@
         android:id="@+id/imageView"
         android:layout_width="216dp"
         android:layout_height="249dp"
-        android:layout_marginStart="108dp"
         android:layout_marginTop="80dp"
-        android:layout_marginEnd="300dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:srcCompat="@drawable/img" />
+        app:srcCompat="@drawable/img_tijolo_inicial" />
 
     <TextView
         android:id="@+id/textView"
@@ -26,6 +23,7 @@
         android:layout_marginStart="93dp"
         android:layout_marginTop="38dp"
         android:layout_marginEnd="94dp"
+        android:minHeight="48dp"
         android:onClick="ContinueVisit"
         android:text="Continuar como visitante"
         android:textSize="20sp"
@@ -67,9 +65,9 @@
         android:id="@+id/CriarConta"
         android:layout_width="380dp"
         android:layout_height="50dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="84dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="22dp"
         android:background="@drawable/btncadastro_main_design"
         android:onClick="CriarContaNova"
         android:text="Criar conta nova"
