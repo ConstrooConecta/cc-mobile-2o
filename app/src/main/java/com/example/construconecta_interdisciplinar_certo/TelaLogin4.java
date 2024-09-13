@@ -15,9 +15,6 @@ public class TelaLogin4 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_login4);
 
-        frase = findViewById(R.id.fraseLogin4);
-
-
 
         // Após 3 segundos, vá para a próxima tela
         new Handler().postDelayed(() -> {
