@@ -14,7 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:srcCompat="@drawable/img" />
+        app:srcCompat="@drawable/img_tijolo_inicial" />
 
     <TextView
         android:id="@+id/textView"
