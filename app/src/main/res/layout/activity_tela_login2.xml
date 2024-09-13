@@ -90,7 +90,7 @@
         android:id="@+id/imageView11"
         android:layout_width="180dp"
         android:layout_height="55dp"
-        app:srcCompat="@drawable/group_14certo"
+        app:srcCompat="@drawable/email_image"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="212dp" />
 

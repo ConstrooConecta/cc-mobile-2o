@@ -56,7 +56,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView9"
-        app:srcCompat="@drawable/group_163" />
+        app:srcCompat="@drawable/whatsapp_option_verification_code" />
 
     <ImageView
         android:id="@+id/imageView9"
@@ -69,7 +69,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8"
-        app:srcCompat="@drawable/group_20" />
+        app:srcCompat="@drawable/sms_option_verification_code" />
 
     <TextView
         android:id="@+id/textView9"
@@ -95,6 +95,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView6"
-        app:srcCompat="@drawable/group_166" />
+        app:srcCompat="@drawable/email_option_verificationCode" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
