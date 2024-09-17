@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "861311838884",
+    "project_id": "construconectainterdisciplinar",
+    "storage_bucket": "construconectainterdisciplinar.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:861311838884:android:eef7d811ea26cc9ceb5431",
+        "android_client_info": {
+          "package_name": "com.example.construconecta_interdisciplinar_certo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoz0N-mWRoHPI74-v2UgJ4vcpqfpojCTs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
