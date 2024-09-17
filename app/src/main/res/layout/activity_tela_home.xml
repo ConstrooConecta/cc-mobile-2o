@@ -8,41 +8,34 @@
     android:layout_gravity="center"
     tools:context=".TelaHome">
 
-    <View
-        android:id="@+id/view2"
-        android:layout_width="match_parent"
-        android:layout_height="95dp"
-        android:background="#0A262C" />
 
-    <View
-        android:id="@+id/view3"
-        android:layout_width="55dp"
-        android:layout_height="40dp"
-        android:background="@drawable/barra_pesquisa"
-        tools:layout_editor_absoluteX="29dp"
-        tools:layout_editor_absoluteY="36dp" />
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="38dp"
-        android:backgroundTint="#000000"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/icon"
-        tools:layout_editor_absoluteX="42dp" />
 
-    <EditText
-        android:id="@+id/editTextText2"
-        android:layout_width="262dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="72dp"
-        android:background="@drawable/barra_pesquisa"
-        android:ems="10"
-        android:hint="Pesquise aqui"
-        android:inputType="text"
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        app:backgroundTint="#BFBDBD"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="36dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/botton_nav_bar" />
+
+    <FrameLayout
+        android:id="@+id/frame_layout"
+        android:layout_width="411.5dp"
+        android:layout_height="730dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
