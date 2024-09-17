@@ -52,6 +52,7 @@ public class TelaHome extends AppCompatActivity {
                     return true;
                 }
         );
+        binding.bottomNavigationView.setSelectedItemId(R.id.home1);
     }
 
     //método para mudar o fragmento na navbar

@@ -95,6 +95,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView6"
-        app:srcCompat="@drawable/email_option_verificationCode" />
+        app:srcCompat="@drawable/email_option_verification_code" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
