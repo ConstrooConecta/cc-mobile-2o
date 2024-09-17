@@ -23,4 +23,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, TelaCadastro1.class);
         startActivity(intent);
     }
+
+    public void IniciarSessao(View view) {
+        Intent intent = new Intent(MainActivity.this, TelaLogin1.class);
+        startActivity(intent);
+    }
 }
