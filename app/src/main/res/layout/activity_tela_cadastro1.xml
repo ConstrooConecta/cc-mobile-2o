@@ -14,7 +14,7 @@
             android:layout_width="323dp"
             android:layout_height="40dp"
             android:layout_marginTop="96dp"
-            android:text="Complete os dados para criar sua conta"
+            android:text="Complete os dados para criar sua conta..."
             android:textColor="#000000"
             android:textSize="18sp"
             android:textStyle="bold"
