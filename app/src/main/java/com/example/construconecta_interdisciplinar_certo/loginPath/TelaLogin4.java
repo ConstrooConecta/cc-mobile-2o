@@ -1,4 +1,4 @@
-package com.example.construconecta_interdisciplinar_certo;
+package com.example.construconecta_interdisciplinar_certo.loginPath;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.os.Handler;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.construconecta_interdisciplinar_certo.R;
 
 public class TelaLogin4 extends AppCompatActivity {
     TextView frase;

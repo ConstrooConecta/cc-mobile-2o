@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TelaLogin5_SMS">
+    tools:context=".loginPath.TelaLogin5_SMS">
 
     <Button
         android:id="@+id/ContinuarWhatsapp"

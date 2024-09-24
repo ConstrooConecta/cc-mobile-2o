@@ -13,32 +13,32 @@
         android:theme="@style/Theme.ConstruConecta_Interdisciplinar_Certo"
         tools:targetApi="31">
         <activity
-            android:name=".TelaLogin4_email"
+            android:name=".loginPath.TelaLogin4_email"
             android:exported="false" />
         <activity
-            android:name=".TelaLogin4_sms"
+            android:name=".loginPath.TelaLogin4_sms"
             android:exported="false" />
         <activity
-            android:name=".TelaLogin5_Email"
+            android:name=".loginPath.TelaLogin5_Email"
             android:exported="false" />
         <activity
-            android:name=".TelaLogin5_WhatsApp"
+            android:name=".loginPath.TelaLogin5_WhatsApp"
             android:exported="false" />
         <activity
-            android:name=".TelaLogin5_SMS"
+            android:name=".loginPath.TelaLogin5_SMS"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />
 
         <activity
-            android:name=".TelaLogin1"
+            android:name=".loginPath.TelaLogin1"
             android:exported="false" />
         <activity
-            android:name=".TelaLogin4"
+            android:name=".loginPath.TelaLogin4"
             android:exported="false" />
         <activity
-            android:name=".TelaLogin3"
+            android:name=".loginPath.TelaLogin3"
             android:exported="false" />
         <activity
             android:name=".TelaCadastro1"

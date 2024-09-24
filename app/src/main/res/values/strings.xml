@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">ConstruConecta_Interdisciplinar_Certo</string>
+
+    <string-array name="opcoes_array">
+        <item>Masculino</item>
+        <item>Feminino</item>
+        <item>Outro</item>
+    </string-array>
 </resources>

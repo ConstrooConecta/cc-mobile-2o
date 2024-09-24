@@ -3,13 +3,15 @@ package com.example.construconecta_interdisciplinar_certo;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.construconecta_interdisciplinar_certo.databinding.ActivityMainBinding;
+import com.example.construconecta_interdisciplinar_certo.Fragments.ContaFragment;
+import com.example.construconecta_interdisciplinar_certo.Fragments.ContratarFragment;
+import com.example.construconecta_interdisciplinar_certo.Fragments.HomeFragment;
+import com.example.construconecta_interdisciplinar_certo.Fragments.NotificationFragment;
 import com.example.construconecta_interdisciplinar_certo.databinding.ActivityTelaHomeBinding;
 
 public class TelaHome extends AppCompatActivity {
