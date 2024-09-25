@@ -259,6 +259,3 @@ public class TelaCadastro1 extends AppCompatActivity {
 
     }
 }
-
-
-
