@@ -18,10 +18,11 @@ O projeto está em desenvolvimento e sujeito a mudanças.
 
 # MOBILE
 
-* [Título e Imagem de capa](#🚧-Status-do-Projeto)
+
+* [Título e Imagem de capa](#status-do-projeto)
 * [Funcionalidades do projeto](#hammer-funcionalidades-do-projeto)
-* [Acesso ao projeto](#📁-Acesso-ao-projeto)
-* [Descrição do Projeto](#descrição-do-projeto)
+* [Acesso ao projeto](#acesso-ao-projeto)
+* [Abrir e rodar](#Abrir-e-rodar-o-projeto)
 * [Status do Projeto](#status-do-projeto)
 * [Funcionalidades e Demonstração da Aplicação](#funcionalidades-e-demonstração-da-aplicação)
 * [Acesso ao Projeto](#acesso-ao-projeto)
@@ -30,6 +31,7 @@ O projeto está em desenvolvimento e sujeito a mudanças.
 * [Pessoas Desenvolvedoras do Projeto](#pessoas-desenvolvedoras)
 * [Licença](#licença)
 * [Conclusão](#conclusão)
+
 
 # :hammer: Funcionalidades do projeto
 
