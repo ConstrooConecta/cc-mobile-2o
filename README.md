@@ -1,7 +1,7 @@
 <p align="center">
 ---
 
-## 🚧 Status do Projeto
+# 🚧 Status do Projeto
 
 <img src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge"/>
 
@@ -18,9 +18,9 @@ O projeto está em desenvolvimento e sujeito a mudanças.
 
 # MOBILE
 
-* [Título e Imagem de capa](#título-e-imagem-de-capa)
+* [Título e Imagem de capa](#🚧-Status-do-Projeto)
 * [Funcionalidades do projeto](#hammer-funcionalidades-do-projeto)
-* [Índice](#índice)
+* [Acesso ao projeto](#📁-Acesso-ao-projeto)
 * [Descrição do Projeto](#descrição-do-projeto)
 * [Status do Projeto](#status-do-projeto)
 * [Funcionalidades e Demonstração da Aplicação](#funcionalidades-e-demonstração-da-aplicação)
