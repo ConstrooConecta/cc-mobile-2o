@@ -62,6 +62,11 @@ Após ter copiado a chave:
 | [<img loading="lazy" src="https://avatars.githubusercontent.com/u/124629701?s=400&v=4" width=115><br><sub>Roger Rodrigues de Santana</sub>](https://github.com/Roger13san) |  [<img loading="lazy" src="https://avatars.githubusercontent.com/u/124402143?v=4" width=115><br><sub>Kauã Rodrigues dos santos</sub>](https://github.com/kauarsantoss) 
 | :---: | :---: |
 
+# Equipe do projeto:
+| [<img loading="lazy" src="https://avatars.githubusercontent.com/u/124629701?s=400&v=4" width=115><br><sub>Roger Rodrigues de Santana</sub>](https://github.com/Roger13san) |  [<img loading="lazy" src="https://avatars.githubusercontent.com/u/124402143?v=4" width=115><br><sub>Kauã Rodrigues dos santos</sub>](https://github.com/kauarsantoss) | [<img loading="lazy" src="https://avatars.githubusercontent.com/u/144955008?v=4" width=115><br><sub>Talita de Brito Nalon</sub>](https://github.com/TalitaNalon) |  [<img loading="lazy" src="https://avatars.githubusercontent.com/u/142252283?v=4" width=115><br><sub>Maria Julia Santos De Oliveira</sub>](https://github.com/oliveir4maju)
+| :---: | :---: | :---: | :---: |
+
+
 # Conclusão
 
 Este projeto representa um passo significativo no desenvolvimento de um aplicativo móvel que visa proporcionar uma experiência de usuário intuitiva e interativa. 
