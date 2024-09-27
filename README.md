@@ -1,7 +1,7 @@
 <p align="center">
 ---
 
-# 🚧 Status do Projeto
+# :construction: Status do Projeto
 
 <img src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge"/>
 
@@ -17,19 +17,13 @@ O projeto está em desenvolvimento e sujeito a mudanças.
 
 
 # MOBILE
-
-
-* [Título e Imagem de capa](#status-do-projeto)
 * [Funcionalidades do projeto](#hammer-funcionalidades-do-projeto)
-* [Acesso ao projeto](#acesso-ao-projeto)
-* [Abrir e rodar](#Abrir-e-rodar-o-projeto)
-* [Status do Projeto](#status-do-projeto)
-* [Funcionalidades e Demonstração da Aplicação](#funcionalidades-e-demonstração-da-aplicação)
-* [Acesso ao Projeto](#acesso-ao-projeto)
-* [Tecnologias utilizadas](#tecnologias-utilizadas)
-* [Pessoas Contribuidoras](#pessoas-contribuidoras)
-* [Pessoas Desenvolvedoras do Projeto](#pessoas-desenvolvedoras)
-* [Licença](#licença)
+* [Acesso ao projeto](#file_folder-acesso-ao-projeto)
+* [Abrir e rodar](#hammer_and_wrench-abrir-e-rodar-o-projeto)
+* [Status do Projeto](#construction-status-do-projeto)
+* [Acesso ao Projeto](#file_folder-acesso-ao-projeto)
+* [Tecnologias utilizadas](#hammer_and_wrench-tecnologias-utilizadas)
+* [Pessoas Desenvolvedoras do Projeto](#autores-do-projeto)
 * [Conclusão](#conclusão)
 
 
@@ -40,12 +34,13 @@ O projeto está em desenvolvimento e sujeito a mudanças.
 - `Funcionalidade 3`: Perfil interativo
 - `Funcionalidade 4`: Negociações simuladas
 
-# 📁 Acesso ao projeto
+# :file_folder: Acesso ao projeto
+
 
 Acesse o código fonte do projeto inicial e copie a chave SSH para clona-lo ou baixe-o.
 
 
-# 🛠️ Abrir e rodar o projeto
+# :hammer_and_wrench: Abrir e rodar o projeto
 
 Após ter copiado a chave:
 * Crie uma pasta para o projeto
@@ -56,7 +51,7 @@ Após ter copiado a chave:
 
 
 
-# 🛠️ Tecnologias Utilizadas
+# :hammer_and_wrench: Tecnologias Utilizadas
 * Android Studio
 * Firebase
 * Java
@@ -66,3 +61,12 @@ Após ter copiado a chave:
 # Autores do projeto:
 | [<img loading="lazy" src="https://avatars.githubusercontent.com/u/124629701?s=400&v=4" width=115><br><sub>Roger Rodrigues de Santana</sub>](https://github.com/Roger13san) |  [<img loading="lazy" src="https://avatars.githubusercontent.com/u/124402143?v=4" width=115><br><sub>Kauã Rodrigues dos santos</sub>](https://github.com/kauarsantoss) 
 | :---: | :---: |
+
+# Conclusão
+
+Este projeto representa um passo significativo no desenvolvimento de um aplicativo móvel que visa proporcionar uma experiência de usuário intuitiva e interativa. 
+
+Agradecemos a todos que contribuíram para este projeto, e esperamos que ele evolua ainda mais com novas funcionalidades e melhorias. Fique à vontade para explorar o código, contribuir com ideias e fazer sugestões. A colaboração da comunidade é fundamental para o sucesso deste projeto!
+
+Estamos animados com o que vem a seguir e ansiosos para compartilhar as próximas atualizações.
+
