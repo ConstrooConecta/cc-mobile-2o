@@ -18,9 +18,9 @@
     <item
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:title="Notificações"
+        android:title="Favoritos"
         android:icon="@drawable/baseline_notifications_none_24"
-        android:id="@+id/notificacoes"/>
+        android:id="@+id/favoritos"/>
     <item
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

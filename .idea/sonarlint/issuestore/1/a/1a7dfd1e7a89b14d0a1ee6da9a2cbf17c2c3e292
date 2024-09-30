@@ -1,0 +1,21 @@
+
+
+java:S1192T"GDefine a constant instead of duplicating this literal "[^\\d]" 4 times.(ìå¸¡úÿÿÿÿ8òøÔ£2J$d3a5614f-4b1b-43f4-882f-0183a17027d8
+l
+java:S1604×"(Make this anonymous inner class a lambda(ÿéş„8¢Ú•¤2J$ef37df30-c220-432a-9edb-9aa4a2447436
+l
+java:S1604Î"(Make this anonymous inner class a lambda(³Ö×•8¢Ú•¤2J$961b0e4f-1eac-4406-9431-3d6ed4ba00bb
+š
+java:S3776+"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(¨Œşÿÿÿÿ8ığ€•¤2J$ea2bce32-c1ef-401e-9adf-d5028919d918
+d
+java:S1170F"!Make this final field static too.(Ú”Å…8ñ€•¤2J$e52f8795-0a22-4ee2-aa73-fe9487d4fa03
+l
+java:S1659¬"#Declare "soma2" on a separate line.(Íäªƒıÿÿÿÿ8¢Ş•¤2J$efd4953b-9ec4-49a1-b376-6674e7044482
+›
+java:S3776¾"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(¼¸Í”ùÿÿÿÿ8¥Ş•¤2J$3d860d39-23d8-4785-8af4-a02cc5f3c402
+t
+java:S1172¾"+Remove this unused method parameter "view".(¼¸Í”ùÿÿÿÿ8©Ş•¤2J$5e8e959e-ec43-4167-a04d-79085760c5c2
+t
+java:S1172õ"+Remove this unused method parameter "view".(¬©êûûÿÿÿÿ8ÊŞ•¤2J$8db6994a-ae8f-43e3-819d-155e28ac6f31
+k
+java:S1068F"(Remove this unused "mask" private field.(Ú”Å…8ğñ€•¤2J$7e26ed4a-61d0-4f60-b0cf-18e15e703feb

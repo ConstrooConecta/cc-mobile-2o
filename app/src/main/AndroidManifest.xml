@@ -2,59 +2,74 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_constroo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_constroo_background"
         android:supportsRtl="true"
         android:theme="@style/Theme.ConstruConecta_Interdisciplinar_Certo"
         tools:targetApi="31">
         <activity
-            android:name=".TelaLogin4_email"
-            android:exported="false" />
+            android:name=".ui.InternetErrorActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
         <activity
-            android:name=".TelaLogin4_sms"
-            android:exported="false" />
+            android:name=".onboarding.CadastroInfosSeguranca4"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".TelaLogin5_Email"
-            android:exported="false" />
+            android:name=".onboarding.CadastroInfosPessoais3"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".TelaLogin5_WhatsApp"
-            android:exported="false" />
+            android:name=".onboarding.CadastroTelefone2"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".TelaLogin5_SMS"
-            android:exported="false" />
+            android:name=".onboarding.ValidacaoCodigo"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-
+            android:name=".ui.MainActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
-            android:name=".TelaLogin1"
-            android:exported="false" />
+            android:name=".onboarding.TelaLogin1"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
-            android:name=".TelaLogin4"
-            android:exported="false" />
+            android:name=".onboarding.CadastroEmail1"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".TelaLogin3"
-            android:exported="false" />
+            android:name=".Home"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
-            android:name=".TelaCadastro1"
-            android:exported="false" />
-        <activity
-            android:name=".TelaHome"
-            android:exported="false" />
-        <activity
-            android:name=".SplashScreenConstroo"
-            android:exported="true">
+            android:name=".onboarding.SplashScreenConstroo"
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver android:name=".receivers.NetworkReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>

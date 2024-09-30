@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".onboarding.CadastroEmail1">
+
+    <!-- Conteúdo rolável -->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/buttonContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/progressBar1de4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintBottom_toBottomOf="@+id/backButton"
+                app:layout_constraintEnd_toStartOf="@+id/statusDeProgresso1de4"
+                app:layout_constraintStart_toEndOf="@+id/backButton"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/progressbar4de4" />
+
+            <ImageButton
+                android:id="@+id/backButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="#FFFFFF"
+                android:onClick="backToPreviousScreen"
+                app:layout_constraintEnd_toStartOf="@+id/progressBar1de4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/arrow_left" />
+
+            <TextView
+                android:id="@+id/statusDeProgresso1de4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/inter"
+                android:text="4/4"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/progressBar1de4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.8"
+                app:layout_constraintStart_toEndOf="@+id/progressBar1de4"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/title_cadastro1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="48dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="sans-serif-black"
+                android:text="Cadastre suas informações de segurança"
+                android:textColor="#000000"
+                android:textSize="26sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/progressBar1de4" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/senhaInput"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/inputdesign"
+                android:ellipsize="end"
+                android:hint="Senha"
+                android:maxLength="32"
+                android:paddingLeft="20dp"
+                android:paddingEnd="20dp"
+                android:inputType="textPassword"
+                android:singleLine="true"
+                android:textColorHint="#B6B6B6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title_cadastro1" />
+
+            <TextView
+                android:id="@+id/minCaract"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="● Mínimo de 8 caracteres"
+                app:layout_constraintEnd_toStartOf="@+id/minStatus"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/senhaInput" />
+
+            <TextView
+                android:id="@+id/maxCaract"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="● 1 número"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/minCaract" />
+
+            <TextView
+                android:id="@+id/letraMaiusc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="● 1 letra maiúscula"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/minCaract" />
+
+            <TextView
+                android:id="@+id/letraMin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="40dp"
+                android:text="● 1 letra minúscula"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/minCaract" />
+
+            <TextView
+                android:id="@+id/caractEspecial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="60dp"
+                android:text="● 1 caractere especial"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/minCaract" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/cpfInput"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/inputdesign"
+                android:hint="CPF"
+                android:inputType="number"
+                android:maxLength="14"
+                android:paddingLeft="20dp"
+                android:textColorHint="#B6B6B6"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.555"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/caractEspecial" />
+
+            <TextView
+                android:id="@+id/cpfError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:text="CPF inválido"
+                android:textColor="#FF0000"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cpfInput" />
+
+            <ImageView
+                android:id="@+id/minStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/minCaract"
+                app:layout_constraintStart_toEndOf="@+id/minCaract"
+                app:layout_constraintTop_toTopOf="@+id/minCaract"
+                app:srcCompat="@drawable/error_x" />
+
+            <ImageView
+                android:id="@+id/oneNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/maxCaract"
+                app:layout_constraintStart_toEndOf="@+id/maxCaract"
+                app:layout_constraintTop_toTopOf="@+id/maxCaract"
+                app:srcCompat="@drawable/error_x" />
+
+            <ImageView
+                android:id="@+id/oneUpperLetter"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                app:layout_constraintBottom_toTopOf="@+id/letraMin"
+                app:layout_constraintStart_toEndOf="@+id/letraMaiusc"
+                app:layout_constraintTop_toTopOf="@+id/letraMaiusc"
+                app:srcCompat="@drawable/error_x" />
+
+            <ImageView
+                android:id="@+id/oneSmallLetter"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/letraMin"
+                app:layout_constraintStart_toEndOf="@+id/letraMin"
+                app:layout_constraintTop_toBottomOf="@+id/letraMaiusc"
+                app:srcCompat="@drawable/error_x" />
+
+            <ImageView
+                android:id="@+id/oneSpecialCaract"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/caractEspecial"
+                app:layout_constraintStart_toEndOf="@+id/caractEspecial"
+                app:layout_constraintTop_toTopOf="@+id/caractEspecial"
+                app:srcCompat="@drawable/error_x" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <!-- Container do botão fixo -->
+    <LinearLayout
+        android:id="@+id/buttonContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/nextButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/primary_button_design"
+            android:onClick="nextPage"
+            android:text="Avançar"
+            android:textColor="#FFFFFF"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

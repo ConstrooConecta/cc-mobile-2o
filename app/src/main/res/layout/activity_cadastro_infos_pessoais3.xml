@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".onboarding.CadastroEmail1">
+
+    <!-- Conteúdo rolável -->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/buttonContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/calendarButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:background="#FFFFFF"
+                android:src="@drawable/calendaricon"
+                app:layout_constraintBottom_toBottomOf="@+id/dtNascimnetoInput"
+                app:layout_constraintEnd_toEndOf="@+id/dtNascimnetoInput"
+                app:layout_constraintTop_toTopOf="@+id/dtNascimnetoInput" />
+
+            <ImageView
+                android:id="@+id/progressBar1de4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintBottom_toBottomOf="@+id/backButton"
+                app:layout_constraintEnd_toStartOf="@+id/statusDeProgresso1de4"
+                app:layout_constraintStart_toEndOf="@+id/backButton"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/progressbar3de4" />
+
+            <ImageButton
+                android:id="@+id/backButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="#FFFFFF"
+                android:onClick="backToPreviousScreen"
+                app:layout_constraintEnd_toStartOf="@+id/progressBar1de4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/arrow_left" />
+
+            <TextView
+                android:id="@+id/statusDeProgresso1de4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/inter"
+                android:text="3/4"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/progressBar1de4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.8"
+                app:layout_constraintStart_toEndOf="@+id/progressBar1de4"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/title_cadastro1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="48dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="sans-serif-black"
+                android:text="Cadastre suas informações pessoais"
+                android:textColor="#000000"
+                android:textSize="26sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/progressBar1de4" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nomeInput"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/inputdesign"
+                android:ellipsize="end"
+                android:hint="Nome"
+                android:paddingLeft="20dp"
+                android:paddingEnd="20dp"
+                android:singleLine="true"
+                android:textColorHint="#B6B6B6"
+                app:layout_constraintEnd_toStartOf="@+id/sobrenomeInput"
+                app:layout_constraintHorizontal_bias="0.555"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title_cadastro1" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/sobrenomeInput"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/inputdesign"
+                android:ellipsize="end"
+                android:hint="Sobrenome"
+                android:paddingLeft="20dp"
+                android:paddingEnd="20dp"
+                android:singleLine="true"
+                android:textColorHint="#B6B6B6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/nomeInput"
+                app:layout_constraintTop_toBottomOf="@+id/title_cadastro1" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/usernameInput"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/inputdesign"
+                android:ellipsize="end"
+                android:hint="Nome de Usuário"
+                android:maxLength="20"
+                android:paddingStart="45dp"
+                android:paddingLeft="20dp"
+                android:paddingEnd="20dp"
+                android:singleLine="true"
+                android:textColorHint="#B6B6B6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nomeInput" />
+
+            <ImageView
+                android:id="@+id/usernameStatus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/usernameInput"
+                app:layout_constraintEnd_toEndOf="@+id/usernameInput"
+                app:layout_constraintTop_toTopOf="@+id/usernameInput"
+                tools:src="@drawable/error_x" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/dtNascimnetoInput"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/inputdesign"
+                android:focusable="false"
+                android:hint="Data de nascimento"
+                android:inputType="none"
+                android:paddingLeft="20dp"
+                android:paddingEnd="20dp"
+                android:textColorHint="#B6B6B6"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/usernameInput" />
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/generoInput"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/inputdesign"
+                android:hint="Gênero"
+                android:inputType="none"
+                android:paddingLeft="20dp"
+                android:paddingEnd="20dp"
+                android:textColorHint="#B6B6B6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dtNascimnetoInput" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/baseline_keyboard_arrow_down_24"
+                app:layout_constraintBottom_toBottomOf="@+id/generoInput"
+                app:layout_constraintEnd_toEndOf="@+id/generoInput"
+                app:layout_constraintTop_toTopOf="@+id/generoInput" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="5dp"
+                android:text="\@"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/usernameInput"
+                app:layout_constraintStart_toStartOf="@+id/usernameInput"
+                app:layout_constraintTop_toTopOf="@+id/usernameInput" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <!-- Container do botão fixo -->
+    <LinearLayout
+        android:id="@+id/buttonContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/nextButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/primary_button_design"
+            android:onClick="nextPage"
+            android:text="Avançar"
+            android:textColor="#FFFFFF"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

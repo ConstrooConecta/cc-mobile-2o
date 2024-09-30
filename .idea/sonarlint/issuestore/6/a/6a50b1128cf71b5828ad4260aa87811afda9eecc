@@ -1,0 +1,21 @@
+
+’
+java:S1450"VRemove the "mParam1" field and declare it as a local variable in the relevant methods.(•Íï‘J$3fd58374-1731-41f7-aa9e-82caae114077
+’
+java:S1450 "VRemove the "mParam2" field and declare it as a local variable in the relevant methods.(¡ˆ€ J$84a7cd9d-5d0d-4f1b-9d92-ca93086be6c0
+s
+java:S1135"2Complete the task associated to this TODO comment.(ÜûŠ—øÿÿÿÿJ$6d320297-87de-42cd-9227-9a76410908bc
+s
+java:S1135"2Complete the task associated to this TODO comment.(ğï¢öúÿÿÿÿJ$290f088b-b6ec-49cb-926b-df614d6c4ab8
+s
+java:S1135."2Complete the task associated to this TODO comment.(ßíŠÿÿÿÿÿJ$cdb7a5ab-cfb8-4516-8223-e67c1c93e0eb
+{
+java:S1874V"3Remove this use of "NetworkInfo"; it is deprecated.(Õ¥—ãùÿÿÿÿ8øòúØ£2J$f0882887-d64d-4152-9485-2a8472e61793
+„
+java:S1874V"<Remove this use of "getActiveNetworkInfo"; it is deprecated.(Õ¥—ãùÿÿÿÿ8øòúØ£2J$d9673630-40ad-437a-90f8-1ea99cda098c
+{
+java:S1874W"3Remove this use of "isConnected"; it is deprecated.(‡ıŒŞøÿÿÿÿ8øòúØ£2J$2c9b8219-fac7-4c7f-bcce-340b5be2e88a
+g
+java:S1068"+Remove this unused "mParam1" private field.(•Íï‘J$1d1e9095-58f7-4c31-abf0-30001ad7eea2
+g
+java:S1068 "+Remove this unused "mParam2" private field.(¡ˆ€ J$073c5607-e82c-4f73-aad9-581eb0ba19f0
