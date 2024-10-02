@@ -3,6 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-feature android:name="android.hardware.camera.any" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="28" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
 
     <application
         android:allowBackup="true"
@@ -14,6 +20,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ConstruConecta_Interdisciplinar_Certo"
         tools:targetApi="31">
+        <activity
+            android:name=".CameraActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.InternetErrorActivity"
             android:exported="true"
@@ -60,16 +69,18 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <receiver android:name=".receivers.NetworkReceiver" android:exported="false">
+        <receiver
+            android:name=".receivers.NetworkReceiver"
+            android:exported="false">
             <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
         </receiver>
-
     </application>
 
 </manifest>

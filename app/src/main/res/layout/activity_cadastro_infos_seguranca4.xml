@@ -259,7 +259,7 @@
             android:background="@drawable/primary_button_design"
             android:onClick="nextPage"
             android:text="Avançar"
-            android:textColor="#FFFFFF"/>
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
