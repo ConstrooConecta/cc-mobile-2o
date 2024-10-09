@@ -1,5 +1,8 @@
 package com.example.construconecta_interdisciplinar_certo;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
@@ -22,6 +25,15 @@ public class Home extends BaseActivity {
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        // Recuperando o Bundle
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            int castroConcluido = extras.getInt("castroConcluido", 0); // 0 é o valor padrão
+            // Use a variável castroConcluido conforme necessário
+            if (castroConcluido == 1) {
+                mostrarBoasVindas();
+            }
+        }
 
 
         //Configurando a bottom navBar
@@ -87,4 +99,26 @@ public class Home extends BaseActivity {
         return true;
     }
 
+
+    private void mostrarBoasVindas() {
+        // Criando o AlertDialog
+        new AlertDialog.Builder(this)
+                .setTitle("Boas-vindas!")
+                .setMessage("Cadastro concluído com sucesso! Deseja tirar uma foto de perfil agora?")
+                .setPositiveButton("Aceitar", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Ação ao aceitar - Redirecionar para a activity de tirar foto
+                        Intent intent = new Intent(Home.this, CameraActivity.class);
+                        startActivity(intent);
+                    }
+                })
+                .setNegativeButton("Recusar", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Ação ao recusar - Fechar o diálogo
+                        dialog.dismiss();
+                    }
+                })
+                .setCancelable(false) // Impede que o modal seja fechado clicando fora
+                .show();
+    }
 }
