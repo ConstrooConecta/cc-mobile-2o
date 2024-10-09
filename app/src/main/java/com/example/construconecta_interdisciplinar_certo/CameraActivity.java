@@ -93,7 +93,7 @@ public class CameraActivity extends AppCompatActivity {
         //obter objetos
         cameraExecutor = Executors.newSingleThreadExecutor();
         viewFinder = findViewById(R.id.viewFinder);
-        foto = findViewById(R.id.foto);
+        foto = findViewById(R.id.fotoProduto);
         lente = findViewById(R.id.lente);
         btFoto = findViewById(R.id.image_capture_button);
 
@@ -124,6 +124,7 @@ public class CameraActivity extends AppCompatActivity {
                 if (imageUri != null){
                     foto.setImageURI(imageUri);
                     foto.setVisibility(View.VISIBLE);
+                    mostrarModalConfirmacao(foto);
                 }
             });
     //Bloco de permissão:

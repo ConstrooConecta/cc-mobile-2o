@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F4F2"
+    tools:context=".MetodoPagamento">
+
+    <TextView
+        android:id="@+id/subtotal2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="4dp"
+        android:text="Subtotal"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/botaoContinuar"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/botaoContinuar"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginEnd="79dp"
+        android:layout_marginBottom="14dp"
+        android:background="@drawable/primary_button_design"
+        android:text="Continuar"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/valor2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="33dp"
+        android:layout_marginBottom="4dp"
+        android:text="Valor R$"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/botaoContinuar"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <View
+        android:id="@+id/navBarCima"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:background="#0A262C"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tituloPagamento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Método de pagamento"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.385"
+        app:layout_constraintStart_toEndOf="@+id/botaoVoltar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/botaoVoltar"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_arrow_back_ios_24"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/metodosDispo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="3 métodos disponíveis"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.372"
+        app:layout_constraintStart_toEndOf="@+id/botaoVoltar"
+        app:layout_constraintTop_toBottomOf="@+id/tituloPagamento" />
+
+
+
+    <TextView
+        android:id="@+id/textView53"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="46dp"
+        android:text="Escolha um método de pagamento:"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/navBarCima" />
+
+    <View
+        android:id="@+id/view20"
+        android:layout_width="370dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="21dp"
+        android:background="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView53" />
+
+    <RadioButton
+        android:id="@+id/radioButton2"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="45dp"
+        app:layout_constraintStart_toStartOf="@+id/view20"
+        app:layout_constraintTop_toTopOf="@+id/view20" />
+
+    <TextView
+        android:id="@+id/textView54"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="PIX"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/view20"
+        app:layout_constraintTop_toTopOf="@+id/view20" />
+
+    <TextView
+        android:id="@+id/textView55"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:text="O código Pix gerado para pagamento"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/view20"
+        app:layout_constraintTop_toBottomOf="@+id/textView54" />
+
+    <TextView
+        android:id="@+id/textView56"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:text=" é válido por 30 minutos após a "
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/view20"
+        app:layout_constraintTop_toBottomOf="@+id/textView55" />
+
+    <TextView
+        android:id="@+id/textView57"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:text="finalização do pedido"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/view20"
+        app:layout_constraintTop_toBottomOf="@+id/textView56" />
+
+    <TextView
+        android:id="@+id/textView58"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="148dp"
+        android:text="Inserir um cupom de desconto:"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view20" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="135dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/caixinha_texto"
+        android:text="Aplicar"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toEndOf="@+id/editTextText2"
+        app:layout_constraintTop_toBottomOf="@+id/textView58" />
+
+    <EditText
+        android:id="@+id/editTextText2"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/cupom_design"
+        android:ems="10"
+        android:hint="Cupom"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView58" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

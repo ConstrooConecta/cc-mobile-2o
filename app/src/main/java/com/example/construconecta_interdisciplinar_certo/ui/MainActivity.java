@@ -10,6 +10,7 @@ import android.os.Handler;
 import com.example.construconecta_interdisciplinar_certo.Home;
 import com.example.construconecta_interdisciplinar_certo.R;
 import com.example.construconecta_interdisciplinar_certo.onboarding.CadastroEmail1;
+import com.example.construconecta_interdisciplinar_certo.onboarding.CadastroInfosSeguranca4;
 import com.example.construconecta_interdisciplinar_certo.onboarding.TelaLogin1;
 
 public class MainActivity extends BaseActivity {
@@ -37,7 +38,7 @@ public class MainActivity extends BaseActivity {
     }
 
     public void signIn(View view) {
-        Intent intent = new Intent(MainActivity.this, TelaLogin1.class);
+        Intent intent = new Intent(MainActivity.this, Home.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
