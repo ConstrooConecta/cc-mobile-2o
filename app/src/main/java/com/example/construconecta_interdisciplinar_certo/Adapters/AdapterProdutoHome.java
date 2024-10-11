@@ -9,14 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.construconecta_interdisciplinar_certo.ProdutoDetalhesActivity;
+import com.example.construconecta_interdisciplinar_certo.DetalhesProdutosActivity;
 import com.example.construconecta_interdisciplinar_certo.R;
 import com.example.construconecta_interdisciplinar_certo.models.Produto;
 
@@ -69,7 +68,7 @@ public class AdapterProdutoHome extends RecyclerView.Adapter<AdapterProdutoHome.
         // Carregando a imagem usando Glide
         String url = produto.getImagem();
         if (url == null || url.isEmpty()) {
-            url = "https://s2-g1.glbimg.com/MVIpOVDJgHL5JQkPIkh6NbAtkzw=/0x0:620x794/984x0/smart/filters:strip_icc()/s.glbimg.com/jo/g1/f/original/2012/03/06/caters_monkey_snapper_03.jpg";
+            url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8lRbS7eKYzDq-Ftxc1p8G_TTw2unWBMEYUw&s";
         }
         Glide.with(holder.imagem.getContext()).asBitmap().load(url).into(holder.imagem);
 
@@ -79,7 +78,7 @@ public class AdapterProdutoHome extends RecyclerView.Adapter<AdapterProdutoHome.
             @Override
             public void onClick(View v) {
                 // Abrindo a activity de detalhes do produto
-                Intent intent = new Intent(holder.itemView.getContext(), ProdutoDetalhesActivity.class);
+                Intent intent = new Intent(holder.itemView.getContext(), DetalhesProdutosActivity.class);
                 intent.putExtra("nomeProduto", produto.getNomeProduto());
                 intent.putExtra("imagemProduto", finalUrl);
                 intent.putExtra("Preco", produto.getPreco());

@@ -72,7 +72,7 @@ public class CameraActivity extends AppCompatActivity {
     }
     private ExecutorService cameraExecutor;
     private Map<String, String> docData = new HashMap<>();
-    private Database databaseE = new Database();
+    private DatabaseCamera databaseCameraE = new DatabaseCamera();
     private androidx.camera.view.PreviewView viewFinder;
     private ImageView foto;
     private ImageCapture imageCapture;
@@ -276,7 +276,7 @@ public class CameraActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // Chama o método para salvar a foto
-                        databaseE.uploadFoto(getBaseContext(), fotoTirada, docData, user.getEmail());
+                        databaseCameraE.uploadFoto(getBaseContext(), fotoTirada, docData, user.getEmail());
                         Toast.makeText(CameraActivity.this, "Deu green!", Toast.LENGTH_SHORT).show();
                         finish();
                     }

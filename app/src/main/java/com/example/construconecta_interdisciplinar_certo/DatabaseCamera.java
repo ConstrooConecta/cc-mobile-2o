@@ -16,7 +16,7 @@ import com.google.firebase.storage.UploadTask;
 import java.io.ByteArrayOutputStream;
 import java.util.Map;
 
-public class Database {
+public class DatabaseCamera {
 
     public void uploadFoto(Context c, ImageView foto, Map<String, String> docData, String emailUser){
         //conversão

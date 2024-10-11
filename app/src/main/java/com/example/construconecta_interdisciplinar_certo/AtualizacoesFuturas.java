@@ -2,11 +2,10 @@ package com.example.construconecta_interdisciplinar_certo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class Em_breve extends AppCompatActivity {
+public class AtualizacoesFuturas extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

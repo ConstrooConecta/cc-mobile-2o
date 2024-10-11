@@ -2,11 +2,9 @@ package com.example.construconecta_interdisciplinar_certo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -15,7 +13,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
-public class ProdutoDetalhesActivity extends AppCompatActivity {
+public class DetalhesProdutosActivity extends AppCompatActivity {
     private TextView nomeProduto, precoProduto, descontoProduto, de, descricaoProdutoTextView;
     private ImageView imagemProduto, oferta, lojaAle;
 
@@ -94,7 +92,7 @@ public class ProdutoDetalhesActivity extends AppCompatActivity {
 
     public void TelaEmBreve(View view) {
         //abrir a intent e abrir nova tela de "Em_breve"
-        Intent intent = new Intent(this, Em_breve.class);
+        Intent intent = new Intent(this, AtualizacoesFuturas.class);
         startActivity(intent);
 
     }
