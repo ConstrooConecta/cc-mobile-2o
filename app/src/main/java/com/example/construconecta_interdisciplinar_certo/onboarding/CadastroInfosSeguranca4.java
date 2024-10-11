@@ -2,12 +2,14 @@ package com.example.construconecta_interdisciplinar_certo.onboarding;
 
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import com.example.construconecta_interdisciplinar_certo.Home;
@@ -16,15 +18,17 @@ import com.example.construconecta_interdisciplinar_certo.apis.UsuarioApi;
 import com.example.construconecta_interdisciplinar_certo.databinding.ActivityCadastroInfosSeguranca4Binding;
 import com.example.construconecta_interdisciplinar_certo.models.Usuario;
 import com.example.construconecta_interdisciplinar_certo.ui.BaseActivity;
+import com.example.construconecta_interdisciplinar_certo.utils.AnimationUtils;
+import com.example.construconecta_interdisciplinar_certo.utils.ButtonUtils;
+import com.example.construconecta_interdisciplinar_certo.utils.InputUtils;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 
+import java.util.List;
 import java.util.Objects;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -45,6 +49,8 @@ public class CadastroInfosSeguranca4 extends BaseActivity {
         // Inicializa o View Binding
         binding = ActivityCadastroInfosSeguranca4Binding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        binding.scrollView.post(() -> binding.scrollView.fullScroll(View.FOCUS_DOWN));
 
         // Adiciona TextWatcher para o campo de senha
         binding.senhaInput.addTextChangedListener(new TextWatcher() {
@@ -67,7 +73,6 @@ public class CadastroInfosSeguranca4 extends BaseActivity {
         // Adiciona TextWatcher para o campo de CPF
         binding.cpfInput.addTextChangedListener(new TextWatcher() {
             private boolean isUpdating = false;
-            private final String mask = "###.###.###-##";
 
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -76,6 +81,9 @@ public class CadastroInfosSeguranca4 extends BaseActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                binding.scrollView.post(() -> binding.scrollView.fullScroll(View.FOCUS_DOWN));
+                InputUtils.setNormal(CadastroInfosSeguranca4.this, binding.cpfInputLayout, binding.cpfInput, binding.cpfError);
+
                 if (isUpdating) {
                     return; // Evita loops infinitos
                 }
@@ -108,16 +116,17 @@ public class CadastroInfosSeguranca4 extends BaseActivity {
 
                 binding.cpfInput.setText(formatted.toString());
                 binding.cpfInput.setSelection(formatted.length()); // Define a posição da seleção corretamente
+                binding.cpfInput.requestFocus(); // Manter o foco no campo de CPF
                 validateCpf(unformatted); // Valida o CPF formatado
                 isUpdating = false; // Reseta a flag
             }
-
-
             @Override
             public void afterTextChanged(Editable s) {
                 // Não é necessário implementar
             }
         });
+
+        binding.nextButton.setOnClickListener(v -> validateCpfDataBase());
 
         updateButtonStatus();
     }
@@ -135,21 +144,66 @@ public class CadastroInfosSeguranca4 extends BaseActivity {
         binding.oneUpperLetter.setImageResource(isUpperLetterStatusOk ? R.drawable.check : R.drawable.error_x);
         binding.oneSmallLetter.setImageResource(isSmallLetterStatusOk ? R.drawable.check : R.drawable.error_x);
         binding.oneSpecialCaract.setImageResource(isSpecialCharStatusOk ? R.drawable.check : R.drawable.error_x);
+        updateButtonStatus();
+    }
+
+    private void validateCpf(String cpf) {
+        if (cpf.isEmpty()) {
+            InputUtils.setNormal(this, binding.cpfInputLayout, binding.cpfInput, binding.cpfError);
+        } else if (isCPFValido(cpf)) {
+            InputUtils.setNormal(this, binding.cpfInputLayout, binding.cpfInput, binding.cpfError);
+        } else {
+            binding.cpfError.setText("", null);
+            InputUtils.setError(this, binding.cpfInputLayout, binding.cpfInput, binding.cpfError, "CPF Inválido.");
+        }
 
         updateButtonStatus();
     }
 
+    private void validateCpfDataBase() {
+        ButtonUtils.enableButtonWithProgressBar(this, binding.nextButton, binding.progressBar);
+        InputUtils.setNormal(this, binding.cpfInputLayout, binding.cpfInput, binding.cpfError);
+        InputUtils.disableInput(binding.cpfInput);
+        InputUtils.disableInput(binding.senhaInput);
 
-    private void validateCpf(String cpf) {
-        if (cpf.isEmpty()) {
-            binding.cpfError.setVisibility(View.GONE); // Oculta a mensagem de erro se o campo estiver vazio
-        } else if (isCPFValido(cpf)) {
-            binding.cpfError.setVisibility(View.GONE); // Esconde a mensagem de erro se o CPF for válido
-        } else {
-            binding.cpfError.setVisibility(View.VISIBLE); // Exibe a mensagem de erro se o CPF for inválido
-        }
+        String url = "https://cc-api-sql-qa.onrender.com/";
 
-        updateButtonStatus();
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        UsuarioApi usuarioApi = retrofit.create(UsuarioApi.class);
+        Call<List<Usuario>> call = usuarioApi.findByCpf(binding.cpfInput.getText().toString().replaceAll("[^\\d]", ""));
+        call.enqueue(new Callback<List<Usuario>>() {
+            @Override
+            public void onResponse(Call<List<Usuario>> call, Response<List<Usuario>> response) {
+                ButtonUtils.enableButton(CadastroInfosSeguranca4.this, binding.nextButton, binding.progressBar);
+                InputUtils.enableInput(binding.cpfInput);
+                InputUtils.enableInput(binding.senhaInput);
+
+                if (response.isSuccessful()) {
+                    if (response.body() != null && !response.body().isEmpty()) {
+                        InputUtils.setError(CadastroInfosSeguranca4.this, binding.cpfInputLayout, binding.cpfInput, binding.cpfError, "Já existe alguém com este CPF cadastrado.");
+                        AnimationUtils.shakeAnimation(binding.cpfInput);
+                        AnimationUtils.shakeAnimation(binding.cpfError);
+
+                        // Role o ScrollView para o final ao exibir o erro
+                        binding.scrollView.post(() -> binding.scrollView.fullScroll(View.FOCUS_DOWN));
+
+                    } else {
+                        binding.cpfError.setText("Erro ao verificar o nome de usuário. Tente novamente ou contate o suporte.", null);
+                    }
+                } else {
+                    nextPage();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Usuario>> call, Throwable throwable) {
+                // Trate a falha de rede aqui, se necessário
+            }
+        });
     }
 
     private boolean isCPFValido(String cpf) {
@@ -169,7 +223,8 @@ public class CadastroInfosSeguranca4 extends BaseActivity {
                 digitos[i] = Integer.parseInt(cpf.substring(i, i + 1));
             }
 
-            int soma1 = 0, soma2 = 0;
+            int soma1 = 0;
+            int soma2 = 0;
             for (int i = 0; i < 9; i++) {
                 soma1 += digitos[i] * (10 - i);
                 soma2 += digitos[i] * (11 - i);
@@ -187,7 +242,7 @@ public class CadastroInfosSeguranca4 extends BaseActivity {
         }
     }
 
-    public void nextPage(View view) {
+    public void nextPage() {
         Intent intent = new Intent(CadastroInfosSeguranca4.this, Home.class);
         Bundle bundle = new Bundle();
 
@@ -203,39 +258,33 @@ public class CadastroInfosSeguranca4 extends BaseActivity {
 
             FirebaseAuth autenticador = FirebaseAuth.getInstance();
             autenticador.createUserWithEmailAndPassword(email, Objects.requireNonNull(binding.senhaInput.getText()).toString())
-                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                FirebaseUser user = autenticador.getCurrentUser();
-                                UserProfileChangeRequest profile = new UserProfileChangeRequest.Builder()
-                                        .setDisplayName(nomeCompleto)
-                                        .setPhotoUri(Uri.parse(String.valueOf("Imagem")))
-                                        .build();
-                                user.updateProfile(profile).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-                                        if (task.isSuccessful()) {
-                                            Usuario usuario = new Usuario(
-                                                    user.getUid(),
-                                                    cpfFormated,
-                                                    nomeCompleto,
-                                                    username,
-                                                    email,
-                                                    binding.senhaInput.getText().toString(),
-                                                    telefone,
-                                                    genero,
-                                                    dtNascimento
-                                            );
+                    .addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+                            FirebaseUser user = autenticador.getCurrentUser();
+                            UserProfileChangeRequest profile = new UserProfileChangeRequest.Builder()
+                                    .setDisplayName(nomeCompleto)
+                                    .setPhotoUri(Uri.parse("Imagem"))
+                                    .build();
+                            user.updateProfile(profile).addOnCompleteListener(task1 -> {
+                                if (task1.isSuccessful()) {
+                                    Usuario usuario = new Usuario(
+                                            user.getUid(),
+                                            cpfFormated,
+                                            nomeCompleto,
+                                            username,
+                                            email,
+                                            binding.senhaInput.getText().toString(),
+                                            telefone,
+                                            genero,
+                                            dtNascimento
+                                    );
 
-                                            // Envia os dados para o banco e só navega ao receber sucesso
-                                            sendUserToDatabase(usuario, intent, bundle);
-                                        } else {
-                                            Toast.makeText(CadastroInfosSeguranca4.this, "Erro ao criar conta.", Toast.LENGTH_SHORT).show();
-                                        }
-                                    }
-                                });
-                            }
+                                    // Envia os dados para o banco e só navega ao receber sucesso
+                                    sendUserToDatabase(usuario, intent, bundle);
+                                } else {
+                                    Toast.makeText(CadastroInfosSeguranca4.this, "Erro ao criar conta.", Toast.LENGTH_SHORT).show();
+                                }
+                            });
                         }
                     });
         }
@@ -248,8 +297,9 @@ public class CadastroInfosSeguranca4 extends BaseActivity {
     }
 
     private void sendUserToDatabase(Usuario usuario, Intent intent, Bundle bundle) {
-        String url = "https://cc-api-sql-qa.onrender.com/";
+        ButtonUtils.enableButtonWithProgressBar(this, binding.nextButton, binding.progressBar);
 
+        String url = "https://cc-api-sql-qa.onrender.com/";
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(url)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -265,22 +315,51 @@ public class CadastroInfosSeguranca4 extends BaseActivity {
                     Usuario createdUser = response.body();
                     Log.d("POST_SUCCESS", "Usuário criado: " + createdUser.getNomeUsuario());
 
-                    // Somente navega após a inserção bem-sucedida
-                    bundle.putInt("castroConcluido", 1);
-                    intent.putExtras(bundle);
-                    startActivity(intent);
-                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left); // Animação de entrada
-                    finish();
+                    // Após sucesso no banco de dados, adiciona no Firebase
+                    addToFirebase(usuario, intent, bundle);
                 } else {
-                    Log.e("POST_ERROR", "Código de erro: " + response.code());
-                    Toast.makeText(CadastroInfosSeguranca4.this, "Erro ao criar o usuário", Toast.LENGTH_SHORT).show();
+                    // Tratar erro ao adicionar no banco
+                    ButtonUtils.enableButton(CadastroInfosSeguranca4.this, binding.nextButton, binding.progressBar);
+                    binding.nextButton.setText("Criar Conta");
+                    Toast.makeText(CadastroInfosSeguranca4.this, "Erro ao salvar no banco de dados.", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<Usuario> call, Throwable t) {
-                Log.e("POST_FAILURE", "Falha na requisição: " + t.getMessage());
-                Toast.makeText(CadastroInfosSeguranca4.this, "Falha ao conectar ao servidor", Toast.LENGTH_SHORT).show();
+                binding.progressBar.setVisibility(View.GONE); // Oculta ProgressBar
+                binding.nextButton.setEnabled(true); // Reabilita o botão
+                binding.nextButton.setText("Avançar"); // Mostra o texto novamente
+                Toast.makeText(CadastroInfosSeguranca4.this, "Erro de conexão.", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void addToFirebase(Usuario usuario, Intent intent, Bundle bundle) {
+        FirebaseAuth autenticador = FirebaseAuth.getInstance();
+        FirebaseUser user = autenticador.getCurrentUser();
+
+        UserProfileChangeRequest profile = new UserProfileChangeRequest.Builder()
+                .setDisplayName(usuario.getNomeCompleto())
+                .setPhotoUri(Uri.parse("Imagem"))
+                .build();
+
+        user.updateProfile(profile).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                // Sucesso no Firebase, agora pode ocultar o ProgressBar e ir para a próxima página
+                binding.progressBar.setVisibility(View.GONE); // Oculta ProgressBar
+                binding.nextButton.setEnabled(true); // Reabilita o botão, caso precise ser reutilizado
+
+                // Prossiga para a próxima tela
+                startActivity(intent);
+                finish();
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            } else {
+                // Erro no Firebase
+                binding.progressBar.setVisibility(View.GONE); // Oculta ProgressBar
+                binding.nextButton.setEnabled(true); // Reabilita o botão
+                binding.nextButton.setText("Avançar");
+                Toast.makeText(CadastroInfosSeguranca4.this, "Erro ao atualizar perfil no Firebase.", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -301,5 +380,4 @@ public class CadastroInfosSeguranca4 extends BaseActivity {
             binding.nextButton.setBackgroundResource(R.drawable.disable_button_design);
         }
     }
-
 }

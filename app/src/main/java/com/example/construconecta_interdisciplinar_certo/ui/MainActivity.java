@@ -10,7 +10,8 @@ import android.os.Handler;
 import com.example.construconecta_interdisciplinar_certo.Home;
 import com.example.construconecta_interdisciplinar_certo.R;
 import com.example.construconecta_interdisciplinar_certo.onboarding.CadastroEmail1;
-import com.example.construconecta_interdisciplinar_certo.onboarding.TelaLogin1;
+import com.example.construconecta_interdisciplinar_certo.onboarding.Login;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends BaseActivity {
 
@@ -21,13 +22,13 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
 
-    public void anonymousAccount(View view) {
-        Intent intent = new Intent(MainActivity.this, Home.class);
-        startActivity(intent);
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-        finish();
+        // Verifica se o usuário está logado
+        if(FirebaseAuth.getInstance().getCurrentUser() != null) {
+            Intent intent = new Intent(MainActivity.this, Home.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        }
     }
 
     public void signUp(View view) {
@@ -37,7 +38,7 @@ public class MainActivity extends BaseActivity {
     }
 
     public void signIn(View view) {
-        Intent intent = new Intent(MainActivity.this, TelaLogin1.class);
+        Intent intent = new Intent(MainActivity.this, Login.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }

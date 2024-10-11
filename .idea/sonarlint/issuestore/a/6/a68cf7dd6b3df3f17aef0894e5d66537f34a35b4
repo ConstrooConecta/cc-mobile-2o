@@ -1,21 +1,21 @@
 
-n
-java:S16024",Remove useless curly braces around statement(º„Úb8¨Úﬂ’£2J$79908dd5-7dba-411e-8d64-894a77ceff35
+ë
+java:S1192¢"HDefine a constant instead of duplicating this literal "#B6B6B6" 3 times.(áô÷Ã¸ˇˇˇˇ8çÄ·Ïß2J$c867b14b-6b7a-429f-881f-e64cf6a3f9d5
 √
-java:S1186B"ÄAdd a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(‘óΩ48≥Úﬂ’£2J$b2a1372a-03fb-438c-8753-05be24b0af41
+java:S1186P"ÄAdd a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(‘óΩ48ÅÅ·Ïß2J$ffa86a3b-825c-4187-922b-f45f4eed71a6
 √
-java:S1186["ÄAdd a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(‘óΩ48∫Úﬂ’£2J$20940bf2-c6af-4733-b75f-dbcf11dd62e3
+java:S1186i"ÄAdd a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(‘óΩ48ÉÅ·Ïß2J$50aa60ab-271f-4320-a284-342fa84bf0a6
 √
-java:S1186^"ÄAdd a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(∏òö_8∫Úﬂ’£2J$ab22c31d-f1d5-4996-989a-85b82458c8a0
-√
-java:S1186r"ÄAdd a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(‘óΩ48øÚﬂ’£2J$2c0538c2-6f5c-4c61-857e-fe1584b9266e
-√
-java:S1186u"ÄAdd a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(∏òö_8øÚﬂ’£2J$7b16468f-e385-4dc1-88b6-8cf5dcc6d139
+java:S1186l"ÄAdd a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(∏òö_8ÉÅ·Ïß2J$673cd1e7-7d7b-412c-b2d4-ec6126d9fbcc
 ƒ
-java:S1186ì"ÄAdd a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(‘óΩ48«Úﬂ’£2J$6b76758c-fd9b-460d-9d54-700ef7eb6889
+java:S1186É"ÄAdd a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(‘óΩ48ÑÅ·Ïß2J$75fcfadc-7527-43f5-886d-1a3af8c7a838
+ƒ
+java:S1186Ü"ÄAdd a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(∏òö_8ÑÅ·Ïß2J$a5a97a3a-e578-46b8-9adc-f2e0600d34a8
+ƒ
+java:S1186©"ÄAdd a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(‘óΩ48ÜÅ·Ïß2J$e4e57467-b5be-494e-87c1-111c12f4ae31
 ≈
-java:S1186õ"ÄAdd a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ì—ÌÕ8»Úﬂ’£2J$ebe806e7-1bc9-4f4a-bf74-e92b825e2f28
+java:S1186±"ÄAdd a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ì—ÌÕ8ÜÅ·Ïß2J$ac25be51-3336-4788-911c-81f934abf323
+p
+java:S1602È",Remove useless curly braces around statement(ø≠Æº8ãÅ·Ïß2J$09c99475-b81a-4cc0-844a-4aa1df62d0e2
 t
-java:S1172À"+Remove this unused method parameter "view".(º∏Õî˘ˇˇˇˇ8∫ê î§2J$96c231f4-d8cc-4fa1-8294-14d754807c7c
-t
-java:S1172Ñ"+Remove this unused method parameter "view".(¨©Í˚˚ˇˇˇˇ8Àê î§2J$ff53b3ad-6a05-4cd7-8004-cb81c6ba9060
+java:S1172ò"+Remove this unused method parameter "view".(¨©Í˚˚ˇˇˇˇ8ëÅ·Ïß2J$2a56d227-5e32-4fa6-907b-8f558040e512

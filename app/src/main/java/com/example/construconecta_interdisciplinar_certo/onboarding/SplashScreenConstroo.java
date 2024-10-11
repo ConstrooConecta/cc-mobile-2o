@@ -23,7 +23,7 @@ public class SplashScreenConstroo extends AppCompatActivity {
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 finish();
-            }, 8000);
+            }, 2000);
 
     }
 }

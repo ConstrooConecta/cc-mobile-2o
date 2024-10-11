@@ -10,7 +10,7 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_constroo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_constroo_background"
+        android:roundIcon="@mipmap/ic_constroo"
         android:supportsRtl="true"
         android:theme="@style/Theme.ConstruConecta_Interdisciplinar_Certo"
         tools:targetApi="31">
@@ -42,14 +42,16 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".onboarding.TelaLogin1"
+            android:name=".onboarding.Login"
             android:exported="false"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".onboarding.CadastroEmail1"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/Theme.ConstruConecta_Interdisciplinar_Certo" />
         <activity
             android:name=".Home"
             android:exported="false"

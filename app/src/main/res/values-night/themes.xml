@@ -1,7 +1,24 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.ConstruConecta_Interdisciplinar_Certo" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Base.Theme.ConstruConecta_Interdisciplinar_Certo" parent="Theme.Material3.Light.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+
+        <item name="android:statusBarColor">#0A262C</item>
+
+    </style>
+
+    <style name="CustomTextInputTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Defina aqui a cor desejada para o accent -->
+        <item name="hintTextColor">#B6B6B6</item>
+        <item name="android:textColorHint">#B6B6B6</item>
+
+        <item name="boxStrokeColor">#B6B6B6</item>
+        <!-- Defina aqui a cor de fundo -->
+        <!-- Defina aqui o raio do canto -->
+        <item name="boxCornerRadiusTopStart">10dp</item>
+        <item name="boxCornerRadiusTopEnd">10dp</item>
+        <item name="boxCornerRadiusBottomStart">10dp</item>
+        <item name="boxCornerRadiusBottomEnd">10dp</item>
     </style>
 </resources>
