@@ -6,8 +6,6 @@
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 P
  app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
-}
-Mapp/src/main/java/com/example/construconecta_interdisciplinar_certo/Home.java,a\a\aa52d9bf15b105ac19a724586263ae28bf7da660
 ’
 bapp/src/main/java/com/example/construconecta_interdisciplinar_certo/onboarding/CadastroEmail1.java,f\d\fd3e0e31b78ce91b6668ccbe24272dd83f1f63eb
 š
@@ -54,5 +52,3 @@ Yapp/src/main/java/com/example/construconecta_interdisciplinar_certo/onboarding/
 Yapp/src/main/java/com/example/construconecta_interdisciplinar_certo/utils/InputUtils.java,2\6\26cf4bef84ee208e10eff6eb3b63dde98fecacc6
 Š
 Zapp/src/main/java/com/example/construconecta_interdisciplinar_certo/utils/ButtonUtils.java,7\4\74b3a4449861f59d9734be3318609e8f3389a9d9
-†
-Vapp/src/main/java/com/example/construconecta_interdisciplinar_certo/paymentscreen.java,b\6\b6514e88044ea6d168786202758585571091ef95
