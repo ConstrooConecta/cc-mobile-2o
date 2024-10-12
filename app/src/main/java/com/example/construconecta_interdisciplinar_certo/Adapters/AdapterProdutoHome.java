@@ -15,7 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.construconecta_interdisciplinar_certo.DetalhesProdutosActivity;
+import com.example.construconecta_interdisciplinar_certo.shop.DetalhesProdutosActivity;
 import com.example.construconecta_interdisciplinar_certo.R;
 import com.example.construconecta_interdisciplinar_certo.models.Produto;
 

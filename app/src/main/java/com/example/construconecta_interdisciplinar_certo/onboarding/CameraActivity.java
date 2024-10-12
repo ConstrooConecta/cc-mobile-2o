@@ -1,4 +1,4 @@
-package com.example.construconecta_interdisciplinar_certo;
+package com.example.construconecta_interdisciplinar_certo.onboarding;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -37,6 +37,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.construconecta_interdisciplinar_certo.R;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

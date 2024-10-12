@@ -1,4 +1,4 @@
-package com.example.construconecta_interdisciplinar_certo;
+package com.example.construconecta_interdisciplinar_certo.shop;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -7,14 +7,18 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
 import android.widget.Toast;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
+import com.example.construconecta_interdisciplinar_certo.onboarding.CameraActivity;
+import com.example.construconecta_interdisciplinar_certo.R;
 import com.example.construconecta_interdisciplinar_certo.databinding.ActivityHomeBinding;
 import com.example.construconecta_interdisciplinar_certo.fragments.ContaFragment;
 import com.example.construconecta_interdisciplinar_certo.fragments.ContratarFragment;
-import com.example.construconecta_interdisciplinar_certo.fragments.HomeFragment;
 import com.example.construconecta_interdisciplinar_certo.fragments.FavoritesFragment;
+import com.example.construconecta_interdisciplinar_certo.fragments.HomeFragment;
 import com.example.construconecta_interdisciplinar_certo.ui.BaseActivity;
 
 public class Home extends BaseActivity {

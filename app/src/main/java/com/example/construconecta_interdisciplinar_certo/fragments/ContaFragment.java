@@ -5,45 +5,32 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.construconecta_interdisciplinar_certo.R;
-import com.example.construconecta_interdisciplinar_certo.ui.InternetErrorActivity;
+import androidx.fragment.app.Fragment;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ContaFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.example.construconecta_interdisciplinar_certo.databinding.FragmentContaBinding;
+import com.example.construconecta_interdisciplinar_certo.ui.InternetErrorActivity;
+import com.example.construconecta_interdisciplinar_certo.ui.MainActivity;
+import com.google.firebase.auth.FirebaseAuth;
+
 public class ContaFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    // Variável para o binding
+    private FragmentContaBinding binding;
 
     public ContaFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ContaFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static ContaFragment newInstance(String param1, String param2) {
         ContaFragment fragment = new ContaFragment();
         Bundle args = new Bundle();
@@ -63,10 +50,19 @@ public class ContaFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_conta, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Inicializa o binding
+        binding = FragmentContaBinding.inflate(inflater, container, false);
+
+        binding.logoutButton.setOnClickListener(v -> {
+            FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(getActivity(), MainActivity.class);
+            startActivity(intent);
+            getActivity().finish();
+        });
+
+        // Retorna a root view através do binding
+        return binding.getRoot();
     }
 
     @Override
@@ -74,10 +70,8 @@ public class ContaFragment extends Fragment {
         super.onResume();
 
         if (!isConnectedToInternet()) {
-            // Exibir a Activity de erro de internet
             Intent intent = new Intent(getActivity(), InternetErrorActivity.class);
             startActivity(intent);
-            // Opcional: finalizar o fragmento atual ou fazer qualquer outra lógica
         }
     }
 
@@ -87,4 +81,10 @@ public class ContaFragment extends Fragment {
         return activeNetwork != null && activeNetwork.isConnected();
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        // Limpa o binding quando a view for destruída
+        binding = null;
+    }
 }

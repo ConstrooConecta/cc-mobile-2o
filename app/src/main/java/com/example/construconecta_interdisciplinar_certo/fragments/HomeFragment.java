@@ -16,7 +16,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-
 import com.example.construconecta_interdisciplinar_certo.Adapters.AdapterProdutoHome;
 import com.example.construconecta_interdisciplinar_certo.R;
 import com.example.construconecta_interdisciplinar_certo.apis.ProdutoApi;

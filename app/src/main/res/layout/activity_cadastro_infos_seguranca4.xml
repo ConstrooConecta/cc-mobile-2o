@@ -6,63 +6,89 @@
     android:layout_height="match_parent"
     tools:context=".onboarding.CadastroEmail1">
 
+    <!-- Elementos fixos no topo da tela -->
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="#FFFFFF"
+        android:onClick="backToPreviousScreen"
+        app:layout_constraintEnd_toStartOf="@+id/progressBar1de4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_arrow_back_24" />
+
+    <ImageView
+        android:id="@+id/progressBar1de4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/statusDeProgresso1de4"
+        app:layout_constraintStart_toEndOf="@+id/backButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/progressbar4de4" />
+
+    <TextView
+        android:id="@+id/statusDeProgresso1de4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="@font/inter"
+        android:text="4/4"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/progressBar1de4"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <!-- Conteúdo rolável -->
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintBottom_toTopOf="@id/buttonContainer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/backButton">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/progressBar1de4"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/senhaInputLayout"
+                style="@style/CustomTextInputTheme"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
-                app:layout_constraintBottom_toBottomOf="@+id/backButton"
-                app:layout_constraintEnd_toStartOf="@+id/statusDeProgresso1de4"
-                app:layout_constraintStart_toEndOf="@+id/backButton"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/progressbar4de4" />
-
-            <ImageButton
-                android:id="@+id/backButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:background="#FFFFFF"
-                android:onClick="backToPreviousScreen"
-                app:layout_constraintEnd_toStartOf="@+id/progressBar1de4"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/arrow_left" />
-
-            <TextView
-                android:id="@+id/statusDeProgresso1de4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:fontFamily="@font/inter"
-                android:text="4/4"
-                android:textColor="#000000"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="@+id/progressBar1de4"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.8"
-                app:layout_constraintStart_toEndOf="@+id/progressBar1de4"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title_cadastro1"
+                app:passwordToggleEnabled="true"> <!-- Aplica o tema CustomTextInputTheme aqui -->
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/senhaInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:ellipsize="end"
+                    android:hint="Senha"
+                    android:maxLength="32"
+                    android:paddingLeft="20dp"
+                    android:paddingEnd="20dp"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textColorHint="#B6B6B6" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:id="@+id/title_cadastro1"
@@ -80,26 +106,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/progressBar1de4" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/senhaInput"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:background="@drawable/inputdesign"
-                android:ellipsize="end"
-                android:hint="Senha"
-                android:maxLength="32"
-                android:paddingLeft="20dp"
-                android:paddingEnd="20dp"
-                android:inputType="textPassword"
-                android:singleLine="true"
-                android:textColorHint="#B6B6B6"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/title_cadastro1" />
-
             <TextView
                 android:id="@+id/minCaract"
                 android:layout_width="wrap_content"
@@ -108,7 +114,7 @@
                 android:text="● Mínimo de 8 caracteres"
                 app:layout_constraintEnd_toStartOf="@+id/minStatus"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/senhaInput" />
+                app:layout_constraintTop_toBottomOf="@+id/senhaInputLayout" />
 
             <TextView
                 android:id="@+id/maxCaract"
@@ -149,24 +155,32 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/minCaract" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/cpfInput"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/cpfInputLayout"
+                style="@style/CustomTextInputTheme"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:background="@drawable/inputdesign"
-                android:hint="CPF"
-                android:inputType="number"
-                android:maxLength="14"
-                android:paddingLeft="20dp"
-                android:textColorHint="#B6B6B6"
-                android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.555"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/caractEspecial" />
+                app:layout_constraintTop_toBottomOf="@+id/caractEspecial">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/cpfInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:ellipsize="end"
+                    android:hint="CPF"
+                    android:maxLength="14"
+                    android:paddingLeft="20dp"
+                    android:paddingEnd="20dp"
+                    android:inputType="number"
+                    android:textColor="@color/black"
+                    android:textColorHint="#B6B6B6" />
+            </com.google.android.material.textfield.TextInputLayout>
+
 
             <TextView
                 android:id="@+id/cpfError"
@@ -174,11 +188,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
-                android:text="CPF inválido"
+                android:text=""
                 android:textColor="#FF0000"
                 android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cpfInput" />
+                app:layout_constraintTop_toBottomOf="@+id/cpfInputLayout" />
 
             <ImageView
                 android:id="@+id/minStatus"
@@ -241,26 +255,48 @@
     </ScrollView>
 
     <!-- Container do botão fixo -->
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/buttonContainer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:gravity="center"
-        android:padding="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/nextButton"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/primary_button_design"
-            android:onClick="nextPage"
-            android:text="Avançar"
-            android:textColor="#FFFFFF" />
-    </LinearLayout>
+            android:text="CRIAR CONTA"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:indeterminateTint="#FFFFFF"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/nextButton"
+            app:layout_constraintEnd_toEndOf="@+id/nextButton"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="@+id/nextButton"
+            app:layout_constraintTop_toTopOf="@+id/nextButton"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

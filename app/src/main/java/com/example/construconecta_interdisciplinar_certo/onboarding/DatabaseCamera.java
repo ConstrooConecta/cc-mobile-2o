@@ -1,4 +1,4 @@
-package com.example.construconecta_interdisciplinar_certo;
+package com.example.construconecta_interdisciplinar_certo.onboarding;
 
 
 import android.content.Context;

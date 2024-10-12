@@ -6,8 +6,6 @@
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 P
  app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
-}
-Mapp/src/main/java/com/example/construconecta_interdisciplinar_certo/Home.java,a\a\aa52d9bf15b105ac19a724586263ae28bf7da660
 í
 bapp/src/main/java/com/example/construconecta_interdisciplinar_certo/onboarding/CadastroEmail1.java,f\d\fd3e0e31b78ce91b6668ccbe24272dd83f1f63eb
 ö
@@ -18,8 +16,6 @@ eapp/src/main/java/com/example/construconecta_interdisciplinar_certo/onboarding/
 kapp/src/main/java/com/example/construconecta_interdisciplinar_certo/onboarding/CadastroInfosSeguranca4.java,1\a\1a7dfd1e7a89b14d0a1ee6da9a2cbf17c2c3e292
 D
 app/build.gradle.kts,d\2\d2a4383452aad84a18429a5844d31330a012a9e6
-é
-^app/src/main/java/com/example/construconecta_interdisciplinar_certo/onboarding/TelaLogin1.java,d\a\daf83aea2f0c5cd9db799457be6b9ea08945ff5b
 ò
 happ/src/main/java/com/example/construconecta_interdisciplinar_certo/onboarding/SplashScreenConstroo.java,5\1\51f8efb1c6e574e673e09558b9cc1eadb335c469
 ì
@@ -48,3 +44,11 @@ Xapp/src/main/java/com/example/construconecta_interdisciplinar_certo/ui/BaseActi
 bapp/src/main/java/com/example/construconecta_interdisciplinar_certo/receivers/NetworkReceiver.java,e\e\ee90f7c5a254025d9a228c70899678e2ce8d1295
 è
 _app/src/main/java/com/example/construconecta_interdisciplinar_certo/fragments/HomeFragment.java,1\8\1871bebc4352d8e7f4f7f552026bb322f1175268
+ç
+]app/src/main/java/com/example/construconecta_interdisciplinar_certo/utils/AnimationUtils.java,6\3\63aa25c4de1154f38d473ab2161af2a40acb387c
+â
+Yapp/src/main/java/com/example/construconecta_interdisciplinar_certo/onboarding/Login.java,4\0\4086f4fd48fae0126fa50ae6441f1dcfcc369126
+â
+Yapp/src/main/java/com/example/construconecta_interdisciplinar_certo/utils/InputUtils.java,2\6\26cf4bef84ee208e10eff6eb3b63dde98fecacc6
+ä
+Zapp/src/main/java/com/example/construconecta_interdisciplinar_certo/utils/ButtonUtils.java,7\4\74b3a4449861f59d9734be3318609e8f3389a9d9

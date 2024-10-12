@@ -21,24 +21,24 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_constroo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_constroo_background"
+        android:roundIcon="@mipmap/ic_constroo"
         android:supportsRtl="true"
         android:theme="@style/Theme.ConstruConecta_Interdisciplinar_Certo"
         tools:targetApi="31">
         <activity
-            android:name=".MetodosPagamento"
+            android:name=".checkout.MetodosPagamento"
             android:exported="false" />
         <activity
-            android:name=".CarrinhoActivity"
+            android:name=".checkout.CarrinhoActivity"
             android:exported="false" />
         <activity
-            android:name=".AtualizacoesFuturas"
+            android:name=".ui.AtualizacoesFuturas"
             android:exported="false" />
         <activity
-            android:name=".DetalhesProdutosActivity"
+            android:name=".shop.DetalhesProdutosActivity"
             android:exported="false" />
         <activity
-            android:name=".CameraActivity"
+            android:name=".onboarding.CameraActivity"
             android:exported="false" />
         <activity
             android:name=".ui.InternetErrorActivity"
@@ -68,16 +68,18 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".onboarding.TelaLogin1"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".onboarding.CadastroEmail1"
+            android:name=".onboarding.Login"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".Home"
+            android:name=".onboarding.CadastroEmail1"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/Theme.ConstruConecta_Interdisciplinar_Certo" />
+        <activity
+            android:name=".shop.Home"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity

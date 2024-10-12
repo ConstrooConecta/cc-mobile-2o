@@ -1,9 +1,11 @@
-package com.example.construconecta_interdisciplinar_certo;
+package com.example.construconecta_interdisciplinar_certo.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.construconecta_interdisciplinar_certo.R;
 
 public class AtualizacoesFuturas extends AppCompatActivity {
 

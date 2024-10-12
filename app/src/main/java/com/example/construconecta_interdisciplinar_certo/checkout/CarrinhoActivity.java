@@ -1,8 +1,10 @@
-package com.example.construconecta_interdisciplinar_certo;
+package com.example.construconecta_interdisciplinar_certo.checkout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.construconecta_interdisciplinar_certo.R;
 
 public class CarrinhoActivity extends AppCompatActivity {
 

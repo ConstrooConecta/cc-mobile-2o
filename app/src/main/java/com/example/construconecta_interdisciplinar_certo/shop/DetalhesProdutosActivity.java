@@ -1,4 +1,4 @@
-package com.example.construconecta_interdisciplinar_certo;
+package com.example.construconecta_interdisciplinar_certo.shop;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.construconecta_interdisciplinar_certo.R;
+import com.example.construconecta_interdisciplinar_certo.ui.AtualizacoesFuturas;
 
 public class DetalhesProdutosActivity extends AppCompatActivity {
     private TextView nomeProduto, precoProduto, descontoProduto, de, descricaoProdutoTextView;
