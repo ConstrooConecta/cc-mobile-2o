@@ -5,6 +5,9 @@ import android.content.res.ColorStateList;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+
 import com.example.construconecta_interdisciplinar_certo.R;
 import com.google.android.material.textfield.TextInputLayout;
 

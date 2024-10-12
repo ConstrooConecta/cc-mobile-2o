@@ -9,6 +9,9 @@ import com.example.construconecta_interdisciplinar_certo.Home;
 import com.example.construconecta_interdisciplinar_certo.R;
 import com.example.construconecta_interdisciplinar_certo.databinding.ActivityLoginBinding;
 import com.example.construconecta_interdisciplinar_certo.ui.BaseActivity;
+import com.example.construconecta_interdisciplinar_certo.utils.AnimationUtils;
+import com.example.construconecta_interdisciplinar_certo.utils.ButtonUtils;
+import com.example.construconecta_interdisciplinar_certo.utils.InputUtils;
 import com.google.firebase.auth.FirebaseAuth;
 import java.util.Objects;
 
@@ -67,9 +70,9 @@ public class Login extends BaseActivity {
     }
 
     public void signIn(View view) {
-        binding.progressBar.setVisibility(View.VISIBLE);
-        binding.btLogar.setText("");
-        binding.btLogar.setEnabled(false);
+        ButtonUtils.disableButtonWithProgressBar(this, binding.btLogar, binding.progressBar);
+        InputUtils.setNormal(this, binding.emailInputLayout, binding.emailInput, null);
+        InputUtils.setNormal(this, binding.senhaInputLayout, binding.senhaInput, null);
 
         String email = Objects.requireNonNull(binding.emailInput.getText()).toString();
         String senha = Objects.requireNonNull(binding.senhaInput.getText()).toString();
@@ -77,30 +80,21 @@ public class Login extends BaseActivity {
         if (!email.isEmpty() && !senha.isEmpty()) {
             FirebaseAuth.getInstance().signInWithEmailAndPassword(email, senha)
                     .addOnCompleteListener(task -> {
-                        binding.progressBar.setVisibility(View.GONE);
-                        binding.btLogar.setText("Entrar");
-                        binding.btLogar.setEnabled(true);
+                        ButtonUtils.enableButton(this, binding.btLogar, binding.progressBar);
 
                         if (task.isSuccessful()) {
                             startActivity(new Intent(Login.this, Home.class));
                             finish();
                         } else {
-                            showError();
+                            InputUtils.setError(this, binding.emailInputLayout, binding.emailInput, null, null);
+                            InputUtils.setError(this, binding.senhaInputLayout, binding.senhaInput, null, null);
+                            AnimationUtils.shakeAnimation(binding.senhaInputLayout);
+                            AnimationUtils.shakeAnimation(binding.emailInputLayout);
+                            binding.emailInput.setError("Email ou senha inválidos");
+                            binding.senhaInput.setError("Email ou senha inválidos", null);
                         }
                     });
         }
-    }
-
-    private void showError() {
-        binding.emailInput.setBackgroundResource(R.drawable.error_input_design);
-        binding.senhaInput.setBackgroundResource(R.drawable.error_input_design);
-        binding.emailInput.setError("Email ou senha inválidos");
-        binding.senhaInput.setError("Email ou senha inválidos");
-    }
-
-    // Método de validação de e-mail
-    private boolean validateEmail(String email) {
-        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
 
     // Método para atualizar o estado do botão de login
@@ -108,14 +102,11 @@ public class Login extends BaseActivity {
         String email = Objects.requireNonNull(binding.emailInput.getText()).toString();
         String senha = Objects.requireNonNull(binding.senhaInput.getText()).toString();
 
-        // Verifica se o email é válido e se a senha não está vazia
-        boolean isEmailValid = validateEmail(email);
-        boolean isSenhaNotEmpty = !senha.isEmpty();
-
-        // Se ambos forem verdadeiros, o botão será ativado
-        boolean isEnabled = isEmailValid && isSenhaNotEmpty;
-        binding.btLogar.setEnabled(isEnabled);
-        binding.btLogar.setBackgroundResource(isEnabled ? R.drawable.primary_button_design : R.drawable.disable_button_design);
+        if (!senha.isEmpty() && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            ButtonUtils.enableButton(this, binding.btLogar, binding.progressBar);
+        } else {
+            ButtonUtils.disableButton(this, binding.btLogar, binding.progressBar);
+        }
     }
 
     public void backToMain(View view) {
