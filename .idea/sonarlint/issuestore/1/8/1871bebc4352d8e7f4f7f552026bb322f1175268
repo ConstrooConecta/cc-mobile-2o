@@ -1,21 +1,5 @@
 
-’
-java:S1450"VRemove the "mParam1" field and declare it as a local variable in the relevant methods.(•Íï‘J$bed1d879-1f54-4313-b18e-b13c335b3800
-’
-java:S1450 "VRemove the "mParam2" field and declare it as a local variable in the relevant methods.(¡ˆ€ J$0cc0f59d-f465-43b1-9091-a5625ddb7ea7
-s
-java:S1135"2Complete the task associated to this TODO comment.(ÜûŠ—øÿÿÿÿJ$61dffa9c-89e9-4741-8e58-8ecd67ff4d24
-s
-java:S1135"2Complete the task associated to this TODO comment.(ğï¢öúÿÿÿÿJ$95ce59eb-4916-410f-9e41-38895c711f2e
-s
-java:S1135."2Complete the task associated to this TODO comment.(ßíŠÿÿÿÿÿJ$284a4738-fe3e-49a5-8832-436f1f754c07
-{
-java:S1874V"3Remove this use of "NetworkInfo"; it is deprecated.(Õ¥—ãùÿÿÿÿ8ƒÅûØ£2J$f6ff69f8-2afe-4543-9509-d6a06465abdd
-^
-java:S1874V"<Remove this use of "getActiveNetworkInfo"; it is deprecated.(Õ¥—ãùÿÿÿÿ8»îşØ£2
-{
-java:S1874W"3Remove this use of "isConnected"; it is deprecated.(‡ıŒŞøÿÿÿÿ8„ÅûØ£2J$3336eaf0-5c24-4f76-ade6-4cb84a9024fb
-g
-java:S1068"+Remove this unused "mParam1" private field.(•Íï‘J$f44a34c7-2265-4ad9-b38f-68f29fe64f51
-g
-java:S1068 "+Remove this unused "mParam2" private field.(¡ˆ€ J$888c35ed-08e2-400e-9045-101ad991a10e
+r	java:S117:"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êìØèúÿÿÿÿ8ó½­’¨2
+
+java:S1450""bRemove the "produtoRecyclerView" field and declare it as a local variable in the relevant methods.(­Úáö8Œ¾­’¨2
+o	java:S1009"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ºÙŞûÿÿÿÿ8 ¾­’¨2

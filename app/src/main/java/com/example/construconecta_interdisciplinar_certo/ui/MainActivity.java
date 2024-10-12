@@ -6,8 +6,7 @@ import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Toast;
-
-import com.example.construconecta_interdisciplinar_certo.Home;
+import com.example.construconecta_interdisciplinar_certo.shop.Home;
 import com.example.construconecta_interdisciplinar_certo.R;
 import com.example.construconecta_interdisciplinar_certo.onboarding.CadastroEmail1;
 import com.example.construconecta_interdisciplinar_certo.onboarding.Login;

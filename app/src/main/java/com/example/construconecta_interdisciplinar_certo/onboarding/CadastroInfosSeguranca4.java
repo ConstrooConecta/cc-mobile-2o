@@ -10,7 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.construconecta_interdisciplinar_certo.Home;
+import com.example.construconecta_interdisciplinar_certo.shop.Home;
 import com.example.construconecta_interdisciplinar_certo.R;
 import com.example.construconecta_interdisciplinar_certo.apis.UsuarioApi;
 import com.example.construconecta_interdisciplinar_certo.databinding.ActivityCadastroInfosSeguranca4Binding;

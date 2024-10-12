@@ -6,7 +6,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 
-import com.example.construconecta_interdisciplinar_certo.Home;
+import com.example.construconecta_interdisciplinar_certo.shop.Home;
 import com.example.construconecta_interdisciplinar_certo.R;
 import com.example.construconecta_interdisciplinar_certo.databinding.ActivityLoginBinding;
 import com.example.construconecta_interdisciplinar_certo.ui.BaseActivity;
