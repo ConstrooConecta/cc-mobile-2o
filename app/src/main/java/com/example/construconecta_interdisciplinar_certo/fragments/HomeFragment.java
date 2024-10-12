@@ -6,85 +6,90 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.example.construconecta_interdisciplinar_certo.Adapters.AdapterProdutoHome;
 import com.example.construconecta_interdisciplinar_certo.R;
-import com.example.construconecta_interdisciplinar_certo.ui.InternetErrorActivity;
+import com.example.construconecta_interdisciplinar_certo.apis.ProdutoApi;
+import com.example.construconecta_interdisciplinar_certo.models.Produto;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link HomeFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class HomeFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public HomeFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Home.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static HomeFragment newInstance(String param1, String param2) {
-        HomeFragment fragment = new HomeFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    private RecyclerView produtoRecyclerView;
+    private AdapterProdutoHome adapter;
+    private List<Produto> produtos; // Lista de produtos
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+        // Inicializando o RecyclerView
+        produtoRecyclerView = view.findViewById(R.id.recyclerView);
+        produtoRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        // Inicializando a lista e o Adapter com uma lista vazia
+        produtos = new ArrayList<>();
+        adapter = new AdapterProdutoHome(produtos);
+        produtoRecyclerView.setAdapter(adapter);
+
+        // Chamar a API
+        chamar_API_Retrofit();
+
+        return view;
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+    private void chamar_API_Retrofit() {
+        String API = "https://cc-api-sql-qa.onrender.com/";
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(API)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        ProdutoApi produtoApi = retrofit.create(ProdutoApi.class);
+        Call<List<Produto>> call = produtoApi.findUser();
+
+        call.enqueue(new Callback<List<Produto>>() {
+            @Override
+            public void onResponse(Call<List<Produto>> call, Response<List<Produto>> response) {
+                Log.d("API Response", "Código de status: " + response.code());
+                Log.d("API Response", "Corpo: " + response.body());
+
+                if (response.isSuccessful()) {
+                    if (response.body() != null) {
+                        produtos.clear();
+                        produtos.addAll(response.body());
+                        adapter.notifyDataSetChanged();
+                        Toast.makeText(getActivity(), "Deu Certo", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getActivity(), "A resposta do corpo é nula", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(getActivity(), "Erro na resposta da API: " + response.code(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+
+            @Override
+            public void onFailure(Call<List<Produto>> call, Throwable throwable) {
+                Toast.makeText(getActivity(), "Deu errado: " + throwable.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-
-        if (!isConnectedToInternet()) {
-            // Exibir a Activity de erro de internet
-            Intent intent = new Intent(getActivity(), InternetErrorActivity.class);
-            startActivity(intent);
-            // Opcional: finalizar o fragmento atual ou fazer qualquer outra lógica
-        }
-    }
-
-    private boolean isConnectedToInternet() {
-        ConnectivityManager cm = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
-        return activeNetwork != null && activeNetwork.isConnected();
-    }
-
 }
