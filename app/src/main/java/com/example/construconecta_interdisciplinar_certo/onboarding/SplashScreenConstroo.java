@@ -7,7 +7,6 @@ import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.construconecta_interdisciplinar_certo.R;
-import com.example.construconecta_interdisciplinar_certo.ui.BaseActivity;
 import com.example.construconecta_interdisciplinar_certo.ui.MainActivity;
 
 public class SplashScreenConstroo extends AppCompatActivity {

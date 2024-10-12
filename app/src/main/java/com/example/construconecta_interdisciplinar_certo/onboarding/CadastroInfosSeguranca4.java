@@ -2,16 +2,14 @@ package com.example.construconecta_interdisciplinar_certo.onboarding;
 
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
-import androidx.annotation.NonNull;
+
 import com.example.construconecta_interdisciplinar_certo.Home;
 import com.example.construconecta_interdisciplinar_certo.R;
 import com.example.construconecta_interdisciplinar_certo.apis.UsuarioApi;
@@ -21,14 +19,13 @@ import com.example.construconecta_interdisciplinar_certo.ui.BaseActivity;
 import com.example.construconecta_interdisciplinar_certo.utils.AnimationUtils;
 import com.example.construconecta_interdisciplinar_certo.utils.ButtonUtils;
 import com.example.construconecta_interdisciplinar_certo.utils.InputUtils;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 
 import java.util.List;
 import java.util.Objects;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

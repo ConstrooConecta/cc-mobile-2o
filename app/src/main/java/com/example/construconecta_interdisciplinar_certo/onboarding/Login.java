@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+
 import com.example.construconecta_interdisciplinar_certo.Home;
 import com.example.construconecta_interdisciplinar_certo.R;
 import com.example.construconecta_interdisciplinar_certo.databinding.ActivityLoginBinding;
@@ -13,6 +14,7 @@ import com.example.construconecta_interdisciplinar_certo.utils.AnimationUtils;
 import com.example.construconecta_interdisciplinar_certo.utils.ButtonUtils;
 import com.example.construconecta_interdisciplinar_certo.utils.InputUtils;
 import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.Objects;
 
 public class Login extends BaseActivity {

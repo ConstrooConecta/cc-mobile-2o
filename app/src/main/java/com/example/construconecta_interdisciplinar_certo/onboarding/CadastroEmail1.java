@@ -1,14 +1,12 @@
 package com.example.construconecta_interdisciplinar_certo.onboarding;
 
-import android.animation.ObjectAnimator;
 import android.content.Intent;
-import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Toast;
+
 import com.example.construconecta_interdisciplinar_certo.R;
 import com.example.construconecta_interdisciplinar_certo.databinding.ActivityCadastroEmail1Binding;
 import com.example.construconecta_interdisciplinar_certo.ui.BaseActivity;
@@ -20,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
+
 import java.util.Objects;
 
 public class CadastroEmail1 extends BaseActivity {
