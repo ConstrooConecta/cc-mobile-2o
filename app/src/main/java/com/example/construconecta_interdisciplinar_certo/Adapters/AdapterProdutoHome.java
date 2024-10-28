@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,6 +28,11 @@ public class AdapterProdutoHome extends RecyclerView.Adapter<AdapterProdutoHome.
     // Construtor
     public AdapterProdutoHome(List<Produto> produtos) {
         this.produtos = produtos;
+    }
+
+    public void setFilteredList(List<Produto> Listaprodutos) {
+        this.produtos = Listaprodutos;
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -54,7 +60,8 @@ public class AdapterProdutoHome extends RecyclerView.Adapter<AdapterProdutoHome.
             holder.preco.setTypeface(null, Typeface.NORMAL);
 
             // Mostra o preço com desconto em vermelho e tamanho 24sp
-            double precoComDesconto = produto.getPreco() - produto.getDesconto();
+            double precoComDesconto = produto.getPreco() - (produto.getPreco() * produto.getDesconto());
+
             holder.desconto.setText("R$ " + String.format("%.2f", precoComDesconto));
             holder.desconto.setTextColor(Color.RED); // Muda a cor do desconto para vermelho
             holder.desconto.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24); // Tamanho de 24sp
@@ -84,6 +91,7 @@ public class AdapterProdutoHome extends RecyclerView.Adapter<AdapterProdutoHome.
                 intent.putExtra("Preco", produto.getPreco());
                 intent.putExtra("Desconto", produto.getDesconto());
                 intent.putExtra("descricao", produto.getDescricao());
+                intent.putExtra("id", produto.getprodutoId());
                 holder.itemView.getContext().startActivity(intent);
             }
         });

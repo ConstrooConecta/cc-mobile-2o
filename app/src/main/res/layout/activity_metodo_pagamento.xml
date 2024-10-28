@@ -20,7 +20,7 @@
         app:layout_constraintBottom_toTopOf="@+id/botaoContinuar"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/botaoContinuar"
         android:layout_width="360dp"
         android:layout_height="50dp"
@@ -68,11 +68,11 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.385"
-        app:layout_constraintStart_toEndOf="@+id/botaoVoltar"
+        app:layout_constraintStart_toEndOf="@+id/botaoVoltarConcluido"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/botaoVoltar"
+        android:id="@+id/botaoVoltarConcluido"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginStart="20dp"
@@ -88,11 +88,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="3 métodos disponíveis"
+        android:text="1 método disponível"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.372"
-        app:layout_constraintStart_toEndOf="@+id/botaoVoltar"
+        app:layout_constraintStart_toEndOf="@+id/botaoVoltarConcluido"
         app:layout_constraintTop_toBottomOf="@+id/tituloPagamento" />
 
 
@@ -124,14 +124,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView53" />
 
-    <RadioButton
+    <androidx.appcompat.widget.AppCompatRadioButton
         android:id="@+id/radioButton2"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="45dp"
+        android:buttonTint="@color/radio_button_selector"
         app:layout_constraintStart_toStartOf="@+id/view20"
         app:layout_constraintTop_toTopOf="@+id/view20" />
+
 
     <TextView
         android:id="@+id/textView54"
@@ -189,20 +191,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view20" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button2"
         android:layout_width="135dp"
         android:layout_height="50dp"
-        android:layout_marginStart="5dp"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/caixinha_texto"
         android:text="Aplicar"
         android:textColor="#000000"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
-        app:layout_constraintStart_toEndOf="@+id/editTextText2"
         app:layout_constraintTop_toBottomOf="@+id/textView58" />
 
     <EditText
@@ -211,10 +210,12 @@
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="4dp"
+        android:layout_marginEnd="30dp"
         android:background="@drawable/cupom_design"
         android:ems="10"
         android:hint="Cupom"
         android:inputType="text"
+        app:layout_constraintEnd_toStartOf="@+id/button2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView58" />
 

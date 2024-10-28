@@ -1,72 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent">
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:fillViewport="true">
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="vertical"
-        tools:context=".Home">
+        android:background="@color/white"
+        tools:context=".fragments.HomeFragment">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="0dp"
-            android:layout_height="500dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            app:layoutManager="LinearLayoutManager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Desconto"
-            tools:ignore="MissingConstraints"
-            tools:listitem="@layout/item_produto" />
 
-        <TextView
-            android:id="@+id/Desconto"
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@android:style/Widget.Material.ProgressBar.Large"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            android:layout_marginEnd="100dp"
-            android:text="Relevantes"
-            android:textColor="#000000"
-            android:textSize="34sp"
-            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_marginEnd="40dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.076"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView13" />
-
-        <View
-            android:id="@+id/barraFixa"
-            android:layout_width="413dp"
-            android:layout_height="87dp"
-            android:layout_marginTop="576dp"
-            android:background="#0A262C"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <SearchView
-            android:id="@+id/searchView"
-            android:layout_width="340dp"
-            android:layout_height="42dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="608dp"
-            android:background="#FFFFFF"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.215"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -74,34 +33,119 @@
             android:id="@+id/imageView5"
             android:layout_width="350dp"
             android:layout_height="200dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="50dp"
+            android:src="@drawable/imagemmelhor"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/barraFixa"
-            tools:srcCompat="@drawable/constroo_logo" />
+            android:visibility="gone"/>
 
         <TextView
             android:id="@+id/textView12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="16dp"
             android:text="No TOPO"
             android:textColor="#000000"
+            android:textSize="34sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/Desconto"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+            app:layout_constraintTop_toBottomOf="@id/imageView5"
+            android:visibility="gone"/>
 
+        <!-- "Ofertas" title below the "No TOPO" -->
         <TextView
             android:id="@+id/textView13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginStart="20dp"
             android:text="Ofertas"
-            app:layout_constraintBottom_toTopOf="@+id/Desconto"
+            android:textColor="#000000"
+            android:textSize="34sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView12" />
+            app:layout_constraintTop_toBottomOf="@+id/recyclerViewNoTopo"
+            android:visibility="gone"/>
+
+        <!-- RecyclerView for "Ofertas" -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewOfertas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal"
+            android:scrollbars="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView13"
+            tools:listitem="@layout/recycler_item_ofertas"
+            android:visibility="gone"/>
+
+        <!-- "Relevantes" Text below the first RecyclerView -->
+
+        <!-- RecyclerView for "Relevantes" -->
+        <TextView
+            android:id="@+id/Desconto"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_marginTop="16dp"
+            android:text="Relevantes"
+            android:textColor="#000000"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.123"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recyclerViewOfertas"
+            android:visibility="gone"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/Desconto"
+            tools:listitem="@layout/item_produto"
+            android:visibility="gone"/>
+
+        <!-- Fixed bar at the bottom (barraFixa) -->
+        <View
+            android:id="@+id/barraFixa"
+            android:layout_width="match_parent"
+            android:layout_height="87dp"
+            android:background="#0A262C"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="gone"/>
+
+        <SearchView
+            android:id="@+id/searchView"
+            android:layout_width="340dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="30dp"
+            android:background="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="gone"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewNoTopo"
+            android:layout_width="match_parent"
+            android:layout_height="291dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView12"
+            tools:listitem="@layout/recycler_item_no_topo"
+            android:visibility="gone"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+</androidx.core.widget.NestedScrollView>

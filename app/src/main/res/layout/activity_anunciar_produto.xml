@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F4F2"
+    tools:context=".AnunciarProdutoActivity"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp">
+
+
+        <ImageView
+            android:id="@+id/imageView15"
+            android:layout_width="300dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="67dp"
+            android:layout_marginTop="33dp"
+            android:layout_marginEnd="67dp"
+            android:src="@drawable/imagemanuncio"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextText6" />
+
+        <View
+            android:id="@+id/view19Anuncio"
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:background="#0A262C"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView49Anuncio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Anunciar produto"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/imageButton15Anuncio"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:background="#00FFFFFF"
+            android:onClick="finish"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/baseline_arrow_back_ios_24" />
+
+
+        <ImageView
+            android:id="@+id/imageView11Anuncio"
+            android:layout_width="305dp"
+            android:layout_height="183dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.518"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view19Anuncio"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <EditText
+            android:id="@+id/editTextText3"
+            android:layout_width="322dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="31dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="58dp"
+            android:background="@drawable/input_anunciar_produto_design"
+            android:ems="10"
+            android:hint="ex: Argamassa Porcelanato 20kg essencial \npara assentamento de revestimento \n em áreas internas e externas.  "
+            android:inputType="text"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView26" />
+
+        <EditText
+            android:id="@+id/editTextText4"
+            android:layout_width="322dp"
+            android:layout_height="69dp"
+            android:layout_marginStart="31dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="58dp"
+            android:background="@drawable/input_anunciar_produto_design"
+            android:ems="10"
+            android:hint="ex: Argamassa Porcelanato 20kg "
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.337"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView25" />
+
+        <TextView
+            android:id="@+id/textView25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="31dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="265dp"
+            android:text="Título do anúncio *"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView11Anuncio" />
+
+        <com.google.android.material.textfield.MaterialAutoCompleteTextView
+            android:id="@+id/categoriaInput"
+            android:layout_width="322dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="31dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="58dp"
+            android:background="@drawable/input_anunciar_produto_design"
+            android:hint="Categoria"
+            android:inputType="none"
+            android:paddingLeft="20dp"
+            android:paddingEnd="20dp"
+            android:textColorHint="#B6B6B6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
+        <EditText
+            android:id="@+id/editTextText5"
+            android:layout_width="122dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="31dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="256dp"
+            android:background="@drawable/input_anunciar_produto_design"
+            android:ems="10"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView29" />
+
+        <TextView
+            android:id="@+id/textView26"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="31dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="297dp"
+            android:text="Descrição *"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextText4" />
+
+        <TextView
+            android:id="@+id/textView28"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="33dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="298dp"
+            android:text="Categoria *"
+            android:textColor="#020000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextText3" />
+
+        <TextView
+            android:id="@+id/textView29"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="33dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="337dp"
+            android:text="CEP *"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/categoriaInput" />
+
+        <TextView
+            android:id="@+id/textView30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="31dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="311dp"
+            android:text="Condição *"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextText5" />
+
+        <View
+            android:id="@+id/viewCondicaoNovo"
+            android:layout_width="140dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/condicao_design"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView30" />
+
+        <View
+            android:id="@+id/viewCondicaoUsado"
+            android:layout_width="140dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="29dp"
+            android:background="@drawable/condicao_design"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView30" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/botaoANUNCIAR"
+            android:layout_width="230dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="79dp"
+            android:background="@drawable/primary_button_design"
+            android:text="Anunciar"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.592"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView15" />
+
+        <TextView
+            android:id="@+id/textView31Novo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Novo"
+            android:textColor="#0A262C"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/viewCondicaoNovo"
+            app:layout_constraintEnd_toEndOf="@+id/viewCondicaoNovo"
+            app:layout_constraintStart_toStartOf="@+id/viewCondicaoNovo"
+            app:layout_constraintTop_toTopOf="@+id/viewCondicaoNovo" />
+
+        <TextView
+            android:id="@+id/textView32Usado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Usado"
+            android:textColor="#0A262C"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/viewCondicaoUsado"
+            app:layout_constraintEnd_toEndOf="@+id/viewCondicaoUsado"
+            app:layout_constraintStart_toStartOf="@+id/viewCondicaoUsado"
+            app:layout_constraintTop_toTopOf="@+id/viewCondicaoUsado" />
+
+        <EditText
+            android:id="@+id/editTextText6"
+            android:layout_width="322dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="31dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="58dp"
+            android:background="@drawable/input_anunciar_produto_design"
+            android:ems="10"
+            android:hint="R$ 99"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView33" />
+
+        <TextView
+            android:id="@+id/textView33"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="31dp"
+            android:layout_marginTop="15dp"
+            android:text="Preço"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewCondicaoNovo" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
