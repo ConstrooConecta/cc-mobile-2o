@@ -14,6 +14,11 @@ public interface UsuarioApi {
     @POST("user/add")
     Call<Usuario> createUser(@Body Usuario user);
 
+    @GET("user/users")
+    Call<List<Usuario>> findAllUsers();
+
+
+
     @GET("user/findByTelefone/{telefone}")
     Call<List<Usuario>> findByTelefone(@Path("telefone") String telefone);
 
@@ -23,4 +28,9 @@ public interface UsuarioApi {
     @GET("user/findByCpf/{cpf}")
     Call<List<Usuario>> findByCpf(@Path("cpf") String cpf);
 
+    @GET("user/findByEmail/{email}")
+    Call<List<Usuario>> findByEmail(@Path("email") String email);
+
+    @GET("user/findByUid/{uid}")
+    Call<Usuario> findByUid(@Path("uid") String uid);
 }

@@ -1,0 +1,7 @@
+<resources>
+    <style name="BottomNavStyle" parent="Widget.Design.BottomNavigationView">
+        <item name="android:padding">8dp</item> <!-- Adicione o padding aqui -->
+        <item name="itemPadding">8dp</item> <!-- Use itemPadding se disponível -->
+        <item name="labelVisibilityMode">labeled</item>
+    </style>
+</resources>

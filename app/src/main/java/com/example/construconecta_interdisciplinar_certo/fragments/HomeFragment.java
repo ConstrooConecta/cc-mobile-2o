@@ -1,5 +1,8 @@
 package com.example.construconecta_interdisciplinar_certo.fragments;
 
+import static androidx.camera.core.impl.utils.ContextUtil.getBaseContext;
+
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -7,6 +10,7 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,11 +19,23 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
 import com.example.construconecta_interdisciplinar_certo.Adapters.AdapterProdutoHome;
+import com.example.construconecta_interdisciplinar_certo.Adapters.AdapterProdutoNoTopo;
+import com.example.construconecta_interdisciplinar_certo.Adapters.AdapterProdutoOfertas;
 import com.example.construconecta_interdisciplinar_certo.R;
 import com.example.construconecta_interdisciplinar_certo.apis.ProdutoApi;
 import com.example.construconecta_interdisciplinar_certo.models.Produto;
+import com.example.construconecta_interdisciplinar_certo.onboarding.DatabaseCamera;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,13 +47,32 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class HomeFragment extends Fragment {
-    private RecyclerView produtoRecyclerView;
+    private RecyclerView produtoRecyclerView, recyclerViewOferta, recyclerViewNoTopo;
+    private AdapterProdutoOfertas adapterOferta;
+    private AdapterProdutoNoTopo adapterNoTopo;
     private AdapterProdutoHome adapter;
-    private List<Produto> produtos; // Lista de produtos
+    private List<Produto> produtos, produtosOferta, produtosNoTopo;
+    private ProgressBar progressBar; // Progress bar
+    private TextView textView12, textView13, desconto;
+    private ImageView imagem;
+    private View barrafixa;
+    private SearchView searchView;
+    private int contador = 0;
+
+
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+        progressBar = view.findViewById(R.id.progressBar);
+        textView12 = view.findViewById(R.id.textView12);
+        textView13 = view.findViewById(R.id.textView13);
+        desconto = view.findViewById(R.id.Desconto);
+        searchView = view.findViewById(R.id.searchView);
+        barrafixa = view.findViewById(R.id.barraFixa);
+        imagem = view.findViewById(R.id.imageView5);
+
+
 
         // Inicializando o RecyclerView
         produtoRecyclerView = view.findViewById(R.id.recyclerView);
@@ -48,13 +83,38 @@ public class HomeFragment extends Fragment {
         adapter = new AdapterProdutoHome(produtos);
         produtoRecyclerView.setAdapter(adapter);
 
-        // Chamar a API
-        chamar_API_Retrofit();
+        //ofertas
+        recyclerViewOferta = view.findViewById(R.id.recyclerViewOfertas);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        recyclerViewOferta.setLayoutManager(layoutManager);
+        produtosOferta = new ArrayList<>();
+        adapterOferta = new AdapterProdutoOfertas(produtosOferta, getContext());;
+        recyclerViewOferta.setAdapter(adapterOferta);
+
+        //no topo
+        recyclerViewNoTopo = view.findViewById(R.id.recyclerViewNoTopo);
+        LinearLayoutManager layoutManagerNoTopo = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        recyclerViewNoTopo.setLayoutManager(layoutManagerNoTopo);
+
+        produtosNoTopo = new ArrayList<>();
+        adapterNoTopo = new AdapterProdutoNoTopo(produtosNoTopo, getContext());;
+        recyclerViewNoTopo.setAdapter(adapterNoTopo);
+
+
+
+
+
+
+        // Chamar as APIs
+        chamar_API_Retrofit_Relevantes();
+
+        chamar_API_Retrofit_Ofertas();
+        chamar_API_Retrofit_No_Topo();
 
         return view;
     }
 
-    private void chamar_API_Retrofit() {
+    private void chamar_API_Retrofit_Relevantes() {
         String API = "https://cc-api-sql-qa.onrender.com/";
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(API)
@@ -62,7 +122,7 @@ public class HomeFragment extends Fragment {
                 .build();
 
         ProdutoApi produtoApi = retrofit.create(ProdutoApi.class);
-        Call<List<Produto>> call = produtoApi.findUser();
+        Call<List<Produto>> call = produtoApi.findByTopic(3);
 
         call.enqueue(new Callback<List<Produto>>() {
             @Override
@@ -75,7 +135,7 @@ public class HomeFragment extends Fragment {
                         produtos.clear();
                         produtos.addAll(response.body());
                         adapter.notifyDataSetChanged();
-                        Toast.makeText(getActivity(), "Deu Certo", Toast.LENGTH_SHORT).show();
+                        verificarFinalizacao();
                     } else {
                         Toast.makeText(getActivity(), "A resposta do corpo é nula", Toast.LENGTH_SHORT).show();
                     }
@@ -90,5 +150,100 @@ public class HomeFragment extends Fragment {
                 Toast.makeText(getActivity(), "Deu errado: " + throwable.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void chamar_API_Retrofit_Ofertas() {
+        String API = "https://cc-api-sql-qa.onrender.com/";
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(API)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        ProdutoApi produtoApi = retrofit.create(ProdutoApi.class);
+        Call<List<Produto>> call = produtoApi.findByTopic(2);
+
+        call.enqueue(new Callback<List<Produto>>() {
+            @Override
+            public void onResponse(Call<List<Produto>> call, Response<List<Produto>> response) {
+                Log.d("API Response", "Código de status: " + response.code());
+                Log.d("API Response", "Corpo: " + response.body());
+
+                if (response.isSuccessful()) {
+                    if (response.body() != null) {
+                        produtosOferta.clear();
+                        produtosOferta.addAll(response.body());
+                        adapterOferta.notifyDataSetChanged();
+                        verificarFinalizacao();
+                    } else {
+                        Toast.makeText(getActivity(), "A resposta do corpo é nula", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(getActivity(), "Erro na resposta da API: " + response.code(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+
+            @Override
+            public void onFailure(Call<List<Produto>> call, Throwable throwable) {
+                Toast.makeText(getActivity(), "Deu errado: " + throwable.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void chamar_API_Retrofit_No_Topo() {
+        String API = "https://cc-api-sql-qa.onrender.com/";
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(API)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        ProdutoApi produtoApi = retrofit.create(ProdutoApi.class);
+        Call<List<Produto>> call = produtoApi.findByTopic(1);
+
+        call.enqueue(new Callback<List<Produto>>() {
+            @Override
+            public void onResponse(Call<List<Produto>> call, Response<List<Produto>> response) {
+                Log.d("API Response", "Código de status: " + response.code());
+                Log.d("API Response", "Corpo: " + response.body());
+
+                if (response.isSuccessful()) {
+                    if (response.body() != null) {
+                        Log.d("API NoTopo", "Dados recebidos: " + response.body().toString());
+                        produtosNoTopo.clear();
+                        produtosNoTopo.addAll(response.body());
+                        adapterNoTopo.notifyDataSetChanged();
+                        verificarFinalizacao();
+                    } else {
+                        Log.d("API NoTopo", "Corpo da resposta é nulo");
+                    }
+                } else {
+                    Log.d("API NoTopo", "Erro: Código de status " + response.code());
+                }
+
+            }
+
+
+            @Override
+            public void onFailure(Call<List<Produto>> call, Throwable throwable) {
+                Toast.makeText(getActivity(), "Deu errado: " + throwable.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    private void verificarFinalizacao() {
+        contador++;
+
+        if (contador == 3) {
+            // Esconder a progress bar e mostrar as outras views
+            progressBar.setVisibility(View.GONE);
+            produtoRecyclerView.setVisibility(View.VISIBLE);
+            recyclerViewOferta.setVisibility(View.VISIBLE);
+            recyclerViewNoTopo.setVisibility(View.VISIBLE);
+            textView12.setVisibility(View.VISIBLE);
+            textView13.setVisibility(View.VISIBLE);
+            desconto.setVisibility(View.VISIBLE);
+            searchView.setVisibility(View.VISIBLE);
+            barrafixa.setVisibility(View.VISIBLE);
+            imagem.setVisibility(View.VISIBLE);
+        }
     }
 }

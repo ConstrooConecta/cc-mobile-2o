@@ -37,6 +37,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.construconecta_interdisciplinar_certo.AnunciarProdutoActivity;
 import com.example.construconecta_interdisciplinar_certo.R;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.firebase.auth.FirebaseAuth;
@@ -106,19 +107,48 @@ public class CameraActivity extends AppCompatActivity {
         }
 
         lente.setOnClickListener(view -> virarLente(view));
-        btFoto.setOnClickListener(view -> {
-            tirarFoto();
-        });
+        //recuperando valor de outra tela
+        Intent intent1 = getIntent();
+        //é boolean
+        boolean anuncioProduto = intent1.getBooleanExtra("produtoAnuncio",false);
+        if (anuncioProduto){
+            btFoto.setOnClickListener(view -> {
+                tirarFotoProduto();
+                Toast.makeText(this, "Chegou no certo", Toast.LENGTH_SHORT).show();
+            });
+        }else{
+            btFoto.setOnClickListener(view -> {
+                tirarFoto();
+            });
+        }
+
         foto.setOnClickListener(v -> {
             foto.setVisibility((View.INVISIBLE));
         });
         ImageButton bt4 = findViewById(R.id.gallery);
-        bt4.setOnClickListener(v -> {
-            Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-            resultLauncherGaleria.launch(intent);
-        });
+        if (anuncioProduto) {
+            bt4.setOnClickListener(v -> {
+                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                resultLauncherGaleriaProduto.launch(intent);
+            });
+        }else {
+            bt4.setOnClickListener(v -> {
+                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                resultLauncherGaleria.launch(intent);
+            });
+        }
+
 
     }
+    private ActivityResultLauncher<Intent> resultLauncherGaleriaProduto =
+            registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+                Uri imageUri = result.getData().getData();
+                if (imageUri != null){
+                    foto.setImageURI(imageUri);
+                    foto.setVisibility(View.VISIBLE);
+                    mostrarModalConfirmacaoProduto(foto);
+                }
+            });
     private ActivityResultLauncher<Intent> resultLauncherGaleria =
             registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
                 Uri imageUri = result.getData().getData();
@@ -244,6 +274,57 @@ public class CameraActivity extends AppCompatActivity {
         });
          }
 
+    public void tirarFotoProduto (){
+        foto.setVisibility(View.VISIBLE);
+
+        if (imageCapture == null){
+            return;
+        }
+
+        //definir nome e caminho da imagem
+        String name = new SimpleDateFormat(FILENAME_FORMAT, Locale.US).format(System.currentTimeMillis());
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(MediaStore.MediaColumns.DISPLAY_NAME, name);
+        contentValues.put(MediaStore.MediaColumns.MIME_TYPE, "image/jpeg");
+        contentValues.put(MediaStore.MediaColumns.RELATIVE_PATH, "Pictures/ProdutosAnunciados");
+
+        //Carregando imagem
+        ImageCapture.OutputFileOptions outputFileOptions = new ImageCapture.OutputFileOptions.Builder(
+                getContentResolver(),MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues
+        ).build();
+
+
+        OrientationEventListener orientationEventListener = new OrientationEventListener(this) {
+            @Override
+            public void onOrientationChanged(int orientation) {
+                int rotation;
+
+                if (orientation>=45 && orientation <135){
+                    rotation = Surface.ROTATION_270;
+                }else if (orientation>=135 && orientation <=224){
+                    rotation = Surface.ROTATION_180;
+                }else if (orientation>=225 && orientation <=314){
+                    rotation = Surface.ROTATION_90;
+                }else{
+                    rotation = Surface.ROTATION_0;
+                }
+                imageCapture.setTargetRotation(rotation);
+            }
+        };
+
+        imageCapture.takePicture(outputFileOptions,ContextCompat.getMainExecutor(this), new ImageCapture.OnImageSavedCallback(){
+            @Override
+            public void onImageSaved(@NonNull ImageCapture.OutputFileResults outputFileResults) {
+                foto.setImageURI(outputFileResults.getSavedUri());
+                mostrarModalConfirmacaoProduto(foto);
+            }
+
+            @Override
+            public void onError(@NonNull ImageCaptureException exception) {
+                Toast.makeText(CameraActivity.this, "Erro ao salvar imagem!", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
     private void mostrarModalConfirmacao(final ImageView fotoTirada) {
         // Cria um novo Handler para adicionar o delay
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
@@ -295,7 +376,61 @@ public class CameraActivity extends AppCompatActivity {
                 AlertDialog dialog = builder.create();
                 dialog.show();
             }
-        }, 6000); // Atraso de 6 segundos
+        }, 3000); // Atraso de 6 segundos
+    }
+
+    private void mostrarModalConfirmacaoProduto(final ImageView fotoTirada) {
+        // Cria um novo Handler para adicionar o delay
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                // Aqui será mostrado o AlertDialog após 6 segundos
+                AlertDialog.Builder builder = new AlertDialog.Builder(CameraActivity.this);
+                builder.setTitle("Confirmar foto de anuncio do produto");
+
+                // Infla o layout personalizado
+                LayoutInflater inflater = getLayoutInflater();
+                View dialogView = inflater.inflate(R.layout.dialog_confirmacao, null);
+
+                // Obtém o ImageView do layout do diálogo
+                ImageView imageView = dialogView.findViewById(R.id.imageViewFoto);
+
+
+                Bitmap bitmap = ((BitmapDrawable) fotoTirada.getDrawable()).getBitmap();
+                imageView.setImageBitmap(bitmap); // Define o bitmap na ImageView do dialog
+
+                // Aplica a transformação circular na foto
+
+                // Define o layout personalizado no diálogo
+                builder.setView(dialogView);
+
+                // Botão "Sim"
+                builder.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Chama o método para salvar a foto
+                        databaseCameraE.uploadFotoProduto(getBaseContext(), fotoTirada, docData, user.getEmail());
+                        Toast.makeText(CameraActivity.this, "Deu green!", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(CameraActivity.this, AnunciarProdutoActivity.class);
+                        intent.putExtra("salvouFirebase", true);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+
+                // Botão "Não"
+                builder.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss(); // Fecha o modal
+                    }
+                });
+
+                // Exibe o AlertDialog
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }
+        }, 3000); // Atraso de 6 segundos
     }
 
     // Método para transformar a imagem em circular

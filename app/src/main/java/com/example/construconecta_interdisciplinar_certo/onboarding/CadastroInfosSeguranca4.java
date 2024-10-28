@@ -1,14 +1,20 @@
 package com.example.construconecta_interdisciplinar_certo.onboarding;
 
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.core.app.NotificationCompat;
 
 import com.example.construconecta_interdisciplinar_certo.shop.Home;
 import com.example.construconecta_interdisciplinar_certo.R;
@@ -70,31 +76,22 @@ public class CadastroInfosSeguranca4 extends BaseActivity {
         // Adiciona TextWatcher para o campo de CPF
         binding.cpfInput.addTextChangedListener(new TextWatcher() {
             private boolean isUpdating = false;
-
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                 // Não é necessário implementar
             }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                binding.scrollView.post(() -> binding.scrollView.fullScroll(View.FOCUS_DOWN));
-                InputUtils.setNormal(CadastroInfosSeguranca4.this, binding.cpfInputLayout, binding.cpfInput, binding.cpfError);
-
                 if (isUpdating) {
                     return; // Evita loops infinitos
                 }
-
                 isUpdating = true; // Indica que estamos atualizando o texto
                 String unformatted = s.toString().replaceAll("[^\\d]", ""); // Remove tudo que não for número
-
                 if (unformatted.length() > 11) {
                     unformatted = unformatted.substring(0, 11); // Limita a 11 dígitos
                 }
-
                 StringBuilder formatted = new StringBuilder();
                 int length = unformatted.length();
-
                 if (length > 0) {
                     formatted.append(unformatted.substring(0, Math.min(length, 3))); // Primeiros 3 dígitos
                     if (length > 3) {
@@ -110,10 +107,8 @@ public class CadastroInfosSeguranca4 extends BaseActivity {
                         }
                     }
                 }
-
                 binding.cpfInput.setText(formatted.toString());
                 binding.cpfInput.setSelection(formatted.length()); // Define a posição da seleção corretamente
-                binding.cpfInput.requestFocus(); // Manter o foco no campo de CPF
                 validateCpf(unformatted); // Valida o CPF formatado
                 isUpdating = false; // Reseta a flag
             }
@@ -278,6 +273,7 @@ public class CadastroInfosSeguranca4 extends BaseActivity {
 
                                     // Envia os dados para o banco e só navega ao receber sucesso
                                     sendUserToDatabase(usuario, intent, bundle);
+                                    mostrarNotificacao("Parabéns, você se cadastrou no app Constroo");
                                 } else {
                                     Toast.makeText(CadastroInfosSeguranca4.this, "Erro ao criar conta.", Toast.LENGTH_SHORT).show();
                                 }
@@ -347,6 +343,9 @@ public class CadastroInfosSeguranca4 extends BaseActivity {
                 binding.progressBar.setVisibility(View.GONE); // Oculta ProgressBar
                 binding.nextButton.setEnabled(true); // Reabilita o botão, caso precise ser reutilizado
 
+                //passando um bundle int castroConcluido como 1 para direcionar para a pra proxima tela
+                bundle.putInt("castroConcluido", 1);
+                intent.putExtras(bundle);
                 // Prossiga para a próxima tela
                 startActivity(intent);
                 finish();
@@ -377,4 +376,26 @@ public class CadastroInfosSeguranca4 extends BaseActivity {
             binding.nextButton.setBackgroundResource(R.drawable.disable_button_design);
         }
     }
+
+    private void mostrarNotificacao(String mensagem) {
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        String channelId = "canal_notificacao"; // ID do canal
+
+        // Para dispositivos com Android O ou superior
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel(channelId, "Notificações", NotificationManager.IMPORTANCE_DEFAULT);
+            notificationManager.createNotificationChannel(channel);
+        }
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, channelId)
+                .setSmallIcon(R.drawable.constroo_logo) // Substitua pelo seu ícone
+                .setContentTitle("Cadastro Completo")
+                .setContentText(mensagem)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setAutoCancel(true) // A notificação será cancelada ao clicar
+                .setVibrate(new long[]{0, 500, 1000}); // Vibração opcional
+
+        notificationManager.notify(1, builder.build()); // 1 é o ID da notificação
+    }
+
 }

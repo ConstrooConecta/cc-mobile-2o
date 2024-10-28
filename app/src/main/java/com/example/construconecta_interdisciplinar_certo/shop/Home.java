@@ -12,16 +12,19 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.construconecta_interdisciplinar_certo.fragments.CategoriasFragment;
 import com.example.construconecta_interdisciplinar_certo.onboarding.CameraActivity;
 import com.example.construconecta_interdisciplinar_certo.R;
 import com.example.construconecta_interdisciplinar_certo.databinding.ActivityHomeBinding;
 import com.example.construconecta_interdisciplinar_certo.fragments.ContaFragment;
 import com.example.construconecta_interdisciplinar_certo.fragments.ContratarFragment;
-import com.example.construconecta_interdisciplinar_certo.fragments.FavoritesFragment;
+import com.example.construconecta_interdisciplinar_certo.fragments.CarrinhoFragment;
 import com.example.construconecta_interdisciplinar_certo.fragments.HomeFragment;
 import com.example.construconecta_interdisciplinar_certo.ui.BaseActivity;
+import com.google.android.material.navigation.NavigationBarView;
 
 public class Home extends BaseActivity {
+    public static NavigationBarView bottomNavigationView;
     ActivityHomeBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +41,7 @@ public class Home extends BaseActivity {
                 mostrarBoasVindas();
             }
         }
-
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
         //Configurando a bottom navBar
         binding.bottomNavigationView.setOnItemSelectedListener(
@@ -46,25 +49,24 @@ public class Home extends BaseActivity {
                     //substituindo os fragments
                     int id = item.getItemId();
                     if (id == R.id.home1) {
-
                        // item.setIcon(R.drawable.chat_selected_icon);
                         replaceFragment(new HomeFragment());
 
-
-                    } else if (id == R.id.contratar) {
+                    }else if (id == R.id.categorias) {
+                        //  item.setIcon(R.drawable.person_selected_icon);
+                        replaceFragment(new CategoriasFragment());
+                    }
+                    else if (id == R.id.contratar) {
                        // item.setIcon(R.drawable.home_selected_icon);
                         replaceFragment(new ContratarFragment());
-                        Toast.makeText(this, "Contratar", Toast.LENGTH_SHORT).show();
 
-                    } else if (id == R.id.favoritos) {
+                    } else if (id == R.id.carrinho) {
                       //  item.setIcon(R.drawable.person_selected_icon);
-                        replaceFragment(new FavoritesFragment());
-                        Toast.makeText(this, "Favoritos", Toast.LENGTH_SHORT).show();
+                        replaceFragment(new CarrinhoFragment());
                     }
                     else if (id == R.id.conta) {
                         //item.setIcon(R.drawable.home_selected_icon);
                         replaceFragment(new ContaFragment());
-                        Toast.makeText(this, "Conta", Toast.LENGTH_SHORT).show();
 
                     }
                     return true;
