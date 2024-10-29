@@ -55,6 +55,7 @@ public class AdapterProdutoNoTopo extends RecyclerView.Adapter<AdapterProdutoNoT
         precoNovo = Math.round(precoNovo * 100.0) / 100.0;
         holder.textViewPrecoNovo.setText("R$ " + precoNovo + " cada");
 
+
         String url = produto.getImagem();
         if (url == null || url.isEmpty()) {
             url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8lRbS7eKYzDq-Ftxc1p8G_TTw2unWBMEYUw&s";
@@ -87,6 +88,7 @@ public class AdapterProdutoNoTopo extends RecyclerView.Adapter<AdapterProdutoNoT
                 Intent intent = new Intent(holder.itemView.getContext(), DetalhesProdutosActivity.class);
                 intent.putExtra("nomeProduto", produto.getNomeProduto());
                 intent.putExtra("imagemProduto", finalUrl);
+                intent.putExtra("usuario",produto.getUsuario());
                 intent.putExtra("Preco", produto.getPreco());
                 intent.putExtra("Desconto", produto.getDesconto());
                 intent.putExtra("descricao", produto.getDescricao());
