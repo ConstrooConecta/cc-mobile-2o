@@ -26,12 +26,14 @@ import com.bumptech.glide.Glide;
 import com.example.construconecta_interdisciplinar_certo.Adapters.AdapterServico;
 import com.example.construconecta_interdisciplinar_certo.Adapters.AdapterTagServico;
 import com.example.construconecta_interdisciplinar_certo.Adapters.AdapterTagServicoContratar;
+import com.example.construconecta_interdisciplinar_certo.Adapters.CardAdapter;
 import com.example.construconecta_interdisciplinar_certo.AnunciarProdutoActivity;
 import com.example.construconecta_interdisciplinar_certo.R;
 import com.example.construconecta_interdisciplinar_certo.apis.ProdutoApi;
 import com.example.construconecta_interdisciplinar_certo.apis.ServicoApi;
 import com.example.construconecta_interdisciplinar_certo.apis.TagServicoApi;
 import com.example.construconecta_interdisciplinar_certo.apis.UsuarioApi;
+import com.example.construconecta_interdisciplinar_certo.models.CardItem;
 import com.example.construconecta_interdisciplinar_certo.models.Categoria;
 import com.example.construconecta_interdisciplinar_certo.models.Produto;
 import com.example.construconecta_interdisciplinar_certo.models.Servico;
@@ -57,6 +59,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ContratarFragment extends Fragment {
+    private RecyclerView recyclerCards;
     private ImageView imagemPerfil;
     private TextView textView40,textView39;
     private List<TagServico> servicoTagList;
@@ -128,6 +131,17 @@ public class ContratarFragment extends Fragment {
                 Toast.makeText(getContext(), "Erro ao carregar imagem.", Toast.LENGTH_SHORT).show();
             }
         });
+
+        recyclerCards = view.findViewById(R.id.recycler_cards);
+        recyclerCards.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+
+        List<CardItem> cardItems = new ArrayList<>();
+        cardItems.add(new CardItem("Conte o que precisa", "Conte o que precisa, inclua o \n máximo de detalhes, se puder \n inclua fotos para receber \n orçamentos mais precisos."));
+        cardItems.add(new CardItem("Receba orçamentos", "Os profissionais Constroo irão \n enviar orçamentos gratuitos. \n Avalie, compare os orçamentos."));
+        cardItems.add(new CardItem("Escolha o profissional", "Após o serviço realizado, pague \n pelo aplicativo e parcele em até \n 6x sem juros no cartão de \n crédito."));
+
+        CardAdapter cardAdapter = new CardAdapter(cardItems);
+        recyclerCards.setAdapter(cardAdapter);
 
         return view;
     }

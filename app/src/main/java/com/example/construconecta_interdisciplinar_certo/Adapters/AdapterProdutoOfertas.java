@@ -85,6 +85,7 @@ public class AdapterProdutoOfertas extends RecyclerView.Adapter<AdapterProdutoOf
                 Intent intent = new Intent(holder.itemView.getContext(), DetalhesProdutosActivity.class);
                 intent.putExtra("nomeProduto", produto.getNomeProduto());
                 intent.putExtra("imagemProduto", finalUrl);
+                intent.putExtra("usuario",produto.getUsuario());
                 intent.putExtra("Preco", produto.getPreco());
                 intent.putExtra("Desconto", produto.getDesconto());
                 intent.putExtra("descricao", produto.getDescricao());

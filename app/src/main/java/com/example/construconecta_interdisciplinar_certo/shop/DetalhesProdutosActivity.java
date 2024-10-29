@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.construconecta_interdisciplinar_certo.Adapters.AdapterServico;
 import com.example.construconecta_interdisciplinar_certo.R;
 import com.example.construconecta_interdisciplinar_certo.apis.CarrinhoApi;
 import com.example.construconecta_interdisciplinar_certo.apis.UsuarioApi;
@@ -31,6 +33,8 @@ import com.example.construconecta_interdisciplinar_certo.ui.MainActivity;
 import com.example.construconecta_interdisciplinar_certo.utils.ButtonUtils;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.Random;
 import java.util.UUID;
@@ -42,9 +46,9 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class DetalhesProdutosActivity extends AppCompatActivity {
-    private TextView nomeProduto, precoProduto, descontoProduto, de, descricaoProdutoTextView;
+    private TextView nomeProduto, precoProduto, descontoProduto, de, descricaoProdutoTextView, textViewNomeLoja;
     private ImageView imagemProduto, oferta, lojaAle, coracaoFavorito;
-    private String imagemUrl , idProduto;
+    private String imagemUrl , idProduto, usuario;
     private Double precoProdutoToCarrinho;
     private Boolean favorito;
 
@@ -54,7 +58,9 @@ public class DetalhesProdutosActivity extends AppCompatActivity {
         setContentView(R.layout.activity_produto_detalhes); // Criar este layout
         Intent intent = getIntent();
         idProduto = intent.getStringExtra("id");
+        usuario = intent.getStringExtra("usuario");
         favorito = intent.getBooleanExtra("favorito",false);
+        textViewNomeLoja = findViewById(R.id.textViewNomeLoja);
 
         // Inicializando as views
         coracaoFavorito = findViewById(R.id.coracao_favorito);
@@ -80,6 +86,7 @@ public class DetalhesProdutosActivity extends AppCompatActivity {
                 .apply(RequestOptions.circleCropTransform())
                 .into(lojaAle);
 
+        buscarUsuarioPorUid(usuario);
 
 
         // Recebendo os dados via Intent
@@ -247,6 +254,62 @@ public class DetalhesProdutosActivity extends AppCompatActivity {
     public void abrirCarrinho(View view) {
         Intent intent = new Intent(this, CarrinhoActivity.class);
         startActivity(intent);
+    }
+
+    private void buscarUsuarioPorUid(String uid) {
+        String apiUrl = "https://cc-api-sql-qa.onrender.com/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(apiUrl)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        UsuarioApi usuarioApi = retrofit.create(UsuarioApi.class);
+        Call<Usuario> call = usuarioApi.findByUid(uid);
+
+        call.enqueue(new Callback<Usuario>() {
+            @Override
+            public void onResponse(Call<Usuario> call, Response<Usuario> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    Usuario usuario = response.body();
+                    String email = usuario.getEmail();
+                    buscarImagemNoFirebase(email);
+                    textViewNomeLoja.setText("@" + usuario.getNomeUsuario());
+                    //deixar em negrito
+                    textViewNomeLoja.setTypeface(null, Typeface.BOLD);
+                } else {
+                    Toast.makeText(DetalhesProdutosActivity.this, "Usuário não encontrado", Toast.LENGTH_SHORT).show();
+                    lojaAle.setImageResource(R.drawable.imagemanuncio);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Usuario> call, Throwable t) {
+                Toast.makeText(DetalhesProdutosActivity.this, "Erro na chamada de API: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                lojaAle.setImageResource(R.drawable.imagemanuncio);
+            }
+        });
+    }
+
+    private void buscarImagemNoFirebase(String email) {
+        // Obtém a referência para o Firebase Storage
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        String imagePath = "galeria/" + email + ".jpg";
+        StorageReference imageRef = storage.getReference().child(imagePath);
+
+        // Tenta baixar a URL da imagem
+        imageRef.getDownloadUrl().addOnSuccessListener(uri -> {
+
+            // Carrega a imagem diretamente na ImageView usando Glide
+            Glide.with(this)
+                    .load(uri)
+                    .apply(RequestOptions.circleCropTransform())
+                    .into(lojaAle);
+        }).addOnFailureListener(exception -> {
+            // Em caso de falha, exibe uma imagem padrão
+            lojaAle.setImageResource(R.drawable.imagemanuncio);
+            Toast.makeText(DetalhesProdutosActivity.this, "Erro ao carregar a imagem: " + exception.getMessage(), Toast.LENGTH_SHORT).show();
+        });
     }
 
 
