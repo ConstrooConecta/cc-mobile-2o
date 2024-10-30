@@ -59,7 +59,8 @@ public class ContratarFragment extends Fragment {
     private RecyclerView recyclerCategoriaSer;
     private AdapterTagServicoContratar adapter;
 
-    public ContratarFragment() {}
+    public ContratarFragment() {
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -178,6 +179,7 @@ public class ContratarFragment extends Fragment {
                     Toast.makeText(getActivity(), "Erro na resposta da API: " + response.code(), Toast.LENGTH_SHORT).show();
                 }
             }
+
             @Override
             public void onFailure(Call<List<TagServico>> call, Throwable throwable) {
                 Toast.makeText(getActivity(), "Erro ao mostrar serviço: " + throwable.getMessage(), Toast.LENGTH_SHORT).show();
@@ -213,6 +215,7 @@ public class ContratarFragment extends Fragment {
                     Toast.makeText(getContext(), "Entrou no else", Toast.LENGTH_SHORT).show();
                 }
             }
+
             @Override
             public void onFailure(Call<List<Usuario>> call, Throwable t) {
                 Toast.makeText(getContext(), "Erro na chamada: " + t.getMessage(), Toast.LENGTH_SHORT).show();

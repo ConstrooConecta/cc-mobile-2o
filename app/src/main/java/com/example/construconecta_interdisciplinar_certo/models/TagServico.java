@@ -18,12 +18,15 @@ public class TagServico {
     public double getPrecoMedio() {
         return precoMedio;
     }
+
     public int getTagServicoId() {
         return tagServicoId;
     }
+
     public String getNome() {
         return nome;
     }
+
     public void setNome(String nome) {
         this.nome = nome;
     }

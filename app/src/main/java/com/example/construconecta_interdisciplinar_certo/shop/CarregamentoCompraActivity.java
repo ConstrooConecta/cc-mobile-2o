@@ -17,6 +17,7 @@ public class CarregamentoCompraActivity extends AppCompatActivity {
     private ImageView imageViewSacola;
     private int progresso = 0;
     private Handler handler = new Handler();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

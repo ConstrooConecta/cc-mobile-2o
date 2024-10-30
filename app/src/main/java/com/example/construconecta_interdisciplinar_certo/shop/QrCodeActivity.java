@@ -10,6 +10,7 @@ import com.example.construconecta_interdisciplinar_certo.R;
 
 public class QrCodeActivity extends AppCompatActivity {
     Button botaoContinuarQrCode;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -18,6 +18,7 @@ public class NetworkReceiver extends BroadcastReceiver {
             context.startActivity(i);
         }
     }
+
     private boolean isConnected(Context context) {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();

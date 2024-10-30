@@ -16,7 +16,6 @@ import android.os.Looper;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Surface;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -68,26 +67,6 @@ public class CameraActivity extends AppCompatActivity {
 
     private FirebaseAuth auth = FirebaseAuth.getInstance();
     private FirebaseUser user = auth.getCurrentUser();
-    private Map<String, String> docData = new HashMap<>();
-    private DatabaseCamera databaseCameraE = new DatabaseCamera();
-    private androidx.camera.view.PreviewView viewFinder;
-    private ImageView foto;
-    private ImageCapture imageCapture;
-    private CameraSelector cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA;
-    private Button btFoto;
-
-    private ActivityResultLauncher<String[]> activityResultLauncher = registerForActivityResult(
-            new ActivityResultContracts.RequestMultiplePermissions(),
-            permissions -> {
-                boolean permissionGranted = permissions.values().stream().allMatch(granted -> granted);
-                if (!permissionGranted) {
-                    Toast.makeText(this, "Permissão NEGADA. Tente novamente.", Toast.LENGTH_SHORT).show();
-                } else {
-                    startCamera();
-                }
-            }
-    );
-
     private ActivityResultLauncher<Intent> resultLauncherGaleriaProduto =
             registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
                 if (result.getData() != null) {
@@ -99,7 +78,6 @@ public class CameraActivity extends AppCompatActivity {
                     }
                 }
             });
-
     private ActivityResultLauncher<Intent> resultLauncherGaleria =
             registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
                 if (result.getData() != null) {
@@ -111,6 +89,24 @@ public class CameraActivity extends AppCompatActivity {
                     }
                 }
             });
+    private Map<String, String> docData = new HashMap<>();
+    private DatabaseCamera databaseCameraE = new DatabaseCamera();
+    private androidx.camera.view.PreviewView viewFinder;
+    private ImageView foto;
+    private ImageCapture imageCapture;
+    private CameraSelector cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA;
+    private Button btFoto;
+    private ActivityResultLauncher<String[]> activityResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.RequestMultiplePermissions(),
+            permissions -> {
+                boolean permissionGranted = permissions.values().stream().allMatch(granted -> granted);
+                if (!permissionGranted) {
+                    Toast.makeText(this, "Permissão NEGADA. Tente novamente.", Toast.LENGTH_SHORT).show();
+                } else {
+                    startCamera();
+                }
+            }
+    );
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -231,6 +227,7 @@ public class CameraActivity extends AppCompatActivity {
                 foto.setImageURI(outputFileResults.getSavedUri());
                 mostrarModalConfirmacaoProduto(foto);
             }
+
             @Override
             public void onError(@NonNull ImageCaptureException exception) {
                 Toast.makeText(CameraActivity.this, "Erro ao salvar imagem!", Toast.LENGTH_SHORT).show();

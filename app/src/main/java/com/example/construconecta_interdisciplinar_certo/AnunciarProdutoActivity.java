@@ -223,6 +223,7 @@ public class AnunciarProdutoActivity extends AppCompatActivity {
                     Toast.makeText(AnunciarProdutoActivity.this, "Erro ao carregar categorias", Toast.LENGTH_SHORT).show();
                 }
             }
+
             @Override
             public void onFailure(Call<List<Categoria>> call, Throwable t) {
                 Toast.makeText(AnunciarProdutoActivity.this, "Erro na chamada de categorias: " + t.getMessage(), Toast.LENGTH_SHORT).show();
@@ -262,9 +263,12 @@ public class AnunciarProdutoActivity extends AppCompatActivity {
                         String errorBody = response.errorBody().string(); // pegar o corpo do erro como string
                         Log.e("POST_ERROR", "Erro ao salvar no banco de dados: " + errorBody);
                         Toast.makeText(AnunciarProdutoActivity.this, "Erro ao salvar no banco de dados: " + errorBody, Toast.LENGTH_LONG).show();
-                    } catch (IOException e) { Log.e("POST_ERROR", "Erro ao processar o corpo do erro.", e); }
+                    } catch (IOException e) {
+                        Log.e("POST_ERROR", "Erro ao processar o corpo do erro.", e);
+                    }
                 }
             }
+
             @Override
             public void onFailure(Call<Produto> call, Throwable t) {
                 Toast.makeText(AnunciarProdutoActivity.this, "Erro de conexão.", Toast.LENGTH_SHORT).show();

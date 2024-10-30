@@ -55,7 +55,9 @@ public class CarrinhoFragment extends Fragment {
     private TextView quantidadeItens, subto, textViewTotal, textCarrinhoVazio;
     private ImageView imagem, imageViewCarrinhoVazio;
     private Button button, buttonCarrinhoVazio;
-    public CarrinhoFragment() {}
+
+    public CarrinhoFragment() {
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -124,6 +126,7 @@ public class CarrinhoFragment extends Fragment {
                     Toast.makeText(getContext(), "Erro ao carregar produtos", Toast.LENGTH_SHORT).show();
                 }
             }
+
             @Override
             public void onFailure(Call<List<Produto>> call, Throwable t) {
                 progressBar.setVisibility(View.GONE);
@@ -206,6 +209,7 @@ public class CarrinhoFragment extends Fragment {
                     });
                 }
             }
+
             @Override
             public void onFailure(Call<List<Carrinho>> call, Throwable t) {
                 progressBar.setVisibility(View.GONE);

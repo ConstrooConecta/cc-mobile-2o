@@ -14,6 +14,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         checkInternetConnection();
     }
+
     private void checkInternetConnection() {
         if (!isConnectedToInternet()) {
             Intent intent = new Intent(this, InternetErrorActivity.class);
@@ -21,6 +22,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             finish(); // Finaliza a Activity atual
         }
     }
+
     private boolean isConnectedToInternet() {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();

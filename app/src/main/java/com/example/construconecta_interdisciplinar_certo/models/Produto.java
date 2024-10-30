@@ -46,27 +46,35 @@ public class Produto {
     public String getprodutoId() {
         return produtoId;
     }
+
     public String getNomeProduto() {
         return nomeProduto;
     }
+
     public String getImagem() {
         return imagem;
     }
+
     public void setImagem(String imagem) {
         this.imagem = imagem;
     }
+
     public double getPreco() {
         return preco;
     }
+
     public double getDesconto() {
         return desconto;
     }
+
     public String getDescricao() {
         return descricao;
     }
+
     public String getUsuario() {
         return usuario;
     }
+
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }

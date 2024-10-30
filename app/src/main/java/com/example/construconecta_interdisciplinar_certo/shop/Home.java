@@ -27,6 +27,7 @@ public class Home extends BaseActivity {
     public static NavigationBarView bottomNavigationView;
     ActivityHomeBinding binding;
     int cont = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

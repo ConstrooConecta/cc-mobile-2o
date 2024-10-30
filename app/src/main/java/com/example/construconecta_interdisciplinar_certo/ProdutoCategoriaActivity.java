@@ -93,9 +93,14 @@ public class ProdutoCategoriaActivity extends AppCompatActivity {
                         progressBar.setVisibility(View.GONE);
                         produtoRecyclerView.setVisibility(View.VISIBLE);
                         searchBar.setVisibility(View.VISIBLE);
-                    } else { Log.d("API NoTopo", "Corpo da resposta é nulo"); }
-                } else { Log.d("API NoTopo", "Erro: Código de status " + response.code()); }
+                    } else {
+                        Log.d("API NoTopo", "Corpo da resposta é nulo");
+                    }
+                } else {
+                    Log.d("API NoTopo", "Erro: Código de status " + response.code());
+                }
             }
+
             @Override
             public void onFailure(Call<List<Produto>> call, Throwable throwable) {
                 Toast.makeText(ProdutoCategoriaActivity.this, "Erro ao mostrar categorias: " + throwable.getMessage(), Toast.LENGTH_SHORT).show();
@@ -105,8 +110,15 @@ public class ProdutoCategoriaActivity extends AppCompatActivity {
 
     public void filterList(String query) {
         List<Produto> filteredList = new ArrayList<>();
-        for (Produto item : produtos) { if (item.getNomeProduto().toLowerCase().contains(query.toLowerCase())) { filteredList.add(item); } }
-        if (filteredList.isEmpty()) { Toast.makeText(this, "Nenhum resultado encontrado", Toast.LENGTH_SHORT).show(); }
-        else { adapter.setFilteredList(filteredList); }
+        for (Produto item : produtos) {
+            if (item.getNomeProduto().toLowerCase().contains(query.toLowerCase())) {
+                filteredList.add(item);
+            }
+        }
+        if (filteredList.isEmpty()) {
+            Toast.makeText(this, "Nenhum resultado encontrado", Toast.LENGTH_SHORT).show();
+        } else {
+            adapter.setFilteredList(filteredList);
+        }
     }
 }

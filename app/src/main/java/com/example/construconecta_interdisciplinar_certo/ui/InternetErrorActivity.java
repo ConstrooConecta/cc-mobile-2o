@@ -19,6 +19,7 @@ public class InternetErrorActivity extends AppCompatActivity {
             runOnUiThread(() -> onConnectionRestored());
         }
     };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

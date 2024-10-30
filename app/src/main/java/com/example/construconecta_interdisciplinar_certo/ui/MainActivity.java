@@ -15,6 +15,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends BaseActivity {
     int cont = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

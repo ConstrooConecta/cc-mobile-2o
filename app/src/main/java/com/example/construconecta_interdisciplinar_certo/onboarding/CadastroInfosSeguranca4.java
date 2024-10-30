@@ -362,6 +362,7 @@ public class CadastroInfosSeguranca4 extends BaseActivity {
             }
         });
     }
+
     private void updateButtonStatus() {
         String cpf = Objects.requireNonNull(binding.cpfInput.getText()).toString().replaceAll("[^\\d]", "");
         boolean cpfValido = isCPFValido(cpf);
@@ -378,6 +379,7 @@ public class CadastroInfosSeguranca4 extends BaseActivity {
             binding.nextButton.setBackgroundResource(R.drawable.disable_button_design);
         }
     }
+
     private void mostrarNotificacao(String mensagem) {
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         String channelId = "canal_notificacao"; // ID do canal

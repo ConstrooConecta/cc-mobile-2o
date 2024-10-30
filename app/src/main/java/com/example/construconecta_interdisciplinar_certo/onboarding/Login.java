@@ -19,6 +19,7 @@ import java.util.Objects;
 
 public class Login extends BaseActivity {
     private ActivityLoginBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

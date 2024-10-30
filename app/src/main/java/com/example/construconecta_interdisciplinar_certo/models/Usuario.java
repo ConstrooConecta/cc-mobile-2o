@@ -33,8 +33,19 @@ public class Usuario {
         this.dataNascimento = dataNascimento;
     }
 
-    public String getUid() { return uid; }
-    public String getNomeCompleto() { return nomeCompleto; }
-    public String getNomeUsuario() { return nomeUsuario; }
-    public String getEmail() { return email; }
+    public String getUid() {
+        return uid;
+    }
+
+    public String getNomeCompleto() {
+        return nomeCompleto;
+    }
+
+    public String getNomeUsuario() {
+        return nomeUsuario;
+    }
+
+    public String getEmail() {
+        return email;
+    }
 }

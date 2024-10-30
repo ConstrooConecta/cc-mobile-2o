@@ -28,6 +28,7 @@ public class AdapterCarrinho extends RecyclerView.Adapter<AdapterCarrinho.Carrin
         this.produtosCarrinho = produtosCarrinho;
         this.produtos = produtos;  // Passa a lista de produtos
     }
+
     @NonNull
     @Override
     public CarrinhoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

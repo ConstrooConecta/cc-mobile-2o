@@ -119,6 +119,7 @@ public class HomeFragment extends Fragment {
                     Toast.makeText(getActivity(), "Erro na resposta da API: " + response.code(), Toast.LENGTH_SHORT).show();
                 }
             }
+
             @Override
             public void onFailure(Call<List<Produto>> call, Throwable throwable) {
                 Toast.makeText(getActivity(), "Erro ao mostrar produtos relevantes: " + throwable.getMessage(), Toast.LENGTH_SHORT).show();
@@ -155,6 +156,7 @@ public class HomeFragment extends Fragment {
                     Toast.makeText(getActivity(), "Erro na resposta da API: " + response.code(), Toast.LENGTH_SHORT).show();
                 }
             }
+
             @Override
             public void onFailure(Call<List<Produto>> call, Throwable throwable) {
                 Toast.makeText(getActivity(), "Erro ao mostrar produtos em Ofertas: " + throwable.getMessage(), Toast.LENGTH_SHORT).show();
@@ -192,6 +194,7 @@ public class HomeFragment extends Fragment {
                     Log.d("API NoTopo", "Erro: Código de status " + response.code());
                 }
             }
+
             @Override
             public void onFailure(Call<List<Produto>> call, Throwable throwable) {
                 Toast.makeText(getActivity(), "Erro ao mostrar produtos No TOPO: " + throwable.getMessage(), Toast.LENGTH_SHORT).show();

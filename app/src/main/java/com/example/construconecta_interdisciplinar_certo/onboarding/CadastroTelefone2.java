@@ -44,7 +44,9 @@ public class CadastroTelefone2 extends BaseActivity {
         // Formatação e validação de Telefone em Tempo Real
         binding.telefoneInput.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 validatePhone(s.toString());
@@ -83,6 +85,7 @@ public class CadastroTelefone2 extends BaseActivity {
                 binding.telefoneInput.setSelection(selectionPosition); // Define a posição da seleção corretamente
                 isUpdating = false;
             }
+
             @Override
             public void afterTextChanged(Editable s) {
                 formatedPhone = formattingPhone(binding.telefoneInput);
@@ -174,6 +177,7 @@ public class CadastroTelefone2 extends BaseActivity {
                     nextPage();
                 }
             }
+
             @Override
             public void onFailure(Call<List<Usuario>> call, Throwable throwable) {
                 // Habilitar o botão nextButton e o campo telefoneInput em caso de falha

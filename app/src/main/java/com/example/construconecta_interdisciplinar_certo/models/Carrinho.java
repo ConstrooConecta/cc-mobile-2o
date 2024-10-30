@@ -27,21 +27,27 @@ public class Carrinho {
     public int getCarrinhoId() {
         return carrinhoId;
     }
+
     public String getUsuario() {
         return usuario;
     }
+
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
+
     public int getProduto() {
         return produto;
     }
+
     public void setProduto(int produto) {
         this.produto = produto;
     }
+
     public String getProdutoImg() {
         return produtoImg;
     }
+
     public double getValorTotal() {
         return valorTotal;
     }

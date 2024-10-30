@@ -15,6 +15,7 @@ public class TagServicoCategoria {
     public String getNome() {
         return nome;
     }
+
     public int getImagemResId() {
         return imagemResId;
     }

@@ -34,7 +34,8 @@ public class CategoriasFragment extends Fragment {
     private List<String> categoriasList = new ArrayList<>();
     private ArrayAdapter<String> adapter;
 
-    public CategoriasFragment() {}
+    public CategoriasFragment() {
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -108,6 +109,7 @@ public class CategoriasFragment extends Fragment {
                     Toast.makeText(getActivity(), "Erro ao carregar categorias", Toast.LENGTH_SHORT).show();
                 }
             }
+
             @Override
             public void onFailure(Call<List<Categoria>> call, Throwable t) {
                 Toast.makeText(getActivity(), "Falha na conexão: " + t.getMessage(), Toast.LENGTH_SHORT).show();

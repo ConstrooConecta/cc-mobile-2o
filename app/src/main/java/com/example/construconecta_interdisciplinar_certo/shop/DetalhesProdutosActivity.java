@@ -45,6 +45,7 @@ public class DetalhesProdutosActivity extends AppCompatActivity {
     private String imagemUrl, idProduto, usuario;
     private Double precoProdutoToCarrinho;
     private Boolean favorito;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -227,6 +228,7 @@ public class DetalhesProdutosActivity extends AppCompatActivity {
                     Toast.makeText(DetalhesProdutosActivity.this, "Erro ao salvar carrinho no banco de dados. Código: " + response.code(), Toast.LENGTH_SHORT).show();
                 }
             }
+
             @Override
             public void onFailure(Call<Carrinho> call, Throwable t) {
                 Toast.makeText(DetalhesProdutosActivity.this, "Erro de conexão.", Toast.LENGTH_SHORT).show();
@@ -265,6 +267,7 @@ public class DetalhesProdutosActivity extends AppCompatActivity {
                     lojaAle.setImageResource(R.drawable.imagemanuncio);
                 }
             }
+
             @Override
             public void onFailure(Call<Usuario> call, Throwable t) {
                 Toast.makeText(DetalhesProdutosActivity.this, "Erro na chamada de API: " + t.getMessage(), Toast.LENGTH_SHORT).show();

@@ -14,18 +14,23 @@ public class Servico {
     public int getServicoId() {
         return servicoId;
     }
+
     public String getNomeServico() {
         return nomeServico;
     }
+
     public String getDescricao() {
         return descricao;
     }
+
     public double getPreco() {
         return preco;
     }
+
     public String getUsuario() {
         return usuario;
     }
+
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }

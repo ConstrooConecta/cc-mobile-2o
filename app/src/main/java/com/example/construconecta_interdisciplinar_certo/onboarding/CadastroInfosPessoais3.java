@@ -362,6 +362,7 @@ public class CadastroInfosPessoais3 extends BaseActivity {
                     nextPage();
                 }
             }
+
             @Override
             public void onFailure(Call<List<Usuario>> call, Throwable throwable) {
                 // Tratamento para falhas de conexão ou problemas de comunicação com o servidor
@@ -372,6 +373,7 @@ public class CadastroInfosPessoais3 extends BaseActivity {
         });
 
     }
+
     private String capitalizeWords(String input) {
         String[] words = input.split("\\s+");
         StringBuilder capitalized = new StringBuilder();
