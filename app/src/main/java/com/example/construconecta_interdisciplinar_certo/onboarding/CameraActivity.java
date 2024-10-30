@@ -67,6 +67,8 @@ public class CameraActivity extends AppCompatActivity {
 
     private FirebaseAuth auth = FirebaseAuth.getInstance();
     private FirebaseUser user = auth.getCurrentUser();
+    private ImageView foto;
+
     private ActivityResultLauncher<Intent> resultLauncherGaleriaProduto =
             registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
                 if (result.getData() != null) {
@@ -92,7 +94,6 @@ public class CameraActivity extends AppCompatActivity {
     private Map<String, String> docData = new HashMap<>();
     private DatabaseCamera databaseCameraE = new DatabaseCamera();
     private androidx.camera.view.PreviewView viewFinder;
-    private ImageView foto;
     private ImageCapture imageCapture;
     private CameraSelector cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA;
     private Button btFoto;
