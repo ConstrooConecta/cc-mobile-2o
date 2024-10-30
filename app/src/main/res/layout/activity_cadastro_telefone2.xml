@@ -96,14 +96,12 @@
             android:layout_height="56dp"
             android:hint="Telefone"
             android:inputType="phone"
+            android:paddingStart="86dp"
             android:paddingLeft="20dp"
             android:paddingEnd="20dp"
-            android:paddingStart="86dp"
-        android:textColor="@color/black"
-        android:textColorHint="#B6B6B6" />
+            android:textColor="@color/black"
+            android:textColorHint="#B6B6B6" />
     </com.google.android.material.textfield.TextInputLayout>
-
-
 
 
     <TextView

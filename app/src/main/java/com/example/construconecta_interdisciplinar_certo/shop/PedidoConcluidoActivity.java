@@ -1,14 +1,13 @@
 package com.example.construconecta_interdisciplinar_certo.shop;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.construconecta_interdisciplinar_certo.R;
-import com.example.construconecta_interdisciplinar_certo.fragments.HomeFragment;
 
 public class PedidoConcluidoActivity extends AppCompatActivity {
     private TextView textViewPedido;
@@ -24,17 +23,11 @@ public class PedidoConcluidoActivity extends AppCompatActivity {
             //abrir intent do fragmentHome
             Intent intent = new Intent(PedidoConcluidoActivity.this, Home.class);
             startActivity(intent);
-
         });
-
-
-
-
         int randomNumbers = (int) (Math.random() * 100000);
-
         textViewPedido.setText("Seu pedido #" + generateRandomLetters() + String.format("%05d", randomNumbers) + " foi feito com sucesso.");
-
     }
+
     String generateRandomLetters() {
         String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         StringBuilder letters = new StringBuilder(2);

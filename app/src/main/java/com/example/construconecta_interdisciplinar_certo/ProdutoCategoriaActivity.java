@@ -1,18 +1,16 @@
 package com.example.construconecta_interdisciplinar_certo;
 
-import static android.app.PendingIntent.getActivity;
-import static java.security.AccessController.getContext;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.appcompat.widget.SearchView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.construconecta_interdisciplinar_certo.Adapters.AdapterProdutoHome;
 import com.example.construconecta_interdisciplinar_certo.apis.ProdutoApi;
@@ -53,7 +51,7 @@ public class ProdutoCategoriaActivity extends AppCompatActivity {
         produtos = new ArrayList<>();
         adapter = new AdapterProdutoHome(produtos);
         produtoRecyclerView.setAdapter(adapter);
-        chamar_API_Retrofit_Categoria(categoria);
+        chamarAPIRetrofitCategoria(categoria);
 
         searchBar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -67,9 +65,9 @@ public class ProdutoCategoriaActivity extends AppCompatActivity {
                 return false;
             }
         });
-
     }
-    private void chamar_API_Retrofit_Categoria(String categoria) {
+
+    private void chamarAPIRetrofitCategoria(String categoria) {
         String API = "https://cc-api-sql-qa.onrender.com/";
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(API)
@@ -95,20 +93,18 @@ public class ProdutoCategoriaActivity extends AppCompatActivity {
                         progressBar.setVisibility(View.GONE);
                         produtoRecyclerView.setVisibility(View.VISIBLE);
                         searchBar.setVisibility(View.VISIBLE);
-
                     } else {
                         Log.d("API NoTopo", "Corpo da resposta é nulo");
                     }
                 } else {
                     Log.d("API NoTopo", "Erro: Código de status " + response.code());
                 }
-
             }
-
 
             @Override
             public void onFailure(Call<List<Produto>> call, Throwable throwable) {
-                Toast.makeText(ProdutoCategoriaActivity.this, "Deu errado: " + throwable.getMessage(), Toast.LENGTH_SHORT).show();}
+                Toast.makeText(ProdutoCategoriaActivity.this, "Erro ao mostrar categorias: " + throwable.getMessage(), Toast.LENGTH_SHORT).show();
+            }
         });
     }
 
@@ -121,7 +117,7 @@ public class ProdutoCategoriaActivity extends AppCompatActivity {
         }
         if (filteredList.isEmpty()) {
             Toast.makeText(this, "Nenhum resultado encontrado", Toast.LENGTH_SHORT).show();
-        }else {
+        } else {
             adapter.setFilteredList(filteredList);
         }
     }

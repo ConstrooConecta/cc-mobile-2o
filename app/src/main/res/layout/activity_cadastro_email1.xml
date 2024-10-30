@@ -97,9 +97,9 @@
             android:ellipsize="end"
             android:hint="E-mail"
             android:inputType="textEmailAddress"
+            android:maxLength="50"
             android:paddingLeft="20dp"
             android:paddingEnd="20dp"
-            android:maxLength="50"
             android:textColor="@color/black"
             android:textColorHint="#B6B6B6" />
     </com.google.android.material.textfield.TextInputLayout>

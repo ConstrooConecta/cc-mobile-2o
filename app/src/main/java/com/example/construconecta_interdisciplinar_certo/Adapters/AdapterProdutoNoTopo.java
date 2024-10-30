@@ -20,7 +20,6 @@ import java.util.List;
 
 //AdapterProdutoNoTopo
 public class AdapterProdutoNoTopo extends RecyclerView.Adapter<AdapterProdutoNoTopo.ProdutoViewHolder> {
-
     private List<Produto> listaProdutos;
     private Context context;
 
@@ -47,14 +46,13 @@ public class AdapterProdutoNoTopo extends RecyclerView.Adapter<AdapterProdutoNoT
         // Configura os textos
         holder.textViewTitulo.setText(produto.getNomeProduto());
         holder.textViewCodigo.setText("Cód. " + produto.getprodutoId());
-        holder.textViewPrecoAntigo.setText("R$ " + produto.getPreco()+" cada");
+        holder.textViewPrecoAntigo.setText("R$ " + produto.getPreco() + " cada");
         //deixar o preco antigo riscado
         double precoNovo = produto.getPreco() - (produto.getPreco() * produto.getDesconto());
 
         //fazendo precoNovo ter só 2 casas decimais
         precoNovo = Math.round(precoNovo * 100.0) / 100.0;
         holder.textViewPrecoNovo.setText("R$ " + precoNovo + " cada");
-
 
         String url = produto.getImagem();
         if (url == null || url.isEmpty()) {
@@ -88,7 +86,7 @@ public class AdapterProdutoNoTopo extends RecyclerView.Adapter<AdapterProdutoNoT
                 Intent intent = new Intent(holder.itemView.getContext(), DetalhesProdutosActivity.class);
                 intent.putExtra("nomeProduto", produto.getNomeProduto());
                 intent.putExtra("imagemProduto", finalUrl);
-                intent.putExtra("usuario",produto.getUsuario());
+                intent.putExtra("usuario", produto.getUsuario());
                 intent.putExtra("Preco", produto.getPreco());
                 intent.putExtra("Desconto", produto.getDesconto());
                 intent.putExtra("descricao", produto.getDescricao());
@@ -104,7 +102,6 @@ public class AdapterProdutoNoTopo extends RecyclerView.Adapter<AdapterProdutoNoT
     }
 
     public static class ProdutoViewHolder extends RecyclerView.ViewHolder {
-
         ImageView imageViewProduto, imageViewCoracao;
         TextView textViewTitulo, textViewCodigo, textViewPrecoAntigo, textViewPrecoNovo;
 

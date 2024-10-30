@@ -38,14 +38,12 @@ public class InputUtils {
         if (errorText != null) {
             errorText.setVisibility(View.GONE);
         }
-
         inputLayout.setBoxStrokeColor(context.getResources().getColor(R.color.grey));
         inputLayout.setHintTextColor(ColorStateList.valueOf(context.getResources().getColor(R.color.grey)));
         inputField.setTextColor(context.getResources().getColor(R.color.black));
         inputField.setEnabled(true);
         inputField.setError(null, null); // Remove a mensagem de erro no campo de texto
     }
-
 
     // Método para desabilitar o input
     public static void disableInput(View view) {
@@ -56,7 +54,4 @@ public class InputUtils {
     public static void enableInput(View view) {
         view.setEnabled(true);
     }
-
 }
-
-

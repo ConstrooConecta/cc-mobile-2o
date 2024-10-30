@@ -78,7 +78,6 @@ public class AdapterCarrinho extends RecyclerView.Adapter<AdapterCarrinho.Carrin
 
     // ViewHolder interno
     public static class CarrinhoViewHolder extends RecyclerView.ViewHolder {
-
         TextView nomeProdutoCarrinho;
         ImageView fotoProdutoCardCarrinho;
         TextView precoProdutoCarrinho;

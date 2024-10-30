@@ -1,14 +1,13 @@
 package com.example.construconecta_interdisciplinar_certo;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.bumptech.glide.Glide;
-import com.example.construconecta_interdisciplinar_certo.models.Servico;
 
 public class DetalheServicoActivity extends AppCompatActivity {
     private ImageView imageViewServico;
@@ -35,10 +34,6 @@ public class DetalheServicoActivity extends AppCompatActivity {
         //o preço é um double
         textViewPreco.setText("R$ " + preco);
 
-
-
         Glide.with(this).load(imagem).into(imageViewServico);
-
-
     }
 }

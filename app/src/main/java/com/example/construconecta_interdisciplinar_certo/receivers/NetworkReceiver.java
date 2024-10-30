@@ -9,7 +9,6 @@ import android.net.NetworkInfo;
 import com.example.construconecta_interdisciplinar_certo.ui.InternetErrorActivity;
 
 public class NetworkReceiver extends BroadcastReceiver {
-
     @Override
     public void onReceive(Context context, Intent intent) {
         if (isConnected(context)) {
@@ -26,4 +25,3 @@ public class NetworkReceiver extends BroadcastReceiver {
         return activeNetwork != null && activeNetwork.isConnected();
     }
 }
-

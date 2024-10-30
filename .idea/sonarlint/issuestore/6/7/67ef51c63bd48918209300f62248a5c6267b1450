@@ -1,9 +1,9 @@
 
-U
-java:S18742"3Remove this use of "NetworkInfo"; it is deprecated.(Õ¥—ãùÿÿÿÿ8­áóØ£2
-^
-java:S18742"<Remove this use of "getActiveNetworkInfo"; it is deprecated.(Õ¥—ãùÿÿÿÿ8¯áóØ£2
-U
-java:S18743"3Remove this use of "isConnected"; it is deprecated.(‡ıŒŞøÿÿÿÿ8¯áóØ£2
-[
-java:S3398'">Move this method into the anonymous class declared at line 30.(œåÕõ8±áóØ£2
+{
+java:S18740"3Remove this use of "NetworkInfo"; it is deprecated.(Õ¥—ãùÿÿÿÿ8ÈšÓî­2J$b298dac0-6657-4910-8df2-0bca36f8b45d
+„
+java:S18740"<Remove this use of "getActiveNetworkInfo"; it is deprecated.(Õ¥—ãùÿÿÿÿ8ÈšÓî­2J$dd14848e-3407-41b7-8692-e6e49e9e9f43
+{
+java:S18741"3Remove this use of "isConnected"; it is deprecated.(‡ıŒŞøÿÿÿÿ8¯áóØ£2J$ea916bd6-1106-4f5d-a3a9-a72418853fe9
+
+java:S3398%">Move this method into the anonymous class declared at line 15.(œåÕõ8ÉšÓî­2J$2064e568-d87b-4ce3-a85d-dafa05379460

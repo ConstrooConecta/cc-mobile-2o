@@ -5,7 +5,11 @@ public class TagServico {
     private String nome;
     private double precoMedio;
 
-    public TagServico(int tagServicoId, String nome, double precoMedio) {
+    public TagServico(
+            int tagServicoId,
+            String nome,
+            double precoMedio
+    ) {
         this.tagServicoId = tagServicoId;
         this.nome = nome;
         this.precoMedio = precoMedio;
@@ -15,16 +19,8 @@ public class TagServico {
         return precoMedio;
     }
 
-    public void setPrecoMedio(double precoMedio) {
-        this.precoMedio = precoMedio;
-    }
-
     public int getTagServicoId() {
         return tagServicoId;
-    }
-
-    public void setTagServicoId(int tagServicoId) {
-        this.tagServicoId = tagServicoId;
     }
 
     public String getNome() {

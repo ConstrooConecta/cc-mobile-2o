@@ -1,8 +1,5 @@
 package com.example.construconecta_interdisciplinar_certo.shop;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -13,31 +10,28 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.example.construconecta_interdisciplinar_certo.Adapters.AdapterServico;
 import com.example.construconecta_interdisciplinar_certo.R;
 import com.example.construconecta_interdisciplinar_certo.apis.CarrinhoApi;
 import com.example.construconecta_interdisciplinar_certo.apis.UsuarioApi;
 import com.example.construconecta_interdisciplinar_certo.checkout.CarrinhoActivity;
 import com.example.construconecta_interdisciplinar_certo.models.Carrinho;
 import com.example.construconecta_interdisciplinar_certo.models.Usuario;
-import com.example.construconecta_interdisciplinar_certo.onboarding.CadastroInfosSeguranca4;
 import com.example.construconecta_interdisciplinar_certo.ui.AtualizacoesFuturas;
-import com.example.construconecta_interdisciplinar_certo.ui.MainActivity;
-import com.example.construconecta_interdisciplinar_certo.utils.ButtonUtils;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.Random;
-import java.util.UUID;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -48,7 +42,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class DetalhesProdutosActivity extends AppCompatActivity {
     private TextView nomeProduto, precoProduto, descontoProduto, de, descricaoProdutoTextView, textViewNomeLoja;
     private ImageView imagemProduto, oferta, lojaAle, coracaoFavorito;
-    private String imagemUrl , idProduto, usuario;
+    private String imagemUrl, idProduto, usuario;
     private Double precoProdutoToCarrinho;
     private Boolean favorito;
 
@@ -59,7 +53,7 @@ public class DetalhesProdutosActivity extends AppCompatActivity {
         Intent intent = getIntent();
         idProduto = intent.getStringExtra("id");
         usuario = intent.getStringExtra("usuario");
-        favorito = intent.getBooleanExtra("favorito",false);
+        favorito = intent.getBooleanExtra("favorito", false);
         textViewNomeLoja = findViewById(R.id.textViewNomeLoja);
 
         // Inicializando as views
@@ -88,7 +82,6 @@ public class DetalhesProdutosActivity extends AppCompatActivity {
 
         buscarUsuarioPorUid(usuario);
 
-
         // Recebendo os dados via Intent
         if (intent != null) {
             String nome = intent.getStringExtra("nomeProduto");
@@ -97,23 +90,20 @@ public class DetalhesProdutosActivity extends AppCompatActivity {
             double preco = intent.getDoubleExtra("Preco", 0);
             double desconto = intent.getDoubleExtra("Desconto", 0);
 
-
             // Preencher as views com os dados recebidos
             nomeProduto.setText(nome);
             precoProduto.setText("R$ " + preco);
             descricaoProdutoTextView.setText(descricaoProduto);
-            precoProdutoToCarrinho=preco;
+            precoProdutoToCarrinho = preco;
 
             if (desconto > 0) {
                 // Calcular o preço com desconto e a porcentagem
                 double precoComDesconto = preco - (preco * desconto);
                 precoProdutoToCarrinho = precoComDesconto;
-                double percentual = ((preco-precoComDesconto)/preco)*100;
+                double percentual = ((preco - precoComDesconto) / preco) * 100;
 
                 // Exibir o preço com desconto
                 descontoProduto.setText("R$ " + String.format("%.2f", precoComDesconto));
-
-
 
                 // mostrar o percentual de desconto
                 percentualDesconto.setText("-" + String.format("%.2f", percentual) + "%");
@@ -133,7 +123,6 @@ public class DetalhesProdutosActivity extends AppCompatActivity {
                 //colocar um pouco mais pra cima
                 precoProduto.setPadding(0, 0, 0, 20);
             }
-
             // Carregar a imagem com Glide
             Glide.with(this).load(imagemUrl).into(imagemProduto);
         }
@@ -143,8 +132,8 @@ public class DetalhesProdutosActivity extends AppCompatActivity {
         //abrir a intent e abrir nova tela de "Em_breve"
         Intent intent = new Intent(this, AtualizacoesFuturas.class);
         startActivity(intent);
-
     }
+
     //ao clicar no vetor do coração, ele pega uma outra imagem do drawable pra ficar no lugar, que é o coração vermelho
     public void selecionar_Favorito(View view) {
         ImageView coracaoNormal = findViewById(R.id.coracao_favorito);
@@ -160,6 +149,7 @@ public class DetalhesProdutosActivity extends AppCompatActivity {
             coracaoNormal.setTag("selecionado"); // Marca como selecionado
         }
     }
+
     public void voltarHome(View view) {
         FirebaseUser usuarioAtual = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -183,11 +173,9 @@ public class DetalhesProdutosActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, "ID do produto inválido ou nulo!", Toast.LENGTH_SHORT).show();
         }
-
         mostrarModalAdicionadoAoCarrinho();
         //depois de 3 segundos ele abre a tela home
         new Handler().postDelayed(this::openHome, 3000);
-
     }
 
     private void openHome() {
@@ -195,28 +183,26 @@ public class DetalhesProdutosActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    private void mostrarModalAdicionadoAoCarrinho() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(DetalhesProdutosActivity.this);
 
+        LayoutInflater inflater = getLayoutInflater();
+        View view = inflater.inflate(R.layout.modal_adicionado_carrinho, null);
 
-        private void mostrarModalAdicionadoAoCarrinho() {
-            AlertDialog.Builder builder = new AlertDialog.Builder(DetalhesProdutosActivity.this);
+        builder.setView(view);
 
-            LayoutInflater inflater = getLayoutInflater();
-            View view = inflater.inflate(R.layout.modal_adicionado_carrinho, null);
+        AlertDialog alertDialog = builder.create();
+        alertDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        alertDialog.show();
 
-            builder.setView(view);
+        alertDialog.getWindow().setLayout(
+                (int) getResources().getDimension(R.dimen.modal_width),
+                WindowManager.LayoutParams.WRAP_CONTENT
+        );
 
-            AlertDialog alertDialog = builder.create();
-            alertDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-            alertDialog.show();
+        new Handler().postDelayed(alertDialog::dismiss, 2000);
 
-            alertDialog.getWindow().setLayout(
-                    (int) getResources().getDimension(R.dimen.modal_width),
-                    WindowManager.LayoutParams.WRAP_CONTENT
-            );
-
-            new Handler().postDelayed(alertDialog::dismiss, 2000);
-
-        }
+    }
 
     private void addToShoppingCart(Carrinho carrinho) {
         String url = "https://cc-api-sql-qa.onrender.com/";
@@ -231,7 +217,7 @@ public class DetalhesProdutosActivity extends AppCompatActivity {
         call.enqueue(new Callback<Carrinho>() {
             @Override
             public void onResponse(Call<Carrinho> call, Response<Carrinho> response) {
-                if(response.isSuccessful()) {
+                if (response.isSuccessful()) {
                     Carrinho createdUser = response.body();
                     Log.d("POST_SUCCESS", "Carrinho criado: " + createdUser.getCarrinhoId());
 
@@ -240,12 +226,11 @@ public class DetalhesProdutosActivity extends AppCompatActivity {
                     Log.d("REQUEST_BODY", carrinho.toString()); // Certifique-se de que o método toString() do seu objeto Carrinho exiba os dados corretamente
                     Log.e("POST_ERROR", "Erro ao salvar carrinho. Código: " + response.code());
                     Toast.makeText(DetalhesProdutosActivity.this, "Erro ao salvar carrinho no banco de dados. Código: " + response.code(), Toast.LENGTH_SHORT).show();
-                    }
+                }
             }
 
             @Override
             public void onFailure(Call<Carrinho> call, Throwable t) {
-
                 Toast.makeText(DetalhesProdutosActivity.this, "Erro de conexão.", Toast.LENGTH_SHORT).show();
             }
         });
@@ -311,6 +296,4 @@ public class DetalhesProdutosActivity extends AppCompatActivity {
             Toast.makeText(DetalhesProdutosActivity.this, "Erro ao carregar a imagem: " + exception.getMessage(), Toast.LENGTH_SHORT).show();
         });
     }
-
-
 }

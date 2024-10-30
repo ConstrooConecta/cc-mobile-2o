@@ -1,15 +1,15 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Fundo da tag -->
-    <solid android:color="#E7E7E7"/>
+    <solid android:color="#E7E7E7" />
     <!-- Borda arredondada -->
-    <corners android:radius="6dp"/>
+    <corners android:radius="6dp" />
     <padding
+        android:bottom="4dp"
         android:left="8dp"
-        android:top="4dp"
         android:right="8dp"
-        android:bottom="4dp"/>
+        android:top="4dp" />
 
     <stroke
         android:width="2.5dp"
-        android:color="#0A262C"/>
+        android:color="#0A262C" />
 </shape>

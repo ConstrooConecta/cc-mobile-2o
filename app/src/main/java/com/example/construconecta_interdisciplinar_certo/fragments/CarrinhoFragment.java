@@ -25,7 +25,6 @@ import com.example.construconecta_interdisciplinar_certo.Adapters.AdapterCarrinh
 import com.example.construconecta_interdisciplinar_certo.R;
 import com.example.construconecta_interdisciplinar_certo.apis.CarrinhoApi;
 import com.example.construconecta_interdisciplinar_certo.apis.ProdutoApi;
-import com.example.construconecta_interdisciplinar_certo.checkout.CarrinhoActivity;
 import com.example.construconecta_interdisciplinar_certo.checkout.MetodosPagamento;
 import com.example.construconecta_interdisciplinar_certo.models.Carrinho;
 import com.example.construconecta_interdisciplinar_certo.models.Produto;
@@ -56,6 +55,9 @@ public class CarrinhoFragment extends Fragment {
     private TextView quantidadeItens, subto, textViewTotal, textCarrinhoVazio;
     private ImageView imagem, imageViewCarrinhoVazio;
     private Button button, buttonCarrinhoVazio;
+
+    public CarrinhoFragment() {
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -90,7 +92,7 @@ public class CarrinhoFragment extends Fragment {
         buttonCarrinhoVazio.setVisibility(View.GONE);
 
         // Chama a função para buscar os produtos primeiro
-        chamar_API_Retrofit_Produtos();
+        chamarAPIRetrofitProdutos();
 
         // Ação do botão
         button.setOnClickListener(v -> {
@@ -98,11 +100,10 @@ public class CarrinhoFragment extends Fragment {
             intent.putExtra("total", TotalExibivel);
             startActivity(intent);
         });
-
         return view;
     }
 
-    private void chamar_API_Retrofit_Produtos() {
+    private void chamarAPIRetrofitProdutos() {
         String API = "https://cc-api-sql-qa.onrender.com/";
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(API)
@@ -119,7 +120,7 @@ public class CarrinhoFragment extends Fragment {
                     produtos = response.body();
                     if (produtos != null) {
                         // Após carregar os produtos, chama a função para carregar o carrinho
-                        chamar_API_Retrofit_Carrinho(userId);
+                        chamarAPIRetrofitCarrinho(userId);
                     }
                 } else {
                     Toast.makeText(getContext(), "Erro ao carregar produtos", Toast.LENGTH_SHORT).show();
@@ -134,7 +135,7 @@ public class CarrinhoFragment extends Fragment {
         });
     }
 
-    private void chamar_API_Retrofit_Carrinho(String userId) {
+    private void chamarAPIRetrofitCarrinho(String userId) {
         String API = "https://cc-api-sql-qa.onrender.com/";
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(API)
@@ -161,7 +162,7 @@ public class CarrinhoFragment extends Fragment {
                         // Calcula o total exibível
                         calcularTotalExibivel(carrinhosResponse);
                         //deixar exbindo apenas 2 casas decimais
-                        textViewTotal.setText("Total: R$ " +String.format("%.2f", TotalExibivel));
+                        textViewTotal.setText("Total: R$ " + String.format("%.2f", TotalExibivel));
                         textViewTotal.setTypeface(null, Typeface.BOLD);
                         //passando o textViewTotal num bundle pra proxima tela:
 
@@ -212,7 +213,8 @@ public class CarrinhoFragment extends Fragment {
             @Override
             public void onFailure(Call<List<Carrinho>> call, Throwable t) {
                 progressBar.setVisibility(View.GONE);
-                Toast.makeText(getContext(), "Erro na chamada de carrinho: " + t.getMessage(), Toast.LENGTH_SHORT).show();}
+                Toast.makeText(getContext(), "Erro na chamada de carrinho: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
         });
     }
 
@@ -222,15 +224,6 @@ public class CarrinhoFragment extends Fragment {
             TotalExibivel += item.getValorTotal(); // Some o preço de cada item
         }
     }
-
-
-    public CarrinhoFragment() {
-    }
-
-
-
-
-
 
     @Override
     public void onResume() {
@@ -249,5 +242,4 @@ public class CarrinhoFragment extends Fragment {
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
         return activeNetwork != null && activeNetwork.isConnected();
     }
-
 }

@@ -1,0 +1,11 @@
+
+Œ	java:S117 "QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ã£«ÏJ$45f8d4fc-b662-4228-86b0-1088b91f8c9e
+d
+java:S1604R"(Make this anonymous inner class a lambda(Ö¹™ºJ$b2c2e613-1d8d-49b5-b2c4-7beed3da8bd2
+—
+java:S1488)"[Immediately return this expression instead of assigning it to the temporary variable "pvh".(›¤óÄJ$9f028daa-8223-46a6-a08f-c85fab66f5d1
+r
+java:S11535"1Directly append the argument of String.valueOf().(—âˆéùÿÿÿÿJ$cecc7987-3ef3-4793-b7ae-8682dd7b1866
+l
+java:S1153E"1Directly append the argument of String.valueOf().(´Ù¾TJ$0e260b9a-56bf-4535-8e0b-27fc311bc648
+š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(·÷Ø³úÿÿÿÿJ$405ad275-005e-4ac4-8adc-65d5606c059b

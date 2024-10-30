@@ -10,15 +10,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.construconecta_interdisciplinar_certo.shop.DetalhesProdutosActivity;
 import com.example.construconecta_interdisciplinar_certo.R;
 import com.example.construconecta_interdisciplinar_certo.models.Produto;
+import com.example.construconecta_interdisciplinar_certo.shop.DetalhesProdutosActivity;
 
 import java.util.List;
 
@@ -48,7 +47,6 @@ public class AdapterProdutoHome extends RecyclerView.Adapter<AdapterProdutoHome.
         // Atualizando o conteúdo das views
         Produto produto = produtos.get(position);
 
-
         holder.nome.setText(produto.getNomeProduto());
         holder.nome.setTypeface(holder.nome.getTypeface(), android.graphics.Typeface.BOLD);
         if (produto.getDesconto() > 0) {
@@ -67,7 +65,7 @@ public class AdapterProdutoHome extends RecyclerView.Adapter<AdapterProdutoHome.
             holder.desconto.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24); // Tamanho de 24sp
             holder.desconto.setTypeface(null, Typeface.BOLD);
             holder.desconto.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             holder.preco.setText("R$ " + String.valueOf(produto.getPreco()) + " cada");
             holder.desconto.setVisibility(View.GONE);
         }
@@ -88,7 +86,7 @@ public class AdapterProdutoHome extends RecyclerView.Adapter<AdapterProdutoHome.
                 Intent intent = new Intent(holder.itemView.getContext(), DetalhesProdutosActivity.class);
                 intent.putExtra("nomeProduto", produto.getNomeProduto());
                 intent.putExtra("imagemProduto", finalUrl);
-                intent.putExtra("usuario",produto.getUsuario());
+                intent.putExtra("usuario", produto.getUsuario());
                 intent.putExtra("Preco", produto.getPreco());
                 intent.putExtra("Desconto", produto.getDesconto());
                 intent.putExtra("descricao", produto.getDescricao());
@@ -106,7 +104,6 @@ public class AdapterProdutoHome extends RecyclerView.Adapter<AdapterProdutoHome.
 
     // ViewHolder interno
     public static class ProdutoViewHolder extends RecyclerView.ViewHolder {
-
         TextView nome;
         ImageView imagem;
         TextView preco;

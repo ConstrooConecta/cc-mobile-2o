@@ -2,7 +2,7 @@
     <string name="app_name">Constroo</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-        <string name="politica_privacidade_texto">Esta Política de Privacidade descreve como coletamos, usamos e protegemos suas informações ao utilizar nosso aplicativo de compra e venda de materiais de construção e serviços. Ao acessar e utilizar o aplicativo, você concorda com os termos desta política.
+    <string name="politica_privacidade_texto">Esta Política de Privacidade descreve como coletamos, usamos e protegemos suas informações ao utilizar nosso aplicativo de compra e venda de materiais de construção e serviços. Ao acessar e utilizar o aplicativo, você concorda com os termos desta política.
 
             \n\n
 1. Informações Coletadas

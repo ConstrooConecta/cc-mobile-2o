@@ -173,10 +173,10 @@
                     android:layout_height="56dp"
                     android:ellipsize="end"
                     android:hint="CPF"
+                    android:inputType="number"
                     android:maxLength="14"
                     android:paddingLeft="20dp"
                     android:paddingEnd="20dp"
-                    android:inputType="number"
                     android:textColor="@color/black"
                     android:textColorHint="#B6B6B6" />
             </com.google.android.material.textfield.TextInputLayout>

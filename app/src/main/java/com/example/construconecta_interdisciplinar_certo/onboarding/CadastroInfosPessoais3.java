@@ -32,9 +32,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class CadastroInfosPessoais3 extends BaseActivity {
-
-    private ActivityCadastroInfosPessoais3Binding binding;
     String dataNasc;
+    private ActivityCadastroInfosPessoais3Binding binding;
     private Integer generoPosition;
     private DatePickerDialog datePickerDialog; // Variável para armazenar o DatePickerDialog
 
@@ -78,7 +77,8 @@ public class CadastroInfosPessoais3 extends BaseActivity {
         binding.calendarButton.setOnClickListener(v -> showDatePickerDialog(binding.dtNascimentoInput));
         binding.usernameInput.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -103,10 +103,12 @@ public class CadastroInfosPessoais3 extends BaseActivity {
         // Nome
         binding.nomeInput.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
 
             @Override
             public void afterTextChanged(Editable s) {
@@ -129,10 +131,12 @@ public class CadastroInfosPessoais3 extends BaseActivity {
         // Sobrenome
         binding.sobrenomeInput.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
 
             @Override
             public void afterTextChanged(Editable s) {
@@ -167,7 +171,8 @@ public class CadastroInfosPessoais3 extends BaseActivity {
         for (TextInputEditText input : inputs) {
             input.addTextChangedListener(new TextWatcher() {
                 @Override
-                public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                }
 
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -175,7 +180,8 @@ public class CadastroInfosPessoais3 extends BaseActivity {
                 }
 
                 @Override
-                public void afterTextChanged(Editable s) {}
+                public void afterTextChanged(Editable s) {
+                }
             });
         }
     }
@@ -234,7 +240,9 @@ public class CadastroInfosPessoais3 extends BaseActivity {
         datePickerDialog.setOnDismissListener(dialog -> {
             datePickerDialog = null; // Resetar a variável ao fechar o diálogo
         });
-    }    private String capitalizeFirstLetters(String input) {
+    }
+
+    private String capitalizeFirstLetters(String input) {
         if (input == null || input.isEmpty()) {
             return input;
         }
@@ -314,7 +322,7 @@ public class CadastroInfosPessoais3 extends BaseActivity {
         binding.indiceNomeUsuario.setTextColor(Color.parseColor("#B6B6B6"));
         InputUtils.setNormal(this, binding.usernameInputLayout, binding.usernameInput, null);
 
-        ButtonUtils.enableButtonWithProgressBar(this, binding.nextButton, binding.progressBar);
+        ButtonUtils.disableButtonWithProgressBar(this, binding.nextButton, binding.progressBar);
 
         String url = "https://cc-api-sql-qa.onrender.com/";
 

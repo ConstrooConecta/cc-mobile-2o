@@ -27,7 +27,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class CadastroTelefone2 extends BaseActivity {
-
     // Criando o objeto binding
     private ActivityCadastroTelefone2Binding binding;
     private boolean isUpdating;
@@ -45,17 +44,17 @@ public class CadastroTelefone2 extends BaseActivity {
         // Formatação e validação de Telefone em Tempo Real
         binding.telefoneInput.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 validatePhone(s.toString());
-
-                if (isUpdating) { return; }
-
+                if (isUpdating) {
+                    return;
+                }
                 isUpdating = true;
                 String unformatted = s.toString().replaceAll("[^\\d]", ""); // Remove tudo que não for número
-
                 if (unformatted.length() > 11) {
                     unformatted = unformatted.substring(0, 11); // Limita a 11 dígitos
                 }
@@ -83,19 +82,17 @@ public class CadastroTelefone2 extends BaseActivity {
                 if (selectionPosition > binding.telefoneInput.getText().length()) {
                     selectionPosition = binding.telefoneInput.getText().length();
                 }
-
                 binding.telefoneInput.setSelection(selectionPosition); // Define a posição da seleção corretamente
                 isUpdating = false;
-
             }
 
             @Override
-            public void afterTextChanged(Editable s) { formatedPhone = formattingPhone(binding.telefoneInput); }
+            public void afterTextChanged(Editable s) {
+                formatedPhone = formattingPhone(binding.telefoneInput);
+            }
         });
-
         // Configurando o botão de voltar
         binding.backButton.setOnClickListener(this::backToPreviousScreen);
-
         // Configurando o botão de avançar
         binding.nextButton.setOnClickListener(v -> validatePhoneDataBase());
     }
@@ -132,7 +129,6 @@ public class CadastroTelefone2 extends BaseActivity {
     private void validatePhone(String telefone) {
         InputUtils.setNormal(this, binding.telefoneInputLayout, binding.telefoneInput, binding.telefoneErrorText);
         binding.DDDText.setTextColor(Color.parseColor("#B6B6B6"));
-
         if (telefone.length() == 15) {
             ButtonUtils.enableButton(this, binding.nextButton, binding.progressBar);
         } else {
@@ -165,7 +161,6 @@ public class CadastroTelefone2 extends BaseActivity {
                 InputUtils.enableInput(binding.telefoneInput);
                 ButtonUtils.enableButton(CadastroTelefone2.this, binding.nextButton, binding.progressBar);
                 binding.telefoneErrorText.setVisibility(View.VISIBLE);
-
                 if (response.isSuccessful()) {
                     AnimationUtils.shakeAnimation(binding.telefoneInputLayout);
                     AnimationUtils.shakeAnimation(binding.telefoneErrorText);
@@ -194,7 +189,6 @@ public class CadastroTelefone2 extends BaseActivity {
         });
     }
 
-
     // Formatando telefone para envio à API
     private String formattingPhone(TextInputEditText telefone) {
         String formatedPhone = telefone.getText() != null ? telefone.getText().toString() : "";
@@ -203,5 +197,4 @@ public class CadastroTelefone2 extends BaseActivity {
                 .replace("-", "")
                 .replace(" ", "");
     }
-
 }

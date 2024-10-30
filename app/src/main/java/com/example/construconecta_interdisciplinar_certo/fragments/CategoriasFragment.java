@@ -1,26 +1,7 @@
 package com.example.construconecta_interdisciplinar_certo.fragments;
 
-import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.appcompat.widget.SearchView;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
-import com.example.construconecta_interdisciplinar_certo.AnunciarProdutoActivity;
-import com.example.construconecta_interdisciplinar_certo.ProdutoCategoriaActivity;
-import com.example.construconecta_interdisciplinar_certo.R;
-import com.example.construconecta_interdisciplinar_certo.apis.CategoriaApi;
-import com.example.construconecta_interdisciplinar_certo.models.Categoria;
-
-
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +9,14 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import androidx.appcompat.widget.SearchView;
+import androidx.fragment.app.Fragment;
+
+import com.example.construconecta_interdisciplinar_certo.ProdutoCategoriaActivity;
+import com.example.construconecta_interdisciplinar_certo.R;
+import com.example.construconecta_interdisciplinar_certo.apis.CategoriaApi;
+import com.example.construconecta_interdisciplinar_certo.models.Categoria;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +28,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class CategoriasFragment extends Fragment {
-
     private ListView listViewCategorias;
     private SearchView searchView;
     private List<Categoria> categorias = new ArrayList<>();
@@ -47,7 +35,6 @@ public class CategoriasFragment extends Fragment {
     private ArrayAdapter<String> adapter;
 
     public CategoriasFragment() {
-        // Required empty public constructor
     }
 
     @Override
@@ -64,7 +51,7 @@ public class CategoriasFragment extends Fragment {
         listViewCategorias.setAdapter(adapter);
 
         // Dados das categorias (isso pode ser alterado conforme necessário)
-        chamar_API_Categoria();
+        chamarAPICategoria();
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -92,11 +79,10 @@ public class CategoriasFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
         return view;
     }
 
-    private void chamar_API_Categoria() {
+    private void chamarAPICategoria() {
         String API = "https://cc-api-sql-qa.onrender.com/";
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(API)

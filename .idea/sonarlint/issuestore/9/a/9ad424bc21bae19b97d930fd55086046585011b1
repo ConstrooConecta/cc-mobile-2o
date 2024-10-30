@@ -1,0 +1,53 @@
+
+ˆ
+java:S1192>"LDefine a constant instead of duplicating this literal "selecionado" 3 times.(Ý½¾ J$f4b87960-d822-4bdb-9090-06adf1c939bc
+d
+java:S5411<"(Use a primitive boolean expression here.(âø·›J$5f7ec9b3-79a4-4450-9889-05467d12f483
+Š
+java:S1659+"IDeclare "precoProduto" and all following declarations on a separate line.(°«´èùÿÿÿÿJ$8b17817b-00b4-431d-b147-fe395c67703f
+„
+java:S1659,"CDeclare "oferta" and all following declarations on a separate line.(ìÇâ­øÿÿÿÿJ$da9096ad-28ea-43c9-a9bb-29ea9bfb34e5
+‚
+java:S1659-"FDeclare "idProduto" and all following declarations on a separate line.(…žÿ’J$cab350b7-bc7c-4ec0-9305-74afbcf90a4a
+Ÿ
+java:S1450,"^Remove the "coracaoFavorito" field and declare it as a local variable in the relevant methods.(ìÇâ­øÿÿÿÿJ$dae2f41e-8ccc-4c4b-ab48-48b2d9cab368
+’
+java:S1450+"QRemove the "de" field and declare it as a local variable in the relevant methods.(°«´èùÿÿÿÿJ$39717b30-1582-4b51-806c-a3e5fdd7d769
+Ÿ
+java:S1450+"^Remove the "descontoProduto" field and declare it as a local variable in the relevant methods.(°«´èùÿÿÿÿJ$b73ec52b-95da-4477-8498-42ee6f9231f1
+¨
+java:S1450+"gRemove the "descricaoProdutoTextView" field and declare it as a local variable in the relevant methods.(°«´èùÿÿÿÿJ$6af54ef7-3810-442b-bd22-1d91c66c261f
+“
+java:S1450/"WRemove the "favorito" field and declare it as a local variable in the relevant methods.(„±±ŒJ$118b1b55-5ac1-4f16-a232-18c3064206e7
+
+java:S1450,"\Remove the "imagemProduto" field and declare it as a local variable in the relevant methods.(ìÇâ­øÿÿÿÿJ$6614ad9b-0ec4-4265-83bb-90bd8aaef099
+›
+java:S1450+"ZRemove the "nomeProduto" field and declare it as a local variable in the relevant methods.(°«´èùÿÿÿÿJ$23b93c7a-1006-401a-b5fd-6280a7607583
+–
+java:S1450,"URemove the "oferta" field and declare it as a local variable in the relevant methods.(ìÇâ­øÿÿÿÿJ$2cdff978-7cea-4c51-88d7-ed40b9eb36ea
+œ
+java:S1450+"[Remove the "precoProduto" field and declare it as a local variable in the relevant methods.(°«´èùÿÿÿÿJ$6d27e56c-729a-4954-bf27-cab7f22f16b1
+’
+java:S1450-"VRemove the "usuario" field and declare it as a local variable in the relevant methods.(…žÿ’J$59663d75-1782-4dad-b52b-31151d8bd093
+–	java:S100‚"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ËÏÞßÿÿÿÿÿ8¦âÊî­2J$c2af6017-ac5e-4e96-aa33-19baf1384fb6
+t
+java:S1172‚"+Remove this unused method parameter "view".(ËÏÞßÿÿÿÿÿ8§âÊî­2J$aabcffc8-0211-475d-b7c7-fd2984e8b9e2
+–	java:S100‰"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±™îµüÿÿÿÿ8ªâÊî­2J$9ca83e69-86fa-4a21-8b96-77f735b9367f
+t
+java:S1172‰"+Remove this unused method parameter "view".(±™îµüÿÿÿÿ8«âÊî­2J$62be0a14-2d7f-42e0-8135-4a2fb87f48dc
+t
+java:S1172˜"+Remove this unused method parameter "view".(Ø¡‹Úûÿÿÿÿ8­âÊî­2J$6fa79637-5859-4c8d-bae4-617e095f6ca6
+g
+java:S2119 "Save and re-use this "Random".(ä¯ß†ûÿÿÿÿ8¯âÊî­2J$46edac0f-293f-4b2e-be0d-1ce2e13a48d9
+x
+java:S1874±"/Remove this use of "Handler"; it is deprecated.(¨É²âûÿÿÿÿ8±âÊî­2J$fe427c55-45ca-472a-980b-11b4e4a542da
+”
+java:S3252Ç"PUse static access with "android.view.ViewGroup$LayoutParams" for "WRAP_CONTENT".(ŒŠ‚8¤çËî­2J$7c51efa4-4960-4f3a-b4c4-7982e27933ee
+s
+java:S1874Ê"/Remove this use of "Handler"; it is deprecated.(¬Ë„Ë8¤çËî­2J$c9f15c82-fa00-470e-8d1e-47e68c3df798
+t
+java:S1172í"+Remove this unused method parameter "view".(©÷„–úÿÿÿÿ8‰ŸÌî­2J$250f5813-89d2-4b4c-b1f2-44d64084fbe5
+„
+java:S1117";Rename "usuario" which hides the field declared at line 45.(ëß¥Úÿÿÿÿÿ8ŒŸÌî­2J$fa26d860-228e-417d-9f5e-6d9910f50a1e
+p
+java:S1602›",Remove useless curly braces around statement(‡ùî÷8ŸÌî­2J$a854f67a-b933-440a-9770-42b93fafdfe8

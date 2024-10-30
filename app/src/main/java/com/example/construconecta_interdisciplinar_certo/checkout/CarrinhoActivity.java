@@ -1,20 +1,9 @@
 package com.example.construconecta_interdisciplinar_certo.checkout;
 
-import static android.app.PendingIntent.getActivity;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.Typeface;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -22,14 +11,16 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.construconecta_interdisciplinar_certo.Adapters.AdapterCarrinho;
-import com.example.construconecta_interdisciplinar_certo.Adapters.AdapterProdutoHome;
 import com.example.construconecta_interdisciplinar_certo.R;
 import com.example.construconecta_interdisciplinar_certo.apis.CarrinhoApi;
 import com.example.construconecta_interdisciplinar_certo.apis.ProdutoApi;
 import com.example.construconecta_interdisciplinar_certo.models.Carrinho;
 import com.example.construconecta_interdisciplinar_certo.models.Produto;
-import com.example.construconecta_interdisciplinar_certo.shop.DetalhesProdutosActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -43,21 +34,18 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class CarrinhoActivity extends AppCompatActivity {
-
     private RecyclerView recyclerView;
     private AdapterCarrinho adapter;
     private List<Carrinho> carrinhos = new ArrayList<>();
     private List<Produto> produtos = new ArrayList<>();
     private ProgressBar progressBar;
-
     private double TotalExibivel = 0.0; // Adiciona a variável para o total
-
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     FirebaseUser currentUser = mAuth.getCurrentUser();
     private String userId = currentUser.getUid();
-    private TextView quantidadeItens, subto,textViewTotal,textCarrinhoVazio;
+    private TextView quantidadeItens, subto, textViewTotal, textCarrinhoVazio;
     private ImageView imagem, imageViewCarrinhoVazio;
-    private Button button,buttonCarrinhoVazio;
+    private Button button, buttonCarrinhoVazio;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -75,7 +63,7 @@ public class CarrinhoActivity extends AppCompatActivity {
         quantidadeItens = findViewById(R.id.quantidadeItens);
         imageViewCarrinhoVazio = findViewById(R.id.imagemCarrinhoVazio);
 
-        buttonCarrinhoVazio=findViewById(R.id.buttonCarrinhoVazio);
+        buttonCarrinhoVazio = findViewById(R.id.buttonCarrinhoVazio);
         textCarrinhoVazio = findViewById(R.id.textView7);
 
         // Configura o RecyclerView
@@ -93,7 +81,7 @@ public class CarrinhoActivity extends AppCompatActivity {
         buttonCarrinhoVazio.setVisibility(View.GONE);
 
         // Chama a função para buscar os produtos primeiro
-        chamar_API_Retrofit_Produtos();
+        chamarAPIRetrofitProdutos();
         button.setOnClickListener(v -> {
             Intent intent = new Intent(CarrinhoActivity.this, MetodosPagamento.class);
             intent.putExtra("total", TotalExibivel);
@@ -101,7 +89,7 @@ public class CarrinhoActivity extends AppCompatActivity {
         });
     }
 
-    private void chamar_API_Retrofit_Produtos() {
+    private void chamarAPIRetrofitProdutos() {
         String API = "https://cc-api-sql-qa.onrender.com/";
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(API)
@@ -118,7 +106,7 @@ public class CarrinhoActivity extends AppCompatActivity {
                     produtos = response.body();
                     if (produtos != null) {
                         // Após carregar os produtos, chama a função para carregar o carrinho
-                        chamar_API_Retrofit_Carrinho(userId);
+                        chamarAPIRetrofitCarrinho(userId);
                     }
                 } else {
                     Toast.makeText(CarrinhoActivity.this, "Erro ao carregar produtos", Toast.LENGTH_SHORT).show();
@@ -133,7 +121,7 @@ public class CarrinhoActivity extends AppCompatActivity {
         });
     }
 
-    private void chamar_API_Retrofit_Carrinho(String userId) {
+    private void chamarAPIRetrofitCarrinho(String userId) {
         String API = "https://cc-api-sql-qa.onrender.com/";
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(API)
@@ -160,7 +148,7 @@ public class CarrinhoActivity extends AppCompatActivity {
                         // Calcula o total exibível
                         calcularTotalExibivel(carrinhosResponse);
                         //deixar exbindo apenas 2 casas decimais
-                        textViewTotal.setText("Total: R$ " +String.format("%.2f", TotalExibivel));
+                        textViewTotal.setText("Total: R$ " + String.format("%.2f", TotalExibivel));
                         textViewTotal.setTypeface(null, Typeface.BOLD);
                         //passando o textViewTotal num bundle pra proxima tela:
 
@@ -205,8 +193,6 @@ public class CarrinhoActivity extends AppCompatActivity {
             TotalExibivel += item.getValorTotal(); // Some o preço de cada item
         }
     }
-
-
 
     private void finish(View view) {
         //encerrar a activity atual

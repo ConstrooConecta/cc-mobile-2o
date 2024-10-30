@@ -4,7 +4,10 @@ public class TagServicoCategoria {
     private String nome;
     private int imagemResId;
 
-    public TagServicoCategoria(String nome, int imagemResId) {
+    public TagServicoCategoria(
+            String nome,
+            int imagemResId
+    ) {
         this.nome = nome;
         this.imagemResId = imagemResId;
     }

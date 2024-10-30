@@ -1,5 +1,20 @@
 
-r	java:S117:"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êìØèúÿÿÿÿ8ó½­’¨2
-
-java:S1450""bRemove the "produtoRecyclerView" field and declare it as a local variable in the relevant methods.(­Úáö8Œ¾­’¨2
-o	java:S1009"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ºÙŞûÿÿÿÿ8 ¾­’¨2
+
+java:S1192·"KDefine a constant instead of duplicating this literal "API NoTopo" 3 times.(Àì“ê8­”ÛÌ­2J$4b989e5e-0e5f-436a-8c49-568155dd1948
+•
+java:S1192j"MDefine a constant instead of duplicating this literal "API Response" 6 times.(Öê°»ÿÿÿÿÿ8°”ÛÌ­2J$cf5fcc5b-9656-4078-b375-456e1e2724b9
+¬
+java:S1192^"dDefine a constant instead of duplicating this literal "https://cc-api-sql-qa.onrender.com/" 3 times.(êìØèúÿÿÿÿ8±”ÛÌ­2J$410b6add-1e1b-4de7-b77d-1a239d4a0996
+œ
+java:S1192j"TDefine a constant instead of duplicating this literal "CÃ³digo de status: " 3 times.(Öê°»ÿÿÿÿÿ8²”ÛÌ­2J$8655f308-e81f-4178-8346-8895279ebf3c
+
+java:S1192k"HDefine a constant instead of duplicating this literal "Corpo: " 3 times.(¥à…ûÿÿÿÿ8´”ÛÌ­2J$834afe4e-b57f-4c9c-851e-b00ac3ef48b4
+˜	java:S117^"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êìØèúÿÿÿÿ8ó½­’¨2J$3126b535-b2c9-493c-96d4-c5091065239d
+™	java:S117‚"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êìØèúÿÿÿÿ8¹”ÛÌ­2J$08e2318e-0159-4c97-8524-2b3154f6e989
+™	java:S117¦"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êìØèúÿÿÿÿ8º”ÛÌ­2J$57f7796b-295f-4560-ac43-4e793f4bcd79
+—
+java:S1659$"ODeclare "recyclerViewOferta" and all following declarations on a separate line.(¯¨À•úÿÿÿÿ8¢–ÛÌ­2J$c9370199-4bcd-4899-9875-689d4b567311
+
+java:S1659("KDeclare "produtosOferta" and all following declarations on a separate line.(­¶ˆˆ8¢–ÛÌ­2J$0a3671c5-f035-4e82-aebb-d098fe9d91a9
+Š
+java:S1659*"GDeclare "textView13" and all following declarations on a separate line.(¥¿ûâ8£–ÛÌ­2J$d79538b5-e392-4fc5-a922-94126761d932

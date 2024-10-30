@@ -8,34 +8,29 @@
         android:layout_height="wrap_content"
         android:icon="@drawable/baseline_home_24"
         android:state_checked="true"
-        android:title="Início"
-        />
+        android:title="Início" />
     <item
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:title="Categorias"
-        android:icon="@drawable/categorias"
         android:id="@+id/categorias"
-        />
-    <item
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:title="Contratar"
-        android:icon="@drawable/contratar"
+        android:icon="@drawable/categorias"
+        android:title="Categorias" />
+    <item
         android:id="@+id/contratar"
-      />
-    <item
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:title="Carrinho"
-        android:icon="@drawable/carrinhovazio"
+        android:icon="@drawable/contratar"
+        android:title="Contratar" />
+    <item
         android:id="@+id/carrinho"
-       />
-    <item
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:title="Conta"
-        android:icon="@drawable/profile"
+        android:icon="@drawable/carrinhovazio"
+        android:title="Carrinho" />
+    <item
         android:id="@+id/conta"
-        />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/profile"
+        android:title="Conta" />
 </menu>

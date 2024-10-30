@@ -1,12 +1,7 @@
 package com.example.construconecta_interdisciplinar_certo.Adapters;
 
-import static java.security.AccessController.getContext;
-
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.Typeface;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,17 +15,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.construconecta_interdisciplinar_certo.DetalheServicoActivity;
 import com.example.construconecta_interdisciplinar_certo.R;
-import com.example.construconecta_interdisciplinar_certo.RecyclerServicosActivity;
 import com.example.construconecta_interdisciplinar_certo.apis.UsuarioApi;
-import com.example.construconecta_interdisciplinar_certo.models.Produto;
 import com.example.construconecta_interdisciplinar_certo.models.Servico;
 import com.example.construconecta_interdisciplinar_certo.models.Usuario;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.List;
-import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -42,10 +33,11 @@ public class AdapterServico extends RecyclerView.Adapter<AdapterServico.ServicoV
     private List<Servico> servicoList;
     private Context context;
 
-    public AdapterServico(List<Servico> servicoList,  Context context) {
+    public AdapterServico(List<Servico> servicoList, Context context) {
         this.servicoList = servicoList;
         this.context = context;
     }
+
     public void setFilteredList(List<Servico> Listaservicos) {
         this.servicoList = Listaservicos;
         notifyDataSetChanged();
@@ -142,15 +134,14 @@ public class AdapterServico extends RecyclerView.Adapter<AdapterServico.ServicoV
         });
     }
 
-    // Interface de callback para retornar a URL da imagem
-    interface OnImageUrlFetchedListener {
-        void onUrlFetched(String imageUrl);
-    }
-
-
     @Override
     public int getItemCount() {
         return servicoList.size();
+    }
+
+    // Interface de callback para retornar a URL da imagem
+    interface OnImageUrlFetchedListener {
+        void onUrlFetched(String imageUrl);
     }
 
     public static class ServicoViewHolder extends RecyclerView.ViewHolder {

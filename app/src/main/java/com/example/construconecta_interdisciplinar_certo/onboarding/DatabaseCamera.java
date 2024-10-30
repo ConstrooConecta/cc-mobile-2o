@@ -18,7 +18,7 @@ import java.util.Map;
 
 public class DatabaseCamera {
 
-    public void uploadFoto(Context c, ImageView foto, Map<String, String> docData, String emailUser){
+    public void uploadFoto(Context c, ImageView foto, Map<String, String> docData, String emailUser) {
         //conversão
         Bitmap bitmap = ((BitmapDrawable) foto.getDrawable()).getBitmap();
         //saída do bitmap convertido (comprimir a imagem)
@@ -29,7 +29,7 @@ public class DatabaseCamera {
         //abrir Database
         FirebaseStorage storage = FirebaseStorage.getInstance();
         //criar pasta "galeria"
-        storage.getReference("galeria").child(emailUser+ ".jpg")
+        storage.getReference("galeria").child(emailUser + ".jpg")
                 .putBytes(databyte)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -40,7 +40,7 @@ public class DatabaseCamera {
                             @Override
                             public void onSuccess(Uri uri) {
                                 Toast.makeText(c, uri.toString(), Toast.LENGTH_SHORT).show();
-                                docData.put("url",uri.toString());
+                                docData.put("url", uri.toString());
                             }
                         });
 
@@ -48,7 +48,7 @@ public class DatabaseCamera {
                 });
     }
 
-    public void uploadFotoProduto(Context c, ImageView foto, Map<String, String> docData, String emailUser){
+    public void uploadFotoProduto(Context c, ImageView foto, Map<String, String> docData, String emailUser) {
         //conversão
         Bitmap bitmap = ((BitmapDrawable) foto.getDrawable()).getBitmap();
         //saída do bitmap convertido (comprimir a imagem)
@@ -59,7 +59,7 @@ public class DatabaseCamera {
         //abrir Database
         FirebaseStorage storage = FirebaseStorage.getInstance();
         //criar pasta "galeria"
-        storage.getReference("produtos").child(emailUser +"_"+ docData.get("nome") + ".jpg")
+        storage.getReference("produtos").child(emailUser + "_" + docData.get("nome") + ".jpg")
                 .putBytes(databyte)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -70,14 +70,15 @@ public class DatabaseCamera {
                             @Override
                             public void onSuccess(Uri uri) {
                                 Toast.makeText(c, uri.toString(), Toast.LENGTH_SHORT).show();
-                                docData.put("url",uri.toString());
+                                docData.put("url", uri.toString());
                             }
                         });
 
                     }
                 });
     }
-    public void downloadFoto(ImageView img, Uri urlFirebase){
+
+    public void downloadFoto(ImageView img, Uri urlFirebase) {
         img.setRotation(0);
         Glide.with(img.getContext()).asBitmap().load(urlFirebase).into(img);
     }

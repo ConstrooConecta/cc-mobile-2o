@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.construconecta_interdisciplinar_certo.R;
 import com.example.construconecta_interdisciplinar_certo.RecyclerServicosActivity;
-import com.example.construconecta_interdisciplinar_certo.models.Servico;
 import com.example.construconecta_interdisciplinar_certo.models.TagServico;
 
 import java.util.List;
@@ -23,7 +22,7 @@ public class AdapterTagServico extends RecyclerView.Adapter<AdapterTagServico.Se
     private List<TagServico> servicoTagList;
     private Context context;
 
-    public AdapterTagServico(List<TagServico> servicoTagList,  Context context) {
+    public AdapterTagServico(List<TagServico> servicoTagList, Context context) {
         this.servicoTagList = servicoTagList;
         this.context = context;
     }
@@ -43,7 +42,6 @@ public class AdapterTagServico extends RecyclerView.Adapter<AdapterTagServico.Se
         holder.textViewPrecoServico.setText("R$ " + tagServico.getPrecoMedio());
 
         //pegar o id do tagServico, que é uma lista
-
         String url = null;
 
         int tagServicoId = tagServico.getTagServicoId();
@@ -60,7 +58,6 @@ public class AdapterTagServico extends RecyclerView.Adapter<AdapterTagServico.Se
         }
         Glide.with(holder.imageViewServico.getContext()).asBitmap().load(url).into(holder.imageViewServico);
 
-
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,7 +66,7 @@ public class AdapterTagServico extends RecyclerView.Adapter<AdapterTagServico.Se
                 context.startActivity(intent);
             }
         });
-        }
+    }
 
     @Override
     public int getItemCount() {
@@ -89,4 +86,3 @@ public class AdapterTagServico extends RecyclerView.Adapter<AdapterTagServico.Se
         }
     }
 }
-
