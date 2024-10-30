@@ -1,7 +1,7 @@
 
 {
-java:S1874"3Remove this use of "NetworkInfo"; it is deprecated.(Õ¥—ãùÿÿÿÿ8ùŽ’Ø£2J$b9c099d9-a569-4c49-aae3-49ef4c9c692d
+java:S1874"3Remove this use of "NetworkInfo"; it is deprecated.(Õ¥—ãùÿÿÿÿ8ùŽ’Ø£2J$6b63586d-5af0-4538-bb54-bdacd6f84249
 „
-java:S1874"<Remove this use of "getActiveNetworkInfo"; it is deprecated.(Õ¥—ãùÿÿÿÿ8úŽ’Ø£2J$b7e8fc57-d5b4-4e41-96e1-3c02689c1fe0
+java:S1874"<Remove this use of "getActiveNetworkInfo"; it is deprecated.(Õ¥—ãùÿÿÿÿ8úŽ’Ø£2J$a3c7ca41-dd08-49d8-ad96-bafa7b43f440
 {
-java:S1874"3Remove this use of "isConnected"; it is deprecated.(‡ýŒÞøÿÿÿÿ8úŽ’Ø£2J$3e4e1779-7295-42be-8a73-e6a7929f9391
+java:S1874"3Remove this use of "isConnected"; it is deprecated.(‡ýŒÞøÿÿÿÿ8úŽ’Ø£2J$ed67826e-699f-4e29-9bf5-42a37b481e13

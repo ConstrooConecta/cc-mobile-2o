@@ -1,0 +1,39 @@
+
+	java:S112œ"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8Òº©Î­2J$9feb867b-386c-45ed-b773-5d18fe944a70
+‹
+java:S1192V"JDefine a constant instead of duplicating this literal "produtos/" 3 times.(Ïš¢ûÿÿÿÿJ$8fac08ba-9d9c-4103-ae70-2fdac473a850
+™	java:S117È"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êìØèúÿÿÿÿ8¤ß©Î­2J$f91cfc93-83b0-4df8-8bde-f4cace2153b2
+p
+java:S16592"/Declare "viewCondicaoUsado" on a separate line.(á‘™æøÿÿÿÿJ$14ab20b3-6bbf-4914-892c-76c55b34d7ee
+d
+java:S16593"#Declare "usado" on a separate line.(×ñ¨±ùÿÿÿÿJ$90623196-53e3-4e4a-8279-ef5965dd4363
+
+java:S14504"\Remove the "botaoANUNCIAR" field and declare it as a local variable in the relevant methods.(±µŸøÿÿÿÿJ$b1c19c79-06a4-436f-af3a-b8cae2509c8f
+”
+java:S14503"SRemove the "novo" field and declare it as a local variable in the relevant methods.(×ñ¨±ùÿÿÿÿJ$c70d19b2-eb4f-4627-a387-5306dc6c99e7
+•
+java:S14503"TRemove the "usado" field and declare it as a local variable in the relevant methods.(×ñ¨±ùÿÿÿÿJ$e5159f8b-2f2a-4a50-a39a-3d6c310702ef
+ 
+java:S14502"_Remove the "viewCondicaoNovo" field and declare it as a local variable in the relevant methods.(á‘™æøÿÿÿÿJ$2eed4e43-bd3e-4ed5-b33b-a8e644e1992a
+¡
+java:S14502"`Remove the "viewCondicaoUsado" field and declare it as a local variable in the relevant methods.(á‘™æøÿÿÿÿJ$175c8965-ac2d-4ad2-b0b5-1c819de27a76
+p
+java:S1874X"/Remove this use of "Handler"; it is deprecated.(’àŞ–úÿÿÿÿJ$1e00c4c8-0624-4129-9125-0d2e23b3d577
+m
+java:S1602X",Remove useless curly braces around statement(’àŞ–úÿÿÿÿJ$19f69641-6989-4247-a93a-f876eff8fe88
+m
+java:S1602d",Remove useless curly braces around statement(¶—„øÿÿÿÿJ$ccb581ac-303e-40e5-99e5-dccb8fb32b99
+l
+java:S1874r"0Remove this use of "getColor"; it is deprecated.(ğ‘ñˆJ$3b3a3c18-8f78-4486-b4c1-22bcaad861c2
+y
+java:S1874"0Remove this use of "getColor"; it is deprecated.(¸ï«àøÿÿÿÿ8Ù–ÌÍ­2J$d335da2d-1aff-4c6f-a4e8-07cb94bac454
+r
+java:S2140À")Use "java.util.Random.nextInt()" instead.(îå”˜øÿÿÿÿ8ˆ¼©Î­2J$552beae2-877f-4016-916e-94e4137a8a29
+~
+java:S1117”";Rename "storage" which hides the field declared at line 44.(ÌÔ©8Ÿû¹í­2J$31cc0b9f-4be1-4e46-822c-e969d468e543
+u
+java:S1602˜",Remove useless curly braces around statement(Ü£Ğ„ùÿÿÿÿ8¡û¹í­2J$c4e72411-5a21-45b7-8113-094a16ccb2c1
+p
+java:S1602",Remove useless curly braces around statement(¡ôØ8¢û¹í­2J$0b0cb67a-e327-42b0-8296-3388f2fb2cdc
+‹
+java:S1612"GReplace this lambda with method reference 'Throwable::printStackTrace'.(¡ôØ8¥û¹í­2J$8a34a2e5-8763-4a0c-ba1d-f6a2b934281d

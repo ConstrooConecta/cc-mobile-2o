@@ -1,15 +1,18 @@
 
-™
-java:S1450"VRemove the "mParam1" field and declare it as a local variable in the relevant methods.(•Íï‘8êÏ´å¤2J$888f20e4-3d3e-44d2-8511-825681414272
-™
-java:S1450"VRemove the "mParam2" field and declare it as a local variable in the relevant methods.(¡ˆ€ 8ìÏ´å¤2J$659916b9-f30d-42ae-9a7c-28f601609732
+k
+java:S1604T"(Make this anonymous inner class a lambda(šÆÖ8”…Óí­2J$259b3dd8-2630-4e83-b92b-1031ecdfd9c7
+p
+java:S1604^"(Make this anonymous inner class a lambda(œÁÈÌşÿÿÿÿ8”…Óí­2J$d50adbfe-c74f-4e2c-be2f-db88c7d8210d
+}
+java:S16593"5Declare "viewPoliticaPrivacidade" on a separate line.(ıà„ÿÿÿÿÿ8Ğ…Óí­2J$5d09c526-d088-4b94-af9c-8ecdafe6e365
+®
+java:S14503"fRemove the "viewPoliticaPrivacidade" field and declare it as a local variable in the relevant methods.(ıà„ÿÿÿÿÿ8Ñ…Óí­2J$2596b468-95dd-4171-b1d1-fa13c1aeddc4
+¡
+java:S14503"YRemove the "viewVender" field and declare it as a local variable in the relevant methods.(ıà„ÿÿÿÿÿ8Ñ…Óí­2J$d2dfb7ed-0dbf-48a5-a9e8-0782b0551630
 {
-java:S1874R"3Remove this use of "NetworkInfo"; it is deprecated.(Õ¥—ãùÿÿÿÿ8£Ï¾§2J$45d778b2-fe6b-41df-9f74-27ff5decb003
+java:S1874y"3Remove this use of "NetworkInfo"; it is deprecated.(Õ¥—ãùÿÿÿÿ8ä…Óí­2J$698d1fb8-0032-4f7e-a5b8-93df7094741a
 „
-java:S1874R"<Remove this use of "getActiveNetworkInfo"; it is deprecated.(Õ¥—ãùÿÿÿÿ8£Ï¾§2J$dba9f77b-dd6c-4a7e-b65f-7912d0144cc1
+java:S1874y"<Remove this use of "getActiveNetworkInfo"; it is deprecated.(Õ¥—ãùÿÿÿÿ8ä…Óí­2J$5494cf70-bca5-4b23-b478-fd37da79e992
 {
-java:S1874S"3Remove this use of "isConnected"; it is deprecated.(‡ıŒŞøÿÿÿÿ8¤Ï¾§2J$0d2f48ca-4386-443d-bf53-6d7dc88ad171
-n
-java:S1068"+Remove this unused "mParam1" private field.(•Íï‘8’Ñ´å¤2J$b4c5d1a4-30c3-45ab-89a5-8862889494e1
-n
-java:S1068"+Remove this unused "mParam2" private field.(¡ˆ€ 8–Ñ´å¤2J$17e50099-6cf3-4cfe-914b-aa04347d0e2a
+java:S1874z"3Remove this use of "isConnected"; it is deprecated.(‡ıŒŞøÿÿÿÿ8 ë¦­2J$56b186b1-af08-410b-aebd-e9b1b23b4fff
+•	java:S100}"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„Êê¥ûÿÿÿÿ8æ…Óí­2J$abf5d030-597a-4e8a-a0e3-32e58bbe42bb

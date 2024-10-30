@@ -1,13 +1,5 @@
 package com.example.construconecta_interdisciplinar_certo;
 
-import static java.security.AccessController.getContext;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,13 +7,14 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.construconecta_interdisciplinar_certo.Adapters.AdapterProdutoHome;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.construconecta_interdisciplinar_certo.Adapters.AdapterServico;
-import com.example.construconecta_interdisciplinar_certo.apis.ProdutoApi;
 import com.example.construconecta_interdisciplinar_certo.apis.ServicoApi;
 import com.example.construconecta_interdisciplinar_certo.apis.UsuarioApi;
-import com.example.construconecta_interdisciplinar_certo.checkout.CarrinhoActivity;
-import com.example.construconecta_interdisciplinar_certo.models.Produto;
 import com.example.construconecta_interdisciplinar_certo.models.Servico;
 import com.example.construconecta_interdisciplinar_certo.models.Usuario;
 
@@ -51,12 +44,10 @@ public class RecyclerServicosActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recycler_servicos);
         progressBar = findViewById(R.id.progressBar2Servico);
 
-
         searchBar = findViewById(R.id.searchBarServico);
 
         servicoRecyclerView = findViewById(R.id.recyclerViewServicos);
         servicoRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
-
 
         servicos = new ArrayList<>();
         adapter = new AdapterServico(servicos, this);
@@ -65,13 +56,9 @@ public class RecyclerServicosActivity extends AppCompatActivity {
         Intent intent = getIntent();
         // Pega o valor extra que foi passado
         String tagName = intent.getStringExtra("tagName");
-        chamar_API_Retrofit_Servicos(tagName);
+        chamarAPIRetrofitServicos(tagName);
 
         // Inicializa a lista de usuários e o mapa
-
-
-
-
         carregarUsuarios();
 
         // Configura a SearchBar para filtrar a lista de serviços
@@ -87,10 +74,8 @@ public class RecyclerServicosActivity extends AppCompatActivity {
                 return false;
             }
         });
-
-
-
     }
+
     private void initializeUsuariosMap() {
         for (Usuario usuario : usuarios) {
             usuariosMap.put(usuario.getUid(), usuario); // Associa o UID ao objeto Usuario
@@ -136,55 +121,56 @@ public class RecyclerServicosActivity extends AppCompatActivity {
                 filteredList.add(servico);
             }
         }
-
         if (filteredList.isEmpty()) {
             Toast.makeText(this, "Nenhum resultado encontrado", Toast.LENGTH_SHORT).show();
         } else {
             adapter.setFilteredList(filteredList);
         }
     }
-    private void chamar_API_Retrofit_Servicos(String tagName) {
-    String API = "https://cc-api-sql-qa.onrender.com/";
-    Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl(API)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
 
-    ServicoApi servicoApi = retrofit.create(ServicoApi.class);
-    Call<List<Servico>> call = servicoApi.findByTagName(tagName);
+    private void chamarAPIRetrofitServicos(String tagName) {
+        String API = "https://cc-api-sql-qa.onrender.com/";
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(API)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
 
-    call.enqueue(new Callback<List<Servico>>() {
-        @Override
-        public void onResponse(Call<List<Servico>> call, Response<List<Servico>> response) {
-            Log.d("API Response", "Código de status: " + response.code());
-            Log.d("API Response", "Corpo: " + response.body());
+        ServicoApi servicoApi = retrofit.create(ServicoApi.class);
+        Call<List<Servico>> call = servicoApi.findByTagName(tagName);
 
-            if (response.isSuccessful()) {
-                if (response.body() != null) {
-                    Log.d("API NoTopo", "Dados recebidos: " + response.body().toString());
-                    servicos.clear();
-                    servicos.addAll(response.body());
-                    adapter.notifyDataSetChanged();
+        call.enqueue(new Callback<List<Servico>>() {
+            @Override
+            public void onResponse(Call<List<Servico>> call, Response<List<Servico>> response) {
+                Log.d("API Response", "Código de status: " + response.code());
+                Log.d("API Response", "Corpo: " + response.body());
 
-                    progressBar.setVisibility(View.GONE);
-                    servicoRecyclerView.setVisibility(View.VISIBLE);
-                    searchBar.setVisibility(View.VISIBLE);
+                if (response.isSuccessful()) {
+                    if (response.body() != null) {
+                        Log.d("API NoTopo", "Dados recebidos: " + response.body().toString());
+                        servicos.clear();
+                        servicos.addAll(response.body());
+                        adapter.notifyDataSetChanged();
 
+                        progressBar.setVisibility(View.GONE);
+                        servicoRecyclerView.setVisibility(View.VISIBLE);
+                        searchBar.setVisibility(View.VISIBLE);
+
+                    } else {
+                        Log.d("API NoTopo", "Corpo da resposta é nulo");
+                    }
                 } else {
-                    Log.d("API NoTopo", "Corpo da resposta é nulo");
+                    Log.d("API NoTopo", "Erro: Código de status " + response.code());
                 }
-            } else {
-                Log.d("API NoTopo", "Erro: Código de status " + response.code());
+
             }
 
-        }
 
-
-        @Override
-        public void onFailure(Call<List<Servico>> call, Throwable throwable) {
-            Toast.makeText(RecyclerServicosActivity.this, "Deu errado: " + throwable.getMessage(), Toast.LENGTH_SHORT).show();}
-    });
-}
+            @Override
+            public void onFailure(Call<List<Servico>> call, Throwable throwable) {
+                Toast.makeText(RecyclerServicosActivity.this, "Erro ao mostrar serviços: " + throwable.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
 
 }

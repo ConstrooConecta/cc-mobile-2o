@@ -11,11 +11,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.construconecta_interdisciplinar_certo.R;
 
 public class InternetErrorActivity extends AppCompatActivity {
+    // O NetworkCallback para monitorar a conexão
+    private final ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
+        @Override
+        public void onAvailable(Network network) {
+            super.onAvailable(network);
+            runOnUiThread(() -> onConnectionRestored());
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_internet_error);
-
         // Registre o callback de rede
         registerNetworkCallback();
     }
@@ -25,15 +32,6 @@ public class InternetErrorActivity extends AppCompatActivity {
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         connectivityManager.registerDefaultNetworkCallback(networkCallback);
     }
-
-    // O NetworkCallback para monitorar a conexão
-    private final ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
-        @Override
-        public void onAvailable(Network network) {
-            super.onAvailable(network);
-            runOnUiThread(() -> onConnectionRestored());
-        }
-    };
 
     // Método que será chamado quando a conexão for restaurada
     private void onConnectionRestored() {
@@ -59,4 +57,3 @@ public class InternetErrorActivity extends AppCompatActivity {
         connectivityManager.unregisterNetworkCallback(networkCallback);
     }
 }
-

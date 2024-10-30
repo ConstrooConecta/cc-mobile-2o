@@ -1,7 +1,7 @@
 
-m
-java:S1172!"+Remove this unused method parameter "view".(—¿ë8ÏÒ¯’¨2J$af1309d8-bd5f-4c82-bec2-606264859fde
-s
-java:S1172'"+Remove this unused method parameter "view".(İåŒıÿÿÿÿ8ÑÒ¯’¨2J$1fccc8b4-7669-44d0-8051-1af174578191
-w
-java:S18747"/Remove this use of "Handler"; it is deprecated.(–ü«Šüÿÿÿÿ8ÕÒ¯’¨2J$4da6b814-d02c-4315-b3ff-03fdba0c4c84
+G
+java:S1172"+Remove this unused method parameter "view".(—¿ë8«şÓî­2
+M
+java:S1172%"+Remove this unused method parameter "view".(İåŒıÿÿÿÿ8¬şÓî­2
+Q
+java:S18745"/Remove this use of "Handler"; it is deprecated.(–ü«Šüÿÿÿÿ8®şÓî­2

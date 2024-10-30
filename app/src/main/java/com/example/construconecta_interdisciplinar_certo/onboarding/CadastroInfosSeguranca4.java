@@ -16,11 +16,11 @@ import android.widget.Toast;
 
 import androidx.core.app.NotificationCompat;
 
-import com.example.construconecta_interdisciplinar_certo.shop.Home;
 import com.example.construconecta_interdisciplinar_certo.R;
 import com.example.construconecta_interdisciplinar_certo.apis.UsuarioApi;
 import com.example.construconecta_interdisciplinar_certo.databinding.ActivityCadastroInfosSeguranca4Binding;
 import com.example.construconecta_interdisciplinar_certo.models.Usuario;
+import com.example.construconecta_interdisciplinar_certo.shop.Home;
 import com.example.construconecta_interdisciplinar_certo.ui.BaseActivity;
 import com.example.construconecta_interdisciplinar_certo.utils.AnimationUtils;
 import com.example.construconecta_interdisciplinar_certo.utils.ButtonUtils;
@@ -76,10 +76,12 @@ public class CadastroInfosSeguranca4 extends BaseActivity {
         // Adiciona TextWatcher para o campo de CPF
         binding.cpfInput.addTextChangedListener(new TextWatcher() {
             private boolean isUpdating = false;
+
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                 // Não é necessário implementar
             }
+
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (isUpdating) {
@@ -112,6 +114,7 @@ public class CadastroInfosSeguranca4 extends BaseActivity {
                 validateCpf(unformatted); // Valida o CPF formatado
                 isUpdating = false; // Reseta a flag
             }
+
             @Override
             public void afterTextChanged(Editable s) {
                 // Não é necessário implementar
@@ -153,7 +156,7 @@ public class CadastroInfosSeguranca4 extends BaseActivity {
     }
 
     private void validateCpfDataBase() {
-        ButtonUtils.enableButtonWithProgressBar(this, binding.nextButton, binding.progressBar);
+        ButtonUtils.disableButtonWithProgressBar(this, binding.nextButton, binding.progressBar);
         InputUtils.setNormal(this, binding.cpfInputLayout, binding.cpfInput, binding.cpfError);
         InputUtils.disableInput(binding.cpfInput);
         InputUtils.disableInput(binding.senhaInput);
@@ -290,7 +293,7 @@ public class CadastroInfosSeguranca4 extends BaseActivity {
     }
 
     private void sendUserToDatabase(Usuario usuario, Intent intent, Bundle bundle) {
-        ButtonUtils.enableButtonWithProgressBar(this, binding.nextButton, binding.progressBar);
+        ButtonUtils.disableButtonWithProgressBar(this, binding.nextButton, binding.progressBar);
 
         String url = "https://cc-api-sql-qa.onrender.com/";
         Retrofit retrofit = new Retrofit.Builder()
@@ -304,7 +307,7 @@ public class CadastroInfosSeguranca4 extends BaseActivity {
         call.enqueue(new Callback<Usuario>() {
             @Override
             public void onResponse(Call<Usuario> call, Response<Usuario> response) {
-                if(response.isSuccessful()) {
+                if (response.isSuccessful()) {
                     Usuario createdUser = response.body();
                     Log.d("POST_SUCCESS", "Usuário criado: " + createdUser.getNomeUsuario());
 
@@ -339,27 +342,26 @@ public class CadastroInfosSeguranca4 extends BaseActivity {
 
         user.updateProfile(profile).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
-                // Sucesso no Firebase, agora pode ocultar o ProgressBar e ir para a próxima página
-                binding.progressBar.setVisibility(View.GONE); // Oculta ProgressBar
-                binding.nextButton.setEnabled(true); // Reabilita o botão, caso precise ser reutilizado
+                binding.progressBar.setVisibility(View.GONE);
+                binding.nextButton.setEnabled(true);
 
-                //passando um bundle int castroConcluido como 1 para direcionar para a pra proxima tela
                 bundle.putInt("castroConcluido", 1);
                 intent.putExtras(bundle);
-                // Prossiga para a próxima tela
+
+                // Flags para finalizar as telas anteriores
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
                 startActivity(intent);
                 finish();
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             } else {
-                // Erro no Firebase
-                binding.progressBar.setVisibility(View.GONE); // Oculta ProgressBar
-                binding.nextButton.setEnabled(true); // Reabilita o botão
+                binding.progressBar.setVisibility(View.GONE);
+                binding.nextButton.setEnabled(true);
                 binding.nextButton.setText("Avançar");
                 Toast.makeText(CadastroInfosSeguranca4.this, "Erro ao atualizar perfil no Firebase.", Toast.LENGTH_SHORT).show();
             }
         });
     }
-
     private void updateButtonStatus() {
         String cpf = Objects.requireNonNull(binding.cpfInput.getText()).toString().replaceAll("[^\\d]", "");
         boolean cpfValido = isCPFValido(cpf);
@@ -376,7 +378,6 @@ public class CadastroInfosSeguranca4 extends BaseActivity {
             binding.nextButton.setBackgroundResource(R.drawable.disable_button_design);
         }
     }
-
     private void mostrarNotificacao(String mensagem) {
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         String channelId = "canal_notificacao"; // ID do canal
@@ -397,5 +398,4 @@ public class CadastroInfosSeguranca4 extends BaseActivity {
 
         notificationManager.notify(1, builder.build()); // 1 é o ID da notificação
     }
-
 }

@@ -71,9 +71,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginTop="9dp"
+            android:visibility="gone"
             app:layout_constraintStart_toEndOf="@+id/imagemPerfil"
-            app:layout_constraintTop_toBottomOf="@+id/textViewApelid"
-            android:visibility="gone"/>
+            app:layout_constraintTop_toBottomOf="@+id/textViewApelid" />
 
         <TextView
             android:id="@+id/textViewApelid"
@@ -82,9 +82,9 @@
             android:layout_marginStart="12dp"
             android:layout_marginTop="28dp"
             android:text=""
+            android:visibility="gone"
             app:layout_constraintStart_toEndOf="@+id/imagemPerfil"
-            app:layout_constraintTop_toTopOf="parent"
-            android:visibility="gone"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             android:id="@+id/botaoEdit"
@@ -94,9 +94,9 @@
             android:layout_marginTop="72dp"
             android:background="#00FFFFFF"
             android:src="@drawable/botaoedit_maior"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:visibility="gone"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <View
             android:id="@+id/viewPedido"

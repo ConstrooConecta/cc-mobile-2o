@@ -8,7 +8,6 @@ import android.widget.ProgressBar;
 import com.example.construconecta_interdisciplinar_certo.R;
 
 public class ButtonUtils {
-
     // Método para desabilitar o botão
     public static void disableButton(Context context, Button button, ProgressBar progressBar) {
         progressBar.setVisibility(View.GONE);
@@ -40,4 +39,3 @@ public class ButtonUtils {
         button.setText("");
     }
 }
-

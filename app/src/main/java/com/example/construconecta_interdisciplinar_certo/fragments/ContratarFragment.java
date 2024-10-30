@@ -3,7 +3,6 @@ package com.example.construconecta_interdisciplinar_certo.fragments;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -23,20 +22,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.construconecta_interdisciplinar_certo.Adapters.AdapterServico;
 import com.example.construconecta_interdisciplinar_certo.Adapters.AdapterTagServico;
 import com.example.construconecta_interdisciplinar_certo.Adapters.AdapterTagServicoContratar;
 import com.example.construconecta_interdisciplinar_certo.Adapters.CardAdapter;
-import com.example.construconecta_interdisciplinar_certo.AnunciarProdutoActivity;
 import com.example.construconecta_interdisciplinar_certo.R;
-import com.example.construconecta_interdisciplinar_certo.apis.ProdutoApi;
-import com.example.construconecta_interdisciplinar_certo.apis.ServicoApi;
 import com.example.construconecta_interdisciplinar_certo.apis.TagServicoApi;
 import com.example.construconecta_interdisciplinar_certo.apis.UsuarioApi;
 import com.example.construconecta_interdisciplinar_certo.models.CardItem;
-import com.example.construconecta_interdisciplinar_certo.models.Categoria;
-import com.example.construconecta_interdisciplinar_certo.models.Produto;
-import com.example.construconecta_interdisciplinar_certo.models.Servico;
 import com.example.construconecta_interdisciplinar_certo.models.TagServico;
 import com.example.construconecta_interdisciplinar_certo.models.TagServicoCategoria;
 import com.example.construconecta_interdisciplinar_certo.models.Usuario;
@@ -61,16 +53,13 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ContratarFragment extends Fragment {
     private RecyclerView recyclerCards;
     private ImageView imagemPerfil;
-    private TextView textView40,textView39;
+    private TextView textView40, textView39;
     private List<TagServico> servicoTagList;
     private AdapterTagServico adapterTagServico;
-
     private RecyclerView recyclerCategoriaSer;
     private AdapterTagServicoContratar adapter;
 
-    public ContratarFragment() {
-        // Required empty public constructor
-    }
+    public ContratarFragment() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -85,29 +74,27 @@ public class ContratarFragment extends Fragment {
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
 
         servicoTagList = new ArrayList<>();
-        adapterTagServico = new AdapterTagServico(servicoTagList,getContext());
+        adapterTagServico = new AdapterTagServico(servicoTagList, getContext());
         recyclerView.setAdapter(adapterTagServico);
 
-
-        chamar_API_Retrofit_Servico();
+        chamarAPIRetrofitServico();
 
         recyclerCategoriaSer = view.findViewById(R.id.recycler_categoriaSer);
         recyclerCategoriaSer.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
 
         List<TagServicoCategoria> categorias = new ArrayList<>();
-        categorias.add(new TagServicoCategoria( "Arquiteto",R.drawable.arquiteto));
+        categorias.add(new TagServicoCategoria("Arquiteto", R.drawable.arquiteto));
         categorias.add(new TagServicoCategoria("Engenheiro", R.drawable.engenheiro));
-        categorias.add(new TagServicoCategoria( "Carpinteiro",R.drawable.carpinteiro));
+        categorias.add(new TagServicoCategoria("Carpinteiro", R.drawable.carpinteiro));
         categorias.add(new TagServicoCategoria("Pedreiro", R.drawable.pedreiro));
-        categorias.add(new TagServicoCategoria( "Encanador",R.drawable.encanadorcerto));
+        categorias.add(new TagServicoCategoria("Encanador", R.drawable.encanadorcerto));
         // Adicione outras categorias...
 
         adapter = new AdapterTagServicoContratar(categorias, getContext());
         recyclerCategoriaSer.setAdapter(adapter);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-
-        Conexao_Api_procurar_por_email(user);
+        ConexaoApiProcurarPorEmail(user);
 
 
         FirebaseStorage storage = FirebaseStorage.getInstance();
@@ -146,11 +133,9 @@ public class ContratarFragment extends Fragment {
         return view;
     }
 
-
     @Override
     public void onResume() {
         super.onResume();
-
         if (!isConnectedToInternet()) {
             // Exibir a Activity de erro de internet
             Intent intent = new Intent(getActivity(), InternetErrorActivity.class);
@@ -165,7 +150,7 @@ public class ContratarFragment extends Fragment {
         return activeNetwork != null && activeNetwork.isConnected();
     }
 
-    private void chamar_API_Retrofit_Servico() {
+    private void chamarAPIRetrofitServico() {
         String API = "https://cc-api-sql-qa.onrender.com/";
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(API)
@@ -193,16 +178,14 @@ public class ContratarFragment extends Fragment {
                     Toast.makeText(getActivity(), "Erro na resposta da API: " + response.code(), Toast.LENGTH_SHORT).show();
                 }
             }
-
-
             @Override
             public void onFailure(Call<List<TagServico>> call, Throwable throwable) {
-                Toast.makeText(getActivity(), "Deu errado: " + throwable.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Erro ao mostrar serviço: " + throwable.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    private void Conexao_Api_procurar_por_email(FirebaseUser user) {
+    private void ConexaoApiProcurarPorEmail(FirebaseUser user) {
         String url = "https://cc-api-sql-qa.onrender.com/";
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -222,29 +205,18 @@ public class ContratarFragment extends Fragment {
                     String apelido = usuario.getNomeUsuario();
                     String nomeCompleto = usuario.getNomeCompleto();
 
-                    textView39.setText("@"+apelido);
+                    textView39.setText("@" + apelido);
                     textView39.setTextColor(Color.parseColor("#797979"));
-
-
                     textView40.setVisibility(View.VISIBLE);
-
-
-
-                    textView40.setText("Olá, "+nomeCompleto);
-
-
+                    textView40.setText("Olá, " + nomeCompleto);
                 } else {
                     Toast.makeText(getContext(), "Entrou no else", Toast.LENGTH_SHORT).show();
                 }
             }
-
             @Override
             public void onFailure(Call<List<Usuario>> call, Throwable t) {
                 Toast.makeText(getContext(), "Erro na chamada: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
-
-
-
 }

@@ -28,7 +28,7 @@ public class CadastroEmail1 extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate (savedInstanceState);
+        super.onCreate(savedInstanceState);
         binding = ActivityCadastroEmail1Binding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -40,11 +40,14 @@ public class CadastroEmail1 extends BaseActivity {
         // Verificação de e-mail em tempo real
         binding.emailInput.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 validateEmail(s.toString());
             }
+
             @Override
             public void afterTextChanged(Editable s) {
                 String input = s.toString();
@@ -143,6 +146,4 @@ public class CadastroEmail1 extends BaseActivity {
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
         finish();
     }
-
 }
-

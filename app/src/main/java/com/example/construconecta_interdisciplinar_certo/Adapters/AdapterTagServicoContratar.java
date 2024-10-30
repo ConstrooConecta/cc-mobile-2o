@@ -13,13 +13,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.construconecta_interdisciplinar_certo.R;
 import com.example.construconecta_interdisciplinar_certo.RecyclerServicosActivity;
-import com.example.construconecta_interdisciplinar_certo.models.Categoria;
 import com.example.construconecta_interdisciplinar_certo.models.TagServicoCategoria;
 
 import java.util.List;
 
 public class AdapterTagServicoContratar extends RecyclerView.Adapter<AdapterTagServicoContratar.ViewHolder> {
-
     private List<TagServicoCategoria> listaCategorias;
     private Context context;
 
@@ -41,8 +39,6 @@ public class AdapterTagServicoContratar extends RecyclerView.Adapter<AdapterTagS
         holder.textCategoria.setText(tagServicoCategoria.getNome());
         holder.imageCategoria.setImageResource(tagServicoCategoria.getImagemResId());
 
-
-
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,7 +47,6 @@ public class AdapterTagServicoContratar extends RecyclerView.Adapter<AdapterTagS
                 context.startActivity(intent);
             }
         });
-
     }
 
     @Override

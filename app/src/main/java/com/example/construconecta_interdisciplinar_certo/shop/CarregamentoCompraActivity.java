@@ -1,8 +1,5 @@
 package com.example.construconecta_interdisciplinar_certo.shop;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -10,15 +7,16 @@ import android.os.Handler;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
 import com.example.construconecta_interdisciplinar_certo.R;
 
 public class CarregamentoCompraActivity extends AppCompatActivity {
-
     private ProgressBar progressBar;
     private ImageView imageViewSacola;
     private int progresso = 0;
     private Handler handler = new Handler();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

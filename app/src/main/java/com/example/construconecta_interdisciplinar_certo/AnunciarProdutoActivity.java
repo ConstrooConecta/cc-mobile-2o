@@ -1,10 +1,6 @@
 package com.example.construconecta_interdisciplinar_certo;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -17,28 +13,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.bumptech.glide.Glide;
 import com.example.construconecta_interdisciplinar_certo.apis.CategoriaApi;
 import com.example.construconecta_interdisciplinar_certo.apis.ProdutoApi;
-import com.example.construconecta_interdisciplinar_certo.apis.UsuarioApi;
-import com.example.construconecta_interdisciplinar_certo.checkout.CarrinhoActivity;
 import com.example.construconecta_interdisciplinar_certo.databinding.ActivityAnunciarProdutoBinding;
-import com.example.construconecta_interdisciplinar_certo.databinding.ActivityCadastroInfosPessoais3Binding;
-import com.example.construconecta_interdisciplinar_certo.models.Carrinho;
 import com.example.construconecta_interdisciplinar_certo.models.Categoria;
 import com.example.construconecta_interdisciplinar_certo.models.Produto;
-import com.example.construconecta_interdisciplinar_certo.models.Usuario;
-import com.example.construconecta_interdisciplinar_certo.onboarding.CadastroInfosSeguranca4;
 import com.example.construconecta_interdisciplinar_certo.onboarding.CameraActivity;
-import com.example.construconecta_interdisciplinar_certo.shop.DetalhesProdutosActivity;
-import com.example.construconecta_interdisciplinar_certo.shop.Home;
-import com.example.construconecta_interdisciplinar_certo.utils.ButtonUtils;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
 
 import java.io.File;
 import java.io.IOException;
@@ -55,13 +42,13 @@ public class AnunciarProdutoActivity extends AppCompatActivity {
     private ImageView imagem;
     private String imageData;
     private FirebaseStorage storage;
-    private Integer contador=0;
+    private Integer contador = 0;
     private ActivityAnunciarProdutoBinding binding;
     private Integer categoriaPosition;
     private List<Categoria> categorias = new ArrayList<>();
     private List<String> categoriasList = new ArrayList<>();
     private View viewCondicaoNovo, viewCondicaoUsado;
-    private TextView novo,usado;
+    private TextView novo, usado;
     private Button botaoANUNCIAR;
     private Boolean condicao;
 
@@ -75,7 +62,7 @@ public class AnunciarProdutoActivity extends AppCompatActivity {
 
 
         imagem = findViewById(R.id.imageView11Anuncio);
-        String url ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8lRbS7eKYzDq-Ftxc1p8G_TTw2unWBMEYUw&s";
+        String url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8lRbS7eKYzDq-Ftxc1p8G_TTw2unWBMEYUw&s";
         Glide.with(this).load(url).into(imagem);
 
         imagem.setOnClickListener(v -> {
@@ -92,22 +79,19 @@ public class AnunciarProdutoActivity extends AppCompatActivity {
         FirebaseUser user = auth.getCurrentUser();
         //pegar o intent da outra tela, era um boolean
         Intent intent1 = getIntent();
-        boolean anuncioProduto = intent1.getBooleanExtra("salvouFirebase",false);
-        if (anuncioProduto){
+        boolean anuncioProduto = intent1.getBooleanExtra("salvouFirebase", false);
+        if (anuncioProduto) {
             Toast.makeText(this, "Vamos ver se funcionaaaaaaaaaaaa", Toast.LENGTH_LONG).show();
             //pegando a imgem do firebase storage
-            String caminhoImagem = "produtos/"+user.getEmail() +"_"+ "null"+ ".jpg";
+            String caminhoImagem = "produtos/" + user.getEmail() + "_" + "null" + ".jpg";
             //espera 3 segundos pra imagem carregar/chamar a função
             new Handler().postDelayed(() -> {
                 carregarImagemDoFirebase(caminhoImagem);
             }, 5500);
         }
 
-
-
-
         // Chamada para carregar as categorias da API
-        chamar_API_Categoria();
+        chamarAPICategoria();
 
         // Ao clicar no input, mostrar o dropdown
         binding.categoriaInput.setOnClickListener(v -> binding.categoriaInput.showDropDown());
@@ -128,8 +112,7 @@ public class AnunciarProdutoActivity extends AppCompatActivity {
             viewCondicaoNovo.setTag("selecionado");
             viewCondicaoNovo.setBackgroundResource(R.drawable.condicao_selecionado_design);
             novo.setTextColor(getResources().getColor(R.color.white));
-            condicao=true;
-
+            condicao = true;
 
             viewCondicaoUsado.setTag(null);
             viewCondicaoUsado.setBackgroundResource(R.drawable.condicao_design);
@@ -138,16 +121,13 @@ public class AnunciarProdutoActivity extends AppCompatActivity {
 
         });
 
-
         viewCondicaoUsado.setOnClickListener(v -> {
-
             //adicionar tag "selecionado" no viewCondicaoUsado
             viewCondicaoUsado.setTag("selecionado");
             //colocar o background como o drawable/shape "condicao_selecionado_Desgign"
             viewCondicaoUsado.setBackgroundResource(R.drawable.condicao_selecionado_design);
             usado.setTextColor(getResources().getColor(R.color.white));
-            condicao=false;
-
+            condicao = false;
 
             viewCondicaoNovo.setTag(null);
             viewCondicaoNovo.setBackgroundResource(R.drawable.condicao_design);
@@ -155,24 +135,19 @@ public class AnunciarProdutoActivity extends AppCompatActivity {
 
         });
 
-
-
         botaoANUNCIAR = findViewById(R.id.botaoANUNCIAR);
         //pegando uid do usuario logado no firebase
         String uid = FirebaseAuth.getInstance().getUid();
-
-
 
         botaoANUNCIAR.setOnClickListener(v -> {
             String input = binding.editTextText6.getText().toString();
             double valor = Double.parseDouble(input);
             List<Categoria> list = new ArrayList<>();
-            list.add(categorias.get(categoriaPosition-1));
-            Toast.makeText(this, "Lista"+ list, Toast.LENGTH_SHORT).show();
-
+            list.add(categorias.get(categoriaPosition - 1));
+            Toast.makeText(this, "Lista" + list, Toast.LENGTH_SHORT).show();
 
             FirebaseStorage storage = FirebaseStorage.getInstance();
-            StorageReference oldImageRef = storage.getReference().child("produtos/"+user.getEmail() +"_"+ "null"+ ".jpg");
+            StorageReference oldImageRef = storage.getReference().child("produtos/" + user.getEmail() + "_" + "null" + ".jpg");
 
             File localFile = null;
             try {
@@ -183,14 +158,14 @@ public class AnunciarProdutoActivity extends AppCompatActivity {
             File finalLocalFile = localFile;
             oldImageRef.getFile(localFile).addOnSuccessListener(taskSnapshot -> {
                 // O arquivo foi baixado com sucesso, agora fazemos o upload com o novo nome
-                StorageReference newImageRef = storage.getReference().child("produtos/"+user.getEmail() +"_"+ binding.editTextText4.getText().toString()+ ".jpg");
+                StorageReference newImageRef = storage.getReference().child("produtos/" + user.getEmail() + "_" + binding.editTextText4.getText().toString() + ".jpg");
                 Uri fileUri = Uri.fromFile(finalLocalFile);
 
                 newImageRef.putFile(fileUri).addOnSuccessListener(taskSnapshot1 -> {
                     newImageRef.getDownloadUrl().addOnSuccessListener(uri -> {
                         // Aqui você tem a URL da imagem
                         imageData = uri.toString();
-                        Toast.makeText(this, "URL: "+imageData, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "URL: " + imageData, Toast.LENGTH_SHORT).show();
                     });
                     oldImageRef.delete().addOnSuccessListener(aVoid -> {
 
@@ -217,15 +192,11 @@ public class AnunciarProdutoActivity extends AppCompatActivity {
                     (int) (Math.random() * 3 + 1),
                     list
             );
-            chamar_API_ADD_Produto(produto);
-
-
+            chamarAPIAddProduto(produto);
         });
     }
 
-
-
-    private void chamar_API_Categoria() {
+    private void chamarAPICategoria() {
         String API = "https://cc-api-sql-qa.onrender.com/";
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(API)
@@ -252,7 +223,6 @@ public class AnunciarProdutoActivity extends AppCompatActivity {
                     Toast.makeText(AnunciarProdutoActivity.this, "Erro ao carregar categorias", Toast.LENGTH_SHORT).show();
                 }
             }
-
             @Override
             public void onFailure(Call<List<Categoria>> call, Throwable t) {
                 Toast.makeText(AnunciarProdutoActivity.this, "Erro na chamada de categorias: " + t.getMessage(), Toast.LENGTH_SHORT).show();
@@ -270,8 +240,7 @@ public class AnunciarProdutoActivity extends AppCompatActivity {
         binding.categoriaInput.setAdapter(adapter);
     }
 
-    private void chamar_API_ADD_Produto(Produto produto) {
-
+    private void chamarAPIAddProduto(Produto produto) {
         String url = "https://cc-api-sql-qa.onrender.com/";
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(url)
@@ -293,13 +262,9 @@ public class AnunciarProdutoActivity extends AppCompatActivity {
                         String errorBody = response.errorBody().string(); // pegar o corpo do erro como string
                         Log.e("POST_ERROR", "Erro ao salvar no banco de dados: " + errorBody);
                         Toast.makeText(AnunciarProdutoActivity.this, "Erro ao salvar no banco de dados: " + errorBody, Toast.LENGTH_LONG).show();
-                    } catch (IOException e) {
-                        Log.e("POST_ERROR", "Erro ao processar o corpo do erro.", e);
-                    }
+                    } catch (IOException e) { Log.e("POST_ERROR", "Erro ao processar o corpo do erro.", e); }
                 }
             }
-
-
             @Override
             public void onFailure(Call<Produto> call, Throwable t) {
                 Toast.makeText(AnunciarProdutoActivity.this, "Erro de conexão.", Toast.LENGTH_SHORT).show();

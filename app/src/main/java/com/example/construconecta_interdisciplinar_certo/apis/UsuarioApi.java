@@ -17,8 +17,6 @@ public interface UsuarioApi {
     @GET("user/users")
     Call<List<Usuario>> findAllUsers();
 
-
-
     @GET("user/findByTelefone/{telefone}")
     Call<List<Usuario>> findByTelefone(@Path("telefone") String telefone);
 

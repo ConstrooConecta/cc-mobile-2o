@@ -14,9 +14,7 @@ import com.example.construconecta_interdisciplinar_certo.models.CardItem;
 import java.util.List;
 
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder> {
-
     private List<CardItem> cardItems;
-
     public CardAdapter(List<CardItem> cardItems) {
         this.cardItems = cardItems;
     }

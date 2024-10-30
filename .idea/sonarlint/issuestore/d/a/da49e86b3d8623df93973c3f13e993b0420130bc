@@ -1,2 +1,13 @@
 
-ˆ	java:S107"AConstructor has 9 parameters, which is greater than 7 authorized.(¬ŞÓşúÿÿÿÿ8¶Áá§£2J$857bdbfb-b098-4195-9789-493f4022ed6f
+ˆ	java:S107"AConstructor has 9 parameters, which is greater than 7 authorized.(¬ŞÓşúÿÿÿÿ8¶Áá§£2J$b2ff3130-f723-4b42-9441-d38bd1f46435
+j
+java:S1068"'Remove this unused "cpf" private field.(ãÆ„8ú©ùí­2J$85cdade2-4101-4cc7-ab5d-81ad80d21df7
+K
+java:S1068	")Remove this unused "senha" private field.(·­‰¡ûÿÿÿÿ8ãªûí­2
+N
+java:S1068
+",Remove this unused "telefone" private field.(¦ôÒ¯úÿÿÿÿ8åªûí­2
+G
+java:S1068"*Remove this unused "genero" private field.(Î×¸À8æªûí­2
+T
+java:S1068"2Remove this unused "dataNascimento" private field.(«—éúúÿÿÿÿ8æªûí­2

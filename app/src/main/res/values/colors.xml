@@ -4,6 +4,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#FFB6B6B6</color>
     <color name="red">#FFEC7979</color>
-    <color name="Constroo" tools:ignore="MissingDefaultResource">#0A262C </color>
+    <color name="Constroo" tools:ignore="MissingDefaultResource">#0A262C</color>
     <color name="verde">#51865D</color>
 </resources>

@@ -13,11 +13,10 @@
         android:layout_height="42dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/card_design"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:visibility="gone"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewServicos"
@@ -27,14 +26,14 @@
         android:background="#FFFFFF"
         android:divider="@android:color/darker_gray"
         android:dividerHeight="1dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/searchBarServico"
         app:layout_constraintVertical_bias="0.125"
-        tools:listitem="@layout/item_produto"
-        android:visibility="gone"/>
+        tools:listitem="@layout/item_produto" />
 
     <ProgressBar
         android:id="@+id/progressBar2Servico"

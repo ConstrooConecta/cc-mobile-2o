@@ -12,20 +12,21 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.construconecta_interdisciplinar_certo.fragments.CategoriasFragment;
-import com.example.construconecta_interdisciplinar_certo.onboarding.CameraActivity;
 import com.example.construconecta_interdisciplinar_certo.R;
 import com.example.construconecta_interdisciplinar_certo.databinding.ActivityHomeBinding;
+import com.example.construconecta_interdisciplinar_certo.fragments.CarrinhoFragment;
+import com.example.construconecta_interdisciplinar_certo.fragments.CategoriasFragment;
 import com.example.construconecta_interdisciplinar_certo.fragments.ContaFragment;
 import com.example.construconecta_interdisciplinar_certo.fragments.ContratarFragment;
-import com.example.construconecta_interdisciplinar_certo.fragments.CarrinhoFragment;
 import com.example.construconecta_interdisciplinar_certo.fragments.HomeFragment;
+import com.example.construconecta_interdisciplinar_certo.onboarding.CameraActivity;
 import com.example.construconecta_interdisciplinar_certo.ui.BaseActivity;
 import com.google.android.material.navigation.NavigationBarView;
 
 public class Home extends BaseActivity {
     public static NavigationBarView bottomNavigationView;
     ActivityHomeBinding binding;
+    int cont = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,22 +50,20 @@ public class Home extends BaseActivity {
                     //substituindo os fragments
                     int id = item.getItemId();
                     if (id == R.id.home1) {
-                       // item.setIcon(R.drawable.chat_selected_icon);
+                        // item.setIcon(R.drawable.chat_selected_icon);
                         replaceFragment(new HomeFragment());
 
-                    }else if (id == R.id.categorias) {
+                    } else if (id == R.id.categorias) {
                         //  item.setIcon(R.drawable.person_selected_icon);
                         replaceFragment(new CategoriasFragment());
-                    }
-                    else if (id == R.id.contratar) {
-                       // item.setIcon(R.drawable.home_selected_icon);
+                    } else if (id == R.id.contratar) {
+                        // item.setIcon(R.drawable.home_selected_icon);
                         replaceFragment(new ContratarFragment());
 
                     } else if (id == R.id.carrinho) {
-                      //  item.setIcon(R.drawable.person_selected_icon);
+                        //  item.setIcon(R.drawable.person_selected_icon);
                         replaceFragment(new CarrinhoFragment());
-                    }
-                    else if (id == R.id.conta) {
+                    } else if (id == R.id.conta) {
                         //item.setIcon(R.drawable.home_selected_icon);
                         replaceFragment(new ContaFragment());
 
@@ -76,15 +75,13 @@ public class Home extends BaseActivity {
     }
 
     //método para mudar o fragmento na navbar
-    public void replaceFragment(Fragment fragment){
+    public void replaceFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frame_layout, fragment);
         fragmentTransaction.commit();
     }
 
-    // Criando e definindo contador
-    int cont = 0;
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         // Verifica se o botão pressionado é o botão de "voltar"
@@ -104,7 +101,6 @@ public class Home extends BaseActivity {
         }
         return true;
     }
-
 
     private void mostrarBoasVindas() {
         // Criando o AlertDialog

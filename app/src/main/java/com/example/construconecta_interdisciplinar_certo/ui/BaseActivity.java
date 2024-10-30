@@ -9,13 +9,11 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 public abstract class BaseActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         checkInternetConnection();
     }
-
     private void checkInternetConnection() {
         if (!isConnectedToInternet()) {
             Intent intent = new Intent(this, InternetErrorActivity.class);
@@ -23,11 +21,9 @@ public abstract class BaseActivity extends AppCompatActivity {
             finish(); // Finaliza a Activity atual
         }
     }
-
     private boolean isConnectedToInternet() {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
         return activeNetwork != null && activeNetwork.isConnected();
     }
 }
-

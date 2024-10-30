@@ -11,16 +11,16 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
-        android:scaleType="centerCrop"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/circle_shape" />
+        android:background="@drawable/circle_shape"
+        android:scaleType="centerCrop" />
 
     <!-- Mensagem do diálogo -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Deseja usar essa foto como sua foto de perfil?"
         android:gravity="center"
-        android:textSize="18sp"
-        android:textColor="#000" />
+        android:text="Deseja usar essa foto como sua foto de perfil?"
+        android:textColor="#000"
+        android:textSize="18sp" />
 </LinearLayout>

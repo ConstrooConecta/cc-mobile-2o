@@ -1,0 +1,14 @@
+
+˜	java:S117]"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êìØèúÿÿÿÿ8£ÄËí­2J$de278f82-826c-48b3-a46a-14fb12f83c64
+˜	java:S117}"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êìØèúÿÿÿÿ8¤ÄËí­2J$a7e29c9f-957d-4da3-8486-57cadb56b813
+Ÿ	java:S116*"XRename this field "TotalExibivel" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”†¾øÿÿÿÿ8ĞÖÊí­2J$993201ae-b05d-4719-87e7-6e4f3f633801
+„
+java:S1659."BDeclare "subto" and all following declarations on a separate line.(æ¯ù8àÄËí­2J$3ff398cd-3bfd-415a-8a71-3f383c9720a6
+u
+java:S1659/"4Declare "imageViewCarrinhoVazio" on a separate line.(˜¬øÿÿÿÿÿJ$a8e14e60-661e-4b17-8c7e-243158c74f20
+r
+java:S16590"1Declare "buttonCarrinhoVazio" on a separate line.(«Í™«ùÿÿÿÿJ$16f2d160-6b46-492a-8a8c-36ecf830ae41
+t
+java:S1172Å"+Remove this unused method parameter "view".(¨Çà¾úÿÿÿÿ8„ÅËí­2J$201df738-b81f-41f9-af44-22a6785ad5dc
+t
+java:S1144Å"+Remove this unused private "finish" method.(¨Çà¾úÿÿÿÿ8…ÅËí­2J$0f66460f-2da8-4e2c-afe9-dbad27200fea

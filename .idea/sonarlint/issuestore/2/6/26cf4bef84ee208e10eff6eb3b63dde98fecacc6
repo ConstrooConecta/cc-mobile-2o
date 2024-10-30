@@ -1,15 +1,15 @@
 
 ‚
-java:S1118":Add a private constructor to hide the implicit public one.(Çş½¸ùÿÿÿÿ8¬ò‚‘¨2J$d18dbf51-7c86-482c-a085-bd79e2dfb3de
+java:S1118":Add a private constructor to hide the implicit public one.(Çş½¸ùÿÿÿÿ8¬ò‚‘¨2J$416b203d-fd9b-418a-a598-f70f1749c2f9
 x
-java:S1874"0Remove this use of "getColor"; it is deprecated.(¹¬˜ÿÿÿÿÿÿ8·ò‚‘¨2J$a22cc925-31df-488b-8c7e-ee21a7499179
+java:S1874"0Remove this use of "getColor"; it is deprecated.(¹¬˜ÿÿÿÿÿÿ8·ò‚‘¨2J$4e2c918e-bd40-4332-b421-c854c8cebf71
 s
-java:S1874"0Remove this use of "getColor"; it is deprecated.(ö˜û½8ºò‚‘¨2J$4bc51745-cd37-499d-9ff4-624837edd8b7
+java:S1874"0Remove this use of "getColor"; it is deprecated.(ö˜û½8ºò‚‘¨2J$2c8e68d4-95fb-452a-88a3-2e8cfebfea6e
 s
-java:S1874"0Remove this use of "getColor"; it is deprecated.(¥ºõğ8ºò‚‘¨2J$c8f2cbac-5c32-431f-a61a-876c2c5be830
+java:S1874"0Remove this use of "getColor"; it is deprecated.(¥ºõğ8ºò‚‘¨2J$f029d686-2fc9-486a-9f9e-7d9177dd62c9
 s
-java:S1874,"0Remove this use of "getColor"; it is deprecated.(„ÙÇ8»ò‚‘¨2J$0f5e35fb-7cfe-4cad-a8c0-4d3b60d7a496
+java:S1874)"0Remove this use of "getColor"; it is deprecated.(„ÙÇ8»ò‚‘¨2J$e1e22f42-2a6d-40ab-8df7-2125eb3e6025
 s
-java:S1874-"0Remove this use of "getColor"; it is deprecated.(¯È”‡8¼ò‚‘¨2J$6391c724-bc08-4be5-98bd-cf7ba446c92b
+java:S1874*"0Remove this use of "getColor"; it is deprecated.(¯È”‡8¼ò‚‘¨2J$bbaeaebb-362d-4533-aa32-8ce2564ef907
 x
-java:S1874."0Remove this use of "getColor"; it is deprecated.(®¬íäúÿÿÿÿ8¼ò‚‘¨2J$0bbf3eb3-0d82-48d4-9e85-d3329b700c0b
+java:S1874+"0Remove this use of "getColor"; it is deprecated.(®¬íäúÿÿÿÿ8¼ò‚‘¨2J$a59ce917-9ad8-4d0d-8ad9-dae581b11dcb

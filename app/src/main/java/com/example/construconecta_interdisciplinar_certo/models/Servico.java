@@ -14,48 +14,19 @@ public class Servico {
     public int getServicoId() {
         return servicoId;
     }
-
-    public void setServicoId(int servicoId) {
-        this.servicoId = servicoId;
-    }
-
     public String getNomeServico() {
         return nomeServico;
     }
-
-    public void setNomeServico(String nomeServico) {
-        this.nomeServico = nomeServico;
-    }
-
     public String getDescricao() {
         return descricao;
     }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
     public double getPreco() {
         return preco;
     }
-
-    public void setPreco(double preco) {
-        this.preco = preco;
-    }
-
     public String getUsuario() {
         return usuario;
     }
-
     public void setUsuario(String usuario) {
         this.usuario = usuario;
-    }
-
-    public List<TagServico> getTagServicos() {
-        return tagServicos;
-    }
-
-    public void setTagServicos(List<TagServico> tagServicos) {
-        this.tagServicos = tagServicos;
     }
 }

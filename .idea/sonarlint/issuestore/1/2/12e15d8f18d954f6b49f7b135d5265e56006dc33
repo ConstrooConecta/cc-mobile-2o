@@ -1,0 +1,9 @@
+
+š
+java:S1450"^Remove the "botaoVoltarLoja" field and declare it as a local variable in the relevant methods.(‚±ÊŒJ$ae37e6fa-6716-4e57-8810-bda2da05d34a
+ž
+java:S1450"]Remove the "textViewPedido" field and declare it as a local variable in the relevant methods.(˜÷Í²ûÿÿÿÿJ$f55a5ea7-8fe6-4dc9-b8b7-5d5642612c41
+e
+java:S2140")Use "java.util.Random.nextInt()" instead.(£œÚŸJ$8606813e-d876-4b19-95db-eb716385bec8
+e
+java:S2140"")Use "java.util.Random.nextInt()" instead.(í¼ŠÐJ$6e8f7183-319f-4317-937e-771cb5d174bb

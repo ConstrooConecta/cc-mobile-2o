@@ -6,24 +6,22 @@ import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Toast;
-import com.example.construconecta_interdisciplinar_certo.shop.Home;
+
 import com.example.construconecta_interdisciplinar_certo.R;
 import com.example.construconecta_interdisciplinar_certo.onboarding.CadastroEmail1;
 import com.example.construconecta_interdisciplinar_certo.onboarding.Login;
+import com.example.construconecta_interdisciplinar_certo.shop.Home;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends BaseActivity {
-
-    // Criando e definindo contador
     int cont = 0;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         // Verifica se o usuário está logado
-        if(FirebaseAuth.getInstance().getCurrentUser() != null) {
+        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
             Intent intent = new Intent(MainActivity.this, Home.class);
             startActivity(intent);
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);

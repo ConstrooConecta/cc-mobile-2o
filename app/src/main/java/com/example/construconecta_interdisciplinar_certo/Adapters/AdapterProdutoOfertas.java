@@ -19,7 +19,6 @@ import com.example.construconecta_interdisciplinar_certo.shop.DetalhesProdutosAc
 import java.util.List;
 
 public class AdapterProdutoOfertas extends RecyclerView.Adapter<AdapterProdutoOfertas.ProdutoViewHolder> {
-
     private List<Produto> listaProdutos;
     private Context context;
 
@@ -46,18 +45,18 @@ public class AdapterProdutoOfertas extends RecyclerView.Adapter<AdapterProdutoOf
         // Configura os textos
         holder.textViewTitulo.setText(produto.getNomeProduto());
         holder.textViewCodigo.setText("Cód. " + produto.getprodutoId());
-        holder.textViewPrecoAntigo.setText("R$ " + produto.getPreco()+" cada");
+        holder.textViewPrecoAntigo.setText("R$ " + produto.getPreco() + " cada");
         //deixar o preco antigo riscado
         double precoNovo = produto.getPreco() - (produto.getPreco() * produto.getDesconto());
 
         precoNovo = Math.round(precoNovo * 100.0) / 100.0;
         holder.textViewPrecoNovo.setText("R$ " + precoNovo + " cada");
 
-
         String url = produto.getImagem();
         if (url == null || url.isEmpty()) {
             url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8lRbS7eKYzDq-Ftxc1p8G_TTw2unWBMEYUw&s";
         }
+
         // Usa Glide para carregar a imagem
         Glide.with(context)
                 .load(url)  // URL ou recurso da imagem do produto
@@ -85,14 +84,14 @@ public class AdapterProdutoOfertas extends RecyclerView.Adapter<AdapterProdutoOf
                 Intent intent = new Intent(holder.itemView.getContext(), DetalhesProdutosActivity.class);
                 intent.putExtra("nomeProduto", produto.getNomeProduto());
                 intent.putExtra("imagemProduto", finalUrl);
-                intent.putExtra("usuario",produto.getUsuario());
+                intent.putExtra("usuario", produto.getUsuario());
                 intent.putExtra("Preco", produto.getPreco());
                 intent.putExtra("Desconto", produto.getDesconto());
                 intent.putExtra("descricao", produto.getDescricao());
                 intent.putExtra("id", produto.getprodutoId());
                 if (holder.imageViewCoracao.getTag().equals("selecionado")) {
                     intent.putExtra("favorito", holder.imageViewCoracao.getTag().equals("selecionado"));
-                }else{
+                } else {
                     intent.putExtra("favorito", false);
                 }
                 holder.itemView.getContext().startActivity(intent);
@@ -106,7 +105,6 @@ public class AdapterProdutoOfertas extends RecyclerView.Adapter<AdapterProdutoOf
     }
 
     public static class ProdutoViewHolder extends RecyclerView.ViewHolder {
-
         ImageView imageViewProduto, imageViewCoracao;
         TextView textViewTitulo, textViewCodigo, textViewPrecoAntigo, textViewPrecoNovo;
 

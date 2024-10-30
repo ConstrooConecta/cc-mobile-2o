@@ -1,0 +1,10 @@
+
+˜	java:S117U"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êìØèúÿÿÿÿ8ÀÿĞí­2J$aaad8c1e-4f04-4fef-88de-6db5980f30f3
+k
+java:S1604F"(Make this anonymous inner class a lambda(ˆÜğ¯8ÂÿĞí­2J$04522ff8-639d-4eca-aaf2-b099006291fe
+É
+java:S1186%"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¸„ıíşÿÿÿÿ8ëÿĞí­2J$a928ed55-f08b-4c60-8fc6-8a425b27ea40
+
+java:S1450"aRemove the "listViewCategorias" field and declare it as a local variable in the relevant methods.(ÒÈÅÑJ$c787f35b-c847-4b49-bcbe-559be0ad96a7
+•
+java:S1450 "YRemove the "searchView" field and declare it as a local variable in the relevant methods.(‰Ôô¦J$4e43446a-d5ed-4790-919a-27bc49f00d9c

@@ -1,41 +1,27 @@
 package com.example.construconecta_interdisciplinar_certo.fragments;
 
-import static androidx.camera.core.impl.utils.ContextUtil.getBaseContext;
-
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.construconecta_interdisciplinar_certo.Adapters.AdapterProdutoHome;
 import com.example.construconecta_interdisciplinar_certo.Adapters.AdapterProdutoNoTopo;
 import com.example.construconecta_interdisciplinar_certo.Adapters.AdapterProdutoOfertas;
 import com.example.construconecta_interdisciplinar_certo.R;
 import com.example.construconecta_interdisciplinar_certo.apis.ProdutoApi;
 import com.example.construconecta_interdisciplinar_certo.models.Produto;
-import com.example.construconecta_interdisciplinar_certo.onboarding.DatabaseCamera;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,8 +45,6 @@ public class HomeFragment extends Fragment {
     private SearchView searchView;
     private int contador = 0;
 
-
-
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
@@ -71,8 +55,6 @@ public class HomeFragment extends Fragment {
         searchView = view.findViewById(R.id.searchView);
         barrafixa = view.findViewById(R.id.barraFixa);
         imagem = view.findViewById(R.id.imageView5);
-
-
 
         // Inicializando o RecyclerView
         produtoRecyclerView = view.findViewById(R.id.recyclerView);
@@ -88,7 +70,7 @@ public class HomeFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         recyclerViewOferta.setLayoutManager(layoutManager);
         produtosOferta = new ArrayList<>();
-        adapterOferta = new AdapterProdutoOfertas(produtosOferta, getContext());;
+        adapterOferta = new AdapterProdutoOfertas(produtosOferta, getContext());
         recyclerViewOferta.setAdapter(adapterOferta);
 
         //no topo
@@ -97,24 +79,18 @@ public class HomeFragment extends Fragment {
         recyclerViewNoTopo.setLayoutManager(layoutManagerNoTopo);
 
         produtosNoTopo = new ArrayList<>();
-        adapterNoTopo = new AdapterProdutoNoTopo(produtosNoTopo, getContext());;
+        adapterNoTopo = new AdapterProdutoNoTopo(produtosNoTopo, getContext());
         recyclerViewNoTopo.setAdapter(adapterNoTopo);
 
-
-
-
-
-
         // Chamar as APIs
-        chamar_API_Retrofit_Relevantes();
-
-        chamar_API_Retrofit_Ofertas();
-        chamar_API_Retrofit_No_Topo();
+        chamarAPIRetrofitRelevantes();
+        chamarAPIRetrofitOfertas();
+        chamarAPIRetrofitNoTopo();
 
         return view;
     }
 
-    private void chamar_API_Retrofit_Relevantes() {
+    private void chamarAPIRetrofitRelevantes() {
         String API = "https://cc-api-sql-qa.onrender.com/";
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(API)
@@ -143,16 +119,14 @@ public class HomeFragment extends Fragment {
                     Toast.makeText(getActivity(), "Erro na resposta da API: " + response.code(), Toast.LENGTH_SHORT).show();
                 }
             }
-
-
             @Override
             public void onFailure(Call<List<Produto>> call, Throwable throwable) {
-                Toast.makeText(getActivity(), "Deu errado: " + throwable.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Erro ao mostrar produtos relevantes: " + throwable.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    private void chamar_API_Retrofit_Ofertas() {
+    private void chamarAPIRetrofitOfertas() {
         String API = "https://cc-api-sql-qa.onrender.com/";
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(API)
@@ -181,16 +155,14 @@ public class HomeFragment extends Fragment {
                     Toast.makeText(getActivity(), "Erro na resposta da API: " + response.code(), Toast.LENGTH_SHORT).show();
                 }
             }
-
-
             @Override
             public void onFailure(Call<List<Produto>> call, Throwable throwable) {
-                Toast.makeText(getActivity(), "Deu errado: " + throwable.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Erro ao mostrar produtos em Ofertas: " + throwable.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    private void chamar_API_Retrofit_No_Topo() {
+    private void chamarAPIRetrofitNoTopo() {
         String API = "https://cc-api-sql-qa.onrender.com/";
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(API)
@@ -219,19 +191,16 @@ public class HomeFragment extends Fragment {
                 } else {
                     Log.d("API NoTopo", "Erro: Código de status " + response.code());
                 }
-
             }
-
-
             @Override
             public void onFailure(Call<List<Produto>> call, Throwable throwable) {
-                Toast.makeText(getActivity(), "Deu errado: " + throwable.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Erro ao mostrar produtos No TOPO: " + throwable.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
+
     private void verificarFinalizacao() {
         contador++;
-
         if (contador == 3) {
             // Esconder a progress bar e mostrar as outras views
             progressBar.setVisibility(View.GONE);
