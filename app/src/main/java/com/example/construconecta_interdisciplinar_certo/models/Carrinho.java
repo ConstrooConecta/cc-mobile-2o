@@ -24,6 +24,7 @@ public class Carrinho {
         this.valorTotal = valorTotal;
     }
 
+
     public int getCarrinhoId() {
         return carrinhoId;
     }

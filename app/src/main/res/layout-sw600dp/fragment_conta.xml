@@ -21,19 +21,19 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/logoutButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="500dp"
+            android:layout_width="164dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="665dp"
             android:background="@drawable/botao_sair_design"
             android:text="SAIR"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.467"
+            app:layout_constraintHorizontal_bias="0.483"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view8" />
 
         <View
             android:id="@+id/view8"
-            android:layout_width="411dp"
+            android:layout_width="0dp"
             android:layout_height="140dp"
             android:background="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
@@ -73,7 +73,8 @@
             android:layout_marginTop="9dp"
             android:visibility="gone"
             app:layout_constraintStart_toEndOf="@+id/imagemPerfil"
-            app:layout_constraintTop_toBottomOf="@+id/textViewApelid" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewApelid"
+            tools:visibility="visible" />
 
         <TextView
             android:id="@+id/textViewApelid"
@@ -84,7 +85,8 @@
             android:text=""
             android:visibility="gone"
             app:layout_constraintStart_toEndOf="@+id/imagemPerfil"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
 
         <ImageButton
             android:id="@+id/botaoEdit"
@@ -96,86 +98,104 @@
             android:src="@drawable/botaoedit_maior"
             android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="SpeakableTextPresentCheck"
+            tools:visibility="visible" />
 
         <View
             android:id="@+id/viewPedido"
-            android:layout_width="160dp"
+            android:layout_width="0dp"
             android:layout_height="80dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="30dp"
+            android:layout_marginEnd="60dp"
             android:background="@drawable/card_design"
+            app:layout_constraintEnd_toStartOf="@+id/viewEndereco"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view8" />
 
         <View
             android:id="@+id/viewVender"
-            android:layout_width="160dp"
+            android:layout_width="0dp"
             android:layout_height="80dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="30dp"
+            android:layout_marginEnd="60dp"
             android:background="@drawable/card_design"
+            app:layout_constraintEnd_toStartOf="@+id/viewAssinatura"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/viewDados" />
 
         <View
             android:id="@+id/viewFaleConosco"
-            android:layout_width="160dp"
+            android:layout_width="0dp"
             android:layout_height="80dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="30dp"
+            android:layout_marginEnd="60dp"
             android:background="@drawable/card_design"
+            app:layout_constraintEnd_toStartOf="@+id/viewPoliticaPrivacidade"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/viewVender" />
 
         <View
             android:id="@+id/viewDados"
-            android:layout_width="160dp"
+            android:layout_width="0dp"
             android:layout_height="80dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="30dp"
+            android:layout_marginEnd="60dp"
             android:background="@drawable/card_design"
+            app:layout_constraintEnd_toStartOf="@+id/viewEditarDados"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/viewPedido" />
 
         <View
             android:id="@+id/viewEndereco"
-            android:layout_width="160dp"
+            android:layout_width="0dp"
             android:layout_height="80dp"
+            android:layout_marginStart="60dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="31dp"
             android:background="@drawable/card_design"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/viewPedido"
             app:layout_constraintTop_toBottomOf="@+id/view8" />
 
         <View
             android:id="@+id/viewAssinatura"
-            android:layout_width="160dp"
+            android:layout_width="0dp"
             android:layout_height="80dp"
+            android:layout_marginStart="60dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="28dp"
             android:background="@drawable/card_design"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/viewVender"
             app:layout_constraintTop_toBottomOf="@+id/viewEditarDados" />
 
         <View
             android:id="@+id/viewPoliticaPrivacidade"
-            android:layout_width="160dp"
+            android:layout_width="0dp"
             android:layout_height="80dp"
+            android:layout_marginStart="60dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="28dp"
             android:background="@drawable/card_design"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/viewFaleConosco"
             app:layout_constraintTop_toBottomOf="@+id/viewAssinatura" />
 
         <View
             android:id="@+id/viewEditarDados"
-            android:layout_width="160dp"
+            android:layout_width="0dp"
             android:layout_height="80dp"
+            android:layout_marginStart="60dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="28dp"
             android:background="@drawable/card_design"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/viewDados"
             app:layout_constraintTop_toBottomOf="@+id/viewEndereco" />
 
         <ImageButton
@@ -396,6 +416,27 @@
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/viewDados"
             app:layout_constraintTop_toTopOf="@+id/viewDados" />
+
+        <View
+            android:id="@+id/view9"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="28dp"
+            android:background="@drawable/design_plano_gratuito"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/textView25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="17dp"
+            android:text="GRATUITO"
+            app:layout_constraintEnd_toEndOf="@+id/view9"
+            app:layout_constraintTop_toTopOf="@+id/view9" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

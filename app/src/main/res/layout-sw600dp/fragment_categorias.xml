@@ -10,7 +10,7 @@
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/searchBar"
-        android:layout_width="340dp"
+        android:layout_width="540dp"
         android:layout_height="42dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/card_design"
@@ -20,18 +20,18 @@
 
     <ListView
         android:id="@+id/listViewCategorias"
-        android:layout_width="407dp"
-        android:layout_height="653dp"
+        android:layout_width="619dp"
+        android:layout_height="925dp"
         android:layout_marginTop="20dp"
         android:background="#FFFFFF"
         android:divider="@android:color/darker_gray"
         android:dividerHeight="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/searchBar"
-        app:layout_constraintVertical_bias="0.125" />
+        app:layout_constraintVertical_bias="0.132" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

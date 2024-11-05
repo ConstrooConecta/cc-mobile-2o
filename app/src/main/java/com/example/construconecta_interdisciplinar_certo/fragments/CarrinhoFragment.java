@@ -6,10 +6,13 @@ import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -25,6 +28,7 @@ import com.example.construconecta_interdisciplinar_certo.Adapters.AdapterCarrinh
 import com.example.construconecta_interdisciplinar_certo.R;
 import com.example.construconecta_interdisciplinar_certo.apis.CarrinhoApi;
 import com.example.construconecta_interdisciplinar_certo.apis.ProdutoApi;
+import com.example.construconecta_interdisciplinar_certo.checkout.CarrinhoActivity;
 import com.example.construconecta_interdisciplinar_certo.checkout.MetodosPagamento;
 import com.example.construconecta_interdisciplinar_certo.models.Carrinho;
 import com.example.construconecta_interdisciplinar_certo.models.Produto;
@@ -36,6 +40,7 @@ import com.google.firebase.auth.FirebaseUser;
 import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -43,6 +48,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class CarrinhoFragment extends Fragment {
+
     private RecyclerView recyclerView;
     private AdapterCarrinho adapter;
     private List<Carrinho> carrinhos = new ArrayList<>();
@@ -50,20 +56,27 @@ public class CarrinhoFragment extends Fragment {
     private ProgressBar progressBar;
     private double TotalExibivel = 0.0; // Adiciona a variável para o total
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    private Runnable verificaCarrinhoRunnable;
     FirebaseUser currentUser = mAuth.getCurrentUser();
     private String userId = currentUser.getUid();
-    private TextView quantidadeItens, subto, textViewTotal, textCarrinhoVazio;
+    private TextView quantidadeItens, subto, textViewTotal, textCarrinhoVazio,textView37;
     private ImageView imagem, imageViewCarrinhoVazio;
+    private ImageButton imageButton3;
+
+
     private Button button, buttonCarrinhoVazio;
 
     public CarrinhoFragment() {
     }
+    private Handler handler = new Handler();
+    private Runnable checkCartRunnable;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Infla o layout do fragmento
         View view = inflater.inflate(R.layout.fragment_carrinho, container, false);
+        imageButton3 = view.findViewById(R.id.imageButton3);
+        textView37 = view.findViewById(R.id.textView37);
 
         // Inicializa os componentes da interface
         progressBar = view.findViewById(R.id.progressBar);
@@ -77,7 +90,6 @@ public class CarrinhoFragment extends Fragment {
         buttonCarrinhoVazio = view.findViewById(R.id.buttonCarrinhoVazio);
         textCarrinhoVazio = view.findViewById(R.id.textView7);
 
-        // Configura o RecyclerView
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         // Inicialmente esconde todos os elementos exceto a ProgressBar
@@ -86,22 +98,119 @@ public class CarrinhoFragment extends Fragment {
         button.setVisibility(View.INVISIBLE);
         textViewTotal.setVisibility(View.INVISIBLE);
         imagem.setVisibility(View.INVISIBLE);
-        recyclerView.setVisibility(View.INVISIBLE); // Mantém o RecyclerView invisível até os dados serem carregados
+        recyclerView.setVisibility(View.INVISIBLE);
         imageViewCarrinhoVazio.setVisibility(View.GONE);
         textCarrinhoVazio.setVisibility(View.GONE);
         buttonCarrinhoVazio.setVisibility(View.GONE);
 
-        // Chama a função para buscar os produtos primeiro
         chamarAPIRetrofitProdutos();
 
-        // Ação do botão
         button.setOnClickListener(v -> {
             Intent intent = new Intent(getContext(), MetodosPagamento.class);
             intent.putExtra("total", TotalExibivel);
             startActivity(intent);
         });
+
+        // Inicializa o Handler e Runnable para verificação periódica do carrinho
+        handler = new Handler();
+        checkCartRunnable = () -> {
+            Log.d("CarrinhoFragment", "Verificando conteúdo do carrinho...");
+            chamarAPIRetrofitCarrinho(userId);
+            handler.postDelayed(checkCartRunnable, 5000); // Verifica a cada 5 segundos
+        };
+
+        imageButton3.setOnClickListener(v -> {
+            String API = "https://cc-api-sql-qa.onrender.com/";
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl(API)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            CarrinhoApi carrinhoApi = retrofit.create(CarrinhoApi.class);
+            Call<ResponseBody> call = carrinhoApi.deleteAll_carrinho(userId);
+
+            call.enqueue(new Callback<ResponseBody>() {
+                @Override
+                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                    if (response.isSuccessful()) {
+                        quantidadeItens.setText(0 + " itens");
+                        textView37.setVisibility(View.GONE);
+                        imageButton3.setVisibility(View.GONE);
+                        imagem.setVisibility(View.GONE);
+                        subto.setVisibility(View.GONE);
+                        textViewTotal.setVisibility(View.GONE);
+                        button.setVisibility(View.GONE);
+                        progressBar.setVisibility(View.GONE);
+                        imageViewCarrinhoVazio.setVisibility(View.VISIBLE);
+                        textCarrinhoVazio.setVisibility(View.VISIBLE);
+                        buttonCarrinhoVazio.setVisibility(View.VISIBLE);
+                        recyclerView.setVisibility(View.GONE);
+
+                    } else {
+                        Log.e("CarrinhoActivity", "Erro ao deletar carrinho: " + response.code());
+                    }
+
+                }
+
+                @Override
+                public void onFailure(Call<ResponseBody> call, Throwable t) {
+                    Log.e("CarrinhoActivity", "Erro ao deletar carrinho: " + t.getMessage());
+                }
+            });
+        });
+        textView37.setOnClickListener(v -> {
+            String API = "https://cc-api-sql-qa.onrender.com/";
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl(API)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            CarrinhoApi carrinhoApi = retrofit.create(CarrinhoApi.class);
+            Call<ResponseBody> call = carrinhoApi.deleteAll_carrinho(userId);
+
+            call.enqueue(new Callback<ResponseBody>() {
+                @Override
+                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                    if (response.isSuccessful()) {
+                        quantidadeItens.setText(0 + " itens");
+                        textView37.setVisibility(View.GONE);
+                        imageButton3.setVisibility(View.GONE);
+                        imagem.setVisibility(View.GONE);
+                        subto.setVisibility(View.GONE);
+                        textViewTotal.setVisibility(View.GONE);
+                        button.setVisibility(View.GONE);
+                        progressBar.setVisibility(View.GONE);
+                        imageViewCarrinhoVazio.setVisibility(View.VISIBLE);
+                        textCarrinhoVazio.setVisibility(View.VISIBLE);
+                        buttonCarrinhoVazio.setVisibility(View.VISIBLE);
+                        recyclerView.setVisibility(View.GONE);
+
+                    } else {
+                        Log.e("CarrinhoActivity", "Erro ao deletar carrinho: " + response.code());
+                    }
+
+                }
+
+                @Override
+                public void onFailure(Call<ResponseBody> call, Throwable t) {
+                    Log.e("CarrinhoActivity", "Erro ao deletar carrinho: " + t.getMessage());
+                }
+            });
+        });
         return view;
     }
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        if (userId != null) {
+            handler.post(checkCartRunnable); // Inicia o Runnable
+        } else {
+            Log.e("CarrinhoFragment", "User ID está nulo, não foi possível iniciar o Runnable.");
+        }
+    }
+
+    // Função para verificar se o carrinho está vazio e atualizar a interface
+
 
     private void chamarAPIRetrofitProdutos() {
         String API = "https://cc-api-sql-qa.onrender.com/";
@@ -136,6 +245,10 @@ public class CarrinhoFragment extends Fragment {
     }
 
     private void chamarAPIRetrofitCarrinho(String userId) {
+        if (userId == null) {
+            Log.e("CarrinhoFragment", "User ID está nulo ao chamar a API do carrinho.");
+            return;
+        }
         String API = "https://cc-api-sql-qa.onrender.com/";
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(API)
@@ -178,8 +291,17 @@ public class CarrinhoFragment extends Fragment {
                         recyclerView.setVisibility(View.VISIBLE); // Exibe o RecyclerView agora que os dados estão carregados
                     } else {
                         progressBar.setVisibility(View.GONE);
+                        subto.setVisibility(View.INVISIBLE);
+                        button.setVisibility(View.INVISIBLE);
+                        textViewTotal.setVisibility(View.INVISIBLE);
+                        imagem.setVisibility(View.INVISIBLE);
+                        quantidadeItens.setText(0 + " itens");
+                        Log.d("CarrinhoFragment", "Carrinho está vazio.");
+                        progressBar.setVisibility(View.GONE);
                         imageViewCarrinhoVazio.setVisibility(View.VISIBLE);
                         textCarrinhoVazio.setVisibility(View.VISIBLE);
+                        textView37.setVisibility(View.GONE);
+                        imageButton3.setVisibility(View.GONE);
                         buttonCarrinhoVazio.setVisibility(View.VISIBLE);
                         buttonCarrinhoVazio.setOnClickListener(v -> {
                             Intent intent = new Intent(getContext(), HomeFragment.class);
@@ -187,8 +309,14 @@ public class CarrinhoFragment extends Fragment {
                         });
                     }
                 } else {
+                    imageButton3.setVisibility(View.GONE);
+                    textView37.setVisibility(View.GONE);
                     quantidadeItens.setText(0 + " itens");
                     progressBar.setVisibility(View.GONE);
+                    subto.setVisibility(View.INVISIBLE);
+                    button.setVisibility(View.INVISIBLE);
+                    textViewTotal.setVisibility(View.INVISIBLE);
+                    imagem.setVisibility(View.INVISIBLE);
                     imageViewCarrinhoVazio.setVisibility(View.VISIBLE);
                     textCarrinhoVazio.setVisibility(View.VISIBLE);
                     buttonCarrinhoVazio.setVisibility(View.VISIBLE);
@@ -224,16 +352,22 @@ public class CarrinhoFragment extends Fragment {
             TotalExibivel += item.getValorTotal(); // Some o preço de cada item
         }
     }
+    @Override
+    public void onPause() {
+        super.onPause();
+        handler.removeCallbacks(checkCartRunnable); // Pausa o Runnable quando o fragmento não está visível
+        Log.d("CarrinhoFragment", "Runnable pausado.");
+    }
 
     @Override
     public void onResume() {
         super.onResume();
-
         if (!isConnectedToInternet()) {
-            // Exibir a Activity de erro de internet
             Intent intent = new Intent(getActivity(), InternetErrorActivity.class);
             startActivity(intent);
-            // Opcional: finalizar o fragmento atual ou fazer qualquer outra lógica
+        } else {
+            handler.post(checkCartRunnable); // Reinicia o Runnable ao retomar o fragmento
+            Log.d("CarrinhoFragment", "Runnable retomado.");
         }
     }
 
@@ -242,4 +376,14 @@ public class CarrinhoFragment extends Fragment {
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
         return activeNetwork != null && activeNetwork.isConnected();
     }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        handler.removeCallbacks(checkCartRunnable); // Remove callbacks ao destruir o fragmento
+        Log.d("CarrinhoFragment", "Runnable removido ao destruir o fragmento.");
+
+    }
+
+
 }

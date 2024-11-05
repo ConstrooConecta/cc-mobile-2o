@@ -182,6 +182,10 @@ public class DetalhesProdutosActivity extends AppCompatActivity {
         Intent intent = new Intent(this, Home.class);
         startActivity(intent);
     }
+    private void openCart() {
+        Intent intent = new Intent(this, CarrinhoActivity.class);
+        startActivity(intent);
+    }
 
     private void mostrarModalAdicionadoAoCarrinho() {
         AlertDialog.Builder builder = new AlertDialog.Builder(DetalhesProdutosActivity.this);
@@ -237,8 +241,32 @@ public class DetalhesProdutosActivity extends AppCompatActivity {
     }
 
     public void abrirCarrinho(View view) {
-        Intent intent = new Intent(this, CarrinhoActivity.class);
-        startActivity(intent);
+        FirebaseUser usuarioAtual = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (idProduto != null && !idProduto.isEmpty()) {
+            try {
+                int idProdutoInt = Integer.parseInt(idProduto);  // Converte a string para int
+                assert usuarioAtual != null;
+                Carrinho carrinho = new Carrinho(
+                        1000 + new Random().nextInt(9999 - 1000),
+                        usuarioAtual.getUid(),
+                        idProdutoInt,
+                        1,
+                        imagemUrl,
+                        precoProdutoToCarrinho
+                );
+                addToShoppingCart(carrinho);
+            } catch (NumberFormatException e) {
+                e.printStackTrace();  // Trate o erro se o valor não puder ser convertido
+                Toast.makeText(this, "Erro ao converter o ID para número!", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            Toast.makeText(this, "ID do produto inválido ou nulo!", Toast.LENGTH_SHORT).show();
+        }
+        //depois de 3 segundos ele abre a tela home
+        new Handler().postDelayed(this::openCart, 1000);
+
+
     }
 
     private void buscarUsuarioPorUid(String uid) {
