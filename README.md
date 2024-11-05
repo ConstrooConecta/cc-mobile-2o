@@ -33,6 +33,7 @@ O projeto está em desenvolvimento e sujeito a mudanças.
 - `Funcionalidade 2`: Compras simuladas
 - `Funcionalidade 3`: Perfil interativo
 - `Funcionalidade 4`: Negociações simuladas
+- `Funcionalidade 5`: Venda e contratação de serviços simulados
 
 # :file_folder: Acesso ao projeto
 
