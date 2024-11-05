@@ -23,10 +23,6 @@ public interface CarrinhoApi {
     @DELETE("/shopping-cart/delete/{shoppingCartId}")
     Call<ResponseBody> deleteCarrinho(@Path("shoppingCartId") int shoppingCartId);
 
-
-
-
     @DELETE("shopping-cart/deleteByUsuarioId/{userId}")
     Call<ResponseBody> deleteAll_carrinho(@Path("userId") String userId);
-
 }

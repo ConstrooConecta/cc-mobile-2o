@@ -34,9 +34,6 @@ public interface UsuarioApi {
     @GET("user/findByUid/{uid}")
     Call<Usuario> findByUid(@Path("uid") String uid);
 
-
-
-
     @PUT("user/updateAll/{uid}")
     Call<Usuario> updateUser(@Path("uid") String uid, @Body Usuario user);
 

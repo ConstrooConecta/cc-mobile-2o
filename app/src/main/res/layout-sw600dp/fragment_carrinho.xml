@@ -180,11 +180,11 @@
             android:layout_marginTop="12dp"
             android:layout_marginEnd="15dp"
             android:text="Limpar carrinho"
-            app:layout_constraintEnd_toStartOf="@+id/imageButton3"
+            app:layout_constraintEnd_toStartOf="@+id/imageButton3Frag"
             app:layout_constraintTop_toBottomOf="@+id/view19" />
 
         <ImageButton
-            android:id="@+id/imageButton3"
+            android:id="@+id/imageButton3Frag"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"

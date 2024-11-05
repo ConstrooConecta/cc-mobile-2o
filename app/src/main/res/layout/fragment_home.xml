@@ -36,7 +36,8 @@
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/barraFixa" />
+            app:layout_constraintTop_toBottomOf="@id/barraFixa"
+            tools:visibility="visible" />
 
         <!-- TextView "No TOPO" abaixo da ImageView -->
         <TextView
@@ -51,7 +52,8 @@
             android:textStyle="bold"
             android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imageView5" />
+            app:layout_constraintTop_toBottomOf="@id/imageView5"
+            tools:visibility="visible" />
 
         <!-- TextView "Ofertas" abaixo do RecyclerViewNoTopo -->
         <TextView
@@ -66,7 +68,8 @@
             android:textStyle="bold"
             android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/recyclerViewNoTopo" />
+            app:layout_constraintTop_toBottomOf="@id/recyclerViewNoTopo"
+            tools:visibility="visible" />
 
         <!-- RecyclerView para "Ofertas" -->
         <androidx.recyclerview.widget.RecyclerView
@@ -82,7 +85,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textView13"
-            tools:listitem="@layout/recycler_item_ofertas" />
+            tools:listitem="@layout/recycler_item_ofertas"
+            tools:visibility="visible" />
 
         <!-- TextView "Relevantes" abaixo do RecyclerViewOfertas -->
         <TextView
@@ -97,7 +101,8 @@
             android:textStyle="bold"
             android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/recyclerViewOfertas" />
+            app:layout_constraintTop_toBottomOf="@id/recyclerViewOfertas"
+            tools:visibility="visible" />
 
         <!-- RecyclerView para "Relevantes" -->
         <androidx.recyclerview.widget.RecyclerView
@@ -105,16 +110,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp"
             android:visibility="gone"
             app:layoutManager="LinearLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/Desconto"
-            tools:listitem="@layout/item_produto" />
+            tools:listitem="@layout/item_produto"
+            tools:visibility="visible" />
 
         <!-- Barra fixa no topo -->
         <View
@@ -125,7 +129,8 @@
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
 
         <!-- SearchView na barra fixa -->
         <SearchView
@@ -141,7 +146,8 @@
             app:layout_constraintBottom_toBottomOf="@id/barraFixa"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
 
         <!-- RecyclerView no topo -->
         <androidx.recyclerview.widget.RecyclerView
@@ -155,7 +161,17 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textView12"
-            tools:listitem="@layout/recycler_item_no_topo" />
+            tools:listitem="@layout/recycler_item_no_topo"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/textView26"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="50dp"
+            android:background="#00DD8080"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

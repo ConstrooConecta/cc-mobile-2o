@@ -75,7 +75,7 @@ public class CarrinhoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_carrinho, container, false);
-        imageButton3 = view.findViewById(R.id.imageButton3);
+        imageButton3 = view.findViewById(R.id.imageButton3Frag);
         textView37 = view.findViewById(R.id.textView37);
 
         // Inicializa os componentes da interface
@@ -384,6 +384,4 @@ public class CarrinhoFragment extends Fragment {
         Log.d("CarrinhoFragment", "Runnable removido ao destruir o fragmento.");
 
     }
-
-
 }

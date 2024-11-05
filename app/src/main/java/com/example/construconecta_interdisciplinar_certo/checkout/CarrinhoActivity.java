@@ -265,5 +265,4 @@ public class CarrinhoActivity extends AppCompatActivity {
             }
         });
     }
-
 }

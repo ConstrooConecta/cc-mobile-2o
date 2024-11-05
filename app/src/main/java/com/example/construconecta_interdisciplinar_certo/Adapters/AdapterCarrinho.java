@@ -149,5 +149,3 @@ public class AdapterCarrinho extends RecyclerView.Adapter<AdapterCarrinho.Carrin
         });
 
     }}
-
-

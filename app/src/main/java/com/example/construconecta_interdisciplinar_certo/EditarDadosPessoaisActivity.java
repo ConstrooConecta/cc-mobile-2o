@@ -19,6 +19,7 @@ import com.example.construconecta_interdisciplinar_certo.models.Usuario;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 
@@ -105,10 +106,21 @@ public class EditarDadosPessoaisActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Usuário atualizado com sucesso", Toast.LENGTH_SHORT).show();
                 } else {
                     Log.d("TAG", "onResponse: Código de erro: " + response.code());
-                    Log.d("TAG", "onResponse: Código de erro: " + response.errorBody().toString());
+
+                    // Para obter uma mensagem de erro detalhada, tente ler o corpo do erro
+                    try {
+                        if (response.errorBody() != null) {
+                            String errorMessage = response.errorBody().string();
+                            Log.d("TAG", "onResponse: Mensagem de erro: " + errorMessage);
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
                     Toast.makeText(getApplicationContext(), "Erro ao atualizar o usuário", Toast.LENGTH_SHORT).show();
                 }
             }
+
 
             @Override
             public void onFailure(Call<Usuario> call, Throwable t) {

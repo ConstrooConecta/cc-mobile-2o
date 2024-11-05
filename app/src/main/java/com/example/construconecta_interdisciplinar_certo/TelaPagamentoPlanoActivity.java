@@ -48,12 +48,6 @@ public class TelaPagamentoPlanoActivity extends AppCompatActivity {
                     dataPagamentoFormatada)
             );
         });
-
-
-
-
-
-
     }
 
     private void addPaymentPlan(PagamentoPlano pagamentoPlano) {

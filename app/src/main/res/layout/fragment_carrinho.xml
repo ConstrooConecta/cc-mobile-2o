@@ -64,6 +64,7 @@
             android:id="@+id/recyclerViewCarrinho"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
             android:background="#FFFFFF"
             android:nestedScrollingEnabled="false"
             app:layout_constraintEnd_toEndOf="parent"
@@ -169,6 +170,26 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imagemCarrinhoVazio" />
+        <TextView
+            android:id="@+id/textView37"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="15dp"
+            android:text="Limpar carrinho"
+            app:layout_constraintEnd_toStartOf="@+id/imageButton3Frag"
+            app:layout_constraintTop_toBottomOf="@+id/view19" />
+
+        <ImageButton
+            android:id="@+id/imageButton3Frag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="15dp"
+            android:background="#00FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view19"
+            app:srcCompat="@drawable/trash_red" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
