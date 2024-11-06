@@ -167,16 +167,18 @@ public class ContratarFragment extends Fragment {
                 Log.d("API Response", "Código de status: " + response.code());
                 Log.d("API Response", "Corpo: " + response.body());
 
-                if (response.isSuccessful()) {
-                    if (response.body() != null) {
-                        servicoTagList.clear();
-                        servicoTagList.addAll(response.body());
-                        adapterTagServico.notifyDataSetChanged();
-                    } else {
-                        Toast.makeText(getActivity(), "A resposta do corpo é nula", Toast.LENGTH_SHORT).show();
+                if (response.isSuccessful() && response.body() != null) {
+                    servicoTagList.clear();
+
+                    // Limita a lista a no máximo 4 itens
+                    List<TagServico> resultado = response.body();
+                    for (int i = 0; i < resultado.size() && i < 4; i++) {
+                        servicoTagList.add(resultado.get(i));
                     }
+
+                    adapterTagServico.notifyDataSetChanged();
                 } else {
-                    Toast.makeText(getActivity(), "Erro na resposta da API: " + response.code(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "A resposta do corpo é nula", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -186,6 +188,7 @@ public class ContratarFragment extends Fragment {
             }
         });
     }
+
 
     private void ConexaoApiProcurarPorEmail(FirebaseUser user) {
         String url = "https://cc-api-sql-qa.onrender.com/";

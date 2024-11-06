@@ -18,11 +18,13 @@
 
             <!-- Imagem do Produto -->
             <ImageView
-                android:id="@+id/imageViewProduto"
+                android:id="@+id/imagem_produto"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="180dp"
+                android:scaleType="centerInside"
+                android:adjustViewBounds="true"
+               />
 
-                android:scaleType="centerInside" />
 
             <!-- Botão de Favoritar (sobreposto à imagem) -->
             <ImageView

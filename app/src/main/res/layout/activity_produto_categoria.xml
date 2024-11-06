@@ -20,7 +20,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewCategoria"
-        android:layout_width="407dp"
+        android:layout_width="0dp"
         android:layout_height="653dp"
         android:layout_marginTop="20dp"
         android:background="#FFFFFF"
@@ -33,7 +33,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/searchBar1"
         app:layout_constraintVertical_bias="0.125"
-        tools:listitem="@layout/item_produto" />
+        tools:listitem="@layout/item_produto"
+        tools:visibility="visible" />
 
     <ProgressBar
         android:id="@+id/progressBar2Categorie"

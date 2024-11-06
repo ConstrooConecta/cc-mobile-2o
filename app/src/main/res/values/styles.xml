@@ -5,4 +5,9 @@
         <item name="itemPadding">8dp</item> <!-- Use itemPadding se disponível -->
         <item name="labelVisibilityMode">labeled</item>
     </style>
+    <style name="TextInputErrorStyle">
+        <item name="android:textColor">@color/design_default_color_error</item>
+        <item name="android:paddingEnd">48dp</item> <!-- Ajuste conforme necessário -->
+    </style>
+
 </resources>

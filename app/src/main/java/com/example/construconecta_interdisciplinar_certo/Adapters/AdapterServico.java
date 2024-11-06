@@ -73,6 +73,7 @@ public class AdapterServico extends RecyclerView.Adapter<AdapterServico.ServicoV
                 intent.putExtra("nomeServico", servico.getNomeServico());
                 intent.putExtra("descricao", servico.getDescricao());
                 intent.putExtra("preco", servico.getPreco());
+                intent.putExtra("usuarioUID", servico.getUsuario());
                 intent.putExtra("imageUrl", imageUrl[0]); // Passa a URL da imagem para a próxima tela
                 context.startActivity(intent);
             }
@@ -107,7 +108,7 @@ public class AdapterServico extends RecyclerView.Adapter<AdapterServico.ServicoV
 
             @Override
             public void onFailure(Call<Usuario> call, Throwable t) {
-                Toast.makeText(context, "Erro na chamada de API: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Erro na chamada de API 3: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                 holder.imageViewServico.setImageResource(R.drawable.imagemanuncio);
                 listener.onUrlFetched(null);
             }

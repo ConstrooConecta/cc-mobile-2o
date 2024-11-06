@@ -7,7 +7,9 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.PATCH;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 public interface UsuarioApi {
@@ -31,4 +33,8 @@ public interface UsuarioApi {
 
     @GET("user/findByUid/{uid}")
     Call<Usuario> findByUid(@Path("uid") String uid);
+
+    @PUT("user/updateAll/{uid}")
+    Call<Usuario> updateUser(@Path("uid") String uid, @Body Usuario user);
+
 }

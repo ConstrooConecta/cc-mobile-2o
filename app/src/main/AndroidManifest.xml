@@ -28,6 +28,21 @@
         android:theme="@style/Theme.ConstruConecta_Interdisciplinar_Certo"
         tools:targetApi="31">
         <activity
+            android:name=".AnunciarServicoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TelaPagamentoPlanoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PlanosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditarDadosSeguranca"
+            android:exported="false" />
+        <activity
+            android:name=".EditarDadosPessoaisActivity"
+            android:exported="false" />
+        <activity
             android:name=".PoliticaPrivacidadeActivity"
             android:exported="false" />
         <activity

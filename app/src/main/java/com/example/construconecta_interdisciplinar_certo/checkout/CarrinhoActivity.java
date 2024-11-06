@@ -1,11 +1,16 @@
 package com.example.construconecta_interdisciplinar_certo.checkout;
 
+import static java.security.AccessController.getContext;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -27,6 +32,7 @@ import com.google.firebase.auth.FirebaseUser;
 import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -34,6 +40,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class CarrinhoActivity extends AppCompatActivity {
+
     private RecyclerView recyclerView;
     private AdapterCarrinho adapter;
     private List<Carrinho> carrinhos = new ArrayList<>();
@@ -43,15 +50,23 @@ public class CarrinhoActivity extends AppCompatActivity {
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     FirebaseUser currentUser = mAuth.getCurrentUser();
     private String userId = currentUser.getUid();
-    private TextView quantidadeItens, subto, textViewTotal, textCarrinhoVazio;
+    private TextView quantidadeItens, subto, textViewTotal, textCarrinhoVazio,textView37;
     private ImageView imagem, imageViewCarrinhoVazio;
     private Button button, buttonCarrinhoVazio;
+    private ImageButton imageButton3;
+    private final Handler handler = new Handler();
+    private final int INTERVALO_ATUALIZACAO = 5000; // Intervalo de 5 segundos
 
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_carrinho);
+        //pegar uid do usuario logado do firebase
+        imageButton3 = findViewById(R.id.imageButton3);
+        textView37 = findViewById(R.id.textView37);
+
+
 
         // Inicializa os componentes da interface
         progressBar = findViewById(R.id.progressBar);
@@ -62,31 +77,40 @@ public class CarrinhoActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerViewCarrinho);
         quantidadeItens = findViewById(R.id.quantidadeItens);
         imageViewCarrinhoVazio = findViewById(R.id.imagemCarrinhoVazio);
-
         buttonCarrinhoVazio = findViewById(R.id.buttonCarrinhoVazio);
         textCarrinhoVazio = findViewById(R.id.textView7);
 
-        // Configura o RecyclerView
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Inicialmente esconde todos os elementos exceto a ProgressBar
         progressBar.setVisibility(View.VISIBLE);
         subto.setVisibility(View.INVISIBLE);
         button.setVisibility(View.INVISIBLE);
         textViewTotal.setVisibility(View.INVISIBLE);
         imagem.setVisibility(View.INVISIBLE);
-        recyclerView.setVisibility(View.INVISIBLE); // Mantém o RecyclerView invisível até os dados serem carregados
+        recyclerView.setVisibility(View.INVISIBLE);
         imageViewCarrinhoVazio.setVisibility(View.GONE);
         textCarrinhoVazio.setVisibility(View.GONE);
         buttonCarrinhoVazio.setVisibility(View.GONE);
 
-        // Chama a função para buscar os produtos primeiro
         chamarAPIRetrofitProdutos();
         button.setOnClickListener(v -> {
             Intent intent = new Intent(CarrinhoActivity.this, MetodosPagamento.class);
             intent.putExtra("total", TotalExibivel);
             startActivity(intent);
         });
+
+        // Inicia o processo de verificação a cada 5 segundos
+        iniciarVerificacaoPeriodica();
+    }
+
+    private void iniciarVerificacaoPeriodica() {
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                chamarAPIRetrofitProdutos(); // Atualiza produtos e carrinho
+                handler.postDelayed(this, INTERVALO_ATUALIZACAO); // Repete a cada 5 segundos
+            }
+        }, INTERVALO_ATUALIZACAO);
     }
 
     private void chamarAPIRetrofitProdutos() {
@@ -105,7 +129,6 @@ public class CarrinhoActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     produtos = response.body();
                     if (produtos != null) {
-                        // Após carregar os produtos, chama a função para carregar o carrinho
                         chamarAPIRetrofitCarrinho(userId);
                     }
                 } else {
@@ -140,38 +163,42 @@ public class CarrinhoActivity extends AppCompatActivity {
                         carrinhos.clear();
                         carrinhos.addAll(carrinhosResponse);
 
-                        // Configura o Adapter e notifica as mudanças
+
                         adapter = new AdapterCarrinho(carrinhos, produtos);
                         recyclerView.setAdapter(adapter);
                         adapter.notifyDataSetChanged();
 
-                        // Calcula o total exibível
                         calcularTotalExibivel(carrinhosResponse);
-                        //deixar exbindo apenas 2 casas decimais
                         textViewTotal.setText("Total: R$ " + String.format("%.2f", TotalExibivel));
                         textViewTotal.setTypeface(null, Typeface.BOLD);
-                        //passando o textViewTotal num bundle pra proxima tela:
-
-
                         quantidadeItens.setText(adapter.getItemCount() + " itens");
 
-                        // Agora que os dados foram carregados, podemos exibir os elementos
                         progressBar.setVisibility(View.GONE);
                         subto.setVisibility(View.VISIBLE);
                         button.setVisibility(View.VISIBLE);
                         textViewTotal.setVisibility(View.VISIBLE);
                         imagem.setVisibility(View.VISIBLE);
-                        recyclerView.setVisibility(View.VISIBLE); // Exibe o RecyclerView agora que os dados estão carregados
+                        recyclerView.setVisibility(View.VISIBLE);
                     } else {
-                        Toast.makeText(CarrinhoActivity.this, "Carrinho vazio", Toast.LENGTH_SHORT).show();
+                        quantidadeItens.setText(0 + " itens");
+                        imagem.setVisibility(View.GONE);
+                        subto.setVisibility(View.GONE);
+                        textViewTotal.setVisibility(View.GONE);
                         progressBar.setVisibility(View.GONE);
+                        textView37.setVisibility(View.GONE);
+                        imageButton3.setVisibility(View.GONE);
                         imageViewCarrinhoVazio.setVisibility(View.VISIBLE);
                         textCarrinhoVazio.setVisibility(View.VISIBLE);
                         buttonCarrinhoVazio.setVisibility(View.VISIBLE);
                     }
                 } else {
                     quantidadeItens.setText(0 + " itens");
+                    imagem.setVisibility(View.GONE);
+                    subto.setVisibility(View.GONE);
+                    textViewTotal.setVisibility(View.GONE);
                     progressBar.setVisibility(View.GONE);
+                    textView37.setVisibility(View.GONE);
+                    imageButton3.setVisibility(View.GONE);
                     imageViewCarrinhoVazio.setVisibility(View.VISIBLE);
                     textCarrinhoVazio.setVisibility(View.VISIBLE);
                     buttonCarrinhoVazio.setVisibility(View.VISIBLE);
@@ -186,16 +213,56 @@ public class CarrinhoActivity extends AppCompatActivity {
         });
     }
 
-    // Método para calcular o total exibível
     private void calcularTotalExibivel(List<Carrinho> carrinhosResponse) {
-        TotalExibivel = 0.0; // Zera o total antes de calcular
+        TotalExibivel = 0.0;
         for (Carrinho item : carrinhosResponse) {
-            TotalExibivel += item.getValorTotal(); // Some o preço de cada item
+            TotalExibivel += item.getValorTotal();
         }
     }
 
-    private void finish(View view) {
-        //encerrar a activity atual
-        finish();
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        handler.removeCallbacksAndMessages(null); // Para a verificação quando a Activity é destruída
+    }
+
+    public void DeletarCarrinho(View view) {
+        String API = "https://cc-api-sql-qa.onrender.com/";
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(API)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        CarrinhoApi carrinhoApi = retrofit.create(CarrinhoApi.class);
+        Call<ResponseBody> call = carrinhoApi.deleteAll_carrinho(userId);
+
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.isSuccessful()) {
+                    Toast.makeText(CarrinhoActivity.this, "Carrinho deletado com sucesso!", Toast.LENGTH_SHORT).show();
+                    quantidadeItens.setText(0 + " itens");
+                    textView37.setVisibility(View.GONE);
+                    imageButton3.setVisibility(View.GONE);
+                    imagem.setVisibility(View.GONE);
+                    subto.setVisibility(View.GONE);
+                    textViewTotal.setVisibility(View.GONE);
+                    button.setVisibility(View.GONE);
+                    progressBar.setVisibility(View.GONE);
+                    imageViewCarrinhoVazio.setVisibility(View.VISIBLE);
+                    textCarrinhoVazio.setVisibility(View.VISIBLE);
+                    buttonCarrinhoVazio.setVisibility(View.VISIBLE);
+                    recyclerView.setVisibility(View.GONE);
+
+                } else {
+                    Toast.makeText(CarrinhoActivity.this, "Erro ao deletar carrinho: " + response.code(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Toast.makeText(CarrinhoActivity.this, "Erro ao deletar carrinho: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

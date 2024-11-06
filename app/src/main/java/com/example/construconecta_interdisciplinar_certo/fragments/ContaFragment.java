@@ -1,6 +1,7 @@
 package com.example.construconecta_interdisciplinar_certo.fragments;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -8,23 +9,35 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 import com.example.construconecta_interdisciplinar_certo.AnunciarProdutoActivity;
+import com.example.construconecta_interdisciplinar_certo.AnunciarServicoActivity;
+import com.example.construconecta_interdisciplinar_certo.EditarDadosPessoaisActivity;
+import com.example.construconecta_interdisciplinar_certo.EditarDadosSeguranca;
+import com.example.construconecta_interdisciplinar_certo.PlanosActivity;
 import com.example.construconecta_interdisciplinar_certo.PoliticaPrivacidadeActivity;
 import com.example.construconecta_interdisciplinar_certo.R;
+import com.example.construconecta_interdisciplinar_certo.apis.PagamentoPlanoApi;
+import com.example.construconecta_interdisciplinar_certo.apis.ProdutoApi;
 import com.example.construconecta_interdisciplinar_certo.apis.UsuarioApi;
 import com.example.construconecta_interdisciplinar_certo.databinding.FragmentContaBinding;
+import com.example.construconecta_interdisciplinar_certo.models.PagamentoPlano;
+import com.example.construconecta_interdisciplinar_certo.models.Produto;
 import com.example.construconecta_interdisciplinar_certo.models.Usuario;
+import com.example.construconecta_interdisciplinar_certo.onboarding.CameraActivity;
 import com.example.construconecta_interdisciplinar_certo.ui.InternetErrorActivity;
 import com.example.construconecta_interdisciplinar_certo.ui.MainActivity;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -34,6 +47,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -47,6 +61,10 @@ public class ContaFragment extends Fragment {
     private FragmentContaBinding binding;
     private ProgressBar progressBar;
     private View viewVender, viewPoliticaPrivacidade;
+    private ImageButton botaoEdit;
+    private View viewEditarDados;
+    private List<PagamentoPlano> pagamentosPlano = new ArrayList<>();
+    private Boolean aBoolean = false;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -57,6 +75,8 @@ public class ContaFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        viewEditarDados = binding.viewEditarDados;
+        botaoEdit = view.findViewById(R.id.botaoEdit);
 
         viewVender = view.findViewById(R.id.viewVender);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -64,19 +84,40 @@ public class ContaFragment extends Fragment {
         viewPoliticaPrivacidade = binding.viewPoliticaPrivacidade;
 
         ConexaoApiProcurarPorEmail(user);
+        ApiPlanos(user.getUid());
 
         FirebaseStorage storage = FirebaseStorage.getInstance();
         StorageReference storageRef = storage.getReference();
         StorageReference fotoRef = storageRef.child("galeria/" + user.getEmail() + ".jpg");
 
+        viewEditarDados.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), EditarDadosPessoaisActivity.class);
+            startActivity(intent);
+        });
+        binding.viewDados.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), EditarDadosSeguranca.class);
+            startActivity(intent);
+        });
+
+
+        botaoEdit.setOnClickListener(v -> {
+            //abrir activity da camera
+            Intent intent = new Intent(getActivity(), CameraActivity.class);
+            startActivity(intent);
+        });
 
         viewVender.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), AnunciarProdutoActivity.class);
-            startActivity(intent);
+            mostrarDialogoSelecao();
         });
 
         viewPoliticaPrivacidade.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), PoliticaPrivacidadeActivity.class);
+            startActivity(intent);
+        });
+
+        binding.viewAssinatura.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), PlanosActivity.class);
+            intent.putExtra("premium", aBoolean);
             startActivity(intent);
         });
         fotoRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -148,6 +189,8 @@ public class ContaFragment extends Fragment {
                     binding.circuloPerfil.setVisibility(View.VISIBLE);
                     binding.textViewUsuarioNome.setVisibility(View.VISIBLE);
                     binding.botaoEdit.setVisibility(View.VISIBLE);
+                    binding.textView25.setVisibility(View.VISIBLE);
+                    binding.view9.setVisibility(View.VISIBLE);
                     binding.textViewUsuarioNome.setText(nomeCompleto);
                     binding.textViewUsuarioNome.setTextSize(12);
                     progressBar.setVisibility(View.GONE);
@@ -162,6 +205,75 @@ public class ContaFragment extends Fragment {
                 Toast.makeText(getContext(), "Erro na chamada: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void ApiPlanos(String usuario) {
+        String API = "https://cc-api-sql-qa.onrender.com/";
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(API)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        PagamentoPlanoApi pagamentoPlanoApi = retrofit.create(PagamentoPlanoApi.class);
+        Call<List<PagamentoPlano>> call = pagamentoPlanoApi.findByUserId(usuario);
+
+        call.enqueue(new Callback<List<PagamentoPlano>>() {
+            @Override
+            public void onResponse(Call<List<PagamentoPlano>> call, Response<List<PagamentoPlano>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    pagamentosPlano.clear();
+                    pagamentosPlano.addAll(response.body());
+
+                    if (pagamentosPlano.size() == 2) {
+                        if (binding != null && getActivity() != null) { // Verifica se o binding e o contexto não são nulos
+                            // Seta o background e atualiza o texto
+                            binding.view9.setBackgroundResource(R.drawable.design_plano_premium);
+                            binding.textView25.setText("PREMIUM");
+                            binding.textView25.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+                            aBoolean=true;
+
+                        }
+                    }
+                } else {
+                    if (getActivity() != null) {
+                        Toast.makeText(getActivity(), "Erro na resposta da API: " + response.code(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<PagamentoPlano>> call, Throwable throwable) {
+                if (getActivity() != null) {
+                    Toast.makeText(getActivity(), "Erro ao mostrar produtos relevantes: " + throwable.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    private void mostrarDialogoSelecao() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireActivity());
+        builder.setTitle("Escolha uma opção");
+
+        // Adiciona as opções ao dialog
+        String[] opcoes = {"Serviço", "Produto"};
+        builder.setItems(opcoes, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if (which == 0) {
+                    // Se escolher "Serviço", abre a AnunciarServicoActivity
+                    Intent intent = new Intent(getActivity(), AnunciarServicoActivity.class);
+                    startActivity(intent);
+                } else if (which == 1) {
+                    // Se escolher "Produto", abre a AnunciarProdutoActivity
+                    Intent intent = new Intent(getActivity(), AnunciarProdutoActivity.class);
+                    startActivity(intent);
+                }
+            }
+        });
+
+        // Mostra o dialog
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     @Override

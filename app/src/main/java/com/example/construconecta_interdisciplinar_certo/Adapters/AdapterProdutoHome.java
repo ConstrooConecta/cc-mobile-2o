@@ -46,7 +46,7 @@ public class AdapterProdutoHome extends RecyclerView.Adapter<AdapterProdutoHome.
     public void onBindViewHolder(@NonNull ProdutoViewHolder holder, int position) {
         // Atualizando o conteúdo das views
         Produto produto = produtos.get(position);
-
+        holder.cod.setText("Cód. " + produto.getprodutoId()); // Exibindo o cod
         holder.nome.setText(produto.getNomeProduto());
         holder.nome.setTypeface(holder.nome.getTypeface(), android.graphics.Typeface.BOLD);
         if (produto.getDesconto() > 0) {
@@ -105,6 +105,7 @@ public class AdapterProdutoHome extends RecyclerView.Adapter<AdapterProdutoHome.
     // ViewHolder interno
     public static class ProdutoViewHolder extends RecyclerView.ViewHolder {
         TextView nome;
+        TextView cod;
         ImageView imagem;
         TextView preco;
         TextView desconto;
@@ -117,6 +118,7 @@ public class AdapterProdutoHome extends RecyclerView.Adapter<AdapterProdutoHome.
             imagem = itemView.findViewById(R.id.fotoProdutoCard);
             preco = itemView.findViewById(R.id.Preco);
             desconto = itemView.findViewById(R.id.Desconto);
+            cod = itemView.findViewById(R.id.Codigo);
 
         }
     }
