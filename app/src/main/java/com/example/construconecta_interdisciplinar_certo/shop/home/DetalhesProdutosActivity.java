@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,12 +37,12 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class DetalhesProdutosActivity extends BaseActivity {
-    private TextView nomeProduto, precoProduto, descontoProduto, de, descricaoProdutoTextView, textViewNomeLoja, textViewVendedor;
+    private TextView nomeProduto, precoProduto, descontoProduto, de, descricaoProdutoTextView, textViewNomeLoja, textViewVendedor, textView47;
     private ImageView imagemProduto, oferta, lojaAle, coracaoFavorito;
     private String imagemUrl, idProduto, usuario;
     private Double precoProdutoToCarrinho;
     private Boolean favorito;
-
+    private ProgressBar progressBar7;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +53,8 @@ public class DetalhesProdutosActivity extends BaseActivity {
         favorito = intent.getBooleanExtra("favorito", false);
         textViewNomeLoja = findViewById(R.id.textViewNomeLoja);
         textViewVendedor = findViewById(R.id.textViewVendedor);
+        textView47 = findViewById(R.id.textView47);
+        progressBar7 = findViewById(R.id.progressBar7);
 
         // Inicializando as views
         coracaoFavorito = findViewById(R.id.coracao_favorito);
@@ -210,7 +213,6 @@ public class DetalhesProdutosActivity extends BaseActivity {
                 if (response.isSuccessful()) {
                     Carrinho createdUser = response.body();
                     Log.d("POST_SUCCESS", "Carrinho criado: " + createdUser.getCarrinhoId());
-
                 } else {
                     // Tratar erro ao adicionar no banco
                     Log.d("REQUEST_BODY", carrinho.toString()); // Certifique-se de que o método toString() do seu objeto Carrinho exiba os dados corretamente
@@ -227,9 +229,47 @@ public class DetalhesProdutosActivity extends BaseActivity {
     }
 
     public void abrirCarrinho(View view) {
-        Intent intent = new Intent(DetalhesProdutosActivity.this, Home.class);
-        intent.putExtra("abrirCarrinho", true); // Adicione esta linha para passar um sinalizador
-        startActivity(intent);
+        // Impedir cliques múltiplos no botão
+        view.setEnabled(false);
+        textView47.setVisibility(View.GONE);
+        progressBar7.setVisibility(View.VISIBLE);
+
+        // Obter o usuário atual do Firebase
+        FirebaseUser usuarioAtual = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (usuarioAtual != null && idProduto != null && !idProduto.isEmpty()) {
+            try {
+                Integer idProdutoInt = Integer.parseInt(idProduto);  // Converte a string para int
+
+                // Criar um objeto de carrinho
+                Carrinho carrinho = new Carrinho(
+                        0,
+                        usuarioAtual.getUid(),
+                        idProdutoInt,
+                        1,
+                        imagemUrl,
+                        precoProdutoToCarrinho
+                );
+
+                // Adicionar o produto ao carrinho
+                addToShoppingCart(carrinho);
+
+                // Após 3 segundos, abrir a tela de carrinho (ou home)
+                new Handler().postDelayed(() -> {
+                    Intent intent = new Intent(DetalhesProdutosActivity.this, Home.class);
+                    intent.putExtra("abrirCarrinho", true); // Passa o sinalizador para abrir o carrinho
+                    startActivity(intent);
+                }, 3000);  // 3 segundos de delay
+            } catch (NumberFormatException e) {
+                e.printStackTrace();  // Tratar o erro caso o valor não possa ser convertido
+                Log.e("DetalhesProdutosActivity", "Erro ao converter o ID do produto: " + e.getMessage());
+            }
+        } else {
+            Toast.makeText(this, "Produto inválido ou nulo!", Toast.LENGTH_SHORT).show();
+            progressBar7.setVisibility(View.GONE);
+            textView47.setVisibility(View.VISIBLE);
+            view.setEnabled(true);
+        }
     }
 
     public void backToHome(View view) {

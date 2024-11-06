@@ -41,12 +41,6 @@ public class Home extends BaseActivity {
             if (castroConcluido == 1) {
                 mostrarBoasVindas();
             }
-
-            // Verifica se foi passado o sinalizador para abrir o carrinho
-            boolean abrirCarrinho = extras.getBoolean("abrirCarrinho", false);
-            if (abrirCarrinho) {
-                replaceFragment(new CarrinhoFragment());
-            }
         }
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
@@ -73,6 +67,15 @@ public class Home extends BaseActivity {
         binding.bottomNavigationView.setSelectedItemId(R.id.home1);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Verifique se o parâmetro "abrirCarrinho" está presente e é verdadeiro
+        if (getIntent().getBooleanExtra("abrirCarrinho", false)) {
+            replaceFragment(new CarrinhoFragment());
+            Home.bottomNavigationView.setSelectedItemId(R.id.carrinho);
+        }
+    }
 
     //método para mudar o fragmento na navbar
     public void replaceFragment(Fragment fragment) {

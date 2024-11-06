@@ -89,26 +89,6 @@ public class MetodosPagamento extends AppCompatActivity {
         });
 
         buttonAplicar.setOnClickListener(v -> verificarCupom(cupomInput.getText().toString()));
-
-        cupomInput.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {
-                // Não é necessário modificar nada antes da mudança do texto
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
-                // Converte o texto para maiúsculas enquanto o usuário digita
-                cupomInput.setText(charSequence.toString().toUpperCase());
-                cupomInput.setSelection(charSequence.length()); // Para manter o cursor na posição correta
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                // Nada a ser feito depois da mudança do texto
-            }
-        });
-
     }
 
     private void buscarEnderecos(String usuarioId) {
@@ -164,6 +144,7 @@ public class MetodosPagamento extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Desconto>> call, Response<List<Desconto>> response) {
                 if (response.isSuccessful() && response.body() != null && !response.body().isEmpty()) {
+                    // Se o cupom for válido
                     Desconto desconto = response.body().get(0);
                     double valorDesconto = desconto.getValorDesconto();
                     double descontoAplicado = (valorDesconto / 100) * total;
@@ -172,10 +153,13 @@ public class MetodosPagamento extends AppCompatActivity {
                     valor2.setText("R$ " + String.format("%.2f", totalComDesconto));
 
                     txtStatusCupom.setText("Cupom aplicado com sucesso! (" + String.format("%.2f", valorDesconto) + "%)");
-
                     txtStatusCupom.setTextColor(Color.GREEN);
                     txtStatusCupom.setVisibility(View.VISIBLE);
                 } else {
+                    // Se o cupom for inválido
+                    totalComDesconto = 0.0;  // Reinicia o total com desconto
+                    valor2.setText("R$ " + String.format("%.2f", total));  // Mostra o preço original
+
                     txtStatusCupom.setText("Cupom não encontrado.");
                     txtStatusCupom.setTextColor(Color.RED);
                     txtStatusCupom.setVisibility(View.VISIBLE);
@@ -184,6 +168,10 @@ public class MetodosPagamento extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Desconto>> call, Throwable t) {
+                // Em caso de erro na requisição
+                totalComDesconto = 0.0;  // Reinicia o total com desconto
+                valor2.setText("R$ " + String.format("%.2f", total));  // Mostra o preço original
+
                 txtStatusCupom.setText("Erro ao verificar o cupom.");
                 txtStatusCupom.setTextColor(Color.RED);
                 txtStatusCupom.setVisibility(View.VISIBLE);

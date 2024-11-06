@@ -358,4 +358,18 @@
         app:srcCompat="@drawable/carrinhook"
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
+    <ProgressBar
+        android:id="@+id/progressBar7"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:indeterminateTint="#FFFFFF"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/view17"
+        app:layout_constraintEnd_toEndOf="@+id/view17"
+        app:layout_constraintStart_toEndOf="@+id/view16"
+        app:layout_constraintTop_toTopOf="@+id/view17" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
