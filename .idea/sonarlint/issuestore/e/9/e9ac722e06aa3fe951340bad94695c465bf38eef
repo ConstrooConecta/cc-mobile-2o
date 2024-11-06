@@ -1,18 +1,20 @@
 
-‘	java:S117i"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(κμΨθϊÿÿÿÿJ$68614968-6426-45e0-85a9-f4059d46cdd1
-’	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(κμΨθϊÿÿÿÿJ$1587e3af-714f-4abc-916f-dc23de77e9d9
-	java:S1163"XRename this field "TotalExibivel" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”†ΎψÿÿÿÿJ$32a67e39-1a03-4d5e-a800-365462a3a412
-Β
-java:S1186:"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(κ’ίτϊÿÿÿÿJ$1daf21b7-b407-44c4-9f2c-c1426e44f65c
-}
-java:S16597"BDeclare "subto" and all following declarations on a separate line.(ζ―ωJ$74786cbc-2332-4b84-8e71-15f4cbe58e7b
-u
-java:S16598"4Declare "imageViewCarrinhoVazio" on a separate line.(¬ψÿÿÿÿÿJ$f9a99de3-963a-47c4-a5fb-967818e0fc5b
-r
-java:S16599"1Declare "buttonCarrinhoVazio" on a separate line.(«Ν™«ωÿÿÿÿJ$3824edcb-331b-4d7b-82ec-da0c987dafeb
-u
-java:S1874ξ"3Remove this use of "NetworkInfo"; it is deprecated.(Υ¥—γωÿÿÿÿJ$2aef58db-e348-4112-81d0-b13c7758e42d
-~
-java:S1874ξ"<Remove this use of "getActiveNetworkInfo"; it is deprecated.(Υ¥—γωÿÿÿÿJ$ae4395d6-0948-4738-bb65-50f50cbf7435
-u
-java:S1874ο"3Remove this use of "isConnected"; it is deprecated.(‡ύήψÿÿÿÿJ$75dc76f2-9f4a-43dd-a98e-660af02d1e28
+	java:S117s"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(κμΨθϊÿÿÿÿ8ι½¨σ®2J$2f27319a-06e5-4520-a159-8caa6a9e348b
+™	java:S117–"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(κμΨθϊÿÿÿÿ8κ½¨σ®2J$6f44c144-816d-4bae-bd51-66a9e4fdddaa
+	java:S116."XRename this field "TotalExibivel" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(δαμύÿÿÿÿ8¶ΐ¨σ®2J$8e046bcf-d1ad-4b52-93af-fa6a681fbb3d
+„
+java:S16591"BDeclare "subto" and all following declarations on a separate line.(ζ―ω8½ΐ¨σ®2J$9cec89fd-396d-4b04-8542-cf44fe5b985b
+|
+java:S16592"4Declare "imageViewCarrinhoVazio" on a separate line.(¬ψÿÿÿÿÿ8Ύΐ¨σ®2J$a1661ce3-f963-4a90-906f-89a2bf6fbff1
+y
+java:S16593"1Declare "buttonCarrinhoVazio" on a separate line.(«Ν™«ωÿÿÿÿ8Ύΐ¨σ®2J$e2e0196b-ce3c-4490-a85f-38a402f71d6a
+
+java:S1450*"VRemove the "adapter" field and declare it as a local variable in the relevant methods.(‘ύώÿÿÿÿ8Αΐ¨σ®2J$2a467138-efad-4d1f-ab6d-4dd0610d6250
+—
+java:S1450/"TRemove the "mAuth" field and declare it as a local variable in the relevant methods.(ªΠ”’8Αΐ¨σ®2J$a13033a9-ddd8-41ca-a9bd-d5339f76a4ca
+|
+java:S1874λ"3Remove this use of "NetworkInfo"; it is deprecated.(Υ¥—γωÿÿÿÿ8‡ώ™σ®2J$14f786b0-4f31-4553-8559-0f98d6bd8547
+…
+java:S1874λ"<Remove this use of "getActiveNetworkInfo"; it is deprecated.(Υ¥—γωÿÿÿÿ8ώ™σ®2J$b8c76532-7155-42e4-bd73-e98a34066411
+|
+java:S1874μ"3Remove this use of "isConnected"; it is deprecated.(‡ύήψÿÿÿÿ8ώ™σ®2J$30476f8c-097b-431e-9c33-330a057735e5

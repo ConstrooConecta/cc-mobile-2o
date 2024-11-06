@@ -1,11 +1,0 @@
-
-‚
-java:S1118":Add a private constructor to hide the implicit public one.(âäÕÒÿÿÿÿÿ8æÀÉÖ£2J$b5fc9884-0aee-435e-b09e-0159dcf87974
-{
-java:S1874
-"3Remove this use of "NetworkInfo"; it is deprecated.(Õ¥—ãùÿÿÿÿ8èÀÉÖ£2J$31fa00dd-3313-4db8-92b7-11b0b1677854
-„
-java:S1874
-"<Remove this use of "getActiveNetworkInfo"; it is deprecated.(Õ¥—ãùÿÿÿÿ8èÀÉÖ£2J$9236d90d-83d7-4b0c-af69-6e7e020f6575
-a
-java:S1874"?Remove this use of "isConnectedOrConnecting"; it is deprecated.(©”‘Õıÿÿÿÿ8‰¬å×£2

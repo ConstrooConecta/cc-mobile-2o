@@ -6,14 +6,15 @@
     android:paddingRight="16dp">
 
     <LinearLayout
-        android:layout_width="209dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="10dp">
 
         <!-- Imagem do serviço -->
         <ImageView
             android:id="@+id/imageViewServico"
-            android:layout_width="180dp"
+            android:layout_width="170dp"
             android:layout_height="150dp"
             android:scaleType="centerCrop"
             android:src="@drawable/logoconstroo" />
@@ -23,8 +24,6 @@
             android:id="@+id/textViewNomeServico"
             android:layout_width="165dp"
             android:layout_height="wrap_content"
-            android:paddingLeft="8dp"
-            android:paddingTop="8dp"
             android:text="Eletricista weeoiweweiweoweiwoe"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -34,8 +33,6 @@
             android:id="@+id/textViewCodigoServico"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="8dp"
-            android:paddingTop="4dp"
             android:text="Código 12121"
             android:textColor="#808080"
             android:textSize="14sp" />
@@ -45,8 +42,6 @@
             android:id="@+id/textViewFaixaPreco"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="8dp"
-            android:paddingTop="4dp"
             android:text="R$ 50 - 4.131"
             android:textSize="14sp" />
 
@@ -55,8 +50,6 @@
             android:id="@+id/textViewPrecoMedio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="8dp"
-            android:paddingTop="4dp"
             android:text="R$ 177,87 Preço médio"
             android:textColor="@color/design_default_color_primary"
             android:textSize="16sp"

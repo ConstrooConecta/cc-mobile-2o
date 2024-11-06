@@ -1,18 +1,18 @@
 package com.example.construconecta_interdisciplinar_certo.models;
 
 public class Carrinho {
-    private int carrinhoId;
+    private Integer carrinhoId;
     private String usuario;
-    private int produto;
-    private int quantidade;
+    private Integer produto;
+    private Integer quantidade;
     private String produtoImg;
     private double valorTotal;
 
     public Carrinho(
-            int carrinhoId,
+            Integer carrinhoId,
             String usuario,
-            int produto,
-            int quantidade,
+            Integer produto,
+            Integer quantidade,
             String produtoImg,
             double valorTotal
     ) {
@@ -24,7 +24,7 @@ public class Carrinho {
         this.valorTotal = valorTotal;
     }
 
-    public int getCarrinhoId() {
+    public Integer getCarrinhoId() {
         return carrinhoId;
     }
 
@@ -36,11 +36,11 @@ public class Carrinho {
         this.usuario = usuario;
     }
 
-    public int getProduto() {
+    public Integer getProduto() {
         return produto;
     }
 
-    public void setProduto(int produto) {
+    public void setProduto(Integer produto) {
         this.produto = produto;
     }
 
@@ -50,5 +50,25 @@ public class Carrinho {
 
     public double getValorTotal() {
         return valorTotal;
+    }
+
+    public void setCarrinhoId(Integer carrinhoId) {
+        this.carrinhoId = carrinhoId;
+    }
+
+    public Integer getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public void setProdutoImg(String produtoImg) {
+        this.produtoImg = produtoImg;
+    }
+
+    public void setValorTotal(double valorTotal) {
+        this.valorTotal = valorTotal;
     }
 }

@@ -6,13 +6,13 @@
     android:layout_margin="16dp"
     android:background="#C5C1C1"
     android:padding="16dp"
-    app:cardCornerRadius="20dp">
+    app:cardCornerRadius="5dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FFFFFF"
-        android:padding="16dp">
+        android:padding="15dp">
 
         <ImageView
             android:id="@+id/fotoProdutoCard"
@@ -27,11 +27,11 @@
             android:id="@+id/nomeProduto"
             android:layout_width="wrap_content"
             android:layout_height="26dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginStart="20dp"
             android:text="Nome produto"
             android:textColor="#000000"
             android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/Codigo"
             app:layout_constraintStart_toEndOf="@id/fotoProdutoCard"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -40,12 +40,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="1dp"
             android:text="Código"
             android:textColor="#000000"
             android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/Preco"
             app:layout_constraintStart_toEndOf="@id/fotoProdutoCard"
-            app:layout_constraintTop_toBottomOf="@id/nomeProduto" />
+            app:layout_constraintTop_toBottomOf="@+id/nomeProduto" />
 
         <TextView
             android:id="@+id/Preco"
@@ -57,29 +57,32 @@
             android:textColor="#000000"
             android:textSize="20sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/Desconto"
             app:layout_constraintStart_toEndOf="@id/fotoProdutoCard"
-            app:layout_constraintTop_toBottomOf="@id/Codigo" />
+            app:layout_constraintTop_toBottomOf="@+id/Codigo" />
 
         <TextView
             android:id="@+id/Desconto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="1dp"
+            android:layout_marginTop="5dp"
             android:text="R$ Desconto"
             android:textColor="#000000"
+            app:layout_constraintBottom_toTopOf="@+id/textView6"
             app:layout_constraintStart_toEndOf="@id/fotoProdutoCard"
-            app:layout_constraintTop_toBottomOf="@id/Preco" />
+            app:layout_constraintTop_toBottomOf="@+id/Preco" />
 
         <TextView
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="5dp"
             android:text="à vista no cartão ou Pix"
             android:textColor="#000000"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/fotoProdutoCard"
-            app:layout_constraintTop_toBottomOf="@id/Desconto" />
+            app:layout_constraintTop_toBottomOf="@+id/Desconto" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

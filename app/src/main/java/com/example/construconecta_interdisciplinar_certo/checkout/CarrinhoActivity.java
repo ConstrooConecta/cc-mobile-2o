@@ -11,16 +11,16 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.construconecta_interdisciplinar_certo.Adapters.AdapterCarrinho;
+import com.example.construconecta_interdisciplinar_certo.adapters.AdapterCarrinho;
 import com.example.construconecta_interdisciplinar_certo.R;
 import com.example.construconecta_interdisciplinar_certo.apis.CarrinhoApi;
 import com.example.construconecta_interdisciplinar_certo.apis.ProdutoApi;
 import com.example.construconecta_interdisciplinar_certo.models.Carrinho;
 import com.example.construconecta_interdisciplinar_certo.models.Produto;
+import com.example.construconecta_interdisciplinar_certo.ui.BaseActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -33,7 +33,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class CarrinhoActivity extends AppCompatActivity {
+public class CarrinhoActivity extends BaseActivity {
     private RecyclerView recyclerView;
     private AdapterCarrinho adapter;
     private List<Carrinho> carrinhos = new ArrayList<>();
@@ -54,16 +54,16 @@ public class CarrinhoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_carrinho);
 
         // Inicializa os componentes da interface
-        progressBar = findViewById(R.id.progressBar);
+        progressBar = findViewById(R.id.progressBar3);
         subto = findViewById(R.id.textView51);
-        button = findViewById(R.id.button);
-        textViewTotal = findViewById(R.id.textView52SubtotalV);
+        button = findViewById(R.id.buttonEscolherPagamento);
+        textViewTotal = findViewById(R.id.subTotal);
         imagem = findViewById(R.id.imageView7);
         recyclerView = findViewById(R.id.recyclerViewCarrinho);
         quantidadeItens = findViewById(R.id.quantidadeItens);
         imageViewCarrinhoVazio = findViewById(R.id.imagemCarrinhoVazio);
 
-        buttonCarrinhoVazio = findViewById(R.id.buttonCarrinhoVazio);
+        buttonCarrinhoVazio = findViewById(R.id.btnAdicionarEndereco);
         textCarrinhoVazio = findViewById(R.id.textView7);
 
         // Configura o RecyclerView
@@ -97,7 +97,7 @@ public class CarrinhoActivity extends AppCompatActivity {
                 .build();
 
         ProdutoApi produtoApi = retrofit.create(ProdutoApi.class);
-        Call<List<Produto>> call = produtoApi.findUser();
+        Call<List<Produto>> call = produtoApi.findAllProducts();
 
         call.enqueue(new Callback<List<Produto>>() {
             @Override

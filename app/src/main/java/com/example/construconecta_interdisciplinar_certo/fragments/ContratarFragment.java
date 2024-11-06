@@ -11,7 +11,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,9 +24,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.construconecta_interdisciplinar_certo.Adapters.AdapterTagServico;
-import com.example.construconecta_interdisciplinar_certo.Adapters.AdapterTagServicoContratar;
-import com.example.construconecta_interdisciplinar_certo.Adapters.CardAdapter;
+import com.example.construconecta_interdisciplinar_certo.adapters.AdapterTagServico;
+import com.example.construconecta_interdisciplinar_certo.adapters.AdapterTagServicoContratar;
+import com.example.construconecta_interdisciplinar_certo.adapters.CardAdapter;
 import com.example.construconecta_interdisciplinar_certo.R;
 import com.example.construconecta_interdisciplinar_certo.apis.TagServicoApi;
 import com.example.construconecta_interdisciplinar_certo.apis.UsuarioApi;
@@ -51,12 +53,13 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ContratarFragment extends Fragment {
-    private RecyclerView recyclerCards;
+    private ProgressBar progressBar;
+    private RecyclerView recyclerServico, recyclerCategoriaSer, recyclerCards;
+    private EditText editText;
     private ImageView imagemPerfil;
-    private TextView textView40, textView39;
+    private TextView textView39, textView40, textView41, textView31, textView35;
     private List<TagServico> servicoTagList;
     private AdapterTagServico adapterTagServico;
-    private RecyclerView recyclerCategoriaSer;
     private AdapterTagServicoContratar adapter;
 
     public ContratarFragment() {
@@ -66,30 +69,33 @@ public class ContratarFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_contratar, container, false);
 
+        // Inicializa os componentes
+        progressBar = view.findViewById(R.id.progressBar2);
         imagemPerfil = view.findViewById(R.id.imageView13);
-
-        textView40 = view.findViewById(R.id.textView40);
         textView39 = view.findViewById(R.id.textView39);
+        textView40 = view.findViewById(R.id.textView40);
+        textView41 = view.findViewById(R.id.textView41);
+        editText = view.findViewById(R.id.editTextText);
+        recyclerServico = view.findViewById(R.id.recyclerServico);
+        recyclerCategoriaSer = view.findViewById(R.id.recycler_categoriaSer);
+        recyclerCards = view.findViewById(R.id.recycler_cards);
+        textView31 = view.findViewById(R.id.textView31);
+        textView35 = view.findViewById(R.id.textView35);
 
-        RecyclerView recyclerView = view.findViewById(R.id.recyclerServico);
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
-
+        // Configure os adaptadores e layouts
+        recyclerServico.setLayoutManager(new GridLayoutManager(getContext(), 2));
         servicoTagList = new ArrayList<>();
         adapterTagServico = new AdapterTagServico(servicoTagList, getContext());
-        recyclerView.setAdapter(adapterTagServico);
-
+        recyclerServico.setAdapter(adapterTagServico);
         chamarAPIRetrofitServico();
 
-        recyclerCategoriaSer = view.findViewById(R.id.recycler_categoriaSer);
         recyclerCategoriaSer.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-
         List<TagServicoCategoria> categorias = new ArrayList<>();
         categorias.add(new TagServicoCategoria("Arquiteto", R.drawable.arquiteto));
         categorias.add(new TagServicoCategoria("Engenheiro", R.drawable.engenheiro));
         categorias.add(new TagServicoCategoria("Carpinteiro", R.drawable.carpinteiro));
         categorias.add(new TagServicoCategoria("Pedreiro", R.drawable.pedreiro));
         categorias.add(new TagServicoCategoria("Encanador", R.drawable.encanadorcerto));
-        // Adicione outras categorias...
 
         adapter = new AdapterTagServicoContratar(categorias, getContext());
         recyclerCategoriaSer.setAdapter(adapter);
@@ -97,32 +103,25 @@ public class ContratarFragment extends Fragment {
 
         ConexaoApiProcurarPorEmail(user);
 
-
         FirebaseStorage storage = FirebaseStorage.getInstance();
         StorageReference storageRef = storage.getReference();
         StorageReference fotoRef = storageRef.child("galeria/" + user.getEmail() + ".jpg");
 
+        // Verifica se o Fragment está anexado antes de usar o Glide
         fotoRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
-                // Carrega a imagem com Glide
-                Glide.with(getContext())
-                        .load(uri)
-                        .centerCrop()
-                        .circleCrop()
-                        .into(imagemPerfil); // Use binding para acessar a ImageView
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception exception) {
-                // Tratar falha
-                Toast.makeText(getContext(), "Erro ao carregar imagem.", Toast.LENGTH_SHORT).show();
+                if (isAdded() && getActivity() != null) { // Verifica se o Fragment ainda está anexado
+                    Glide.with(getActivity())
+                            .load(uri)
+                            .centerCrop()
+                            .circleCrop()
+                            .into(imagemPerfil);
+                }
             }
         });
 
-        recyclerCards = view.findViewById(R.id.recycler_cards);
         recyclerCards.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-
         List<CardItem> cardItems = new ArrayList<>();
         cardItems.add(new CardItem("Conte o que precisa", "Conte o que precisa, inclua o \n máximo de detalhes, se puder \n inclua fotos para receber \n orçamentos mais precisos."));
         cardItems.add(new CardItem("Receba orçamentos", "Os profissionais Constroo irão \n enviar orçamentos gratuitos. \n Avalie, compare os orçamentos."));
@@ -172,11 +171,24 @@ public class ContratarFragment extends Fragment {
                         servicoTagList.clear();
                         servicoTagList.addAll(response.body());
                         adapterTagServico.notifyDataSetChanged();
+
+                        progressBar.setVisibility(View.VISIBLE); // Se desejar manter a barra de progresso visível ou altere conforme necessário
+                        imagemPerfil.setVisibility(View.VISIBLE);
+                        textView39.setVisibility(View.VISIBLE);
+                        textView40.setVisibility(View.VISIBLE);
+                        textView41.setVisibility(View.VISIBLE);
+                        editText.setVisibility(View.VISIBLE);
+                        recyclerServico.setVisibility(View.VISIBLE);
+                        recyclerCategoriaSer.setVisibility(View.VISIBLE);
+                        textView31.setVisibility(View.VISIBLE);
+                        textView35.setVisibility(View.VISIBLE);
+                        recyclerCards.setVisibility(View.VISIBLE);
+
                     } else {
-                        Toast.makeText(getActivity(), "A resposta do corpo é nula", Toast.LENGTH_SHORT).show();
+                        Log.e("ContratarFragment", "A resposta do corpo é nula");
                     }
                 } else {
-                    Toast.makeText(getActivity(), "Erro na resposta da API: " + response.code(), Toast.LENGTH_SHORT).show();
+                    Log.e("ContratarFragment", "Erro na resposta da API: " + response.code());
                 }
             }
 
@@ -211,14 +223,12 @@ public class ContratarFragment extends Fragment {
                     textView39.setTextColor(Color.parseColor("#797979"));
                     textView40.setVisibility(View.VISIBLE);
                     textView40.setText("Olá, " + nomeCompleto);
-                } else {
-                    Toast.makeText(getContext(), "Entrou no else", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<List<Usuario>> call, Throwable t) {
-                Toast.makeText(getContext(), "Erro na chamada: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.e("ContratarFragment", "Erro na chamada: " + t.getMessage());
             }
         });
     }

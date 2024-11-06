@@ -7,79 +7,24 @@
     android:background="#F4F4F2"
     tools:context=".checkout.MetodosPagamento">
 
-    <TextView
-        android:id="@+id/subtotal2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="4dp"
-        android:text="Subtotal"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/botaoContinuar"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/botaoContinuar"
-        android:layout_width="360dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginEnd="79dp"
-        android:layout_marginBottom="14dp"
-        android:background="@drawable/primary_button_design"
-        android:text="Continuar"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/valor2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="33dp"
-        android:layout_marginBottom="4dp"
-        android:text="Valor R$"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/botaoContinuar"
-        app:layout_constraintEnd_toEndOf="parent" />
-
     <View
         android:id="@+id/navBarCima"
         android:layout_width="0dp"
-        android:layout_height="100dp"
+        android:layout_height="80dp"
         android:background="#0A262C"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tituloPagamento"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Método de pagamento"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.385"
-        app:layout_constraintStart_toEndOf="@+id/botaoVoltarConcluido"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageButton
-        android:id="@+id/botaoVoltarConcluido"
+        android:id="@+id/btnBack"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
         android:background="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/metodosDispo"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tituloPagamento"
         app:srcCompat="@drawable/baseline_arrow_back_ios_24"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
@@ -87,22 +32,36 @@
         android:id="@+id/metodosDispo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="5dp"
         android:text="1 método disponível"
         android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/navBarCima"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.372"
-        app:layout_constraintStart_toEndOf="@+id/botaoVoltarConcluido"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tituloPagamento" />
 
+    <TextView
+        android:id="@+id/tituloPagamento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Método de pagamento"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/metodosDispo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
         android:id="@+id/textView53"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="46dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="20dp"
         android:text="Escolha um método de pagamento:"
         android:textColor="#000000"
         android:textSize="20sp"
@@ -113,11 +72,11 @@
 
     <View
         android:id="@+id/view20"
-        android:layout_width="370dp"
+        android:layout_width="0dp"
         android:layout_height="130dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="21dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
         android:background="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -125,27 +84,27 @@
 
     <androidx.appcompat.widget.AppCompatRadioButton
         android:id="@+id/radioButton2"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="45dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
         android:buttonTint="@color/radio_button_selector"
+        app:layout_constraintBottom_toBottomOf="@+id/view20"
         app:layout_constraintStart_toStartOf="@+id/view20"
         app:layout_constraintTop_toTopOf="@+id/view20" />
-
 
     <TextView
         android:id="@+id/textView54"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:text="PIX"
         android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textView55"
         app:layout_constraintEnd_toEndOf="@+id/view20"
-        app:layout_constraintTop_toTopOf="@+id/view20" />
+        app:layout_constraintTop_toTopOf="@+id/view20"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
         android:id="@+id/textView55"
@@ -154,6 +113,7 @@
         android:layout_marginEnd="20dp"
         android:text="O código Pix gerado para pagamento"
         android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView56"
         app:layout_constraintEnd_toEndOf="@+id/view20"
         app:layout_constraintTop_toBottomOf="@+id/textView54" />
 
@@ -164,6 +124,7 @@
         android:layout_marginEnd="20dp"
         android:text=" é válido por 30 minutos após a "
         android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView57"
         app:layout_constraintEnd_toEndOf="@+id/view20"
         app:layout_constraintTop_toBottomOf="@+id/textView55" />
 
@@ -174,48 +135,129 @@
         android:layout_marginEnd="20dp"
         android:text="finalização do pedido"
         android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/view20"
         app:layout_constraintEnd_toEndOf="@+id/view20"
         app:layout_constraintTop_toBottomOf="@+id/textView56" />
 
     <TextView
         android:id="@+id/textView58"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="148dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
         android:text="Inserir um cupom de desconto:"
         android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view20" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button2"
-        android:layout_width="135dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="20dp"
         android:background="@drawable/caixinha_texto"
         android:text="Aplicar"
-        android:textColor="#000000"
+        android:textColor="#0A262C"
         android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/cupomInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView58" />
+        app:layout_constraintTop_toTopOf="@+id/cupomInputLayout" />
 
-    <EditText
-        android:id="@+id/editTextText2"
-        android:layout_width="220dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/cupom_design"
-        android:ems="10"
-        android:hint="Cupom"
-        android:inputType="text"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/cupomInputLayout"
+        style="@style/CustomTextInputTheme"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toStartOf="@+id/button2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView58" />
+        app:layout_constraintTop_toBottomOf="@+id/textView58">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/cupomInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:hint="Insira um cupom de desconto"
+            android:inputType="text|textShortMessage|textCapCharacters"
+            android:maxLength="50"
+            android:paddingLeft="20dp"
+            android:paddingEnd="20dp"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textColorHint="#B6B6B6" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/txtStatusCupom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:text="Cupom Inválido"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cupomInputLayout" />
+
+    <!-- Container do botão fixo -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/buttonContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/subtotal2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="5dp"
+            android:text="Subtotal"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/botaoContinuar"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/valor2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="5dp"
+            android:text="Valor R$"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/botaoContinuar"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/botaoContinuar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/primary_button_design"
+            android:text="Avançar"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

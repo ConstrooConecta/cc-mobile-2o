@@ -3,7 +3,7 @@ package com.example.construconecta_interdisciplinar_certo.models;
 import java.util.List;
 
 public class Servico {
-    private int servicoId;
+    private Integer servicoId;
     private String nomeServico;
     private String descricao;
     private double preco;
@@ -11,7 +11,7 @@ public class Servico {
     private List<TagServico> tagServicos;
 
     // Getters e Setters
-    public int getServicoId() {
+    public Integer getServicoId() {
         return servicoId;
     }
 

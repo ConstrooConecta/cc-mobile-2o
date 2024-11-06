@@ -40,13 +40,10 @@ public class CadastroEmail1 extends BaseActivity {
         // Verificação de e-mail em tempo real
         binding.emailInput.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                validateEmail(s.toString());
-            }
+            public void onTextChanged(CharSequence s, int start, int before, int count) { validateEmail(s.toString()); }
 
             @Override
             public void afterTextChanged(Editable s) {

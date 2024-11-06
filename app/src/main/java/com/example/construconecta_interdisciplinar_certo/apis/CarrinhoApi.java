@@ -6,6 +6,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
@@ -16,4 +17,7 @@ public interface CarrinhoApi {
 
     @GET("shopping-cart/findByUserId/{usuario}")
     Call<List<Carrinho>> findByUserId(@Path("usuario") String usuario);
+
+    @DELETE("shopping-cart/deleteByUsuarioId/{userId}")
+    Call<Void> deleteCarrinhoByUserId(@Path("userId") String userId);
 }

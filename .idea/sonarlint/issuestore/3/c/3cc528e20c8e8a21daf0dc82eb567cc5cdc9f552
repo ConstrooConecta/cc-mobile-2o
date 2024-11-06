@@ -1,14 +1,14 @@
 
-˜	java:S117]"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êìØèúÿÿÿÿ8£ÄËí­2J$de278f82-826c-48b3-a46a-14fb12f83c64
-˜	java:S117}"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êìØèúÿÿÿÿ8¤ÄËí­2J$a7e29c9f-957d-4da3-8486-57cadb56b813
-Ÿ	java:S116*"XRename this field "TotalExibivel" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”†¾øÿÿÿÿ8ĞÖÊí­2J$993201ae-b05d-4719-87e7-6e4f3f633801
+˜	java:S117^"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êìØèúÿÿÿÿ8£ÄËí­2J$b1db4228-084b-48bf-a0f1-befdb9b56fc4
+˜	java:S117~"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êìØèúÿÿÿÿ8¤ÄËí­2J$924ed640-54f6-4471-9756-8efbdd256e9e
+Ÿ	java:S116+"XRename this field "TotalExibivel" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”†¾øÿÿÿÿ8ĞÖÊí­2J$968e309a-a46e-4ba5-bff3-8ff016d213e8
 „
-java:S1659."BDeclare "subto" and all following declarations on a separate line.(æ¯ù8àÄËí­2J$3ff398cd-3bfd-415a-8a71-3f383c9720a6
+java:S1659/"BDeclare "subto" and all following declarations on a separate line.(æ¯ù8àÄËí­2J$3d8a85df-307d-458a-91db-e3f93a219092
 u
-java:S1659/"4Declare "imageViewCarrinhoVazio" on a separate line.(˜¬øÿÿÿÿÿJ$a8e14e60-661e-4b17-8c7e-243158c74f20
+java:S16590"4Declare "imageViewCarrinhoVazio" on a separate line.(˜¬øÿÿÿÿÿJ$ad61f8f6-4082-432c-8110-5ccb39e7253d
 r
-java:S16590"1Declare "buttonCarrinhoVazio" on a separate line.(«Í™«ùÿÿÿÿJ$16f2d160-6b46-492a-8a8c-36ecf830ae41
+java:S16591"1Declare "buttonCarrinhoVazio" on a separate line.(«Í™«ùÿÿÿÿJ$4ad7e5a7-694e-4e01-ae22-c4233935a249
 t
-java:S1172Å"+Remove this unused method parameter "view".(¨Çà¾úÿÿÿÿ8„ÅËí­2J$201df738-b81f-41f9-af44-22a6785ad5dc
+java:S1172Æ"+Remove this unused method parameter "view".(¨Çà¾úÿÿÿÿ8„ÅËí­2J$213e0ffa-de84-4ec3-8dd5-9e2e1110c5ac
 t
-java:S1144Å"+Remove this unused private "finish" method.(¨Çà¾úÿÿÿÿ8…ÅËí­2J$0f66460f-2da8-4e2c-afe9-dbad27200fea
+java:S1144Æ"+Remove this unused private "finish" method.(¨Çà¾úÿÿÿÿ8…ÅËí­2J$41ed37ae-7760-47f5-9607-970e7544d78d

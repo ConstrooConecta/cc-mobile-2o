@@ -1,18 +1,7 @@
 
-k
-java:S1604T"(Make this anonymous inner class a lambda(šÆÖ8”…Óí­2J$259b3dd8-2630-4e83-b92b-1031ecdfd9c7
-p
-java:S1604^"(Make this anonymous inner class a lambda(œÁÈÌşÿÿÿÿ8”…Óí­2J$d50adbfe-c74f-4e2c-be2f-db88c7d8210d
-}
-java:S16593"5Declare "viewPoliticaPrivacidade" on a separate line.(ıà„ÿÿÿÿÿ8Ğ…Óí­2J$5d09c526-d088-4b94-af9c-8ecdafe6e365
-®
-java:S14503"fRemove the "viewPoliticaPrivacidade" field and declare it as a local variable in the relevant methods.(ıà„ÿÿÿÿÿ8Ñ…Óí­2J$2596b468-95dd-4171-b1d1-fa13c1aeddc4
-¡
-java:S14503"YRemove the "viewVender" field and declare it as a local variable in the relevant methods.(ıà„ÿÿÿÿÿ8Ñ…Óí­2J$d2dfb7ed-0dbf-48a5-a9e8-0782b0551630
-{
-java:S1874y"3Remove this use of "NetworkInfo"; it is deprecated.(Õ¥—ãùÿÿÿÿ8ä…Óí­2J$698d1fb8-0032-4f7e-a5b8-93df7094741a
-„
-java:S1874y"<Remove this use of "getActiveNetworkInfo"; it is deprecated.(Õ¥—ãùÿÿÿÿ8ä…Óí­2J$5494cf70-bca5-4b23-b478-fd37da79e992
-{
-java:S1874z"3Remove this use of "isConnected"; it is deprecated.(‡ıŒŞøÿÿÿÿ8 ë¦­2J$56b186b1-af08-410b-aebd-e9b1b23b4fff
-•	java:S100}"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„Êê¥ûÿÿÿÿ8æ…Óí­2J$abf5d030-597a-4e8a-a0e3-32e58bbe42bb
+|
+java:S1874”"3Remove this use of "NetworkInfo"; it is deprecated.(Õ¥—ãùÿÿÿÿ8Ãóß‡°2J$2f5de280-936c-4da7-81bd-d26d70d2111c
+…
+java:S1874”"<Remove this use of "getActiveNetworkInfo"; it is deprecated.(Õ¥—ãùÿÿÿÿ8Ãóß‡°2J$26227d92-fb8d-46ec-9ce1-3c47c91327e0
+|
+java:S1874•"3Remove this use of "isConnected"; it is deprecated.(‡ıŒŞøÿÿÿÿ8Äóß‡°2J$6a61923a-718b-4e9a-a33c-261f0981ebe9

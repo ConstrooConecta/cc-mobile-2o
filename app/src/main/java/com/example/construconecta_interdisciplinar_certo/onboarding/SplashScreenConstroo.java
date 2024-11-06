@@ -7,6 +7,7 @@ import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.construconecta_interdisciplinar_certo.R;
+import com.example.construconecta_interdisciplinar_certo.ui.BaseActivity;
 import com.example.construconecta_interdisciplinar_certo.ui.MainActivity;
 
 public class SplashScreenConstroo extends AppCompatActivity {
@@ -19,7 +20,7 @@ public class SplashScreenConstroo extends AppCompatActivity {
             Intent intent = new Intent(SplashScreenConstroo.this, MainActivity.class);
             startActivity(intent);
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-            finish();
+            finishAffinity();
         }, 2000);
     }
 }

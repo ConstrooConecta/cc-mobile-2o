@@ -1,12 +1,12 @@
 package com.example.construconecta_interdisciplinar_certo.models;
 
 public class TagServico {
-    private int tagServicoId;
+    private Integer tagServicoId;
     private String nome;
     private double precoMedio;
 
     public TagServico(
-            int tagServicoId,
+            Integer tagServicoId,
             String nome,
             double precoMedio
     ) {
@@ -19,7 +19,7 @@ public class TagServico {
         return precoMedio;
     }
 
-    public int getTagServicoId() {
+    public Integer getTagServicoId() {
         return tagServicoId;
     }
 
