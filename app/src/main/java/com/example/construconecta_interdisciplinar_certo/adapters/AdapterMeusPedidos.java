@@ -94,11 +94,11 @@ public class AdapterMeusPedidos extends RecyclerView.Adapter<AdapterMeusPedidos.
                             pedido.getDataEntrega().compareTo(dataHoje) < 0) {
                         status = "Entregue";
                         txtDtEntrega = "Entregue em " + pedido.getDataEntrega();
+                        holder.statusPedido.setTextColor(0xFF62AC61);
                     }
 
                     // Atualiza a interface com o status e a data de entrega
                     holder.statusPedido.setText(status);
-                    holder.statusPedido.setTextColor(0xFF62AC61);
                     holder.txtDtPedido.setText(txtDtPedido);
                     holder.txtDtEntrega.setText(txtDtEntrega);
                 }

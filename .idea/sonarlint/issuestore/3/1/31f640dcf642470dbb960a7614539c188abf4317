@@ -1,0 +1,23 @@
+
+§
+java:S1192y"dDefine a constant instead of duplicating this literal "https://cc-api-sql-qa.onrender.com/" 7 times.(Şââé8¥æÀß¯2J$f5e58e5e-0559-4efa-b09c-24a55c154f0d
+—
+java:S1192s"TDefine a constant instead of duplicating this literal "CarregamentoCompra" 13 times.(ıÔË8¥æÀß¯2J$4e9bc202-abf4-48a5-9961-42b875d80f7d
+d
+java:S11701"!Make this final field static too.(ˆ¥ãù8êæÀß¯2J$987a89ea-8b22-44be-a66e-7d88d67322d7
+n
+java:S16593"&Declare "desconto" on a separate line.(‚°Û¨ıÿÿÿÿ8ìæÀß¯2J$0c6c2f8e-0600-4c8d-a74e-a3938048e303
+œ
+java:S14504"TRemove the "cupom" field and declare it as a local variable in the relevant methods.(Ÿ‡¸Ûùÿÿÿÿ8îæÀß¯2J$d12db7d1-f48c-4f38-b906-65719a29ee44
+œ
+java:S14503"TRemove the "total" field and declare it as a local variable in the relevant methods.(‚°Û¨ıÿÿÿÿ8îæÀß¯2J$bf1ff33e-585c-4a0a-b865-026c2ac806e8
+w
+java:S18742"/Remove this use of "Handler"; it is deprecated.(á¹İ¶şÿÿÿÿ8úæÀß¯2J$11b33679-c4a6-4f8f-b944-6f69f68e9c04
+›
+java:S3776˜"RRefactor this method to reduce its Cognitive Complexity from 29 to the 15 allowed.(Ó¶“Ûşÿÿÿÿ8‰çÀß¯2J$d2de4aeb-1f65-4e3b-893e-54b255a00dcc
+›
+java:S3776â"RRefactor this method to reduce its Cognitive Complexity from 24 to the 15 allowed.(¾öÄôûÿÿÿÿ8¨‰õß¯2J$83bb56d0-55c9-4b31-ac7e-6f9eaab997e8
+
+java:S1874Ë"6Remove this use of "setColorFilter"; it is deprecated.(±ÏœÙùÿÿÿÿ8¦çÀß¯2J$906c05da-cb42-472e-ba1a-a14f3220720e
+t
+java:S10683",Remove this unused "desconto" private field.(‚°Û¨ıÿÿÿÿ8¬çÀß¯2J$e75fae2e-373b-4d09-bb99-15b39d5d11a0

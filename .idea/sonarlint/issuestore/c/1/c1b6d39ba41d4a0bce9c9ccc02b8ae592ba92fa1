@@ -1,0 +1,6 @@
+
+š
+java:S1192:"RDefine a constant instead of duplicating this literal "ProdutoRepository" 9 times.(èÌ„ûûÿÿÿÿ8ÌÇÃÉ®2J$26889a73-989e-464b-9c0f-e40afb1eb1f0
+˜	java:S117+"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êìØèúÿÿÿÿ8ÎÇÃÉ®2J$dcd975f8-ec33-465e-a122-b1174c9f8bcc
+Ü
+java:S6548"˜A Singleton implementation was detected. Make sure the use of the Singleton pattern is required and the implementation is the right one for the context.(‘Êéú8öÇÃÉ®2J$adfc6d11-6b67-43c4-ae12-7737b3f3de12
