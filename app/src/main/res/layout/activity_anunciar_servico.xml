@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F4F2"
+    tools:context=".AnunciarServicoActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:paddingBottom="16dp">
+
+
+        <ImageView
+            android:id="@+id/imageView15"
+            android:layout_width="300dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="67dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="67dp"
+            android:src="@drawable/imagemanuncio"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtPrecoInputLayout1" />
+
+        <View
+            android:id="@+id/view19Anuncio"
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:background="#0A262C"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView49Anuncio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Anunciar serviço"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/view19Anuncio"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/imageButton15Anuncio"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginStart="20dp"
+            android:background="#00FFFFFF"
+            android:onClick="finish"
+            app:layout_constraintBottom_toBottomOf="@+id/view19Anuncio"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/baseline_arrow_back_ios_24"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+
+        <ImageView
+            android:id="@+id/imageView11AnuncioServico"
+            android:layout_width="305dp"
+            android:layout_height="183dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/borda_preta"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.518"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view19Anuncio" />
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edtDescricaoInputLayout1"
+            style="@style/CustomTextInputTheme"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spnServicoCategorieInputLayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtDescricaoInput1"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:hint="Descrição:
+ex: Trabalho fazendo paredes \ncom um tipo de revestimento \n em áreas internas e externas.  "
+                android:maxLength="500"
+                android:paddingEnd="20dp"
+                android:inputType="textMultiLine"
+                android:textColor="@color/black"
+                android:textColorHint="#B6B6B6" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageView
+            android:id="@+id/usernameStatus31"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="50dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/edtDescricaoInputLayout1"
+            app:layout_constraintEnd_toEndOf="@+id/edtDescricaoInputLayout1"
+            app:layout_constraintTop_toTopOf="@+id/edtDescricaoInputLayout1"
+            tools:src="@drawable/error_x"
+            tools:visibility="visible" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/botaoANUNCIAR1"
+            android:layout_width="230dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="79dp"
+            android:background="@drawable/primary_button_design"
+            android:text="Anunciar"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView15" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edtPrecoInputLayout1"
+            style="@style/CustomTextInputTheme"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtDescricaoInputLayout1">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtPrecoInput1"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:hint="Preço"
+                android:inputType="number|numberDecimal"
+                android:paddingLeft="20dp"
+                android:paddingEnd="20dp"
+                android:textColor="@color/black"
+                android:textColorHint="#B6B6B6" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ProgressBar
+            android:id="@+id/progressBar22"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView28"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sua foto ficará aqui"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView11AnuncioServico"
+            app:layout_constraintEnd_toEndOf="@+id/imageView11AnuncioServico"
+            app:layout_constraintStart_toStartOf="@+id/imageView11AnuncioServico"
+            app:layout_constraintTop_toTopOf="@+id/imageView11AnuncioServico" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/spnServicoCategorieInputLayout"
+            style="@style/CustomTextInputTheme"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView11AnuncioServico">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/spnServicoCategorieInput"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:hint="Categoria do serviço"
+                android:inputType="none"
+                android:paddingLeft="20dp"
+                android:paddingEnd="20dp"
+                android:textColorHint="#B6B6B6" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/baseline_keyboard_arrow_down_24"
+            app:layout_constraintBottom_toBottomOf="@+id/spnServicoCategorieInputLayout"
+            app:layout_constraintEnd_toEndOf="@+id/spnServicoCategorieInputLayout"
+            app:layout_constraintTop_toTopOf="@+id/spnServicoCategorieInputLayout" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

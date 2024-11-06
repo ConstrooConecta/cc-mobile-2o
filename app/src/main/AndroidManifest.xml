@@ -28,6 +28,9 @@
         android:theme="@style/Theme.ConstruConecta_Interdisciplinar_Certo"
         tools:targetApi="31">
         <activity
+            android:name=".AnunciarServicoActivity"
+            android:exported="false" />
+        <activity
             android:name=".TelaPagamentoPlanoActivity"
             android:exported="false" />
         <activity

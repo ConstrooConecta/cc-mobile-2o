@@ -264,16 +264,17 @@ public class CameraActivity extends AppCompatActivity {
             AlertDialog.Builder builder = new AlertDialog.Builder(CameraActivity.this);
             builder.setTitle("Confirmar imagem do produto");
 
-            View dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_confirmacao, null);
-            ImageView imageView = dialogView.findViewById(R.id.imageViewFoto);
+            View dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_confirmacao_produto, null);
+            ImageView imageView = dialogView.findViewById(R.id.imageViewFoto1);
             Bitmap bitmap = ((BitmapDrawable) fotoTirada.getDrawable()).getBitmap();
             imageView.setImageBitmap(transformarImagemCircular(bitmap));
 
             builder.setView(dialogView);
             builder.setPositiveButton("Sim", (dialog, which) -> {
-                databaseCameraE.uploadFoto(getBaseContext(), fotoTirada, docData, user.getEmail());
-                Toast.makeText(CameraActivity.this, "Deu green!", Toast.LENGTH_SHORT).show();
+                databaseCameraE.uploadFotoProduto(getBaseContext(), fotoTirada, docData, user.getEmail());
+                Toast.makeText(CameraActivity.this, "Deu green! no prdotudo", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(CameraActivity.this, AnunciarProdutoActivity.class);
+                intent.putExtra("salvouFirebase", true);
                 startActivity(intent);
                 finish();
             });

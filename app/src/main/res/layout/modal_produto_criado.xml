@@ -11,17 +11,17 @@
     <ImageView
         android:id="@+id/imageViewCheck"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="62dp"
         android:layout_gravity="center"
         android:src="@drawable/ic_check" />
 
     <TextView
         android:id="@+id/textViewAdicionado"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="172dp"
+        android:layout_height="41dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:text="Adicionado ao carrinho"
+        android:text="Produto criado com sucesso"
         android:textColor="@android:color/black"
         android:textSize="16sp"
         android:textStyle="bold"

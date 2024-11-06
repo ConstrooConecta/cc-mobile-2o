@@ -69,8 +69,8 @@
             android:id="@+id/textViewUsuarioNome"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="9dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
             android:visibility="gone"
             app:layout_constraintStart_toEndOf="@+id/imagemPerfil"
             app:layout_constraintTop_toBottomOf="@+id/textViewApelid"
@@ -78,10 +78,10 @@
 
         <TextView
             android:id="@+id/textViewApelid"
-            android:layout_width="154dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="28dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
             android:text=""
             android:visibility="gone"
             app:layout_constraintStart_toEndOf="@+id/imagemPerfil"
@@ -402,25 +402,26 @@
 
         <View
             android:id="@+id/view9"
-            android:layout_width="100dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="16dp"
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:background="@drawable/design_plano_gratuito"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textViewApelid"
+            app:layout_constraintTop_toTopOf="@+id/textViewApelid"
             tools:visibility="visible" />
 
         <TextView
             android:id="@+id/textView25"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="17dp"
             android:text="GRATUITO"
             android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/view9"
             app:layout_constraintEnd_toEndOf="@+id/view9"
+            app:layout_constraintStart_toStartOf="@+id/view9"
             app:layout_constraintTop_toTopOf="@+id/view9"
             tools:visibility="visible" />
     </androidx.constraintlayout.widget.ConstraintLayout>

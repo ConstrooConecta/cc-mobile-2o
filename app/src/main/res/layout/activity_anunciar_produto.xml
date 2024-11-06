@@ -10,6 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#FFFFFF"
         android:paddingBottom="16dp">
 
 
@@ -72,6 +73,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view19Anuncio"
             tools:srcCompat="@tools:sample/avatars" />
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/edtNomeProdutoInputLayout"
             style="@style/CustomTextInputTheme"
@@ -88,11 +90,11 @@
                 android:id="@+id/edtNomeProdutoInput"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
+                android:hint="Nome do produto"
+
                 android:maxLength="40"
                 android:paddingEnd="20dp"
-
                 android:singleLine="true"
-                android:hint="Nome do produto"
                 android:textColor="@color/black"
                 android:textColorHint="#B6B6B6"
                 tools:ignore="SpeakableTextPresentCheck" />
@@ -115,14 +117,57 @@
                 android:id="@+id/edtDescricaoInput"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:hint="Descrição:
-ex: Argamassa Porcelanato 20kg essencial \npara assentamento de revestimento \n em áreas internas e externas.  "
-                android:maxLength="20"
+                android:hint="Descrição: ex: Argamassa Porcelanato 20kg essencial \npara assentamento de revestimento \n em áreas internas e externas."
+                android:maxLength="500"
                 android:paddingEnd="20dp"
-                android:singleLine="true"
+                android:inputType="textMultiLine"
                 android:textColor="@color/black"
-                android:textColorHint="#B6B6B6" />
+                android:textColorHint="#B6B6B6"
+                android:gravity="top|start"
+                android:scrollbars="vertical" />
+
         </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageView
+            android:id="@+id/usernameStatus2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/edtNomeProdutoInputLayout"
+            app:layout_constraintEnd_toEndOf="@+id/edtNomeProdutoInputLayout"
+            app:layout_constraintTop_toTopOf="@+id/edtNomeProdutoInputLayout"
+            tools:src="@drawable/error_x"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/usernameStatus3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="50dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/edtDescricaoInputLayout"
+            app:layout_constraintEnd_toEndOf="@+id/edtDescricaoInputLayout"
+            app:layout_constraintTop_toTopOf="@+id/edtDescricaoInputLayout"
+            tools:src="@drawable/error_x"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/usernameStatus4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="30dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/edtCEPInputLayout"
+            app:layout_constraintEnd_toEndOf="@+id/edtCEPInputLayout"
+            app:layout_constraintTop_toTopOf="@+id/edtCEPInputLayout"
+            tools:src="@drawable/error_x"
+            tools:visibility="visible" />
 
 
         <com.google.android.material.textfield.TextInputLayout
@@ -132,25 +177,49 @@ ex: Argamassa Porcelanato 20kg essencial \npara assentamento de revestimento \n 
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edtDescricaoInputLayout">
+            app:layout_constraintTop_toBottomOf="@+id/edtDescricaoInputLayout"
+            app:errorEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtCEPInput"
                 android:layout_width="150dp"
                 android:layout_height="56dp"
-                android:focusable="false"
                 android:hint="CEP"
-                android:inputType="none"
-                android:maxLength="10"
+                android:maxLength="8"
+                android:inputType="number"
                 android:paddingLeft="20dp"
                 android:paddingEnd="20dp"
                 android:singleLine="true"
                 android:textColor="@color/black"
                 android:textColorHint="#B6B6B6" />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edtDescontoInputLayout"
+            style="@style/CustomTextInputTheme"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtCEPInputLayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtDescontoInput"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:hint="Desconto"
+                android:inputType="numberDecimal"
+                android:paddingEnd="20dp"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textColorHint="#B6B6B6" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/spnCategoriaInputLayout"
@@ -162,7 +231,7 @@ ex: Argamassa Porcelanato 20kg essencial \npara assentamento de revestimento \n 
             android:layout_marginEnd="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edtCEPInputLayout">
+            app:layout_constraintTop_toBottomOf="@+id/edtDescontoInputLayout">
 
             <com.google.android.material.textfield.MaterialAutoCompleteTextView
                 android:id="@+id/spnCategoriaInput"
@@ -273,12 +342,20 @@ ex: Argamassa Porcelanato 20kg essencial \npara assentamento de revestimento \n 
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:hint="Preço"
-                android:inputType="phone"
+                android:inputType="number|numberDecimal"
                 android:paddingLeft="20dp"
                 android:paddingEnd="20dp"
                 android:textColor="@color/black"
                 android:textColorHint="#B6B6B6" />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
