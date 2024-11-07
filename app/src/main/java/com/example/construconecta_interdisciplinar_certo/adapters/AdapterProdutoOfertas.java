@@ -111,7 +111,7 @@ public class AdapterProdutoOfertas extends RecyclerView.Adapter<AdapterProdutoOf
         public ProdutoViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            imageViewProduto = itemView.findViewById(R.id.imageViewProduto);
+            imageViewProduto = itemView.findViewById(R.id.imagem_produto);
             imageViewCoracao = itemView.findViewById(R.id.imageViewFavorito);
             textViewTitulo = itemView.findViewById(R.id.textViewNomeProduto);
             textViewCodigo = itemView.findViewById(R.id.textViewCodigoProduto);

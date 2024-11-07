@@ -12,8 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.construconecta_interdisciplinar_certo.R;
-import com.example.construconecta_interdisciplinar_certo.shop.contratar.RecyclerServicosActivity;
 import com.example.construconecta_interdisciplinar_certo.models.TagServicoCategoria;
+import com.example.construconecta_interdisciplinar_certo.shop.contratar.RecyclerServicosActivity;
 
 import java.util.List;
 

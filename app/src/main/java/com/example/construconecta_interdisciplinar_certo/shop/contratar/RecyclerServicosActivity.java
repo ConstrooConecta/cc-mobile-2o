@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.widget.SearchView;
@@ -33,7 +35,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RecyclerServicosActivity extends BaseActivity {
     private ProgressBar progressBar;
     private RecyclerView servicoRecyclerView;
-    private SearchView searchBar;
     private AdapterServico adapter;
     private List<Servico> servicos;
     private Map<String, Usuario> usuariosMap = new HashMap<>();
@@ -45,7 +46,7 @@ public class RecyclerServicosActivity extends BaseActivity {
         setContentView(R.layout.activity_recycler_servicos);
         progressBar = findViewById(R.id.progressBar2Servico);
 
-        searchBar = findViewById(R.id.searchBarServico);
+        findViewById(R.id.backBtn).setOnClickListener(v -> finish());
 
         servicoRecyclerView = findViewById(R.id.recyclerViewServicos);
         servicoRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
@@ -61,20 +62,6 @@ public class RecyclerServicosActivity extends BaseActivity {
 
         // Inicializa a lista de usuários e o mapa
         carregarUsuarios();
-
-        // Configura a SearchBar para filtrar a lista de serviços
-        searchBar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                filterList(newText);
-                return false;
-            }
-        });
     }
 
     private void initializeUsuariosMap() {
@@ -114,21 +101,6 @@ public class RecyclerServicosActivity extends BaseActivity {
         });
     }
 
-    public void filterList(String query) {
-        List<Servico> filteredList = new ArrayList<>();
-        for (Servico servico : servicos) {
-            Usuario usuario = usuariosMap.get(servico.getServicoId()); // Busca o usuário pelo UID do serviço
-            if (usuario != null && usuario.getNomeUsuario().toLowerCase().contains(query.toLowerCase())) {
-                filteredList.add(servico);
-            }
-        }
-        if (filteredList.isEmpty()) {
-            Toast.makeText(this, "Nenhum resultado encontrado", Toast.LENGTH_SHORT).show();
-        } else {
-            adapter.setFilteredList(filteredList);
-        }
-    }
-
     private void chamarAPIRetrofitServicos(String tagName) {
         String API = "https://cc-api-sql-qa.onrender.com/";
         Retrofit retrofit = new Retrofit.Builder()
@@ -154,8 +126,6 @@ public class RecyclerServicosActivity extends BaseActivity {
 
                         progressBar.setVisibility(View.GONE);
                         servicoRecyclerView.setVisibility(View.VISIBLE);
-                        searchBar.setVisibility(View.VISIBLE);
-
                     } else {
                         Log.d("API NoTopo", "Corpo da resposta é nulo");
                     }
@@ -172,6 +142,4 @@ public class RecyclerServicosActivity extends BaseActivity {
             }
         });
     }
-
-
 }

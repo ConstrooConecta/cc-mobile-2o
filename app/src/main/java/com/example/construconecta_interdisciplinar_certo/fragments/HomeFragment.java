@@ -1,7 +1,6 @@
 package com.example.construconecta_interdisciplinar_certo.fragments;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,17 +8,16 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.SearchView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.construconecta_interdisciplinar_certo.R;
 import com.example.construconecta_interdisciplinar_certo.adapters.AdapterProdutoHome;
 import com.example.construconecta_interdisciplinar_certo.adapters.AdapterProdutoNoTopo;
 import com.example.construconecta_interdisciplinar_certo.adapters.AdapterProdutoOfertas;
-import com.example.construconecta_interdisciplinar_certo.R;
 import com.example.construconecta_interdisciplinar_certo.models.Produto;
 import com.example.construconecta_interdisciplinar_certo.repositories.ProdutoRepository;
 
@@ -36,7 +34,6 @@ public class HomeFragment extends Fragment {
     private TextView textView12, textView13, desconto;
     private ImageView imagem;
     private View barrafixa;
-    private SearchView searchView;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -45,7 +42,6 @@ public class HomeFragment extends Fragment {
         textView12 = view.findViewById(R.id.textView12);
         textView13 = view.findViewById(R.id.textView13);
         desconto = view.findViewById(R.id.Desconto);
-        searchView = view.findViewById(R.id.searchView);
         barrafixa = view.findViewById(R.id.barraFixa);
         imagem = view.findViewById(R.id.imageView5);
 
@@ -102,7 +98,6 @@ public class HomeFragment extends Fragment {
         textView12.setVisibility(View.VISIBLE);
         textView13.setVisibility(View.VISIBLE);
         desconto.setVisibility(View.VISIBLE);
-        searchView.setVisibility(View.VISIBLE);
         barrafixa.setVisibility(View.VISIBLE);
         imagem.setVisibility(View.VISIBLE);
     }

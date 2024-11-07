@@ -13,6 +13,7 @@ public class TipoDeEntregaActivity extends BaseActivity {
     private ActivityEntregaBinding binding;
     private Double total;
     private String cupom;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +39,7 @@ public class TipoDeEntregaActivity extends BaseActivity {
         }
     }
 
-    public void nextPage () {
+    public void nextPage() {
         Bundle bundle = new Bundle();
         if (total != null) {
             bundle.putDouble("total", total);

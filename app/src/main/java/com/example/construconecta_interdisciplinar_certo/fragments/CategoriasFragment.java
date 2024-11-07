@@ -8,15 +8,14 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 
-import com.example.construconecta_interdisciplinar_certo.shop.categoria.ProdutoCategoriaActivity;
 import com.example.construconecta_interdisciplinar_certo.R;
 import com.example.construconecta_interdisciplinar_certo.models.Categoria;
 import com.example.construconecta_interdisciplinar_certo.repositories.CategoriaRepository;
+import com.example.construconecta_interdisciplinar_certo.shop.categoria.ProdutoCategoriaActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +27,8 @@ public class CategoriasFragment extends Fragment {
     private List<String> categoriasList = new ArrayList<>();
     private ArrayAdapter<String> adapter;
 
-    public CategoriasFragment() {}
+    public CategoriasFragment() {
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

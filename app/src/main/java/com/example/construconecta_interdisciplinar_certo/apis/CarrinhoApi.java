@@ -4,6 +4,7 @@ import com.example.construconecta_interdisciplinar_certo.models.Carrinho;
 
 import java.util.List;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
@@ -20,4 +21,11 @@ public interface CarrinhoApi {
 
     @DELETE("shopping-cart/deleteByUsuarioId/{userId}")
     Call<Void> deleteCarrinhoByUserId(@Path("userId") String userId);
+
+    //apagar item do carrinho
+    @DELETE("/shopping-cart/delete/{shoppingCartId}")
+    Call<ResponseBody> deleteCarrinho(@Path("shoppingCartId") int shoppingCartId);
+
+    @DELETE("shopping-cart/deleteByUsuarioId/{userId}")
+    Call<ResponseBody> deleteAll_carrinho(@Path("userId") String userId);
 }

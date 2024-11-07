@@ -8,7 +8,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,8 +16,6 @@ import com.example.construconecta_interdisciplinar_certo.adapters.AdapterProduto
 import com.example.construconecta_interdisciplinar_certo.apis.ProdutoApi;
 import com.example.construconecta_interdisciplinar_certo.models.Produto;
 import com.example.construconecta_interdisciplinar_certo.ui.BaseActivity;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;

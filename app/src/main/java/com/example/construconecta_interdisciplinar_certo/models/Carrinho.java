@@ -28,6 +28,10 @@ public class Carrinho {
         return carrinhoId;
     }
 
+    public void setCarrinhoId(Integer carrinhoId) {
+        this.carrinhoId = carrinhoId;
+    }
+
     public String getUsuario() {
         return usuario;
     }
@@ -48,12 +52,16 @@ public class Carrinho {
         return produtoImg;
     }
 
+    public void setProdutoImg(String produtoImg) {
+        this.produtoImg = produtoImg;
+    }
+
     public double getValorTotal() {
         return valorTotal;
     }
 
-    public void setCarrinhoId(Integer carrinhoId) {
-        this.carrinhoId = carrinhoId;
+    public void setValorTotal(double valorTotal) {
+        this.valorTotal = valorTotal;
     }
 
     public Integer getQuantidade() {
@@ -62,13 +70,5 @@ public class Carrinho {
 
     public void setQuantidade(Integer quantidade) {
         this.quantidade = quantidade;
-    }
-
-    public void setProdutoImg(String produtoImg) {
-        this.produtoImg = produtoImg;
-    }
-
-    public void setValorTotal(double valorTotal) {
-        this.valorTotal = valorTotal;
     }
 }

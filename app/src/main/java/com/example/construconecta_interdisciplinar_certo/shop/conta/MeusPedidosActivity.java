@@ -77,9 +77,15 @@ public class MeusPedidosActivity extends AppCompatActivity {
                 recyclerView.setVisibility(View.VISIBLE);
 
                 if (response.isSuccessful() && response.body() != null) {
-                    for (Pedido pedido : response.body()) {
-                        // Para cada pedido, busque seus itens
-                        buscarItensDoPedido(pedido);
+                    List<Pedido> pedidos = response.body();
+                    if (pedidos.isEmpty()) {
+                        // Caso o usuário não tenha pedidos
+                        Toast.makeText(MeusPedidosActivity.this, "Você não possui pedidos", Toast.LENGTH_SHORT).show();
+                    } else {
+                        for (Pedido pedido : pedidos) {
+                            // Para cada pedido, busque seus itens
+                            buscarItensDoPedido(pedido);
+                        }
                     }
                 } else {
                     Toast.makeText(MeusPedidosActivity.this, "Erro ao carregar os pedidos", Toast.LENGTH_SHORT).show();
@@ -93,6 +99,7 @@ public class MeusPedidosActivity extends AppCompatActivity {
             }
         });
     }
+
 
     private void buscarItensDoPedido(Pedido pedido) {
         // Buscar todos os itens do pedido

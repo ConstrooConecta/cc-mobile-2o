@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -43,6 +41,7 @@ public class MetodosPagamento extends AppCompatActivity {
     private DescontoApi descontoApi;
     private Double total;
     private Double totalComDesconto = 0.0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -103,21 +102,22 @@ public class MetodosPagamento extends AppCompatActivity {
                 botaoContinuar.setBackgroundResource(R.drawable.primary_button_design);
 
                 Bundle bundle = new Bundle();
-                if (total != null) {
-                    bundle.putDouble("total", totalComDesconto != null ? totalComDesconto : total); // Passa o total com desconto, se aplicável
-                    bundle.putString("cupom", cupomInput.getText().toString());
-                    if (response.isSuccessful() && response.body() != null) {
-                        List<Endereco> enderecos = response.body();
-                        if (!enderecos.isEmpty()) {
-                            Intent intent = new Intent(MetodosPagamento.this, EscolhaEnderecoActivity.class);
-                            intent.putExtras(bundle);
-                            startActivity(intent);
-                        }
-                    } else {
-                        Intent intent = new Intent(MetodosPagamento.this, CadastroEnderecoActivity.class);
+                // Se o desconto não foi aplicado, passa o valor original de 'total'.
+                double valorTotalFinal = (totalComDesconto != 0.0) ? totalComDesconto : total;
+                bundle.putDouble("total", valorTotalFinal); // Passa o valor correto, com ou sem desconto
+                bundle.putString("cupom", cupomInput.getText().toString());
+
+                if (response.isSuccessful() && response.body() != null) {
+                    List<Endereco> enderecos = response.body();
+                    if (!enderecos.isEmpty()) {
+                        Intent intent = new Intent(MetodosPagamento.this, EscolhaEnderecoActivity.class);
                         intent.putExtras(bundle);
                         startActivity(intent);
                     }
+                } else {
+                    Intent intent = new Intent(MetodosPagamento.this, CadastroEnderecoActivity.class);
+                    intent.putExtras(bundle);
+                    startActivity(intent);
                 }
             }
 
@@ -131,6 +131,7 @@ public class MetodosPagamento extends AppCompatActivity {
             }
         });
     }
+
 
     private void verificarCupom(String cupom) {
         if (cupom.isEmpty()) {

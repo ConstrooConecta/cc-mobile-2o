@@ -5,24 +5,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.construconecta_interdisciplinar_certo.R;
-import com.example.construconecta_interdisciplinar_certo.apis.ItemPedidoApi;
 import com.example.construconecta_interdisciplinar_certo.apis.PedidoApi;
 import com.example.construconecta_interdisciplinar_certo.apis.ProdutoApi;
 import com.example.construconecta_interdisciplinar_certo.models.ItemPedido;
 import com.example.construconecta_interdisciplinar_certo.models.Pedido;
 import com.example.construconecta_interdisciplinar_certo.models.Produto;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -73,6 +68,7 @@ public class AdapterMeusPedidos extends RecyclerView.Adapter<AdapterMeusPedidos.
         // Buscar o pedido associado ao item
         buscarPedido(itemPedido.getPedido(), holder);
     }
+
     private void buscarPedido(Integer pedidoId, ViewHolder holder) {
         Call<Pedido> pedidoCall = pedidoApi.findById(pedidoId);
         pedidoCall.enqueue(new Callback<Pedido>() {

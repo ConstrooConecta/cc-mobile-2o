@@ -3,8 +3,6 @@ package com.example.construconecta_interdisciplinar_certo.shop.conta;
 import android.os.Bundle;
 import android.widget.ImageButton;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.construconecta_interdisciplinar_certo.R;
 import com.example.construconecta_interdisciplinar_certo.ui.BaseActivity;
 

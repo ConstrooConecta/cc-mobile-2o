@@ -1,19 +1,19 @@
 
 —
-java:S1659"ODeclare "recyclerViewOferta" and all following declarations on a separate line.(¯¨À•úÿÿÿÿ8æçÄÉ®2J$949b63cb-2d05-4c57-8faa-f7a607ee5acf
+java:S1659"ODeclare "recyclerViewOferta" and all following declarations on a separate line.(¯¨À•úÿÿÿÿ8æçÄÉ®2J$6ee3d556-37c6-491f-bf1e-a984ad146ba1
 
-java:S1659""KDeclare "produtosOferta" and all following declarations on a separate line.(­¶ˆˆ8ççÄÉ®2J$24da298c-4780-460d-91ac-478073c3bf48
+java:S1659 "KDeclare "produtosOferta" and all following declarations on a separate line.(­¶ˆˆ8ççÄÉ®2J$12a6ef7d-ff09-4e23-9bd7-39cbbb6ac7da
 Š
-java:S1659$"GDeclare "textView13" and all following declarations on a separate line.(¥¿ûâ8ççÄÉ®2J$2d61ce2f-4f1c-41af-8eac-057aab66209e
+java:S1659""GDeclare "textView13" and all following declarations on a separate line.(¥¿ûâ8ççÄÉ®2J$90b4529f-8dc4-4e2c-afff-318479312b02
 
-java:S1450!"VRemove the "adapter" field and declare it as a local variable in the relevant methods.(ï½Œÿşÿÿÿÿ8èçÄÉ®2J$fa726e44-6683-40cc-8149-bf39cdfdcfd2
+java:S1450"VRemove the "adapter" field and declare it as a local variable in the relevant methods.(ï½Œÿşÿÿÿÿ8èçÄÉ®2J$c7a4d83b-0a05-4a15-993e-8c1ef63152ef
 ¤
-java:S1450 "\Remove the "adapterNoTopo" field and declare it as a local variable in the relevant methods.(åÅ¨ãşÿÿÿÿ8éçÄÉ®2J$54287a6d-98a0-418d-8d11-3ac5e6806adf
+java:S1450"\Remove the "adapterNoTopo" field and declare it as a local variable in the relevant methods.(åÅ¨ãşÿÿÿÿ8éçÄÉ®2J$b6c6cc78-546e-4241-ab02-7b4b05ee061d
 Ÿ
-java:S1450"\Remove the "adapterOferta" field and declare it as a local variable in the relevant methods.(šîÙŸ8éçÄÉ®2J$c39435c5-5374-4d7e-b7d7-5e8389df0e93
+java:S1450"\Remove the "adapterOferta" field and declare it as a local variable in the relevant methods.(šîÙŸ8éçÄÉ®2J$e895c89b-795b-4454-b80d-76ff1a8badb5
 š
-java:S1450""WRemove the "produtos" field and declare it as a local variable in the relevant methods.(­¶ˆˆ8éçÄÉ®2J$5b21806d-0476-4ef2-b540-8ceb079d1f19
+java:S1450 "WRemove the "produtos" field and declare it as a local variable in the relevant methods.(­¶ˆˆ8éçÄÉ®2J$88bc9655-126e-4d42-b0f2-473401fc76ca
  
-java:S1450""]Remove the "produtosNoTopo" field and declare it as a local variable in the relevant methods.(­¶ˆˆ8éçÄÉ®2J$6ef2cc93-819b-4281-9377-ae15f6fa42a4
+java:S1450 "]Remove the "produtosNoTopo" field and declare it as a local variable in the relevant methods.(­¶ˆˆ8éçÄÉ®2J$325ba515-509b-4b56-97cf-660fab9f45bd
  
-java:S1450""]Remove the "produtosOferta" field and declare it as a local variable in the relevant methods.(­¶ˆˆ8êçÄÉ®2J$0eab503e-acef-4526-84bb-a67443c1a4f7
+java:S1450 "]Remove the "produtosOferta" field and declare it as a local variable in the relevant methods.(­¶ˆˆ8êçÄÉ®2J$03f383bd-ed9b-4aa0-9436-851408e15ef5

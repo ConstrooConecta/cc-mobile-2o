@@ -43,6 +43,7 @@ public class DetalhesProdutosActivity extends BaseActivity {
     private Double precoProdutoToCarrinho;
     private Boolean favorito;
     private ProgressBar progressBar7;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -168,13 +169,6 @@ public class DetalhesProdutosActivity extends BaseActivity {
             Toast.makeText(this, "Produto inválido ou nulo!", Toast.LENGTH_SHORT).show();
         }
         mostrarModalAdicionadoAoCarrinho();
-        //depois de 3 segundos ele abre a tela home
-        new Handler().postDelayed(this::openHome, 3000);
-    }
-
-    private void openHome() {
-        Intent intent = new Intent(this, Home.class);
-        startActivity(intent);
     }
 
     private void mostrarModalAdicionadoAoCarrinho() {
@@ -328,14 +322,16 @@ public class DetalhesProdutosActivity extends BaseActivity {
             lojaAle.setVisibility(View.VISIBLE);
 
             // Carrega a imagem diretamente na ImageView usando Glide
-            Glide.with(this)
-                    .load(uri)
-                    .apply(RequestOptions.circleCropTransform())
-                    .into(lojaAle);
+            if (!isDestroyed() && !isFinishing()) {
+                Glide.with(this)
+                        .load(uri)
+                        .apply(RequestOptions.circleCropTransform())
+                        .into(lojaAle);
+            }
         }).addOnFailureListener(exception -> {
             // Em caso de falha, exibe uma imagem padrão
             lojaAle.setImageResource(R.drawable.imagemanuncio);
-            Toast.makeText(DetalhesProdutosActivity.this, "Erro ao carregar a imagem: " + exception.getMessage(), Toast.LENGTH_SHORT).show();
+            Log.e("DetalhesProdutosActivity", "Erro ao carregar a imagem: " + exception.getMessage());
         });
     }
 }

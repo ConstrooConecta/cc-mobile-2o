@@ -1,7 +1,6 @@
 package com.example.construconecta_interdisciplinar_certo.apis;
 
 import com.example.construconecta_interdisciplinar_certo.models.ItemPedido;
-import com.example.construconecta_interdisciplinar_certo.models.Pedido;
 
 import java.util.List;
 

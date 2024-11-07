@@ -10,17 +10,21 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.construconecta_interdisciplinar_certo.R;
 import com.example.construconecta_interdisciplinar_certo.adapters.AdapterMeusEnderecos;
 import com.example.construconecta_interdisciplinar_certo.apis.EnderecoApi;
 import com.example.construconecta_interdisciplinar_certo.checkout.CadastroEnderecoActivity;
 import com.example.construconecta_interdisciplinar_certo.models.Endereco;
 import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

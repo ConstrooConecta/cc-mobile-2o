@@ -188,7 +188,8 @@
                 app:layout_constraintBottom_toBottomOf="@+id/usernameInputLayout"
                 app:layout_constraintEnd_toEndOf="@+id/usernameInputLayout"
                 app:layout_constraintTop_toTopOf="@+id/usernameInputLayout"
-                tools:src="@drawable/error_x" />
+                tools:src="@drawable/error_x"
+                tools:visibility="visible" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/dtNascimentoInputLayout"

@@ -17,6 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class UsuarioRepository {
     private static UsuarioRepository instance;
     private List<Usuario> usuarios;
+
     private UsuarioRepository() {
         usuarios = new ArrayList<>();
     }

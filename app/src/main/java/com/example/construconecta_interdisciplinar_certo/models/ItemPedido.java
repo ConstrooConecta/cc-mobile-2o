@@ -21,18 +21,43 @@ public class ItemPedido {
         this.precoUnitario = precoUnitario;
     }
 
-    public Integer getItemPedidoId() { return itemPedidoId; }
-    public void setItemPedidoId(Integer itemPedidoId) { this.itemPedidoId = itemPedidoId; }
+    public Integer getItemPedidoId() {
+        return itemPedidoId;
+    }
 
-    public Integer getPedido() { return pedido; }
-    public void setPedido(Integer pedido) { this.pedido = pedido; }
+    public void setItemPedidoId(Integer itemPedidoId) {
+        this.itemPedidoId = itemPedidoId;
+    }
 
-    public Integer getProduto() { return produto; }
-    public void setProduto(Integer produto) { this.produto = produto; }
+    public Integer getPedido() {
+        return pedido;
+    }
 
-    public Integer getQuantidade() { return quantidade; }
-    public void setQuantidade(Integer quantidade) { this.quantidade = quantidade; }
+    public void setPedido(Integer pedido) {
+        this.pedido = pedido;
+    }
 
-    public Double getPrecoUnitario() { return precoUnitario; }
-    public void setPrecoUnitario(Double precoUnitario) { this.precoUnitario = precoUnitario; }
+    public Integer getProduto() {
+        return produto;
+    }
+
+    public void setProduto(Integer produto) {
+        this.produto = produto;
+    }
+
+    public Integer getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public Double getPrecoUnitario() {
+        return precoUnitario;
+    }
+
+    public void setPrecoUnitario(Double precoUnitario) {
+        this.precoUnitario = precoUnitario;
+    }
 }

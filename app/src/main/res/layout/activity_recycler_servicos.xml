@@ -7,22 +7,12 @@
     android:background="#FFFFFF"
     tools:context=".shop.contratar.RecyclerServicosActivity">
 
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/searchBarServico"
-        android:layout_width="340dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/card_design"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewServicos"
-        android:layout_width="407dp"
-        android:layout_height="653dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:background="#FFFFFF"
         android:divider="@android:color/darker_gray"
         android:dividerHeight="1dp"
@@ -31,8 +21,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/searchBarServico"
-        app:layout_constraintVertical_bias="0.125"
         tools:listitem="@layout/item_produto" />
 
     <ProgressBar
@@ -41,6 +29,28 @@
         android:layout_width="107dp"
         android:layout_height="97dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/backBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:background="#FFFFFF"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/arrow_left" />
+
+    <TextView
+        android:id="@+id/statusRVTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

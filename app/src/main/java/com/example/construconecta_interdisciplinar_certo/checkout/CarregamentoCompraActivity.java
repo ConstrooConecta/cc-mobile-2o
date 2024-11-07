@@ -43,14 +43,14 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class CarregamentoCompraActivity extends BaseActivity {
+    private final int progressoEtapas = 25; // 4 etapas, 25% cada uma
+    private final Handler handler = new Handler();
+    FirebaseUser usuarioAtual = FirebaseAuth.getInstance().getCurrentUser();
     private ProgressBar progressBar;
     private ImageView imageViewSacola;
     private int progresso = 0;
-    private final int progressoEtapas = 25; // 4 etapas, 25% cada uma
-    private final Handler handler = new Handler();
     private Double total, desconto;
     private String cupom;
-    FirebaseUser usuarioAtual = FirebaseAuth.getInstance().getCurrentUser();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -224,6 +224,7 @@ public class CarregamentoCompraActivity extends BaseActivity {
                     });
                 }
             }
+
             @Override
             public void onFailure(Call<List<Pedido>> call, Throwable t) {
                 Toast.makeText(CarregamentoCompraActivity.this, "Erro ao buscar pedido do usuário", Toast.LENGTH_SHORT).show();

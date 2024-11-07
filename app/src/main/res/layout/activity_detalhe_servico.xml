@@ -157,7 +157,6 @@
                 android:text="Encontre os melhores encanadores para conserto e instalações. Receba orçamentos grátis em até 24h e pague em até 6x sem juros."
                 android:textColor="#000"
                 android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/linearLayoutAvaliacao" />
 

@@ -37,6 +37,21 @@
             android:name=".checkout.EscolhaEnderecoActivity"
             android:exported="false" />
         <activity
+            android:name=".shop.conta.AnunciarServicoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".shop.conta.TelaPagamentoPlanoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".shop.conta.PlanosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".shop.conta.EditarDadosSeguranca"
+            android:exported="false" />
+        <activity
+            android:name=".shop.conta.EditarDadosPessoaisActivity"
+            android:exported="false" />
+        <activity
             android:name=".shop.conta.PoliticaPrivacidadeActivity"
             android:exported="false" />
         <activity
@@ -46,7 +61,7 @@
             android:name=".shop.contratar.DetalheServicoActivity"
             android:exported="false" />
         <activity
-            android:name=".shop.conta.AnunciarProdutoActivity"
+            android:name=".AnunciarProdutoActivity"
             android:exported="false" />
         <activity
             android:name=".shop.categoria.ProdutoCategoriaActivity"
@@ -68,9 +83,6 @@
             android:exported="false" />
         <activity
             android:name=".checkout.MetodosPagamento"
-            android:exported="false" />
-        <activity
-            android:name=".checkout.CarrinhoActivity"
             android:exported="false" />
         <activity
             android:name=".ui.AtualizacoesFuturas"

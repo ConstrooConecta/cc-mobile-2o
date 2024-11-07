@@ -182,3 +182,17 @@ lapp/src/main/java/com/example/construconecta_interdisciplinar_certo/checkout/Ca
 Xapp/src/main/java/com/example/construconecta_interdisciplinar_certo/models/Desconto.java,5\a\5aa1bf60d0e4909199a780ec443a1e48ba35c1bf
 ‰
 Yapp/src/main/java/com/example/construconecta_interdisciplinar_certo/apis/DescontoApi.java,9\f\9f0e903b775100908307dcf83d57376563835f80
+›
+kapp/src/main/java/com/example/construconecta_interdisciplinar_certo/shop/conta/AnunciarProdutoActivity.java,7\9\79c2101f81810e960cad3241b2806e951775d3df
+‡
+Wapp/src/main/java/com/example/construconecta_interdisciplinar_certo/PlanosActivity.java,c\0\c0f519e1d0c0604495092c5f59549ed9a972f867
+ 
+papp/src/main/java/com/example/construconecta_interdisciplinar_certo/shop/contratar/RecyclerServicosActivity.java,e\f\ef73958e19744586e9b5ae999293edaafa734f91
+œ
+lapp/src/main/java/com/example/construconecta_interdisciplinar_certo/adapters/AdapterTagServicoContratar.java,b\3\b3260a8a77263c769ca1366b80a41db7561335f9
+“
+capp/src/main/java/com/example/construconecta_interdisciplinar_certo/adapters/AdapterTagServico.java,d\d\dd15acca54cbffd8819b7395877b052cb51efafe
+Ž
+^app/src/main/java/com/example/construconecta_interdisciplinar_certo/models/PedidoComItens.java,8\6\866d505561676d456d910373f8ddb2e301a6df58
+’
+bapp/src/main/java/com/example/construconecta_interdisciplinar_certo/shop/conta/PlanosActivity.java,5\8\58ccee6f3d3a30c3731732b70d8ebc2c915d0861

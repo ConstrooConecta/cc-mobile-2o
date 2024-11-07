@@ -1,13 +1,13 @@
 package com.example.construconecta_interdisciplinar_certo.checkout;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.AdapterView;
-import android.graphics.Color;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import com.example.construconecta_interdisciplinar_certo.R;
@@ -16,7 +16,6 @@ import com.example.construconecta_interdisciplinar_certo.databinding.ActivityCad
 import com.example.construconecta_interdisciplinar_certo.models.Endereco;
 import com.example.construconecta_interdisciplinar_certo.shop.conta.MeusEnderecosActivity;
 import com.example.construconecta_interdisciplinar_certo.ui.BaseActivity;
-import com.example.construconecta_interdisciplinar_certo.utils.InputUtils;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -38,7 +37,6 @@ public class CadastroEnderecoActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityCadastroEnderecoBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         // Inicializa o mapa de cidades para cada estado
         cidadesPorEstado = new HashMap<>();
         cidadesPorEstado.put("AC", new String[]{"Acrelândia", "Assis Brasil", "Brasiléia", "Bujari", "Capixaba", "Cruzeiro do Sul", "Epitaciolândia", "Feijó", "Jordão", "Mâncio Lima", "Plácido de Castro", "Porto Acre", "Rio Branco", "Rodrigues Alves", "Santa Rosa do Purus", "Sena Madureira", "Senador Guiomard", "Tarauacá", "Xapuri"});
@@ -103,7 +101,8 @@ public class CadastroEnderecoActivity extends BaseActivity {
 
         binding.cepInput.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {}
+            public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {
+            }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
@@ -111,11 +110,13 @@ public class CadastroEnderecoActivity extends BaseActivity {
             }
 
             @Override
-            public void afterTextChanged(Editable editable) {}
+            public void afterTextChanged(Editable editable) {
+            }
         });
         binding.bairroInput.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {}
+            public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {
+            }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
@@ -123,11 +124,13 @@ public class CadastroEnderecoActivity extends BaseActivity {
             }
 
             @Override
-            public void afterTextChanged(Editable editable) {}
+            public void afterTextChanged(Editable editable) {
+            }
         });
         binding.ruaInput.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {}
+            public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {
+            }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
@@ -135,11 +138,13 @@ public class CadastroEnderecoActivity extends BaseActivity {
             }
 
             @Override
-            public void afterTextChanged(Editable editable) {}
+            public void afterTextChanged(Editable editable) {
+            }
         });
         binding.numeroInput.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {}
+            public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {
+            }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
@@ -147,11 +152,13 @@ public class CadastroEnderecoActivity extends BaseActivity {
             }
 
             @Override
-            public void afterTextChanged(Editable editable) {}
+            public void afterTextChanged(Editable editable) {
+            }
         });
         binding.complementoInput.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {}
+            public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {
+            }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
@@ -159,7 +166,8 @@ public class CadastroEnderecoActivity extends BaseActivity {
             }
 
             @Override
-            public void afterTextChanged(Editable editable) {}
+            public void afterTextChanged(Editable editable) {
+            }
         });
     }
 
@@ -203,35 +211,35 @@ public class CadastroEnderecoActivity extends BaseActivity {
         EnderecoApi api = retrofit.create(EnderecoApi.class);
         Call<Endereco> call = api.createAddress(endereco);
 
-      call.enqueue(new Callback<Endereco>() {
-          @Override
-          public void onResponse(Call<Endereco> call, Response<Endereco> response) {
-              if (response.isSuccessful()) {
-                  Double total = getIntent().getExtras() != null ? getIntent().getExtras().getDouble("total") : null;
-                  if (total != null) {
-                      String canal = getIntent().getExtras() != null ? getIntent().getExtras().getString("canal") : null;
-                      if (canal.equals("meusEnderecos")) {
-                          Intent intent = new Intent(CadastroEnderecoActivity.this, MeusEnderecosActivity.class);
-                          startActivity(intent);
-                          finish();
-                      } else {
-                          Intent intent = new Intent(CadastroEnderecoActivity.this, EscolhaEnderecoActivity.class);
-                          intent.putExtra("total", total);
-                          startActivity(intent);
-                          finish();
-                      }
-                  }
-              } else {
-                  Toast.makeText(CadastroEnderecoActivity.this, "Erro ao cadastrar endereço: " + response.message(), Toast.LENGTH_SHORT).show();
-              }
-          }
+        call.enqueue(new Callback<Endereco>() {
+            @Override
+            public void onResponse(Call<Endereco> call, Response<Endereco> response) {
+                if (response.isSuccessful()) {
+                    Double total = getIntent().getExtras() != null ? getIntent().getExtras().getDouble("total") : null;
+                    if (total != null) {
+                        String canal = getIntent().getExtras() != null ? getIntent().getExtras().getString("canal") : null;
+                        if (canal.equals("meusEnderecos")) {
+                            Intent intent = new Intent(CadastroEnderecoActivity.this, MeusEnderecosActivity.class);
+                            startActivity(intent);
+                            finish();
+                        } else {
+                            Intent intent = new Intent(CadastroEnderecoActivity.this, EscolhaEnderecoActivity.class);
+                            intent.putExtra("total", total);
+                            startActivity(intent);
+                            finish();
+                        }
+                    }
+                } else {
+                    Toast.makeText(CadastroEnderecoActivity.this, "Erro ao cadastrar endereço: " + response.message(), Toast.LENGTH_SHORT).show();
+                }
+            }
 
-          @Override
-          public void onFailure(Call<Endereco> call, Throwable throwable) {
-              Toast.makeText(CadastroEnderecoActivity.this, "Falha na conexão: " + throwable.getMessage(), Toast.LENGTH_SHORT).show();
-          }
+            @Override
+            public void onFailure(Call<Endereco> call, Throwable throwable) {
+                Toast.makeText(CadastroEnderecoActivity.this, "Falha na conexão: " + throwable.getMessage(), Toast.LENGTH_SHORT).show();
+            }
 
-      });
+        });
     }
 
     private void validarCEP(String cep) {

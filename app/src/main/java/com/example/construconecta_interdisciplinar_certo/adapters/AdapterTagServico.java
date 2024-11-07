@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.construconecta_interdisciplinar_certo.R;
-import com.example.construconecta_interdisciplinar_certo.shop.contratar.RecyclerServicosActivity;
 import com.example.construconecta_interdisciplinar_certo.models.TagServico;
+import com.example.construconecta_interdisciplinar_certo.shop.contratar.RecyclerServicosActivity;
 
 import java.util.List;
 

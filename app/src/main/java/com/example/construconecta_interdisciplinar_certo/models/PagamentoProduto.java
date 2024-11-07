@@ -1,7 +1,6 @@
 package com.example.construconecta_interdisciplinar_certo.models;
 
 import java.math.BigDecimal;
-import java.util.Date;
 
 public class PagamentoProduto {
     private Integer pagamentoProdutoId;

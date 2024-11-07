@@ -1,9 +1,6 @@
 package com.example.construconecta_interdisciplinar_certo.apis;
 
 import com.example.construconecta_interdisciplinar_certo.models.PagamentoProduto;
-import com.example.construconecta_interdisciplinar_certo.models.Pedido;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;

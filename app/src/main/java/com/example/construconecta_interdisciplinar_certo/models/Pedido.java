@@ -32,27 +32,67 @@ public class Pedido {
         this.dataEntrega = dataEntrega;
     }
 
-    public Integer getPedidoId() { return pedidoId; }
-    public void setPedidoId(Integer pedidoId) { this.pedidoId = pedidoId; }
+    public Integer getPedidoId() {
+        return pedidoId;
+    }
 
-    public String getUsuario() { return usuario; }
-    public void setUsuario(String usuario) { this.usuario = usuario; }
+    public void setPedidoId(Integer pedidoId) {
+        this.pedidoId = pedidoId;
+    }
 
-    public String getCupom() { return cupom; }
-    public void setCupom(String cupom) { this.cupom = cupom; }
+    public String getUsuario() {
+        return usuario;
+    }
 
-    public BigDecimal getValorDesconto() { return valorDesconto; }
-    public void setValorDesconto(BigDecimal valorDesconto) { this.valorDesconto = valorDesconto; }
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
 
-    public BigDecimal getValorTotal() { return valorTotal; }
-    public void setValorTotal(BigDecimal valorTotal) { this.valorTotal = valorTotal; }
+    public String getCupom() {
+        return cupom;
+    }
 
-    public BigDecimal getValorFrete() { return valorFrete; }
-    public void setValorFrete(BigDecimal valorFrete) { this.valorFrete = valorFrete; }
+    public void setCupom(String cupom) {
+        this.cupom = cupom;
+    }
 
-    public String getDataPedido() { return dataPedido; }
-    public void setDataPedido(String dataPedido) { this.dataPedido = dataPedido; }
+    public BigDecimal getValorDesconto() {
+        return valorDesconto;
+    }
 
-    public String getDataEntrega() { return dataEntrega; }
-    public void setDataEntrega(String dataEntrega) { this.dataEntrega = dataEntrega; }
+    public void setValorDesconto(BigDecimal valorDesconto) {
+        this.valorDesconto = valorDesconto;
+    }
+
+    public BigDecimal getValorTotal() {
+        return valorTotal;
+    }
+
+    public void setValorTotal(BigDecimal valorTotal) {
+        this.valorTotal = valorTotal;
+    }
+
+    public BigDecimal getValorFrete() {
+        return valorFrete;
+    }
+
+    public void setValorFrete(BigDecimal valorFrete) {
+        this.valorFrete = valorFrete;
+    }
+
+    public String getDataPedido() {
+        return dataPedido;
+    }
+
+    public void setDataPedido(String dataPedido) {
+        this.dataPedido = dataPedido;
+    }
+
+    public String getDataEntrega() {
+        return dataEntrega;
+    }
+
+    public void setDataEntrega(String dataEntrega) {
+        this.dataEntrega = dataEntrega;
+    }
 }

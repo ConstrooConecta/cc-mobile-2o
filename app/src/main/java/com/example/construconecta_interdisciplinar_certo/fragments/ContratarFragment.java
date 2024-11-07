@@ -17,17 +17,16 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.construconecta_interdisciplinar_certo.R;
 import com.example.construconecta_interdisciplinar_certo.adapters.AdapterTagServico;
 import com.example.construconecta_interdisciplinar_certo.adapters.AdapterTagServicoContratar;
 import com.example.construconecta_interdisciplinar_certo.adapters.CardAdapter;
-import com.example.construconecta_interdisciplinar_certo.R;
 import com.example.construconecta_interdisciplinar_certo.apis.TagServicoApi;
 import com.example.construconecta_interdisciplinar_certo.apis.UsuarioApi;
 import com.example.construconecta_interdisciplinar_certo.models.CardItem;
@@ -35,7 +34,6 @@ import com.example.construconecta_interdisciplinar_certo.models.TagServico;
 import com.example.construconecta_interdisciplinar_certo.models.TagServicoCategoria;
 import com.example.construconecta_interdisciplinar_certo.models.Usuario;
 import com.example.construconecta_interdisciplinar_certo.ui.InternetErrorActivity;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -169,7 +167,12 @@ public class ContratarFragment extends Fragment {
                 if (response.isSuccessful()) {
                     if (response.body() != null) {
                         servicoTagList.clear();
-                        servicoTagList.addAll(response.body());
+                        // Limita a lista a no máximo 4 itens
+                        List<TagServico> resultado = response.body();
+                        for (int i = 0; i < resultado.size() && i < 4; i++) {
+                            servicoTagList.add(resultado.get(i));
+                        }
+
                         adapterTagServico.notifyDataSetChanged();
 
                         progressBar.setVisibility(View.VISIBLE); // Se desejar manter a barra de progresso visível ou altere conforme necessário
