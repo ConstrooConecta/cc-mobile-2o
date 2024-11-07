@@ -117,14 +117,14 @@
                 android:id="@+id/edtDescricaoInput"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
+                android:gravity="top|start"
                 android:hint="Descrição: ex: Argamassa Porcelanato 20kg essencial \npara assentamento de revestimento \n em áreas internas e externas."
+                android:inputType="textMultiLine"
                 android:maxLength="500"
                 android:paddingEnd="20dp"
-                android:inputType="textMultiLine"
+                android:scrollbars="vertical"
                 android:textColor="@color/black"
-                android:textColorHint="#B6B6B6"
-                android:gravity="top|start"
-                android:scrollbars="vertical" />
+                android:textColorHint="#B6B6B6" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -177,17 +177,17 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
+            app:errorEnabled="true"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edtDescricaoInputLayout"
-            app:errorEnabled="true">
+            app:layout_constraintTop_toBottomOf="@+id/edtDescricaoInputLayout">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtCEPInput"
                 android:layout_width="150dp"
                 android:layout_height="56dp"
                 android:hint="CEP"
-                android:maxLength="8"
                 android:inputType="number"
+                android:maxLength="8"
                 android:paddingLeft="20dp"
                 android:paddingEnd="20dp"
                 android:singleLine="true"
@@ -218,7 +218,6 @@
                 android:textColor="@color/black"
                 android:textColorHint="#B6B6B6" />
         </com.google.android.material.textfield.TextInputLayout>
-
 
 
         <com.google.android.material.textfield.TextInputLayout

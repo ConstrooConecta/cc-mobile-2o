@@ -8,24 +8,17 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 
-import com.example.construconecta_interdisciplinar_certo.ProdutoCategoriaActivity;
 import com.example.construconecta_interdisciplinar_certo.R;
-import com.example.construconecta_interdisciplinar_certo.apis.CategoriaApi;
 import com.example.construconecta_interdisciplinar_certo.models.Categoria;
+import com.example.construconecta_interdisciplinar_certo.repositories.CategoriaRepository;
+import com.example.construconecta_interdisciplinar_certo.shop.categoria.ProdutoCategoriaActivity;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class CategoriasFragment extends Fragment {
     private ListView listViewCategorias;
@@ -50,8 +43,8 @@ public class CategoriasFragment extends Fragment {
         adapter = new ArrayAdapter<>(getActivity(), R.layout.list_item_categoria, R.id.textViewCategoria, categoriasList);
         listViewCategorias.setAdapter(adapter);
 
-        // Dados das categorias (isso pode ser alterado conforme necessário)
-        chamarAPICategoria();
+        // Carregar dados das categorias
+        carregarCategorias();
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -72,48 +65,28 @@ public class CategoriasFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String categoriaSelecionada = categoriasList.get(position);
-                Toast.makeText(getActivity(), "Categoria: " + categoriaSelecionada, Toast.LENGTH_SHORT).show();
-
                 Intent intent = new Intent(getActivity(), ProdutoCategoriaActivity.class);
                 intent.putExtra("categoria", categoriaSelecionada);
                 startActivity(intent);
             }
         });
+
         return view;
     }
 
-    private void chamarAPICategoria() {
-        String API = "https://cc-api-sql-qa.onrender.com/";
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(API)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        CategoriaApi categoriaApi = retrofit.create(CategoriaApi.class);
-        Call<List<Categoria>> call = categoriaApi.getAllCategories();
-
-        call.enqueue(new Callback<List<Categoria>>() {
-            @Override
-            public void onResponse(Call<List<Categoria>> call, Response<List<Categoria>> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    categorias = response.body();
-
-                    categoriasList.clear(); // Limpa a lista antes de adicionar novos itens
-                    for (Categoria categoria : categorias) {
-                        categoriasList.add(categoria.getNome());
-                    }
-
-                    // Atualiza o ArrayAdapter com os novos nomes das categorias
-                    adapter.notifyDataSetChanged();
-                } else {
-                    Toast.makeText(getActivity(), "Erro ao carregar categorias", Toast.LENGTH_SHORT).show();
+    private void carregarCategorias() {
+        CategoriaRepository.getInstance().loadData(categorias -> {
+            this.categorias = categorias;
+            categoriasList.clear(); // Limpa a lista antes de adicionar novos itens
+            for (Categoria categoria : this.categorias) {
+                // Adiciona a categoria se não estiver na lista
+                if (!categoriasList.contains(categoria.getNome())) {
+                    categoriasList.add(categoria.getNome());
                 }
             }
-
-            @Override
-            public void onFailure(Call<List<Categoria>> call, Throwable t) {
-                Toast.makeText(getActivity(), "Falha na conexão: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
+            // Atualiza o ArrayAdapter com os novos nomes das categorias
+            adapter.notifyDataSetChanged();
         });
     }
 }
+

@@ -19,6 +19,9 @@ public interface CarrinhoApi {
     @GET("shopping-cart/findByUserId/{usuario}")
     Call<List<Carrinho>> findByUserId(@Path("usuario") String usuario);
 
+    @DELETE("shopping-cart/deleteByUsuarioId/{userId}")
+    Call<Void> deleteCarrinhoByUserId(@Path("userId") String userId);
+
     //apagar item do carrinho
     @DELETE("/shopping-cart/delete/{shoppingCartId}")
     Call<ResponseBody> deleteCarrinho(@Path("shoppingCartId") int shoppingCartId);

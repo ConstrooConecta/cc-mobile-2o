@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F4F4F2"
-    tools:context=".AnunciarServicoActivity">
+    tools:context=".shop.conta.AnunciarServicoActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -75,7 +75,6 @@
             app:layout_constraintTop_toBottomOf="@+id/view19Anuncio" />
 
 
-
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/edtDescricaoInputLayout1"
             style="@style/CustomTextInputTheme"
@@ -94,9 +93,9 @@
                 android:layout_height="100dp"
                 android:hint="Descrição:
 ex: Trabalho fazendo paredes \ncom um tipo de revestimento \n em áreas internas e externas.  "
+                android:inputType="textMultiLine"
                 android:maxLength="500"
                 android:paddingEnd="20dp"
-                android:inputType="textMultiLine"
                 android:textColor="@color/black"
                 android:textColorHint="#B6B6B6" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -195,6 +194,7 @@ ex: Trabalho fazendo paredes \ncom um tipo de revestimento \n em áreas internas
                 android:paddingEnd="20dp"
                 android:textColorHint="#B6B6B6" />
         </com.google.android.material.textfield.TextInputLayout>
+
         <ImageView
             android:id="@+id/imageView4"
             android:layout_width="wrap_content"
@@ -204,7 +204,6 @@ ex: Trabalho fazendo paredes \ncom um tipo de revestimento \n em áreas internas
             app:layout_constraintBottom_toBottomOf="@+id/spnServicoCategorieInputLayout"
             app:layout_constraintEnd_toEndOf="@+id/spnServicoCategorieInputLayout"
             app:layout_constraintTop_toTopOf="@+id/spnServicoCategorieInputLayout" />
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,27 @@
+
+
+java:S2259έ"CA "NullPointerException" could be thrown; "canal" is nullable here.(­µΘ―ϊÿÿÿÿ8Ζί…ψ―2J$2547b610-1568-464c-a069-8e7dabaed44e
+§
+java:S1450!"_Remove the "cidadesPorEstado" field and declare it as a local variable in the relevant methods.(ªυΞ“ωÿÿÿÿ8Òί…ψ―2J$27596718-aa20-464f-9514-2cd439572018
+Ι
+java:S1186h"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ή’ζχύÿÿÿÿ8ώ£°2J$ccf6e1f4-370c-4df8-84af-b98e7c59b8e5
+Ι
+java:S1186q"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Χεσ«ψÿÿÿÿ8λί…ψ―2J$db1b6e0c-d74d-4a4e-86f2-f05265dd8974
+Ι
+java:S1186v"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ή’ζχύÿÿÿÿ8ƒ£°2J$45ae6ad3-20c7-4098-abea-843f311e587e
+Ι
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Χεσ«ψÿÿÿÿ8ƒ£°2J$74c13687-bdb6-4377-8ed0-c25e62543786
+Κ
+java:S1186„"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ή’ζχύÿÿÿÿ8‡£°2J$76c08964-876c-4e39-a874-dc1d8813f192
+Κ
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Χεσ«ψÿÿÿÿ8τί…ψ―2J$494a8290-e6ad-4274-957e-b6d03286a6c8
+Κ
+java:S1186’"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ή’ζχύÿÿÿÿ8£°2J$937967ae-21af-4607-a689-8f421f0393a0
+Κ
+java:S1186›"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Χεσ«ψÿÿÿÿ8£°2J$a0f8b7fc-fdad-40c7-9525-a26af6d99b4d
+Κ
+java:S1186 "€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ή’ζχύÿÿÿÿ8£°2J$eb9cf097-dcdc-4a77-a150-ab35afe6be74
+Κ
+java:S1186©"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Χεσ«ψÿÿÿÿ8£°2J$dfde5540-484d-4246-95d8-3e78539af712
+›
+java:S3776Μ"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(φΜΩαϊÿÿÿÿ8ϋί…ψ―2J$b21876e6-8a06-46a2-b007-8a2fac2b31cb

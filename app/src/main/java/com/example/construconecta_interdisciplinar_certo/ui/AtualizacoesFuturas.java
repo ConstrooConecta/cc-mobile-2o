@@ -3,11 +3,9 @@ package com.example.construconecta_interdisciplinar_certo.ui;
 import android.os.Bundle;
 import android.view.View;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.construconecta_interdisciplinar_certo.R;
 
-public class AtualizacoesFuturas extends AppCompatActivity {
+public class AtualizacoesFuturas extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -2,11 +2,11 @@ package com.example.construconecta_interdisciplinar_certo.models;
 
 public class TagServicoCategoria {
     private String nome;
-    private int imagemResId;
+    private Integer imagemResId;
 
     public TagServicoCategoria(
             String nome,
-            int imagemResId
+            Integer imagemResId
     ) {
         this.nome = nome;
         this.imagemResId = imagemResId;
@@ -16,7 +16,7 @@ public class TagServicoCategoria {
         return nome;
     }
 
-    public int getImagemResId() {
+    public Integer getImagemResId() {
         return imagemResId;
     }
 }

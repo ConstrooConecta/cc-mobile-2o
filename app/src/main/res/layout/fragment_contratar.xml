@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F2F2F2"
+    android:background="#FFFFFF"
     android:fillViewport="true">
-
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -14,14 +13,24 @@
         android:background="#F2F2F2"
         tools:context=".fragments.ContratarFragment">
 
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/imageView13"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="40dp"
+            android:layout_marginEnd="20dp"
             android:src="@drawable/localizacao"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,22 +38,26 @@
             android:id="@+id/textView39"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
             android:layout_marginEnd="15dp"
             android:text="Entrar"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView13"
             app:layout_constraintEnd_toStartOf="@+id/imageView13"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/imageView13" />
 
         <TextView
             android:id="@+id/textView40"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="50dp"
+            android:layout_marginEnd="20dp"
             android:text="Olá visitante,"
             android:textColor="#000000"
             android:textSize="24sp"
             android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView13" />
 
@@ -52,37 +65,41 @@
             android:id="@+id/textView41"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="1dp"
+            android:layout_marginStart="20dp"
             android:text="O que vamos construir ou consertar hoje?"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView40" />
 
         <EditText
             android:id="@+id/editTextText"
-            android:layout_width="282dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="13dp"
-            android:layout_marginEnd="113dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="20dp"
             android:background="@drawable/barra_pesquisa"
             android:backgroundTint="#E6E6E6"
             android:ems="10"
             android:hint="Busque o serviço ou especialidade"
             android:inputType="text"
             android:textSize="12sp"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView41" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerServico"
-            android:layout_width="370dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="24dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="20dp"
             android:background="#F2F2F2"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView31"
             tools:listitem="@layout/recycler_item_servico" />
 
@@ -90,10 +107,14 @@
             android:id="@+id/recycler_categoriaSer"
             android:layout_width="wrap_content"
             android:layout_height="150dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="5dp"
+            android:layout_marginEnd="20dp"
             android:orientation="horizontal"
             android:padding="8dp"
             android:scrollbars="horizontal"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextText"
             tools:listitem="@layout/tag_categoria" />
@@ -102,12 +123,13 @@
             android:id="@+id/textView31"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="15dp"
             android:text="Serviços populares"
             android:textColor="#000000"
             android:textSize="24sp"
             android:textStyle="bold"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recycler_categoriaSer" />
 
@@ -115,23 +137,28 @@
             android:id="@+id/textView35"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:text="Como funciona?"
             android:textColor="#000000"
             android:textSize="24sp"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recyclerServico" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_cards"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
             android:background="#F2F2F2"
             android:orientation="horizontal"
             android:padding="8dp"
             android:scrollbars="horizontal"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView35"
             tools:listitem="@layout/card_item" />

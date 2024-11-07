@@ -28,65 +28,72 @@
         android:theme="@style/Theme.ConstruConecta_Interdisciplinar_Certo"
         tools:targetApi="31">
         <activity
-            android:name=".AnunciarServicoActivity"
+            android:name=".shop.conta.MeusEnderecosActivity"
             android:exported="false" />
         <activity
-            android:name=".TelaPagamentoPlanoActivity"
+            android:name=".shop.conta.MeusPedidosActivity"
             android:exported="false" />
         <activity
-            android:name=".PlanosActivity"
+            android:name=".checkout.EscolhaEnderecoActivity"
             android:exported="false" />
         <activity
-            android:name=".EditarDadosSeguranca"
+            android:name=".shop.conta.AnunciarServicoActivity"
             android:exported="false" />
         <activity
-            android:name=".EditarDadosPessoaisActivity"
+            android:name=".shop.conta.TelaPagamentoPlanoActivity"
             android:exported="false" />
         <activity
-            android:name=".PoliticaPrivacidadeActivity"
+            android:name=".shop.conta.PlanosActivity"
             android:exported="false" />
         <activity
-            android:name=".RecyclerServicosActivity"
+            android:name=".shop.conta.EditarDadosSeguranca"
             android:exported="false" />
         <activity
-            android:name=".DetalheServicoActivity"
+            android:name=".shop.conta.EditarDadosPessoaisActivity"
+            android:exported="false" />
+        <activity
+            android:name=".shop.conta.PoliticaPrivacidadeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".shop.contratar.RecyclerServicosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".shop.contratar.DetalheServicoActivity"
             android:exported="false" />
         <activity
             android:name=".AnunciarProdutoActivity"
             android:exported="false" />
         <activity
-            android:name=".ProdutoCategoriaActivity"
+            android:name=".shop.categoria.ProdutoCategoriaActivity"
             android:exported="false" />
         <activity
-            android:name=".shop.TempoCompraActivity"
+            android:name=".checkout.TipoDeEntregaActivity"
             android:exported="false" />
         <activity
-            android:name=".shop.CadastroEnderecoActivity"
+            android:name=".checkout.CadastroEnderecoActivity"
             android:exported="false" />
         <activity
-            android:name=".shop.PedidoConcluidoActivity"
+            android:name=".checkout.PedidoConcluidoActivity"
             android:exported="false" />
         <activity
-            android:name=".shop.CarregamentoCompraActivity"
+            android:name=".checkout.CarregamentoCompraActivity"
             android:exported="false" />
         <activity
-            android:name=".shop.QrCodeActivity"
+            android:name=".checkout.PagamentoQrCodeActivity"
             android:exported="false" />
         <activity
             android:name=".checkout.MetodosPagamento"
             android:exported="false" />
         <activity
-            android:name=".checkout.CarrinhoActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.AtualizacoesFuturas"
             android:exported="false" />
         <activity
-            android:name=".shop.DetalhesProdutosActivity"
+            android:name=".shop.home.DetalhesProdutosActivity"
             android:exported="false" />
         <activity
             android:name=".onboarding.CameraActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.InternetErrorActivity"
             android:exported="true"
@@ -107,10 +114,6 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".onboarding.ValidacaoCodigo"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".ui.MainActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
@@ -126,7 +129,7 @@
             android:theme="@style/Theme.ConstruConecta_Interdisciplinar_Certo"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".shop.Home"
+            android:name=".shop.home.Home"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
@@ -139,14 +142,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <receiver
-            android:name=".receivers.NetworkReceiver"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-            </intent-filter>
-        </receiver>
     </application>
 
 </manifest>

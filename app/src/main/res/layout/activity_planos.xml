@@ -1,39 +1,38 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#0A262C"
+    android:orientation="vertical"
     android:padding="16dp">
 
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="PLANOS"
-        android:textSize="24sp"
-        android:textColor="#FFFFFF"
         android:layout_gravity="center_horizontal"
-        android:paddingBottom="20dp"/>
+        android:paddingBottom="20dp"
+        android:text="PLANOS"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
         android:gravity="center"
-        android:weightSum="2"
-        android:layout_marginTop="20dp">
+        android:orientation="horizontal"
+        android:weightSum="2">
 
         <!-- Plano Comum -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:background="@drawable/plan_bg_common"
-            android:padding="16dp"
             android:layout_margin="8dp"
-            android:gravity="center">
+            android:layout_weight="1"
+            android:background="@drawable/plan_bg_common"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="16dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -46,20 +45,20 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Plano Comum"
-                android:textSize="18sp"
-                android:textColor="#FFFFFF"
                 android:layout_gravity="center_horizontal"
-                android:paddingTop="8dp"/>
+                android:paddingTop="8dp"
+                android:text="Plano Comum"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Todos recursos incluídos"
-                android:textSize="14sp"
-                android:textColor="#FFFFFF"
                 android:layout_gravity="center_horizontal"
-                android:paddingTop="4dp"/>
+                android:paddingTop="4dp"
+                android:text="Todos recursos incluídos"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
 
             <Button
                 android:layout_width="wrap_content"
@@ -74,12 +73,12 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:background="@drawable/plan_bg_premium"
-            android:padding="16dp"
             android:layout_margin="8dp"
-            android:gravity="center">
+            android:layout_weight="1"
+            android:background="@drawable/plan_bg_premium"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="16dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -92,29 +91,29 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:paddingTop="8dp"
                 android:text="Plano Premium"
-                android:textSize="18sp"
                 android:textColor="#FFFFFF"
-                android:layout_gravity="center_horizontal"
-                android:paddingTop="8dp"/>
+                android:textSize="18sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:paddingTop="4dp"
                 android:text="* Todos recursos incluídos \n * Destaque de produtos \n * Sem anuncios"
-                android:textSize="14sp"
                 android:textColor="#FFFFFF"
-                android:layout_gravity="center_horizontal"
-                android:paddingTop="4dp"/>
+                android:textSize="14sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="* 30 dias grátis"
-                android:textSize="14sp"
-                android:textColor="#FFFFFF"
                 android:layout_gravity="center_horizontal"
-                android:paddingTop="4dp"/>
+                android:paddingTop="4dp"
+                android:text="* 30 dias grátis"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
 
             <Button
                 android:id="@+id/upgradePremium"
@@ -124,6 +123,7 @@
                 android:backgroundTint="#FFFFFF"
                 android:text="UPGRADE"
                 android:textColor="#887951" />
+
             <Button
                 android:id="@+id/obtido"
                 android:layout_width="wrap_content"

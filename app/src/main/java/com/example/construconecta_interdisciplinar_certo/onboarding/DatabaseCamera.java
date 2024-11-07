@@ -6,7 +6,6 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -34,12 +33,10 @@ public class DatabaseCamera {
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        Toast.makeText(c, "Deu green!!!!!!!!!!!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show();
                         //obter a URL da imagem
                         taskSnapshot.getMetadata().getReference().getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                             @Override
                             public void onSuccess(Uri uri) {
-                                Toast.makeText(c, uri.toString(), Toast.LENGTH_SHORT).show();
                                 docData.put("url", uri.toString());
                             }
                         });
@@ -64,12 +61,10 @@ public class DatabaseCamera {
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        Toast.makeText(c, "Deu green!!!!!!!!!!!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show();
                         //obter a URL da imagem
                         taskSnapshot.getMetadata().getReference().getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                             @Override
                             public void onSuccess(Uri uri) {
-                                Toast.makeText(c, uri.toString(), Toast.LENGTH_SHORT).show();
                                 docData.put("url", uri.toString());
                             }
                         });

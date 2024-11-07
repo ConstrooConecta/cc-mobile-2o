@@ -16,6 +16,7 @@ public interface ServicoApi {
 
     @GET("service/findByServiceTag/serviceTagName/{serviceTagName}")
     Call<List<Servico>> findByTagName(@Path("serviceTagName") String serviceTagName);
+
     @POST("service/add")
     Call<Servico> addService(@Body Servico servico);
 }

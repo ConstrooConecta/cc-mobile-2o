@@ -425,8 +425,7 @@
             android:layout_marginEnd="28dp"
             android:background="@drawable/design_plano_gratuito"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView25"

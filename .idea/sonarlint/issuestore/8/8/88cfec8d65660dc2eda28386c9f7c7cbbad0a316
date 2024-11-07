@@ -1,0 +1,10 @@
+
+Œ	java:S117 "QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ã£«ÏJ$d056e85b-89e1-4735-9dec-01290dddaa7d
+d
+java:S1604R"(Make this anonymous inner class a lambda(Ö¹™ºJ$4e8d6d40-c241-4b19-b03a-410f6ab76baf
+—
+java:S1488)"[Immediately return this expression instead of assigning it to the temporary variable "pvh".(›¤óÄJ$543be2d2-1e4e-41d2-b0e0-55f6e9b93d8d
+r
+java:S11535"1Directly append the argument of String.valueOf().(—âˆéùÿÿÿÿJ$aab73bfd-d1b0-4930-b5ec-51fbd49677fd
+l
+java:S1153E"1Directly append the argument of String.valueOf().(´Ù¾TJ$1ad0ea34-c2b2-45d5-9b06-b87266d14a41

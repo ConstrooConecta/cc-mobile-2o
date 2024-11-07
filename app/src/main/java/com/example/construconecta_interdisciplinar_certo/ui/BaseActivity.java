@@ -15,6 +15,12 @@ public abstract class BaseActivity extends AppCompatActivity {
         checkInternetConnection();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        checkInternetConnection();
+    }
+
     private void checkInternetConnection() {
         if (!isConnectedToInternet()) {
             Intent intent = new Intent(this, InternetErrorActivity.class);

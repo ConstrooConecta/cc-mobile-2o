@@ -6,27 +6,27 @@ public class Produto {
     String produtoId;
     String nomeProduto;
     String imagem;
-    double preco;
-    double desconto;
+    Double preco;
+    Double desconto;
     String descricao;
-    int estoque;
+    Integer estoque;
     boolean condicao;
     String usuario;
-    int topico;
-    List<Categoria> categorias;  // Para as categorias
+    Integer topico;
+    List<Categoria> categorias;
 
     // Construtor
     public Produto(
             String produtoId,
             String nomeProduto,
             String imagem,
-            double preco,
-            double desconto,
+            Double preco,
+            Double desconto,
             String descricao,
-            int estoque,
+            Integer estoque,
             boolean condicao,
             String usuario,
-            int topico,
+            Integer topico,
             List<Categoria> categorias
     ) {
         this.produtoId = produtoId;
@@ -43,12 +43,21 @@ public class Produto {
     }
 
     // Getters e Setters
-    public String getprodutoId() {
+
+    public String getProdutoId() {
         return produtoId;
+    }
+
+    public void setProdutoId(String produtoId) {
+        this.produtoId = produtoId;
     }
 
     public String getNomeProduto() {
         return nomeProduto;
+    }
+
+    public void setNomeProduto(String nomeProduto) {
+        this.nomeProduto = nomeProduto;
     }
 
     public String getImagem() {
@@ -59,16 +68,44 @@ public class Produto {
         this.imagem = imagem;
     }
 
-    public double getPreco() {
+    public Double getPreco() {
         return preco;
     }
 
-    public double getDesconto() {
+    public void setPreco(Double preco) {
+        this.preco = preco;
+    }
+
+    public Double getDesconto() {
         return desconto;
+    }
+
+    public void setDesconto(Double desconto) {
+        this.desconto = desconto;
     }
 
     public String getDescricao() {
         return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public Integer getEstoque() {
+        return estoque;
+    }
+
+    public void setEstoque(Integer estoque) {
+        this.estoque = estoque;
+    }
+
+    public boolean isCondicao() {
+        return condicao;
+    }
+
+    public void setCondicao(boolean condicao) {
+        this.condicao = condicao;
     }
 
     public String getUsuario() {
@@ -77,5 +114,21 @@ public class Produto {
 
     public void setUsuario(String usuario) {
         this.usuario = usuario;
+    }
+
+    public Integer getTopico() {
+        return topico;
+    }
+
+    public void setTopico(Integer topico) {
+        this.topico = topico;
+    }
+
+    public List<Categoria> getCategorias() {
+        return categorias;
+    }
+
+    public void setCategorias(List<Categoria> categorias) {
+        this.categorias = categorias;
     }
 }

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="15dp"
+    android:background="#FFFFFF"
+    android:padding="15dp"
+    app:cardCornerRadius="5dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/statusPedido"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:gravity="start"
+            android:text="A caminho"
+            android:textColor="#867151"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/txtDtEntrega"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/produtoImg"
+            app:layout_constraintTop_toBottomOf="@+id/imageView16"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/txtDtEntrega"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="start"
+            android:text="Chegará em 10 de novembro"
+            android:textColor="#000"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/txtNomeProduto"
+            app:layout_constraintEnd_toEndOf="@+id/statusPedido"
+            app:layout_constraintStart_toStartOf="@+id/statusPedido"
+            app:layout_constraintTop_toBottomOf="@+id/statusPedido" />
+
+        <TextView
+            android:id="@+id/txtNomeProduto"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="start"
+            android:text="Tábua de Madeira Carvalho Natural Aparelhado 0,9x9, 5x100cm Madvei"
+            android:textColor="#999999"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/txtDtEntrega"
+            app:layout_constraintStart_toStartOf="@+id/statusPedido"
+            app:layout_constraintTop_toBottomOf="@+id/txtDtEntrega" />
+
+        <ImageView
+            android:id="@+id/produtoImg"
+            android:layout_width="80dp"
+            android:layout_height="0dp"
+            android:background="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="@+id/txtNomeProduto"
+            app:layout_constraintEnd_toStartOf="@+id/statusPedido"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/statusPedido"
+            app:srcCompat="@drawable/construconectalogoblack" />
+
+        <ImageView
+            android:id="@+id/imageView16"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtDtPedido"
+            tools:srcCompat="@drawable/linegray" />
+
+        <TextView
+            android:id="@+id/txtDtPedido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pedido feito em 12 de outubro"
+            app:layout_constraintStart_toStartOf="@+id/imageView16"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

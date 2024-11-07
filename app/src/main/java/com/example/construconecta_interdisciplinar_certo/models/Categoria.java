@@ -1,11 +1,11 @@
 package com.example.construconecta_interdisciplinar_certo.models;
 
 public class Categoria {
-    int categoriaId;
+    Integer categoriaId;
     String nome;
 
     public Categoria(
-            int categoriaId,
+            Integer categoriaId,
             String nome
     ) {
         this.categoriaId = categoriaId;

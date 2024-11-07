@@ -1,0 +1,6 @@
+
+œ
+java:S11926"TDefine a constant instead of duplicating this literal "CategoriaRepository" 3 times.(£Çˆùøÿÿÿÿ8ê¶ÉÉ®2J$0d9905a0-e5ed-49fd-a544-76c9e9b0a015
+˜	java:S117'"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êìØèúÿÿÿÿ8ë¶ÉÉ®2J$a295bb70-eb3f-4297-9181-e3d6c8cba2af
+á
+java:S6548"˜A Singleton implementation was detected. Make sure the use of the Singleton pattern is required and the implementation is the right one for the context.(ÇëôÄúÿÿÿÿ8‡·ÉÉ®2J$d3fbeffb-0652-459d-9147-89a0a031f877

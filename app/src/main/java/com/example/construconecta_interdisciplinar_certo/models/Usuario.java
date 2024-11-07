@@ -37,18 +37,6 @@ public class Usuario {
         return uid;
     }
 
-    public String getNomeCompleto() {
-        return nomeCompleto;
-    }
-
-    public String getNomeUsuario() {
-        return nomeUsuario;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
     public void setUid(String uid) {
         this.uid = uid;
     }
@@ -61,12 +49,24 @@ public class Usuario {
         this.cpf = cpf;
     }
 
+    public String getNomeCompleto() {
+        return nomeCompleto;
+    }
+
     public void setNomeCompleto(String nomeCompleto) {
         this.nomeCompleto = nomeCompleto;
     }
 
+    public String getNomeUsuario() {
+        return nomeUsuario;
+    }
+
     public void setNomeUsuario(String nomeUsuario) {
         this.nomeUsuario = nomeUsuario;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     public void setEmail(String email) {

@@ -8,7 +8,7 @@ import android.view.View;
 
 import com.example.construconecta_interdisciplinar_certo.R;
 import com.example.construconecta_interdisciplinar_certo.databinding.ActivityLoginBinding;
-import com.example.construconecta_interdisciplinar_certo.shop.Home;
+import com.example.construconecta_interdisciplinar_certo.shop.home.Home;
 import com.example.construconecta_interdisciplinar_certo.ui.BaseActivity;
 import com.example.construconecta_interdisciplinar_certo.utils.AnimationUtils;
 import com.example.construconecta_interdisciplinar_certo.utils.ButtonUtils;
@@ -88,7 +88,7 @@ public class Login extends BaseActivity {
 
                         if (task.isSuccessful()) {
                             startActivity(new Intent(Login.this, Home.class));
-                            finish();
+                            finishAffinity();
                         } else {
                             InputUtils.setError(this, binding.emailInputLayout, binding.emailInput, null, null);
                             InputUtils.setError(this, binding.senhaInputLayout, binding.senhaInput, null, null);

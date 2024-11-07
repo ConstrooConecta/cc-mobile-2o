@@ -1,7 +1,6 @@
 package com.example.construconecta_interdisciplinar_certo.apis;
 
 import com.example.construconecta_interdisciplinar_certo.models.PagamentoPlano;
-import com.example.construconecta_interdisciplinar_certo.models.Produto;
 
 import java.util.List;
 

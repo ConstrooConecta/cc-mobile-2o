@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:backgroundTint="#0A262C"
     android:padding="16dp"
-    tools:context=".EditarDadosPessoaisActivity">
+    tools:context=".shop.conta.EditarDadosPessoaisActivity">
 
     <!-- Close Button -->
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -53,10 +53,10 @@
                 android:id="@+id/edtNomeInput"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
+                android:hint="Nome"
                 android:maxLength="40"
                 android:paddingEnd="20dp"
                 android:singleLine="true"
-                android:hint="Nome"
                 android:textColor="@color/black"
                 android:textColorHint="#B6B6B6"
                 tools:ignore="SpeakableTextPresentCheck" />
@@ -80,8 +80,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:hint="Nome de usuário"
-                android:paddingStart="50dp"
                 android:maxLength="20"
+                android:paddingStart="50dp"
                 android:paddingEnd="20dp"
                 android:singleLine="true"
                 android:textColor="@color/black"
@@ -114,7 +114,6 @@
             app:layout_constraintBottom_toBottomOf="@+id/edtApelidoInputLayout"
             app:layout_constraintStart_toStartOf="@+id/edtApelidoInputLayout"
             app:layout_constraintTop_toTopOf="@+id/edtApelidoInputLayout" />
-
 
 
         <com.google.android.material.textfield.TextInputLayout

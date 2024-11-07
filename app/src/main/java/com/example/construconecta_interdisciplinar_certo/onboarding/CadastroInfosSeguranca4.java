@@ -20,7 +20,7 @@ import com.example.construconecta_interdisciplinar_certo.R;
 import com.example.construconecta_interdisciplinar_certo.apis.UsuarioApi;
 import com.example.construconecta_interdisciplinar_certo.databinding.ActivityCadastroInfosSeguranca4Binding;
 import com.example.construconecta_interdisciplinar_certo.models.Usuario;
-import com.example.construconecta_interdisciplinar_certo.shop.Home;
+import com.example.construconecta_interdisciplinar_certo.shop.home.Home;
 import com.example.construconecta_interdisciplinar_certo.ui.BaseActivity;
 import com.example.construconecta_interdisciplinar_certo.utils.AnimationUtils;
 import com.example.construconecta_interdisciplinar_certo.utils.ButtonUtils;
@@ -317,7 +317,8 @@ public class CadastroInfosSeguranca4 extends BaseActivity {
                     // Tratar erro ao adicionar no banco
                     ButtonUtils.enableButton(CadastroInfosSeguranca4.this, binding.nextButton, binding.progressBar);
                     binding.nextButton.setText("Criar Conta");
-                    Toast.makeText(CadastroInfosSeguranca4.this, "Erro ao salvar no banco de dados.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CadastroInfosSeguranca4.this, "Erro S4V3D4T4B4S3.", Toast.LENGTH_SHORT).show();
+                    Log.e("POST_ERROR", "Erro ao adicionar o usuário no banco de dados: " + response.code() + " - " + response.message());
                 }
             }
 
@@ -352,13 +353,14 @@ public class CadastroInfosSeguranca4 extends BaseActivity {
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
                 startActivity(intent);
-                finish();
+                finishAffinity();
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             } else {
                 binding.progressBar.setVisibility(View.GONE);
                 binding.nextButton.setEnabled(true);
                 binding.nextButton.setText("Avançar");
-                Toast.makeText(CadastroInfosSeguranca4.this, "Erro ao atualizar perfil no Firebase.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(CadastroInfosSeguranca4.this, "Erro ao atualizar perfil FBSE.", Toast.LENGTH_SHORT).show();
+                Log.e("POST_ERROR", "Erro ao adicionar o usuário no Firebase: " + task.getException().getMessage());
             }
         });
     }
