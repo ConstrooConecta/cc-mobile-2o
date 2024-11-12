@@ -28,7 +28,8 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class AdapterMeusEnderecos extends RecyclerView.Adapter<AdapterMeusEnderecos.ViewHolder> {
+public class
+AdapterMeusEnderecos extends RecyclerView.Adapter<AdapterMeusEnderecos.ViewHolder> {
 
     private List<Endereco> enderecos;
     private Context context;
@@ -58,7 +59,7 @@ public class AdapterMeusEnderecos extends RecyclerView.Adapter<AdapterMeusEndere
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
+       if (user != null) {
             UsuarioRepository.getInstance().loadData(user.getEmail(), usuarios -> {
                 if (!usuarios.isEmpty()) {
                     Usuario usuario = usuarios.get(0);
@@ -76,9 +77,7 @@ public class AdapterMeusEnderecos extends RecyclerView.Adapter<AdapterMeusEndere
                         new AlertDialog.Builder(context)
                                 .setTitle("Confirmação de exclusão")
                                 .setMessage("Tem certeza de que deseja excluir este endereço?")
-                                .setPositiveButton("Sim", (dialog, which) -> {
-                                    excluirEndereco(endereco.getEnderecoUsuarioId(), position, holder);
-                                })
+                                .setPositiveButton("Sim", (dialog, which) -> excluirEndereco(endereco.getEnderecoUsuarioId(), position, holder))
                                 .setNegativeButton("Não", (dialog, which) -> holder.btnExcluir.setEnabled(true))
                                 .setOnCancelListener(dialog -> holder.btnExcluir.setEnabled(true))
                                 .show();

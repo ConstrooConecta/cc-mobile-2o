@@ -10,6 +10,7 @@ import android.widget.Toast;
 import com.example.construconecta_interdisciplinar_certo.R;
 import com.example.construconecta_interdisciplinar_certo.onboarding.CadastroEmail1;
 import com.example.construconecta_interdisciplinar_certo.onboarding.Login;
+import com.example.construconecta_interdisciplinar_certo.onboarding.PesquisaPotencialApp;
 import com.example.construconecta_interdisciplinar_certo.shop.home.Home;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -32,6 +33,12 @@ public class MainActivity extends BaseActivity {
 
     public void signUp(View view) {
         Intent intent = new Intent(MainActivity.this, CadastroEmail1.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
+
+    public void survey(View view) {
+        Intent intent = new Intent(MainActivity.this, PesquisaPotencialApp.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
