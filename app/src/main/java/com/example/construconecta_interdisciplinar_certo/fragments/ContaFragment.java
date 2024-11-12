@@ -126,10 +126,12 @@ public class ContaFragment extends Fragment {
 
         binding.viewAssinatura.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), PlanosActivity.class);
+            intent.putExtra("premium", aBoolean);
             startActivity(intent);
         });
         binding.textViewAssinaturas.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), PlanosActivity.class);
+            intent.putExtra("premium", aBoolean);
             startActivity(intent);
         });
 
