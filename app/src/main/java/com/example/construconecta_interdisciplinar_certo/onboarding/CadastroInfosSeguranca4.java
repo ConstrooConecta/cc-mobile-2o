@@ -317,7 +317,7 @@ public class CadastroInfosSeguranca4 extends BaseActivity {
                     // Tratar erro ao adicionar no banco
                     ButtonUtils.enableButton(CadastroInfosSeguranca4.this, binding.nextButton, binding.progressBar);
                     binding.nextButton.setText("Criar Conta");
-                    Toast.makeText(CadastroInfosSeguranca4.this, "Erro S4V3D4T4B4S3.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CadastroInfosSeguranca4.this, "Erro S4V3D4T4B4S3." + response.code() + " - " + response.message(), Toast.LENGTH_SHORT).show();
                     Log.e("POST_ERROR", "Erro ao adicionar o usuário no banco de dados: " + response.code() + " - " + response.message());
                 }
             }
