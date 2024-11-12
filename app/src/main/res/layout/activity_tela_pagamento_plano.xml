@@ -71,7 +71,8 @@
         android:layout_height="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/pixView1" />
+        app:layout_constraintTop_toTopOf="@+id/pixView1"
+        app:srcCompat="@drawable/pix_banco_central_brasil_logo_700c1b323c_seeklogo_com" />
 
     <TextView
         android:id="@+id/textView18"
@@ -86,7 +87,7 @@
         android:id="@+id/valorTotalPagamento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="R$"
+        android:text="R$ 12.90"
         android:textColor="#867151"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -115,6 +116,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
+        android:background="@drawable/error_button"
         android:text="CANCELAR PAGAMENTO"
         android:textColor="#F85F5F"
         android:textStyle="bold"

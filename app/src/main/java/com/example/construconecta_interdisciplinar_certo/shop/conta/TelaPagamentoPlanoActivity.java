@@ -45,6 +45,8 @@ public class TelaPagamentoPlanoActivity extends AppCompatActivity {
     }
 
     private void addPaymentPlan(PagamentoPlano pagamentoPlano) {
+        //DESATIVAR BOTÃO btnConfirmPayment1
+        binding.btnConfirmPayment1.setEnabled(false);
         String url = "https://cc-api-sql-qa.onrender.com/";
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(url)
