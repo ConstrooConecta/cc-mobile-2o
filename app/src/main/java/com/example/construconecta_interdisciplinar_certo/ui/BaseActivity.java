@@ -4,14 +4,20 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
-public abstract class BaseActivity extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
 
+public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        checkInternetConnection();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         checkInternetConnection();
     }
 
@@ -29,4 +35,3 @@ public abstract class BaseActivity extends AppCompatActivity {
         return activeNetwork != null && activeNetwork.isConnected();
     }
 }
-

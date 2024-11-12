@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="240dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:elevation="4dp">
+
+    <LinearLayout
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <!-- FrameLayout para sobrepor o ícone do coração na imagem -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Imagem do Produto -->
+            <ImageView
+                android:id="@+id/imagem_produto"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside" />
+
+
+            <!-- Botão de Favoritar (sobreposto à imagem) -->
+            <ImageView
+                android:id="@+id/imageViewFavorito"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="top|end"
+                android:layout_margin="8dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/favoritos" />
+        </FrameLayout>
+
+        <!-- Texto de Oferta -->
+        <TextView
+            android:id="@+id/textViewOferta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="#60B47C"
+            android:gravity="center"
+            android:text="OFERTA"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- Nome do Produto -->
+        <TextView
+            android:id="@+id/textViewNomeProduto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="Nome do Produto"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- Código do Produto -->
+        <TextView
+            android:id="@+id/textViewCodigoProduto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cód. 000000000"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp" />
+
+        <!-- Preço Antigo -->
+        <TextView
+            android:id="@+id/textViewPrecoAntigo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="R$ 00,00"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp" />
+
+        <!-- Preço Atual -->
+        <TextView
+            android:id="@+id/textViewPrecoAtual"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="R$ 00,00 cada"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- Informação de pagamento -->
+        <TextView
+            android:id="@+id/textViewPagamento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="à vista no cartão ou Pix"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

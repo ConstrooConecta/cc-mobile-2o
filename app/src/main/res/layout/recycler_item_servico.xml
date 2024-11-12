@@ -1,0 +1,58 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:elevation="4dp"
+    android:paddingRight="16dp">
+
+    <LinearLayout
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <!-- Imagem do serviço -->
+        <ImageView
+            android:id="@+id/imageViewServico"
+            android:layout_width="170dp"
+            android:layout_height="150dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/logoconstroo" />
+
+        <!-- Nome do serviço -->
+        <TextView
+            android:id="@+id/textViewNomeServico"
+            android:layout_width="165dp"
+            android:layout_height="wrap_content"
+            android:text="Eletricista weeoiweweiweoweiwoe"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- Código do serviço -->
+        <TextView
+            android:id="@+id/textViewCodigoServico"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Código 12121"
+            android:textColor="#808080"
+            android:textSize="14sp" />
+
+        <!-- Faixa de preço -->
+        <TextView
+            android:id="@+id/textViewFaixaPreco"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="R$ 50 - 4.131"
+            android:textSize="14sp" />
+
+        <!-- Preço médio -->
+        <TextView
+            android:id="@+id/textViewPrecoMedio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="R$ 177,87 Preço médio"
+            android:textColor="@color/design_default_color_primary"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

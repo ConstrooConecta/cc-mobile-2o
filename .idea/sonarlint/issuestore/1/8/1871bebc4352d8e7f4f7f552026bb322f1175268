@@ -1,21 +1,19 @@
 
-’
-java:S1450"VRemove the "mParam1" field and declare it as a local variable in the relevant methods.(•Íï‘J$bed1d879-1f54-4313-b18e-b13c335b3800
-’
-java:S1450 "VRemove the "mParam2" field and declare it as a local variable in the relevant methods.(¡ˆ€ J$0cc0f59d-f465-43b1-9091-a5625ddb7ea7
-s
-java:S1135"2Complete the task associated to this TODO comment.(ÜûŠ—øÿÿÿÿJ$61dffa9c-89e9-4741-8e58-8ecd67ff4d24
-s
-java:S1135"2Complete the task associated to this TODO comment.(ğï¢öúÿÿÿÿJ$95ce59eb-4916-410f-9e41-38895c711f2e
-s
-java:S1135."2Complete the task associated to this TODO comment.(ßíŠÿÿÿÿÿJ$284a4738-fe3e-49a5-8832-436f1f754c07
-{
-java:S1874V"3Remove this use of "NetworkInfo"; it is deprecated.(Õ¥—ãùÿÿÿÿ8ƒÅûØ£2J$f6ff69f8-2afe-4543-9509-d6a06465abdd
-^
-java:S1874V"<Remove this use of "getActiveNetworkInfo"; it is deprecated.(Õ¥—ãùÿÿÿÿ8»îşØ£2
-{
-java:S1874W"3Remove this use of "isConnected"; it is deprecated.(‡ıŒŞøÿÿÿÿ8„ÅûØ£2J$3336eaf0-5c24-4f76-ade6-4cb84a9024fb
-g
-java:S1068"+Remove this unused "mParam1" private field.(•Íï‘J$f44a34c7-2265-4ad9-b38f-68f29fe64f51
-g
-java:S1068 "+Remove this unused "mParam2" private field.(¡ˆ€ J$888c35ed-08e2-400e-9045-101ad991a10e
+—
+java:S1659"ODeclare "recyclerViewOferta" and all following declarations on a separate line.(¯¨À•úÿÿÿÿ8æçÄÉ®2J$6ee3d556-37c6-491f-bf1e-a984ad146ba1
+
+java:S1659 "KDeclare "produtosOferta" and all following declarations on a separate line.(­¶ˆˆ8ççÄÉ®2J$12a6ef7d-ff09-4e23-9bd7-39cbbb6ac7da
+Š
+java:S1659""GDeclare "textView13" and all following declarations on a separate line.(¥¿ûâ8ççÄÉ®2J$90b4529f-8dc4-4e2c-afff-318479312b02
+
+java:S1450"VRemove the "adapter" field and declare it as a local variable in the relevant methods.(ï½Œÿşÿÿÿÿ8èçÄÉ®2J$c7a4d83b-0a05-4a15-993e-8c1ef63152ef
+¤
+java:S1450"\Remove the "adapterNoTopo" field and declare it as a local variable in the relevant methods.(åÅ¨ãşÿÿÿÿ8éçÄÉ®2J$b6c6cc78-546e-4241-ab02-7b4b05ee061d
+Ÿ
+java:S1450"\Remove the "adapterOferta" field and declare it as a local variable in the relevant methods.(šîÙŸ8éçÄÉ®2J$e895c89b-795b-4454-b80d-76ff1a8badb5
+š
+java:S1450 "WRemove the "produtos" field and declare it as a local variable in the relevant methods.(­¶ˆˆ8éçÄÉ®2J$88bc9655-126e-4d42-b0f2-473401fc76ca
+ 
+java:S1450 "]Remove the "produtosNoTopo" field and declare it as a local variable in the relevant methods.(­¶ˆˆ8éçÄÉ®2J$325ba515-509b-4b56-97cf-660fab9f45bd
+ 
+java:S1450 "]Remove the "produtosOferta" field and declare it as a local variable in the relevant methods.(­¶ˆˆ8êçÄÉ®2J$03f383bd-ed9b-4aa0-9436-851408e15ef5

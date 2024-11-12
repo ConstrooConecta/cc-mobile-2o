@@ -10,21 +10,27 @@
         android:state_checked="true"
         android:title="Início" />
     <item
+        android:id="@+id/categorias"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:title="Contratar"
+        android:icon="@drawable/categorias"
+        android:title="Categorias" />
+    <item
+        android:id="@+id/contratar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:icon="@drawable/contratar"
-        android:id="@+id/contratar"/>
+        android:title="Contratar" />
     <item
+        android:id="@+id/carrinho"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:title="Favoritos"
-        android:icon="@drawable/baseline_notifications_none_24"
-        android:id="@+id/favoritos"/>
+        android:icon="@drawable/carrinhovazio"
+        android:title="Carrinho" />
     <item
+        android:id="@+id/conta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:title="Conta"
         android:icon="@drawable/profile"
-        android:id="@+id/conta"/>
+        android:title="Conta" />
 </menu>

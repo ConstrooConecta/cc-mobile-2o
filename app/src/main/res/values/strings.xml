@@ -1,3 +1,48 @@
 <resources>
     <string name="app_name">Constroo</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="politica_privacidade_texto">Esta Política de Privacidade descreve como coletamos, usamos e protegemos suas informações ao utilizar nosso aplicativo de compra e venda de materiais de construção e serviços. Ao acessar e utilizar o aplicativo, você concorda com os termos desta política.
+
+            \n\n
+1. Informações Coletadas
+Coletamos as seguintes informações para fornecer e melhorar nossos serviços:
+
+Informações de Cadastro: Nome, e-mail, número de telefone e endereço, para identificar e contatar você.
+Informações de Transação: Dados sobre as compras e vendas realizadas no aplicativo, como descrição do item ou serviço, valor e data.
+            \n\n
+Informações de Pagamento: Coletamos dados de pagamento através de parceiros terceiros para processar suas transações com segurança.
+Dados de Uso: Informações sobre o uso do aplicativo, como dispositivo, endereço IP, tipo de navegador, e comportamento de navegação.
+            \n\n
+2. Uso das Informações
+As informações coletadas são usadas para:
+
+Facilitar as transações de compra e venda de materiais e serviços.
+Melhorar e personalizar a experiência do usuário.
+Enviar notificações sobre transações, atualizações e promoções.
+Responder a dúvidas e prestar suporte ao usuário.
+            \n\n
+3. Compartilhamento de Informações
+Podemos compartilhar suas informações com:
+
+Parceiros de pagamento: para processar as transações de maneira segura.
+Prestadores de serviços: que nos ajudam a operar o aplicativo, como provedores de hospedagem e serviços de análise.
+Autoridades legais: quando exigido por lei ou para proteger nossos direitos e segurança.
+            \n\n
+4. Segurança das Informações
+Adotamos medidas de segurança para proteger seus dados contra acesso não autorizado. Entretanto, nenhuma transmissão de dados pela internet é completamente segura, e não podemos garantir a segurança absoluta das informações transmitidas.
+\n\n
+5. Seus Direitos
+Você tem direito a:
+
+Acessar, corrigir ou excluir suas informações pessoais.
+Solicitar uma cópia das informações que temos sobre você.
+Revogar seu consentimento para o uso de dados, quando aplicável.
+            \n\n
+6. Alterações na Política
+Podemos atualizar esta Política de Privacidade periodicamente. Notificaremos sobre mudanças através de uma atualização no aplicativo ou por outros meios. Recomendamos revisar esta política regularmente.
+\n\n
+7. Contato
+Se tiver dúvidas ou preocupações sobre esta Política de Privacidade, entre em contato conosco através do e-mail: suporte@exemplo.com..</string>
+
 </resources>

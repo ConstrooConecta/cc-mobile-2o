@@ -4,16 +4,96 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-feature android:name="android.hardware.camera.any" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_constroo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_constroo_background"
+        android:roundIcon="@mipmap/ic_constroo"
         android:supportsRtl="true"
         android:theme="@style/Theme.ConstruConecta_Interdisciplinar_Certo"
         tools:targetApi="31">
+        <activity
+            android:name=".shop.conta.MeusEnderecosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".shop.conta.MeusPedidosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".checkout.EscolhaEnderecoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".shop.conta.AnunciarServicoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".shop.conta.TelaPagamentoPlanoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".shop.conta.PlanosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".shop.conta.EditarDadosSeguranca"
+            android:exported="false" />
+        <activity
+            android:name=".shop.conta.EditarDadosPessoaisActivity"
+            android:exported="false" />
+        <activity
+            android:name=".shop.conta.PoliticaPrivacidadeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".shop.contratar.RecyclerServicosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".shop.contratar.DetalheServicoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AnunciarProdutoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".shop.categoria.ProdutoCategoriaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".checkout.TipoDeEntregaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".checkout.CadastroEnderecoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".checkout.PedidoConcluidoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".checkout.CarregamentoCompraActivity"
+            android:exported="false" />
+        <activity
+            android:name=".checkout.PagamentoQrCodeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".checkout.MetodosPagamento"
+            android:exported="false" />
+        <activity
+            android:name=".ui.AtualizacoesFuturas"
+            android:exported="false" />
+        <activity
+            android:name=".shop.home.DetalhesProdutosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".onboarding.CameraActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.InternetErrorActivity"
             android:exported="true"
@@ -34,24 +114,22 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".onboarding.ValidacaoCodigo"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".ui.MainActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".onboarding.TelaLogin1"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".onboarding.CadastroEmail1"
+            android:name=".onboarding.Login"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".Home"
+            android:name=".onboarding.CadastroEmail1"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.ConstruConecta_Interdisciplinar_Certo"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".shop.home.Home"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
@@ -60,16 +138,10 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <receiver android:name=".receivers.NetworkReceiver" android:exported="false">
-            <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
-            </intent-filter>
-        </receiver>
-
     </application>
 
 </manifest>

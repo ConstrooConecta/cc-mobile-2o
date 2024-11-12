@@ -1,0 +1,22 @@
+
+Ά
+java:S30084"_Rename this field "REQUIRED_PERMISSIONS" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰πβΤ8ΜΞΐσ®2J$8fce6eb5-bff8-491b-8968-5a663e8be2fc
+W
+java:S1854V":Remove this useless assignment to local variable "btFoto".(Β¤…8ιωρσ®2
+H
+java:S1481V"+Remove this unused "btFoto" local variable.(Β¤…8νωρσ®2
+M
+java:S1481g"+Remove this unused "intent" local variable.(ύοΈόÿÿÿÿ8ρωρσ®2
+}
+java:S3923h"[Remove this conditional structure or edit its code blocks so that they're not all the same.(©Ό•ΐόÿÿÿÿ8ςωρσ®2
+•	java:S100p"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒª“«ώÿÿÿÿ8Οΐσ®2J$a9e52ac4-a22a-4094-be0b-e5f3761a2537
+
+java:S1874|">Remove this use of "startActivityForResult"; it is deprecated.(¤ό©Β8†Οΐσ®2J$f3e2d319-c244-49e2-b116-0845d791caa5
+
+java:S1874"JDon't override a deprecated method or explicitly mark it as "@Deprecated".(ΉΡ8‡Οΐσ®2J$0e994eef-9a99-4a18-9cc7-1aec8b99f2b0
+n
+java:S1874…"+Remove this use of "get"; it is deprecated.(¶υμ>8‰Οΐσ®2J$fd215ff4-f5d3-4620-b5a3-d7165e956e65
+o
+java:S10681"'Remove this unused "TAG" private field.(„γ«‘ώÿÿÿÿ8ªΟΐσ®2J$004f3136-6452-44d3-ba57-770df41e15af
+v
+java:S10682"3Remove this unused "FILENAME_FORMAT" private field.(—«”Ϊ8«Οΐσ®2J$0aa27341-3a20-4ba3-8c00-0001445e7dc1

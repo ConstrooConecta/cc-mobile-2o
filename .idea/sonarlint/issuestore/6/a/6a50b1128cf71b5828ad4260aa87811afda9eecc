@@ -1,21 +1,19 @@
 
-’
-java:S1450"VRemove the "mParam1" field and declare it as a local variable in the relevant methods.(•Íï‘J$3fd58374-1731-41f7-aa9e-82caae114077
-’
-java:S1450 "VRemove the "mParam2" field and declare it as a local variable in the relevant methods.(¡ˆ€ J$84a7cd9d-5d0d-4f1b-9d92-ca93086be6c0
-s
-java:S1135"2Complete the task associated to this TODO comment.(ÜûŠ—øÿÿÿÿJ$6d320297-87de-42cd-9227-9a76410908bc
-s
-java:S1135"2Complete the task associated to this TODO comment.(ğï¢öúÿÿÿÿJ$290f088b-b6ec-49cb-926b-df614d6c4ab8
-s
-java:S1135."2Complete the task associated to this TODO comment.(ßíŠÿÿÿÿÿJ$cdb7a5ab-cfb8-4516-8223-e67c1c93e0eb
-{
-java:S1874V"3Remove this use of "NetworkInfo"; it is deprecated.(Õ¥—ãùÿÿÿÿ8øòúØ£2J$f0882887-d64d-4152-9485-2a8472e61793
-„
-java:S1874V"<Remove this use of "getActiveNetworkInfo"; it is deprecated.(Õ¥—ãùÿÿÿÿ8øòúØ£2J$d9673630-40ad-437a-90f8-1ea99cda098c
-{
-java:S1874W"3Remove this use of "isConnected"; it is deprecated.(‡ıŒŞøÿÿÿÿ8øòúØ£2J$2c9b8219-fac7-4c7f-bcce-340b5be2e88a
-g
-java:S1068"+Remove this unused "mParam1" private field.(•Íï‘J$1d1e9095-58f7-4c31-abf0-30001ad7eea2
-g
-java:S1068 "+Remove this unused "mParam2" private field.(¡ˆ€ J$073c5607-e82c-4f73-aad9-581eb0ba19f0
+™	java:S117š"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êìØèúÿÿÿÿ8½—àÊ®2J$a2b8aa33-98f8-4ce1-b722-cdc071e18e8e
+E
+java:S1604o"(Make this anonymous inner class a lambda(šÆÖ8ÆıÖ®¯2
+É
+java:S1186A"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Í¤¬Ûüÿÿÿÿ8ÁáŞÊ®2J$ee8b6f42-4f4f-427c-ac14-57dfb4fe8e5a
+™
+java:S16599"QDeclare "recyclerCategoriaSer" and all following declarations on a separate line.(åÉõùÿÿÿÿ8™‰—Ë®2J$8eabaa0c-c42e-4fbf-a099-f7ef5900bffa
+Š
+java:S1659<"GDeclare "textView40" and all following declarations on a separate line.(®×ê™8ıÿ—Ë®2J$f45a699e-9528-49dc-9a04-56f7512f0aca
+
+java:S1450?"VRemove the "adapter" field and declare it as a local variable in the relevant methods.(×ğòûÿÿÿÿ8ÆáŞÊ®2J$be9e346d-e108-4eaa-8dbd-f18c0186b072
+|
+java:S1874•"3Remove this use of "NetworkInfo"; it is deprecated.(Õ¥—ãùÿÿÿÿ8ô®ÛÊ®2J$f89f76d2-2988-4284-8509-fcc46cf6e1ce
+…
+java:S1874•"<Remove this use of "getActiveNetworkInfo"; it is deprecated.(Õ¥—ãùÿÿÿÿ8ëáŞÊ®2J$b97c17f6-40f4-479e-b627-c49ace85bb0e
+|
+java:S1874–"3Remove this use of "isConnected"; it is deprecated.(‡ıŒŞøÿÿÿÿ8ìáŞÊ®2J$237df8de-95db-4289-aa14-122854690525
+–	java:S100Ê"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„Êê¥ûÿÿÿÿ8öáŞÊ®2J$3bf8fe7b-a8da-4676-9623-851ba50db358

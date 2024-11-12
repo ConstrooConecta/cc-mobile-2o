@@ -1,88 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="16dp"
     android:background="#C5C1C1"
     android:padding="16dp"
-    app:cardCornerRadius="20dp">
+    app:cardCornerRadius="5dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FFFFFF"
-        android:padding="16dp">
+        android:padding="15dp">
+
+        <ImageView
+            android:id="@+id/fotoProdutoCard"
+            android:layout_width="107dp"
+            android:layout_height="149dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logoconstroo" />
 
         <TextView
             android:id="@+id/nomeProduto"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="16dp"
-            android:layout_toRightOf="@id/foto"
-            android:text="..."
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/foto"
+            android:layout_width="wrap_content"
+            android:layout_height="26dp"
+            android:layout_marginStart="20dp"
+            android:text="Nome produto"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/Codigo"
+            app:layout_constraintStart_toEndOf="@id/fotoProdutoCard"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/Codigo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/nomeProduto"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_toRightOf="@+id/foto"
-            android:text="..."
-            android:textColor="@color/white"
+            android:layout_marginStart="20dp"
+            android:text="Código"
+            android:textColor="#000000"
             android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/foto"
+            app:layout_constraintBottom_toTopOf="@+id/Preco"
+            app:layout_constraintStart_toEndOf="@id/fotoProdutoCard"
             app:layout_constraintTop_toBottomOf="@+id/nomeProduto" />
-
-        <RatingBar
-            android:id="@+id/ratingBar"
-            android:layout_width="197dp"
-            android:layout_height="16dp"
-            android:layout_marginStart="7dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toEndOf="@+id/view"
-            app:layout_constraintTop_toBottomOf="@+id/Codigo" />
 
         <TextView
             android:id="@+id/Preco"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
             android:text="R$ "
-            app:layout_constraintStart_toEndOf="@+id/view"
-            app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/Desconto"
+            app:layout_constraintStart_toEndOf="@id/fotoProdutoCard"
+            app:layout_constraintTop_toBottomOf="@+id/Codigo" />
 
-        <View
-            android:id="@+id/view"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_marginTop="1dp"
-            android:layout_marginEnd="236dp"
-            android:background="#F3F3F3"
-            android:backgroundTint="#F3F3F3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/Desconto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
+            android:text="R$ Desconto"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toTopOf="@+id/textView6"
+            app:layout_constraintStart_toEndOf="@id/fotoProdutoCard"
+            app:layout_constraintTop_toBottomOf="@+id/Preco" />
 
-        <ImageView
-            android:id="@+id/foto"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:scaleType="fitCenter"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/nomeProduto"
-            app:srcCompat="@drawable/logoconstroo" />
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
+            android:text="à vista no cartão ou Pix"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/fotoProdutoCard"
+            app:layout_constraintTop_toBottomOf="@+id/Desconto" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

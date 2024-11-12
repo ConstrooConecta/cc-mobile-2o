@@ -1,18 +1,32 @@
 package com.example.construconecta_interdisciplinar_certo.onboarding;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Toast;
+
 import com.example.construconecta_interdisciplinar_certo.R;
+import com.example.construconecta_interdisciplinar_certo.apis.UsuarioApi;
 import com.example.construconecta_interdisciplinar_certo.databinding.ActivityCadastroTelefone2Binding;
+import com.example.construconecta_interdisciplinar_certo.models.Usuario;
 import com.example.construconecta_interdisciplinar_certo.ui.BaseActivity;
+import com.example.construconecta_interdisciplinar_certo.utils.AnimationUtils;
+import com.example.construconecta_interdisciplinar_certo.utils.ButtonUtils;
+import com.example.construconecta_interdisciplinar_certo.utils.InputUtils;
 import com.google.android.material.textfield.TextInputEditText;
 
-public class CadastroTelefone2 extends BaseActivity {
+import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+public class CadastroTelefone2 extends BaseActivity {
     // Criando o objeto binding
     private ActivityCadastroTelefone2Binding binding;
     private boolean isUpdating;
@@ -25,24 +39,22 @@ public class CadastroTelefone2 extends BaseActivity {
         binding = ActivityCadastroTelefone2Binding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // Desabilitando botão de avançar
-        binding.nextButton.setEnabled(false);
-        binding.nextButton.setBackgroundResource(R.drawable.disable_button_design);
+        ButtonUtils.disableButton(this, binding.nextButton, binding.progressBar);
 
         // Formatação e validação de Telefone em Tempo Real
         binding.telefoneInput.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 validatePhone(s.toString());
-
-                if (isUpdating) { return; }
-
+                if (isUpdating) {
+                    return;
+                }
                 isUpdating = true;
                 String unformatted = s.toString().replaceAll("[^\\d]", ""); // Remove tudo que não for número
-
                 if (unformatted.length() > 11) {
                     unformatted = unformatted.substring(0, 11); // Limita a 11 dígitos
                 }
@@ -70,21 +82,19 @@ public class CadastroTelefone2 extends BaseActivity {
                 if (selectionPosition > binding.telefoneInput.getText().length()) {
                     selectionPosition = binding.telefoneInput.getText().length();
                 }
-
                 binding.telefoneInput.setSelection(selectionPosition); // Define a posição da seleção corretamente
                 isUpdating = false;
-
             }
 
             @Override
-            public void afterTextChanged(Editable s) { formatedPhone = formattingPhone(binding.telefoneInput); }
+            public void afterTextChanged(Editable s) {
+                formatedPhone = formattingPhone(binding.telefoneInput);
+            }
         });
-
         // Configurando o botão de voltar
         binding.backButton.setOnClickListener(this::backToPreviousScreen);
-
         // Configurando o botão de avançar
-        binding.nextButton.setOnClickListener(this::nextPage);
+        binding.nextButton.setOnClickListener(v -> validatePhoneDataBase());
     }
 
     // Voltar para a tela anterior
@@ -94,7 +104,7 @@ public class CadastroTelefone2 extends BaseActivity {
     }
 
     // Avançar para a próxima página de cadastro
-    public void nextPage(View view) {
+    public void nextPage() {
         Intent intent = new Intent(CadastroTelefone2.this, CadastroInfosPessoais3.class);
         // Criando Bundle
         Bundle bundle = new Bundle();
@@ -117,15 +127,67 @@ public class CadastroTelefone2 extends BaseActivity {
 
     // Método de validação de telefone
     private void validatePhone(String telefone) {
+        InputUtils.setNormal(this, binding.telefoneInputLayout, binding.telefoneInput, binding.telefoneErrorText);
+        binding.DDDText.setTextColor(Color.parseColor("#B6B6B6"));
         if (telefone.length() == 15) {
-            binding.nextButton.setEnabled(true);
-            binding.nextButton.setBackgroundResource(R.drawable.primary_button_design);
+            ButtonUtils.enableButton(this, binding.nextButton, binding.progressBar);
         } else {
-            binding.nextButton.setEnabled(false);
-            binding.nextButton.setBackgroundResource(R.drawable.disable_button_design);
+            ButtonUtils.disableButton(this, binding.nextButton, binding.progressBar);
         }
     }
 
+    // Método para validar a existência do telefone no banco de dados
+    private void validatePhoneDataBase() {
+        // Desabilitar o botão nextButton e o campo telefoneInput
+        InputUtils.setNormal(this, binding.telefoneInputLayout, binding.telefoneInput, binding.telefoneErrorText);
+        InputUtils.disableInput(binding.telefoneInput);
+        ButtonUtils.disableButtonWithProgressBar(this, binding.nextButton, binding.progressBar);
+        binding.DDDText.setTextColor(Color.parseColor("#B6B6B6"));
+
+        String url = "https://cc-api-sql-qa.onrender.com/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        UsuarioApi usuarioApi = retrofit.create(UsuarioApi.class);
+        Call<List<Usuario>> call = usuarioApi.findByTelefone(formatedPhone);
+
+        call.enqueue(new Callback<List<Usuario>>() {
+            @Override
+            public void onResponse(Call<List<Usuario>> call, Response<List<Usuario>> response) {
+                // Habilitar o botão nextButton e o campo telefoneInput após a resposta
+                InputUtils.enableInput(binding.telefoneInput);
+                ButtonUtils.enableButton(CadastroTelefone2.this, binding.nextButton, binding.progressBar);
+                binding.telefoneErrorText.setVisibility(View.VISIBLE);
+                if (response.isSuccessful()) {
+                    AnimationUtils.shakeAnimation(binding.telefoneInputLayout);
+                    AnimationUtils.shakeAnimation(binding.telefoneErrorText);
+                    AnimationUtils.shakeAnimation(binding.DDDText);
+                    InputUtils.setError(CadastroTelefone2.this, binding.telefoneInputLayout, binding.telefoneInput, binding.telefoneErrorText, "");
+                    binding.DDDText.setTextColor(Color.parseColor("#EC7979"));
+                    if (response.body() != null && !response.body().isEmpty()) {
+                        InputUtils.setError(CadastroTelefone2.this, binding.telefoneInputLayout, binding.telefoneInput, binding.telefoneErrorText, "Telefone já cadastrado. Faça login ou tente com um novo número.");
+                    } else {
+                        InputUtils.setError(CadastroTelefone2.this, binding.telefoneInputLayout, binding.telefoneInput, binding.telefoneErrorText, "Erro ao verificar o telefone. Tente novamente ou contate o suporte.");
+                    }
+                } else {
+                    binding.telefoneErrorText.setVisibility(View.GONE);
+                    nextPage();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Usuario>> call, Throwable throwable) {
+                // Habilitar o botão nextButton e o campo telefoneInput em caso de falha
+                InputUtils.enableInput(binding.telefoneInput);
+                ButtonUtils.enableButton(CadastroTelefone2.this, binding.nextButton, binding.progressBar);
+                InputUtils.setError(CadastroTelefone2.this, binding.telefoneInputLayout, binding.telefoneInput, binding.telefoneErrorText, "");
+                Toast.makeText(CadastroTelefone2.this, "Falha na conexão com o servidor.", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
     // Formatando telefone para envio à API
     private String formattingPhone(TextInputEditText telefone) {
@@ -135,5 +197,4 @@ public class CadastroTelefone2 extends BaseActivity {
                 .replace("-", "")
                 .replace(" ", "");
     }
-
 }

@@ -1,0 +1,73 @@
+
+	java:S112ª"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8æ‡İ–°2J$a4842f35-9f64-44b5-b5e9-fbcf90bca025
+
+java:S1192b"JDefine a constant instead of duplicating this literal "produtos/" 3 times.(û¯áà8í‡İ–°2J$8e944be1-c25d-4f09-b8a6-22cd084901a1
+™	java:S117Ü"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êìØèúÿÿÿÿ8ó‡İ–°2J$ad2513e2-501a-4197-8417-5487c9ca2311
+l
+java:S5411Ò"(Use a primitive boolean expression here.(Òõ8ü‡İ–°2J$e55096b9-00e2-4dfc-aee8-3bc6a50df157
+³
+java:S1598"This file "AnunciarProdutoActivity.java" should be located in "com\example\construconecta_interdisciplinar_certo" directory, not in "C:\Users\kauasantos-ieg\AndroidStudioProjects\cc-mobile-2o\app\src\main\java\com\example\construconecta_interdisciplinar_certo\shop\conta".(§×äÿúÿÿÿÿ8ÏÓú–°2
+
+java:S16594"KDeclare "validacaoPreco" and all following declarations on a separate line.(Õ¤êü8Ôˆİ–°2J$6c0cc6de-002b-43b6-bd12-47aa873b89eb
+p
+java:S1659="/Declare "viewCondicaoUsado" on a separate line.(á‘™æøÿÿÿÿJ$109c52ad-e9e0-44c2-acb1-9bd5480529d4
+k
+java:S1659>"#Declare "usado" on a separate line.(×ñ¨±ùÿÿÿÿ8Õˆİ–°2J$592475ee-a78c-4d85-b72d-89739dfe69eb
+¤
+java:S1450?"\Remove the "botaoANUNCIAR" field and declare it as a local variable in the relevant methods.(±µŸøÿÿÿÿ8Ùˆİ–°2J$352d839d-0bbf-43ac-9705-1ad048f8fa89
+”
+java:S1450>"SRemove the "novo" field and declare it as a local variable in the relevant methods.(×ñ¨±ùÿÿÿÿJ$74e844fb-3ac4-4482-b0a8-4d8d29ddc294
+œ
+java:S1450>"TRemove the "usado" field and declare it as a local variable in the relevant methods.(×ñ¨±ùÿÿÿÿ8ßˆİ–°2J$5dd0747b-1f0e-4cd3-b626-62e0f21e2c0a
+ 
+java:S1450="_Remove the "viewCondicaoNovo" field and declare it as a local variable in the relevant methods.(á‘™æøÿÿÿÿJ$965e71d9-a7de-44f2-b0ce-7054f7bfbc6b
+¡
+java:S1450="`Remove the "viewCondicaoUsado" field and declare it as a local variable in the relevant methods.(á‘™æøÿÿÿÿJ$c049d7cd-5fbe-4235-a276-bafacf22a789
+š
+java:S3776C"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(¨Œşÿÿÿÿ8ôˆİ–°2J$d3aacfa3-02bd-4875-be36-b97257d7e1c3
+k
+java:S1874d"/Remove this use of "Handler"; it is deprecated.(êğÅ¥J$df034862-bf36-4ad9-a054-72fbed8f707b
+w
+java:S1874e"/Remove this use of "Handler"; it is deprecated.(¤ƒ–Şşÿÿÿÿ8—‰İ–°2J$d5de39cd-0a95-43ad-a3b5-f26055b2ca9c
+N
+java:S1874€"0Remove this use of "getColor"; it is deprecated.(ğ‘ñˆ8³Ôú–°2
+S
+java:S1874"0Remove this use of "getColor"; it is deprecated.(¸ï«àøÿÿÿÿ8´Ôú–°2
+Å
+java:S1186—"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(«û³±8¦‰İ–°2J$136dbbe5-24a7-43a5-9717-4ac30ddcaf8e
+Å
+java:S1186±"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(«û³±8¯‰İ–°2J$88b982d0-055a-4600-a3f4-f10b2d9ee47e
+Å
+java:S1186º"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(±¾ê8°‰İ–°2J$ca33c117-3a66-4a18-82aa-065e85012701
+Ä
+java:S1186Ä"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ô—½48µ‰İ–°2J$22ad61b0-189c-4e78-bdb8-8c11f74cc15b
+Å
+java:S1186Ò"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(íÑíÍ8¶‰İ–°2J$f188b108-b16e-42db-a984-f82afaaa3850
+Ä
+java:S1186Ø"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ô—½48½‰İ–°2J$cbb5bfa4-ecf4-4dc6-b58f-a85f70b3e3d3
+Å
+java:S1186à"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(íÑíÍ8½‰İ–°2J$c808f8b1-4bc5-4d76-8405-219b89c1b5d8
+Ä
+java:S1186ä"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ô—½48Ä‰İ–°2J$4942f561-1419-4c28-afed-391102c625e6
+Å
+java:S1186ì"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(íÑíÍ8Ä‰İ–°2J$32680013-5f0f-45f8-8c03-98de87be62b2
+r
+java:S2140Ä")Use "java.util.Random.nextInt()" instead.(îå”˜øÿÿÿÿ8á‰İ–°2J$c6d027a7-2f0b-44f5-82d6-e8a44eb50cda
+s
+java:S1874‘"/Remove this use of "Handler"; it is deprecated.(’Ú©Š8ü‰İ–°2J$736cb09e-4842-4a41-89f4-69b7f5d29a51
+u
+java:S1602’",Remove useless curly braces around statement(İØ úÿÿÿÿ8ş‰İ–°2J$c6a85fb4-5c44-45ca-9dcd-eb176e7234e3
+e
+java:S1612’"BReplace this lambda with method reference 'Activity.this::finish'.(İØ úÿÿÿÿ8æÔú–°2
+”
+java:S3252"PUse static access with "android.view.ViewGroup$LayoutParams" for "WRAP_CONTENT".(ŒŠ‚8ªŠİ–°2J$7abd6575-67f5-4ddd-a842-cef2877d87b5
+s
+java:S1874 "/Remove this use of "Handler"; it is deprecated.(¬Ë„Ë8¬Šİ–°2J$a6c4eb4c-eebe-464e-b9e8-b42f44685295
+
+java:S10683"7Remove this unused "contadorVerificacao" private field.(´’äÜşÿÿÿÿ8¯Šİ–°2J$7e5abdf1-3e76-4d93-8028-68366cea4585
+r
+java:S1068Á".Remove this unused "isUpdating" private field.(§ë¡÷8¯Šİ–°2J$6fb1519d-cfcf-4038-a9e7-b79ad3485d1c
+r
+java:S1068Õ".Remove this unused "isUpdating" private field.(§ë¡÷8°Šİ–°2J$9957eb05-822b-463a-9233-f8a5fe2d39b3
+r
+java:S1144£".Remove this unused private "openConta" method.(ÄÅ®ƒ8±Šİ–°2J$062ebd8c-c4f0-4666-9508-d2d00b328f65

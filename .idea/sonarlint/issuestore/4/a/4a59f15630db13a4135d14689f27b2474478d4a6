@@ -1,21 +1,28 @@
 
-’
-java:S1450"VRemove the "mParam1" field and declare it as a local variable in the relevant methods.(•Íï‘J$a4cec262-70ed-48bf-8556-f90206b4daa6
-’
-java:S1450 "VRemove the "mParam2" field and declare it as a local variable in the relevant methods.(¡ˆ€ J$0bc5a806-fe27-420d-9cf0-13d87b2d3e9c
-s
-java:S1135"2Complete the task associated to this TODO comment.(ÜûŠ—øÿÿÿÿJ$9846c9b2-7e9c-4eb2-97e1-755a4638dc2f
-s
-java:S1135"2Complete the task associated to this TODO comment.(ğï¢öúÿÿÿÿJ$52174106-e56e-4936-8527-310940197f1d
-s
-java:S1135."2Complete the task associated to this TODO comment.(ßíŠÿÿÿÿÿJ$59274501-9c99-453b-b6b4-5f62189740d9
-{
-java:S1874V"3Remove this use of "NetworkInfo"; it is deprecated.(Õ¥—ãùÿÿÿÿ8á¸úØ£2J$1b5a13b1-b905-4c74-86ed-3f2100c22c7c
-„
-java:S1874V"<Remove this use of "getActiveNetworkInfo"; it is deprecated.(Õ¥—ãùÿÿÿÿ8â¸úØ£2J$073d4c67-b1d5-4532-9ee9-0e659970dfcc
-{
-java:S1874W"3Remove this use of "isConnected"; it is deprecated.(‡ıŒŞøÿÿÿÿ8â¸úØ£2J$ca58bc9f-a194-41fe-879d-dc0909c525df
-g
-java:S1068"+Remove this unused "mParam1" private field.(•Íï‘J$5338ae7e-e346-4afe-80f2-310a1ad654a5
-g
-java:S1068 "+Remove this unused "mParam2" private field.(¡ˆ€ J$3b31a7d4-bf20-4e00-a6ae-86c2262df548
+M
+java:S1066±"/Merge this if statement with the enclosing one.(È¿éˆ8ÔÄª¤°2
+™	java:S117¢"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êìØèúÿÿÿÿ8±”™¤°2J$ac99b40e-208a-4afa-8475-886f3824a676
+q
+java:S1604Í"(Make this anonymous inner class a lambda(õª¥”ÿÿÿÿÿ8²”™¤°2J$cfc79134-b42f-4203-bda5-5302cd81742b
+}
+java:S1659E"5Declare "viewPoliticaPrivacidade" on a separate line.(ıà„ÿÿÿÿÿ8‰•™¤°2J$188b9645-e272-44a1-a36a-10cd329fec65
+ 
+java:S1450F"XRemove the "botaoEdit" field and declare it as a local variable in the relevant methods.(Œ¸ûıÿÿÿÿ8Š•™¤°2J$f5a7e055-2467-4b2c-84d5-be0794f4385a
+¦
+java:S1450G"^Remove the "viewEditarDados" field and declare it as a local variable in the relevant methods.(äœÆÁøÿÿÿÿ8‹•™¤°2J$b37c8f74-9372-42ec-8c58-4a384383a546
+®
+java:S1450E"fRemove the "viewPoliticaPrivacidade" field and declare it as a local variable in the relevant methods.(ıà„ÿÿÿÿÿ8‹•™¤°2J$bf175a79-f3a9-4096-8f03-e13eb93a20b9
+¡
+java:S1450E"YRemove the "viewVender" field and declare it as a local variable in the relevant methods.(ıà„ÿÿÿÿÿ8Œ•™¤°2J$fbd90245-fbe6-4a29-ac01-74645fc614ce
+p
+java:S1602Ÿ",Remove useless curly braces around statement(¡ôØ8Ÿ•™¤°2J$628405ff-d4ae-4f62-a574-1d817f024dc5
+|
+java:S1874ì"3Remove this use of "NetworkInfo"; it is deprecated.(Õ¥—ãùÿÿÿÿ8¦•™¤°2J$c9c746f9-7415-4164-9ec9-7464613b15b1
+…
+java:S1874ì"<Remove this use of "getActiveNetworkInfo"; it is deprecated.(Õ¥—ãùÿÿÿÿ8¦•™¤°2J$c5b7846f-32f6-484b-aa35-7b3efa455934
+|
+java:S1874í"3Remove this use of "isConnected"; it is deprecated.(‡ıŒŞøÿÿÿÿ8¨•™¤°2J$da5fce6c-cf27-43ed-a627-8c34f9ba6b54
+–	java:S100ö"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„Êê¥ûÿÿÿÿ8¨•™¤°2J$7bb5229e-af1b-4067-a8b3-5b3abf3db673
+–	java:S100¡"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¨à®‡ûÿÿÿÿ8¯•™¤°2J$efa0214b-7b6c-453a-ad65-ee18ca101954
+›
+java:S3776¡"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(¨à®‡ûÿÿÿÿ8°•™¤°2J$abe9a3c8-b69c-4df6-97be-fcb3305077e9

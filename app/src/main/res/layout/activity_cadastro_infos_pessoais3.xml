@@ -1,21 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".onboarding.CadastroEmail1">
 
+    <!-- Barra de progresso, status e botão voltar fixos no topo -->
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:background="#FFFFFF"
+        android:onClick="backToPreviousScreen"
+        app:layout_constraintEnd_toStartOf="@+id/progressBar1de4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_arrow_back_24" />
+
+    <ImageView
+        android:id="@+id/progressBar1de4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/statusDeProgresso1de4"
+        app:layout_constraintStart_toEndOf="@+id/backButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/progressbar3de4" />
+
+    <TextView
+        android:id="@+id/statusDeProgresso1de4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="@font/inter"
+        android:text="3/4"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/progressBar1de4"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <!-- Conteúdo rolável -->
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toTopOf="@id/buttonContainer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/progressBar1de4">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -28,126 +70,112 @@
                 android:layout_marginEnd="20dp"
                 android:background="#FFFFFF"
                 android:src="@drawable/calendaricon"
-                app:layout_constraintBottom_toBottomOf="@+id/dtNascimnetoInput"
-                app:layout_constraintEnd_toEndOf="@+id/dtNascimnetoInput"
-                app:layout_constraintTop_toTopOf="@+id/dtNascimnetoInput" />
-
-            <ImageView
-                android:id="@+id/progressBar1de4"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                app:layout_constraintBottom_toBottomOf="@+id/backButton"
-                app:layout_constraintEnd_toStartOf="@+id/statusDeProgresso1de4"
-                app:layout_constraintStart_toEndOf="@+id/backButton"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/progressbar3de4" />
-
-            <ImageButton
-                android:id="@+id/backButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:background="#FFFFFF"
-                android:onClick="backToPreviousScreen"
-                app:layout_constraintEnd_toStartOf="@+id/progressBar1de4"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/arrow_left" />
-
-            <TextView
-                android:id="@+id/statusDeProgresso1de4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:fontFamily="@font/inter"
-                android:text="3/4"
-                android:textColor="#000000"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="@+id/progressBar1de4"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.8"
-                app:layout_constraintStart_toEndOf="@+id/progressBar1de4"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintBottom_toBottomOf="@+id/dtNascimentoInputLayout"
+                app:layout_constraintEnd_toEndOf="@+id/dtNascimentoInputLayout"
+                app:layout_constraintTop_toTopOf="@+id/dtNascimentoInputLayout" />
 
             <TextView
                 android:id="@+id/title_cadastro1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="48dp"
+                android:layout_marginTop="300dp"
                 android:layout_marginEnd="20dp"
                 android:fontFamily="sans-serif-black"
                 android:text="Cadastre suas informações pessoais"
                 android:textColor="#000000"
                 android:textSize="26sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/progressBar1de4" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/nomeInput"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/nomeInputLayout"
+                style="@style/CustomTextInputTheme"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="10dp"
-                android:background="@drawable/inputdesign"
-                android:ellipsize="end"
-                android:hint="Nome"
-                android:paddingLeft="20dp"
-                android:paddingEnd="20dp"
-                android:singleLine="true"
-                android:textColorHint="#B6B6B6"
-                app:layout_constraintEnd_toStartOf="@+id/sobrenomeInput"
-                app:layout_constraintHorizontal_bias="0.555"
+                app:layout_constraintEnd_toStartOf="@+id/sobrenomeInputLayout"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/title_cadastro1" />
+                app:layout_constraintTop_toBottomOf="@+id/title_cadastro1">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/sobrenomeInput"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/nomeInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:hint="Nome"
+                    android:maxLength="50"
+                    android:paddingLeft="20dp"
+                    android:paddingEnd="20dp"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textColorHint="#B6B6B6" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/sobrenomeInputLayout"
+                style="@style/CustomTextInputTheme"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:background="@drawable/inputdesign"
-                android:ellipsize="end"
-                android:hint="Sobrenome"
-                android:paddingLeft="20dp"
-                android:paddingEnd="20dp"
-                android:singleLine="true"
-                android:textColorHint="#B6B6B6"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/nomeInput"
-                app:layout_constraintTop_toBottomOf="@+id/title_cadastro1" />
+                app:layout_constraintStart_toEndOf="@+id/nomeInputLayout"
+                app:layout_constraintTop_toBottomOf="@+id/title_cadastro1">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/usernameInput"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/sobrenomeInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:hint="Sobrenome"
+                    android:maxLength="150"
+                    android:paddingLeft="20dp"
+                    android:paddingEnd="20dp"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textColorHint="#B6B6B6" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/usernameInputLayout"
+                style="@style/CustomTextInputTheme"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:background="@drawable/inputdesign"
-                android:ellipsize="end"
-                android:hint="Nome de Usuário"
-                android:maxLength="20"
-                android:paddingStart="45dp"
-                android:paddingLeft="20dp"
-                android:paddingEnd="20dp"
-                android:singleLine="true"
-                android:textColorHint="#B6B6B6"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/nomeInput" />
+                app:layout_constraintTop_toBottomOf="@+id/nomeInputLayout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/usernameInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:hint="Nome de Usuário"
+                    android:maxLength="20"
+                    android:paddingStart="50dp"
+                    android:paddingEnd="20dp"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textColorHint="#B6B6B6" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/indiceNomeUsuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="5dp"
+                android:text="\@"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/usernameInputLayout"
+                app:layout_constraintStart_toStartOf="@+id/usernameInputLayout"
+                app:layout_constraintTop_toTopOf="@+id/usernameInputLayout" />
 
             <ImageView
                 android:id="@+id/usernameStatus"
@@ -157,48 +185,61 @@
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="20dp"
                 android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="@+id/usernameInput"
-                app:layout_constraintEnd_toEndOf="@+id/usernameInput"
-                app:layout_constraintTop_toTopOf="@+id/usernameInput"
-                tools:src="@drawable/error_x" />
+                app:layout_constraintBottom_toBottomOf="@+id/usernameInputLayout"
+                app:layout_constraintEnd_toEndOf="@+id/usernameInputLayout"
+                app:layout_constraintTop_toTopOf="@+id/usernameInputLayout"
+                tools:src="@drawable/error_x"
+                tools:visibility="visible" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/dtNascimnetoInput"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/dtNascimentoInputLayout"
+                style="@style/CustomTextInputTheme"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:background="@drawable/inputdesign"
-                android:focusable="false"
-                android:hint="Data de nascimento"
-                android:inputType="none"
-                android:paddingLeft="20dp"
-                android:paddingEnd="20dp"
-                android:textColorHint="#B6B6B6"
-                android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/usernameInput" />
+                app:layout_constraintTop_toBottomOf="@+id/usernameInputLayout">
 
-            <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                android:id="@+id/generoInput"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/dtNascimentoInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:focusable="false"
+                    android:hint="Data de nascimento"
+                    android:inputType="none"
+                    android:maxLength="10"
+                    android:paddingLeft="20dp"
+                    android:paddingEnd="20dp"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textColorHint="#B6B6B6" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/generoInputLayout"
+                style="@style/CustomTextInputTheme"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:background="@drawable/inputdesign"
-                android:hint="Gênero"
-                android:inputType="none"
-                android:paddingLeft="20dp"
-                android:paddingEnd="20dp"
-                android:textColorHint="#B6B6B6"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/dtNascimnetoInput" />
+                app:layout_constraintTop_toBottomOf="@+id/dtNascimentoInputLayout">
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/generoInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:hint="Gênero"
+                    android:inputType="none"
+                    android:paddingLeft="20dp"
+                    android:paddingEnd="20dp"
+                    android:textColorHint="#B6B6B6" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -206,45 +247,53 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="20dp"
                 android:src="@drawable/baseline_keyboard_arrow_down_24"
-                app:layout_constraintBottom_toBottomOf="@+id/generoInput"
-                app:layout_constraintEnd_toEndOf="@+id/generoInput"
-                app:layout_constraintTop_toTopOf="@+id/generoInput" />
-
-            <TextView
-                android:id="@+id/textView7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginBottom="5dp"
-                android:text="\@"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="@+id/usernameInput"
-                app:layout_constraintStart_toStartOf="@+id/usernameInput"
-                app:layout_constraintTop_toTopOf="@+id/usernameInput" />
+                app:layout_constraintBottom_toBottomOf="@+id/generoInputLayout"
+                app:layout_constraintEnd_toEndOf="@+id/generoInputLayout"
+                app:layout_constraintTop_toTopOf="@+id/generoInputLayout" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
     <!-- Container do botão fixo -->
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/buttonContainer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:gravity="center"
-        android:padding="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/nextButton"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/primary_button_design"
-            android:onClick="nextPage"
             android:text="Avançar"
-            android:textColor="#FFFFFF"/>
-    </LinearLayout>
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:indeterminateTint="#FFFFFF"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/nextButton"
+            app:layout_constraintEnd_toEndOf="@+id/nextButton"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="@+id/nextButton"
+            app:layout_constraintTop_toTopOf="@+id/nextButton"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

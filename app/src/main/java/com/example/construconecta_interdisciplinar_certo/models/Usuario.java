@@ -33,9 +33,13 @@ public class Usuario {
         this.dataNascimento = dataNascimento;
     }
 
-    public String getUid() { return uid; }
+    public String getUid() {
+        return uid;
+    }
 
-    public void setUid(String uid) { this.uid = uid; }
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
 
     public String getCpf() {
         return cpf;
@@ -99,21 +103,5 @@ public class Usuario {
 
     public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
-    }
-
-
-    @Override
-    public String toString() {
-        return "Usuario{" +
-                "uid='" + uid + '\'' +
-                ", cpf='" + cpf + '\'' +
-                ", nomeCompleto='" + nomeCompleto + '\'' +
-                ", nomeUsuario='" + nomeUsuario + '\'' +
-                ", email='" + email + '\'' +
-                ", senha='" + senha + '\'' +
-                ", telefone='" + telefone + '\'' +
-                ", genero=" + genero +
-                ", dataNascimento=" + dataNascimento +
-                '}';
     }
 }

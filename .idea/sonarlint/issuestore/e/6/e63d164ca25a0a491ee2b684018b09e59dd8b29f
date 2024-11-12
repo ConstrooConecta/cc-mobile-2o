@@ -1,0 +1,24 @@
+
+l	java:S117¹"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êìØèúÿÿÿÿ
+j
+java:S16592"ODeclare "validacaoDescricao" and all following declarations on a separate line.(Ëÿªıÿÿÿÿ
+—
+java:S1186K"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(«û³±
+—
+java:S1186T"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(±¾ê
+–
+java:S1186]"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ô—½4
+—
+java:S1186e"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(íÑíÍ
+F
+java:S1874ó"/Remove this use of "Handler"; it is deprecated.(’Ú©Š
+H
+java:S1602ô",Remove useless curly braces around statement(İØ úÿÿÿÿ
+^
+java:S1612ô"BReplace this lambda with method reference 'Activity.this::finish'.(İØ úÿÿÿÿ
+g
+java:S3252’"PUse static access with "android.view.ViewGroup$LayoutParams" for "WRAP_CONTENT".(ŒŠ‚
+F
+java:S1874•"/Remove this use of "Handler"; it is deprecated.(¬Ë„Ë
+D
+java:S1068Z".Remove this unused "isUpdating" private field.(§ë¡÷

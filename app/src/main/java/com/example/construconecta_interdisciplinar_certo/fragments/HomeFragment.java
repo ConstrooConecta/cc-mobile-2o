@@ -1,90 +1,104 @@
 package com.example.construconecta_interdisciplinar_certo.fragments;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.SearchView;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.construconecta_interdisciplinar_certo.R;
-import com.example.construconecta_interdisciplinar_certo.ui.InternetErrorActivity;
+import com.example.construconecta_interdisciplinar_certo.adapters.AdapterProdutoHome;
+import com.example.construconecta_interdisciplinar_certo.adapters.AdapterProdutoNoTopo;
+import com.example.construconecta_interdisciplinar_certo.adapters.AdapterProdutoOfertas;
+import com.example.construconecta_interdisciplinar_certo.models.Produto;
+import com.example.construconecta_interdisciplinar_certo.repositories.ProdutoRepository;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link HomeFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+import java.util.List;
+
 public class HomeFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public HomeFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Home.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static HomeFragment newInstance(String param1, String param2) {
-        HomeFragment fragment = new HomeFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    private RecyclerView produtoRecyclerView, recyclerViewOferta, recyclerViewNoTopo;
+    private AdapterProdutoOfertas adapterOferta;
+    private AdapterProdutoNoTopo adapterNoTopo;
+    private AdapterProdutoHome adapter;
+    private List<Produto> produtos, produtosOferta, produtosNoTopo;
+    private ProgressBar progressBar;
+    private TextView textView12, textView13, desconto;
+    private ImageView imagem;
+    private View barrafixa;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        progressBar = view.findViewById(R.id.progressBar);
+        textView12 = view.findViewById(R.id.textView12);
+        textView13 = view.findViewById(R.id.textView13);
+        desconto = view.findViewById(R.id.Desconto);
+        barrafixa = view.findViewById(R.id.barraFixa);
+        imagem = view.findViewById(R.id.imageView5);
+
+        // Inicializando o RecyclerView
+        produtoRecyclerView = view.findViewById(R.id.recyclerViewRelevantes);
+        produtoRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        // Inicializando a lista e o Adapter com uma lista vazia
+        produtos = new ArrayList<>();
+        adapter = new AdapterProdutoHome(produtos);
+        produtoRecyclerView.setAdapter(adapter);
+
+        //ofertas
+        recyclerViewOferta = view.findViewById(R.id.recyclerViewOfertas);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        recyclerViewOferta.setLayoutManager(layoutManager);
+        produtosOferta = new ArrayList<>();
+        adapterOferta = new AdapterProdutoOfertas(produtosOferta, getContext());
+        recyclerViewOferta.setAdapter(adapterOferta);
+
+        //no topo
+        recyclerViewNoTopo = view.findViewById(R.id.recyclerViewNoTopo);
+        LinearLayoutManager layoutManagerNoTopo = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        recyclerViewNoTopo.setLayoutManager(layoutManagerNoTopo);
+        produtosNoTopo = new ArrayList<>();
+        adapterNoTopo = new AdapterProdutoNoTopo(produtosNoTopo, getContext());
+        recyclerViewNoTopo.setAdapter(adapterNoTopo);
+
+        // Chamar dados do repositório
+        ProdutoRepository.getInstance().loadData((produtos, produtosOferta, produtosNoTopo) -> {
+            this.produtos.clear();
+            this.produtos.addAll(produtos);
+            adapter.notifyDataSetChanged();
+
+            this.produtosOferta.clear();
+            this.produtosOferta.addAll(produtosOferta);
+            adapterOferta.notifyDataSetChanged();
+
+            this.produtosNoTopo.clear();
+            this.produtosNoTopo.addAll(produtosNoTopo);
+            adapterNoTopo.notifyDataSetChanged();
+
+            verificarFinalizacao();
+        });
+        return view;
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+    private void verificarFinalizacao() {
+        // Esconder a progress bar e mostrar as outras views
+        progressBar.setVisibility(View.GONE);
+        produtoRecyclerView.setVisibility(View.VISIBLE);
+        recyclerViewOferta.setVisibility(View.VISIBLE);
+        recyclerViewNoTopo.setVisibility(View.VISIBLE);
+        textView12.setVisibility(View.VISIBLE);
+        textView13.setVisibility(View.VISIBLE);
+        desconto.setVisibility(View.VISIBLE);
+        barrafixa.setVisibility(View.VISIBLE);
+        imagem.setVisibility(View.VISIBLE);
     }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-
-        if (!isConnectedToInternet()) {
-            // Exibir a Activity de erro de internet
-            Intent intent = new Intent(getActivity(), InternetErrorActivity.class);
-            startActivity(intent);
-            // Opcional: finalizar o fragmento atual ou fazer qualquer outra lógica
-        }
-    }
-
-    private boolean isConnectedToInternet() {
-        ConnectivityManager cm = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
-        return activeNetwork != null && activeNetwork.isConnected();
-    }
-
 }

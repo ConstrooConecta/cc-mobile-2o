@@ -1,9 +1,41 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
-    <style name="Base.Theme.ConstruConecta_Interdisciplinar_Certo" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Base.Theme.ConstruConecta_Interdisciplinar_Certo" parent="Theme.Material3.Light.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <item name="android:statusBarColor">@color/black</item>
     </style>
 
     <style name="Theme.ConstruConecta_Interdisciplinar_Certo" parent="Base.Theme.ConstruConecta_Interdisciplinar_Certo" />
+
+    <style name="CustomTextInputTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Defina aqui a cor desejada para o accent -->
+        <item name="hintTextColor">@color/grey</item>
+        <item name="android:textColorHint">@color/grey</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="boxStrokeColor">@color/grey</item>
+        <!-- Defina aqui a cor de fundo -->
+        <!-- Defina aqui o raio do canto -->
+        <item name="boxCornerRadiusTopStart">10dp</item>
+        <item name="boxCornerRadiusTopEnd">10dp</item>
+        <item name="boxCornerRadiusBottomStart">10dp</item>
+        <item name="boxCornerRadiusBottomEnd">10dp</item>
+    </style>
+
+    <style name="CustomTextErrorInputTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Defina aqui a cor desejada para o accent -->
+        <item name="hintTextColor">@color/red</item>
+        <item name="android:textColorHint">@color/red</item>
+        <item name="android:textColor">@color/red</item>
+        <item name="boxStrokeColor">@color/red</item>
+        <!-- Defina aqui a cor de fundo -->
+        <!-- Defina aqui o raio do canto -->
+        <item name="boxCornerRadiusTopStart">10dp</item>
+        <item name="boxCornerRadiusTopEnd">10dp</item>
+        <item name="boxCornerRadiusBottomStart">10dp</item>
+        <item name="boxCornerRadiusBottomEnd">10dp</item>
+    </style>
+
+
 </resources>

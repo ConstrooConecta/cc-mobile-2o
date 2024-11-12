@@ -1,0 +1,9 @@
+
+k
+java:S1604@"(Make this anonymous inner class a lambda(ˆÜğ¯8¶ÏÓá¯2J$613c4555-4e89-479b-9a46-ac92dc4a37bc
+É
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¸„ıíşÿÿÿÿ8÷òÉÉ®2J$494b4558-a5a4-4d13-b9d4-451e272cc95b
+¤
+java:S1450"aRemove the "listViewCategorias" field and declare it as a local variable in the relevant methods.(ÒÈÅÑ8úòÉÉ®2J$9e61d70f-1bb3-4135-bc96-3e10c5092ec9
+œ
+java:S1450"YRemove the "searchView" field and declare it as a local variable in the relevant methods.(‰Ôô¦8úòÉÉ®2J$7cae82ea-8556-4acd-82b1-44683b6c776d
