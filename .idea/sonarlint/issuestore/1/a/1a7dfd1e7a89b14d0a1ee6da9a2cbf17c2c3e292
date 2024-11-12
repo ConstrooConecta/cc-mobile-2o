@@ -1,9 +1,9 @@
 
 
-java:S1192["GDefine a constant instead of duplicating this literal "[^\\d]" 5 times.(ìå¸¡úÿÿÿÿ8Û„ë¦­2J$40c22604-b6fa-43ac-990a-2c86cbfe8b47
+java:S1192["GDefine a constant instead of duplicating this literal "[^\\d]" 5 times.(ìå¸¡úÿÿÿÿ8Û„ë¦­2J$190fabf0-3659-497d-b950-c7177a27e3d9
 š
-java:S37762"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(¨Œşÿÿÿÿ8³ˆë¦­2J$bc1b2d9c-2a83-4e7a-a8af-154c926a5831
+java:S37762"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(¨Œşÿÿÿÿ8³ˆë¦­2J$77933664-c7b1-44fe-9916-0bcf334e5278
 –
-java:S3776ğ"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(áÆ›Œ8ì˜†Í­2J$8b3971e6-e7b3-478f-aa2c-ac1035f996da
+java:S3776ğ"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(áÆ›Œ8ì˜†Í­2J$7ded0f45-ebf7-46ef-a01c-3ee5a2d5a5a0
 t
-java:S1172¢"+Remove this unused method parameter "view".(¬©êûûÿÿÿÿ8¯‰ë¦­2J$3ee00fe8-43ed-4742-b45c-27c87b068c5c
+java:S1172¢"+Remove this unused method parameter "view".(¬©êûûÿÿÿÿ8¯‰ë¦­2J$7f49f554-c4f6-4a71-b837-f57a14a197f7
